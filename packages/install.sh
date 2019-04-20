@@ -3,9 +3,9 @@
 ## -- This script attempts to automatically install all the following packages:
 #	 - HiggsBounds
 #	 - HiggsSignals
+#	 - 2HDMC
 #	 - LHAPDF
 #	 - SusHi
-#	 - 2HDMC
 
 
 ###########################
@@ -30,7 +30,6 @@ make clean
 make
 
 
-
 ############################
 ### --- HiggsSignals --- ###
 ############################
@@ -52,6 +51,7 @@ cd ${HiggsSignals_pkg_path}
 make clean
 ./configure
 make
+
 
 #####################
 ### --- 2HDMC --- ###
@@ -75,6 +75,7 @@ echo ""
 cd ${THDMC_pkg_path}
 make clean
 make
+make lib
 
 
 ######################
@@ -101,10 +102,10 @@ make clean
 make
 make install
 
+
 #####################
 ### --- SusHi --- ###
 #####################
-
 
 SusHi_folder_name=SusHi-1.6.1
 SusHi_pkg_path=${THDM_T3PS_SCANNER_DIR}/packages/${SusHi_folder_name}
@@ -122,4 +123,4 @@ echo ""
 cd ${SusHi_pkg_path}
 make clean
 ./configure 
-make
+make predef=2HDMC

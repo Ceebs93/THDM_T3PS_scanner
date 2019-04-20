@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SUSHI_BIN=/home/de3u14/lib/build/hep/SusHi/SusHi-1.6.1/bin/sushi.2HDMC
+SUSHI_BIN=${THDM_T3PS_SCANNER_DIR}/packages/SusHi-1.6.1/bin/sushi.2HDMC
 
 TEMPLATE=$1
 

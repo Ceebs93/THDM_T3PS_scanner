@@ -15,3 +15,4 @@ packages/LHAPDF-6.2.1_build/
 *.log
 *.so
 *.la
+setup_local.sh

@@ -37,6 +37,7 @@ do
 	JOB_DIR=${ROOT_DIR}/jobs/${TAG}/job_${id}
 
 	mkdir -p ${JOB_DIR}
+   sed "s/prgam_/${program}/g" ${ROOT_DIR}/${CONFIG} > ${JOB_DIR}/t3ps.conf
    sed "s/nCores_/${nCores}/g" ${ROOT_DIR}/${CONFIG} > ${JOB_DIR}/t3ps.conf
 	cp ${ROOT_DIR}/${TEMPLATE} ${JOB_DIR}/template.slha
 #	cp ${ROOT_DIR}/${TASK}     ${JOB_DIR}/job.sh

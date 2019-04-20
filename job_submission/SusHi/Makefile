@@ -108,7 +108,7 @@ MERGE_JOB_HEADER      = "header/default_extended.header"
 
 #######################
 
-DECLARE_ROOT_DIR = ROOT_DIR="/scratch/de3u14/2HDM/T3PS-scanners/sushi-submission"
+DECLARE_ROOT_DIR = ROOT_DIR="${THDM_T3PS_SCANNER_DIR}/sushi-submission"
 
 VAR_CREATE_JOB    = $(shell echo '$(.VARIABLES)' |  awk -v RS=' ' '/CREATE_JOB_/' | sed 's/CREATE_JOB_//g' )
 EXPORT_CREATE_JOB = $(foreach v,$(VAR_CREATE_JOB),$(v)="$(CREATE_JOB_$(v))") $(DECLARE_ROOT_DIR)
