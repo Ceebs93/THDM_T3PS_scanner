@@ -1,0 +1,59 @@
+Block SUSHI
+         1    0   # Chosen model: 0=SM, 1=MSSM, 2=2HDM, 3=NMSSM
+         2   11   # 11=scalar, 21=pseudo-scalar
+         3    0   # Particle collider: 0=pp, 1=ppbar
+         4     1.30000000E+04   # center-of-mass energy in GeV
+         5   -1   # Order for ggh
+         6    2   # Order for qqh
+         7    0 
+        19    1   # 0 = silent mode of SusHi, 1 = normal output
+Block SMINPUTS
+         1     1.27934000E+02   # 1/alpha_em(MZ) SM MSbar
+         2     1.16637000E-05   # G_F
+         3     1.11800000E-01   # alpha_s(m_Z)
+         4     9.11876000E+01   # m_Z(pole)
+         5     4.18000000E+00   # m_b(m_b)
+         6     1.72500000E+02   # m_t(pole)
+         8     1.3d0 
+Block QQH # parameters for qq->H process
+         1    5   # parton 1 = b
+         2   -3   # parton 2 = sbar
+        11     4.18000000E+00   # Yukawa coupling
+        12     4.18000000E+00   # renorm.-scale for input Yuk.-coupl.
+Block MASS
+        25     125.d0   # Higgs mass
+Block DISTRIB
+  	1   	0	# distribution : 0 = sigma_total, 1 = dsigma/dpt,
+			#                2 = dsigma/dy,   3 = d^2sigma/dy/dpt
+			#                (values for pt and y: 22 and 32)
+  	2   	0	# pt-cut: 0 = no, 1 = pt > ptmin, 2 = pt < ptmax,
+			#         3 = ptmin < pt < ptmax
+ 	21   	30.d0	# minimal pt-value ptmin in GeV
+ 	22   	100.d0	# maximal pt-value ptmax in GeV
+  	3   	0	# rapidity-cut: 0 = no, 1 = Abs[y] < ymax,
+			#    2 = Abs[y] > ymin, 3 = ymin < Abs[y] < ymax
+ 	31   	0.5d0	# minimal rapidity ymin
+ 	32   	1.5d0	# maximal rapidity ymax
+  	4   	0	# 0 = rapidity, 1 = pseudorapidity
+Block SCALES
+        11     1.d0   # Renormalization scale muR/mh for qqh
+        12     1.d0   # Factorization scale muF/mh for qqh
+Block PDFSPEC
+         1   MSTW2008lo68cl.LHgrid                           # LO   PDF set
+        11    0   # LO   PDF set number
+         2   MSTW2008nlo68cl.LHgrid                          # NLO  PDF set
+        12    0   # NLO  PDF set number
+         3   MSTW2008nnlo68cl.LHgrid                         # NNLO PDF set
+        13    0   # NNLO PDF set number
+Block VEGAS
+# parameters for NLO SusHi
+         1    10000   # Number of points
+         2        5   # Number of iterations
+         3       10   # Output format of VEGAS integration
+# parameters for bbh@nnlo:
+         7     2000   # Number of points
+         8        5   # Number of iterations
+        17     5000   # Number of points in second run
+        18        2   # Number of iterations in second run
+         9        0   # Output format of VEGAS integration
+

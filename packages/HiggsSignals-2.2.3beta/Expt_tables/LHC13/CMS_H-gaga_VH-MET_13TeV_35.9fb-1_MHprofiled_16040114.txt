@@ -1,0 +1,15 @@
+# Data taken from additional Fig.1, CMS-PAS-HIG-16-040
+# Lower uncertainty was cut off at 0.0. Use symmetrized upper uncertainty
+# in order to obtain an unbiased estimator.
+16040114	1604014		1
+CMS-PAS-HIG-16-040
+LHC, CMS, CMS
+(pp)->h->gaga (VH MET)
+13	35.9	0.025
+1	0
+2.5
+125.09 125.09 1.0
+5	125.09
+11 21 31 41 51
+1.	1.19	34.16	61.51	70.30
+125.09		-0.8	0.5		1.8

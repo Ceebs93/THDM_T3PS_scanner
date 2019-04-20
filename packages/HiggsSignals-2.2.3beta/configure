@@ -1,0 +1,148 @@
+#! /bin/sh
+#configure script for HiggsSignals
+#last modified 20.12.18 TS
+
+# this tells the fortran program where to look to read in tables of experimental data
+chmod u+x ./create_store_pathname_HS.bat
+./create_store_pathname_HS.bat > store_pathname_HS.f90
+
+echo ' ******************************************************** '
+echo ' * Configuring HiggsSignals...                          * ' 1>&2
+echo ' *                                                      * '
+echo ' * (will create makefile from makefile.in)              *  '
+echo ' ******************************************************** '
+echo ' You can specify the correct paths to HiggsBounds and '
+echo ' (if needed) FeynHiggs via the options '
+echo '     --hbpath=/PATH/TO/HIGGSBOUNDS'
+echo '     --fhpath=/PATH/TO/FEYNHIGGS'
+echo ' or manually in the configure script.'
+echo ''
+echo ' The Fortran compiler has to be set manually in the '
+echo ' configure script. The default is gfortran.'
+echo ' ******************************************************** '
+
+#----------------------------
+
+# Note that you have to build HiggsBounds successfully BEFORE you build HiggsSignals. 
+
+# - Need to source setup.sh first!
+CONF_HBPATH=${THDM_T3PS_SCANNER_DIR}/packages/HiggsBounds-5.3.2beta
+#CONF_HBPATH="/home/de3u14/lib/build/hep/HiggsBounds/HiggsBounds-5.3.2beta/"
+#CONF_HBPATH="/home/de3u14/lib/build/hep/HiggsBounds/HiggsBounds-4.3.1/"
+CONF_FHPATH="../FeynHiggs-2.14.3beta"
+# For FeynHiggs:
+CONF_OS=`uname -s`
+CONF_MACH=`uname -m`
+CONF_DEFPREFIX="$CONF_MACH-$CONF_OS"
+
+for arg in "$@" ; do
+ case "$arg" in
+ --hbpath=*)
+ 		CONF_HBPATH=`expr "$arg" : ".*--hbpath=\(.*\)"` ;;
+ --fhpath=*)
+ 		CONF_FHPATH=`expr "$arg" : ".*--fhpath=\(.*\)"` ;;
+ -*)
+ 		echo "Warning: $arg is not a valid option." ;;
+ *=*)
+ 		eval `echo $arg\" | sed 's/=/="/'` ;;
+ *)
+ 		echo "Warning: $arg is not a valid argument." ;;
+ esac
+done 		
+
+# Remove slash in entered paths
+if [ "${CONF_HBPATH: -1}" = "/" ]; then
+	CONF_HBPATH="${CONF_HBPATH%?}"
+fi	
+
+if [ "${CONF_FHPATH: -1}" = "/" ]; then
+	CONF_FHPATH="${CONF_FHPATH%?}"
+fi	
+
+echo " hbpath=${CONF_HBPATH}"
+echo " fhpath=${CONF_FHPATH}"
+#----------------------------
+
+cat - makefile.in > makefile << _EOF_
+
+# --- variables defined by configure ---
+# If you want to edit these variables, change ./configure, not ./makefile
+
+#----------------------------
+# Put you favourite compiler and compiler options in here:
+F90C = gfortran
+F77C = gfortran
+F90FLAGS = -fbounds-check -ffixed-line-length-none
+#F90FLAGS = -fbounds-check -ffixed-line-length-none -fPIC
+#F90FLAGS = -fbounds-check -Wall -W  
+
+#other useful gfortran flags:
+# -pg           can then use gprof ./programname to look at how efficient program is
+# -fopenmp      switches on parallel processing (see HiggsBounds.F90)
+# -O3           sets a high level of optimisation 
+
+#F90C = g95
+#F77C = g95
+#F90FLAGS = -fbounds-check -ffree-line-length-huge
+
+#F90C = pgf90
+#F77C = pgf90
+#F90FLAGS = -C -Ktrap=fp -Mbounds
+
+#F90C = f95
+#F77C = f95
+#F90FLAGS = -C 
+
+#F90C = ifort
+#F77C = ifort
+#F90FLAGS = -C 
+
+#if using the NAG compiler, you need the compiler flag -DNAGf90Fortran
+#because the subroutines flush,iargc,getarg need to use modules
+#caution: the use of the NAG compiler is unsupported
+
+
+###########################
+### --- HiggsBounds --- ###
+###########################
+
+HBLIBS =-L${CONF_HBPATH}
+HBINCLUDE =-I${CONF_HBPATH}
+#HBLIBS = -L /home/de3u14/lib/build/hep/HiggsBounds/HiggsBounds-5.3.2beta/
+#HBINCLUDE = -I /home/de3u14/lib/build/hep/HiggsBounds/HiggsBounds-5.3.2beta
+#HBLIBS = -L/home/de3u14/lib/build/hep/HiggsBounds/HiggsBounds-4.2.1/
+#HBINCLUDE = -I/home/de3u14/lib/build/hep/HiggsBounds/HiggsBounds-4.2.1/
+
+
+
+#------------------------------
+
+# If you wish to use HiggsSignals in conjunction with FeynHiggs,
+# make sure these paths indicate where you've stored these packages on your system,
+
+FHINCLUDE = -I${CONF_FHPATH}/${CONF_DEFPREFIX}/include
+FHLIBS = -L${CONF_FHPATH}/${CONF_DEFPREFIX}/lib -lFH
+
+# Note that care must be taken to ensure that consistent compilers are used
+# If you get error messages similar to 
+#   ... undefined reference to initialize_higgsbounds__...
+# and the paths the libraries are correct, it's a good idea to check 
+# that the same compilers are used for each package.
+# (you may be able to work around this 
+#   e.g. if FeynHiggs was compiled with g77 it may be possible to compile HiggsBounds
+#  with gfortran and add -lg2c to the end of the variable FHLIBS)
+
+#-----------------------------
+
+HSLIBS = -L./ -lHS
+
+EXE = HiggsSignals
+
+#-----------------------------
+
+
+_EOF_
+
+echo ' ******************************************************** '
+echo ' ...finished configure script.' 1>&2
+echo ' ******************************************************** '

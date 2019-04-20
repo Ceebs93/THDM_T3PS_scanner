@@ -1,0 +1,14 @@
+# Moriond 2017 results
+# Measurement performed at 125.09 GeV
+1706099364	1706099364		1
+arXiv:1706.09936
+LHC, CMS, CMS
+(pp)->h->ZZ->4l (VH-hadronic tagged)
+13 	35.9	0.062
+1	0
+5.0	CMSZZRunII
+125.09 125.09 0.1
+5	125.09
+13 23 33 43 53
+1.00 0.73727 6.54882 8.49516 2.02983
+125.09	0.28	0.76	1.54

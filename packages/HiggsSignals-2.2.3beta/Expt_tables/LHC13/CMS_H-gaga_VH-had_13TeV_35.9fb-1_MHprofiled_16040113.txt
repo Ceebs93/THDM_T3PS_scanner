@@ -1,0 +1,13 @@
+# Data taken from additional Fig.1, CMS-PAS-HIG-16-040
+16040113	1604013		1
+CMS-PAS-HIG-16-040
+LHC, CMS, CMS
+(pp)->h->gaga (VH hadronic)
+13	35.9	0.025
+1	0
+2.5
+125.09 125.09 1.0
+5	125.09
+11 21 31 41 51
+1	0.516	10.594	10.554	5.743
+125.09		1.3		2.0		2.8

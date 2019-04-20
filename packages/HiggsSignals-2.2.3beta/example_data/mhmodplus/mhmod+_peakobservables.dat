@@ -1,0 +1,18 @@
+ # List of peak observables used from latestresults:
+ #
+ # Number        : HS internal numbering of analysis
+ # Analysis-ID   : identity number of analysis
+ # mh_obs        : Mass position of peak observable (hypothetical Higgs mass where signal strength was measured)
+ # mu_obs        : Observed (best-fit) signal strength value
+ # dmu_low       : Lower 1s (cyan band) signal strength value
+ # dmu_high      : Upper 1s (cyan band) signal strength value
+ # dmh_exp       : Experimental mass uncertainty of analysis
+ # collaboration : Exp. collaboration which published the data
+ # energy        : center-of-mass energy of the experiment (TeV)
+ # luminosity    : integrated luminosity used for the measurement (fb-1)
+ # mass-chi2     : Mass measurement entering the Chi^2 (1/0=yes/no)
+ # description   : Higgs process of analysis
+ # reference     : Experimental publication of the data/analysis
+ #
+ # Number Analysis-ID   mh_obs    mu_obs  dmu_low dmu_high  dmh_exp  collaboration  energy  luminosity  mass-chi2                         description     reference
+ #

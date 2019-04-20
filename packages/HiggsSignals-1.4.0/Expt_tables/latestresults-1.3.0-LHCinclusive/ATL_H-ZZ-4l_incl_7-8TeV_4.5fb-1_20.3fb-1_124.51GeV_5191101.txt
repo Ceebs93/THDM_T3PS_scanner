@@ -1,0 +1,21 @@
+# WARNING: This observable should not be used together with the
+# category results 5191102 and 5191103.
+#
+# Data is taken from Eq.6 in arXiv:1408.5191 for mu(ggF+bbH+ttH).
+# The measurement was performed at mH=125.36GeV.
+# In order to provide the possibility of using also the mass measurement
+# of the H->ZZ channel, we implement this observable at the 124.51+-0.52 GeV.
+# Mass uncertainty contains 0.6 GeV (stat) and 0.5 GeV (syst) error. 
+#(Gauss: 0.8, linear: 1.1)
+5191101	519101	1
+arXiv:1408.5191
+LHC, ATL, ATL
+(pp)->h->ZZ->4l (inclusive)
+8	24.8	0.028
+1	1
+0.52
+124.51 124.51 0.1
+5	-1
+13 23 33 43 53
+
+       124.51           1.11           1.44           1.84

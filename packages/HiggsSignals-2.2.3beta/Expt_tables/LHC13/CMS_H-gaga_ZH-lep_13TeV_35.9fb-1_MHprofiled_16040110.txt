@@ -1,0 +1,15 @@
+# Data taken from additional Fig.1, CMS-PAS-HIG-16-040
+# No lower uncertainty was given. Use upper uncertainty as a symmetric error
+# in order to have an unbiased estimator.
+16040110	1604010		1
+CMS-PAS-HIG-16-040
+LHC, CMS, CMS
+(pp)->h->gaga (ZH leptonic)
+13	35.9	0.025
+1	0
+2.5
+125.09 125.09 1.0
+2	125.09
+41 51
+1	0.053
+125.09		-1.0	0.0		1.0

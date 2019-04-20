@@ -1,0 +1,18 @@
+# Data taken from Fig.10b, 1706.09936
+# Using the NNLOPS SM prediction (given in the plot)
+# Subdominant XH component is assumed as VBF,VH, ttH with equal efficiencies.
+# Cross section in fb/GeV
+99363
+arXiv:1706.09936 (CMS)
+LHC, CMS, CMS
+(pp)->h->ZZ->4l (30<pT/GeV<85)
+13	36.1	0.025
+0	0
+
+125.09
+2.5
+5	125.09
+13	23	33	43	53
+1. 1.197 1.197 1.197 1.197
+0.0117	0.0163	0.0217
+0.0158	0.0180	0.0205

@@ -1,0 +1,16 @@
+# Moriond 2017 results
+# This observable contains the mass measurement of
+# 125.26 +- 0.20 (stat) +- 0.08 (syst) GeV
+# Rate measurement performed at 125.09 GeV.
+1706099361	1706099361		1
+arXiv:1706.09936
+LHC, CMS, CMS
+(pp)->h->ZZ->4l (untagged)
+13 	35.9	0.062
+1	1
+0.28	CMSZZRunII
+125.26 125.26 0.1
+5	125.26
+13 23 33 43 53
+1.00 0.324042 0.343798 0.531538 0.198253
+125.26	0.96	1.17	1.40

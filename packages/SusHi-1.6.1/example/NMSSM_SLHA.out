@@ -1,0 +1,232 @@
+#--------------------------------------------------#
+# SusHi: (Supersymmetric) Higgs production through #
+#  __      __        gluon fusion and bottom-quark #
+# [_  | | [_  |_| |  annihilation                  #
+# __] |_| __] | | |                                #
+#                    Version 1.6.1      Jul 2016   #
+#--------------------------------------------------#
+# Date: 10.08.2016 at 10:31:47                     #
+# For the reconstructed input file, check below.   #
+#--------------------------------------------------#
+# Please cite the following papers (for this run):
+# Harlander:2012pb    
+# Harlander:2016hcx   
+# Liebler:2015bka     
+# Harlander:2002wh    
+# Harlander:2003ai    
+# Aglietti:2004nj     
+# Bonciani:2010ms     
+# Degrassi:2010eu     
+# Degrassi:2011vq     
+# Degrassi:2012vt     
+# Harlander:2005rq    
+# Chetyrkin:2000yt    
+#--------------------------------------------------#
+Block SUSHIinfo
+         1   1.6.1        # SusHi version
+Block SUSHIggh # Bon appetit 
+         1     6.98668503E-02   # ggh XS in pb                      
+       101     2.04782874E-05   # +/- integ. error: ggh XS in pb                      
+       102    -9.66512709E-03   # - from muR variation: ggh XS in pb                      
+       103     1.16221852E-02   # + from muR variation: ggh XS in pb                      
+# within [  0.50000000E+00,  0.20000000E+01]*SCALES(1)*MASSOUT(1).
+Block SUSHIbbh # Bon appetit 
+         1     4.69119081E-02   # bbh XS in pb                  
+       101     2.67379476E-05   # +/- integr. error: bbh XS in pb                  
+Block XSGGH # ggh xsec in pb (w/o EW) (+/- integ.err.)
+         1     3.28236740E-02   # LO w/ NLO PDFs
+         2     6.57386646E-02   # NLO
+        21     6.89650287E-02   # NLO gg
+        22    -3.23691390E-03   # NLO qg
+        23     1.05497904E-05   # NLO qq
+       101     1.69763476E-08   # +/-: LO w/ NLO PDFs
+       102     1.88032306E-05   # +/-: NLO
+       121     1.67581897E-05   # +/-: NLO gg
+       122     8.52780649E-06   # +/-: NLO qg
+       123     3.27590751E-08   # +/-: NLO qq
+Block XSGGHEFF # ggh xsec in heavy top limit (from ggh@nnlo) (+/- integ.err.)
+         1     1.46431248E-02   # NLO
+       101     4.64828343E-06   # +/-: NLO
+        19     1.36462361E-02   # NLO'
+       191     4.22065238E-06   # +/-: NLO'
+         2     1.87713105E-02   # NNLO
+       102     6.64772418E-06   # +/-: NNLO
+         4     0.00000000E+00   # electroweak factor
+Block XSBBH # bbh xsec in pb (+/- integ.err.)
+         1     2.86924793E-02   # LO
+       101     2.88205747E-07   # +/-: LO
+         2     4.29826756E-02   # NLO
+       102     2.93052478E-07   # +/-: NLO
+         3     4.69119081E-02   # NNLO
+       103     2.67379476E-05   # +/-: NNLO
+Block HGGSUSY # couplings of 1.  CP-odd H to 3. gen.
+       101    -8.78043210E-03   # g_t^phi
+       111     0.00000000E+00   # g_st11^phi
+       122     0.00000000E+00   # g_st22^phi
+       112    -6.63309456E-02   # g_st12^phi
+       121     6.63309456E-02   # g_st21^phi
+       201    -1.40486914E-01   # g_b^phi
+       211     0.00000000E+00   # g_sb11^phi
+       222     0.00000000E+00   # g_sb22^phi
+       212     5.63781144E+01   # g_sb12^phi
+       221    -5.63781144E+01   # g_sb21^phi
+Block BBHREWEIGHT # top and bottom reweighting factors
+         1    -8.78043210E-03   # g_t
+         2    -1.39631873E-01   # g_b incl. 1/(1+Delta_b)*(1+C*Delta_b)
+Block MASSOUT
+         1     7.43468055E+01   # Mphi in GeV
+         5     4.18000000E+00   # m_b(m_b), MSbar
+         6     1.73300000E+02   # m_t(pole)
+        23     9.11876000E+01   # m_Z
+        24     8.04345516E+01   # m_W
+        36     7.43468055E+01   # 1.  CP-odd Higgs mass in GeV
+   1000005     1.50007138E+03   # sbottom1 mass in GeV
+   2000005     1.50368750E+03   # sbottom2 mass in GeV
+   1000006     1.42369679E+03   # stop1 mass in GeV
+   2000006     1.59043540E+03   # stop2 mass in GeV
+   1000021     1.50000000E+03   # gluino mass in GeV
+Block STOPMIXOUT # stop mixing matrix
+  1  1     7.08159351E-01   # V_11
+  1  2    -7.06052642E-01   # V_12
+  2  1     7.06052642E-01   # V_21
+  2  2     7.08159351E-01   # V_22
+Block SBOTMIXOUT # sbottom mixing matrix
+  1  1     1.75387933E-01   # V_11
+  1  2     9.84499402E-01   # V_12
+  2  1    -9.84499402E-01   # V_21
+  2  2     1.75387933E-01   # V_22
+Block AD
+  3  3     0.00000000E+00   # used Ab in GeV - def. accord. to scheme
+Block AU
+  3  3     1.50000000E+03   # used At in GeV
+Block INTERNALMASSES # Masses in GeV
+        50     4.18000000E+00   # m_b(m_b), MSbar
+        51     2.92726693E+00   # m_b(mu_R) MSbar
+        52     4.90458944E+00   # m_b(pole)
+        53     4.90458944E+00   # m_b used for internal masses
+        54     4.88175238E+00   # m_b for bottom Yukawa 1
+Block ALPHASOUT # values from LHAPDF set
+         2     1.23884933E-01   # alpha_s(muRggh) @ NLO
+        11     1.21759361E-01   # alpha_s(muRbbh)
+         3     1.21759361E-01   # alpha_s(muRggh) @ NNLO
+       101     1.35000000E-01   # alpha_s(Mz) @ LO  
+       102     1.20000000E-01   # alpha_s(Mz) @ NLO 
+       103     1.20000000E-01   # alpha_s(Mz) @ NNLO
+#--------------------------------------------------#
+# Reconstructed input file of this run             #
+#--------------------------------------------------#
+Block SUSHI
+         1      3   # Chosen model: 0=SM, 1=MSSM, 2=2HDM, 3=NMSSM
+         2     21   # 11=H1,12=H2,13=H3,21=A1,22=A2 
+         3      0   # Particle collider: 0=pp, 1=ppbar
+         4     1.30000000E+04   # center-of-mass energy in GeV
+         5      2   # Order for ggh
+         6      2   # Order for bbh
+         7      1   # Electroweak contributions to ggh
+        11      1   # [1/0] do/not expand C1 perturbatively
+        19      1   # 0 = silent mode of SusHi, 1 = normal output
+        20      0   # ggh@nnlo subprocesses: 0=all, 10=ind. contributions
+        21      0   # bbh@nnlo subprocesses: 0=all
+Block GGHMT
+        -1      3   # factor out exact LO result at LO(=0)/NLO(=1)/etc.
+         0     -1   # expand through 1/mt^n at LO [-1=exact]
+         1      0   # expand through 1/mt^n at NLO
+        11      0   # expand gg through 1/mt^n at NLO
+        12      0   # expand qg through 1/mt^n at NLO
+        13      0   # expand qqbar through 1/mt^n at NLO
+         2      0   # expand through 1/mt^n at NNLO
+        21      0   # expand gg through 1/mt^n at NNLO
+        22      0   # expand qg through 1/mt^n at NNLO
+        23      0   # expand qqbar through 1/mt^n at NNLO
+        24      0   # expand qq through 1/mt^n at NNLO
+        25      0   # expand qqprime through 1/mt^n at NNLO
+        10      0   # [0/1]: do not/match to high energy limit at NLO
+        20      0   # [0/1]: do not/match to high energy limit at NNLO
+        30      0   # [0/1]: do not/match to high energy limit at N3LO
+Block GGHSOFT # parameters for soft expansion
+         1    0  0  0   # NLO: [0/1=n/y] [order] sig(x)/x^[n]
+         2    0  0  0   # NNLO: [0/1=n/y] [order] sig(x)/x^[n]
+Block SMINPUTS
+         1     1.27934000E+02   # 1/alpha_em(MZ) SM MSbar
+         2     1.16637000E-05   # G_F
+         3     1.17200000E-01   # alpha_s(m_Z)
+         4     9.11876000E+01   # m_Z(pole)
+         5     4.18000000E+00   # m_b(m_b)
+         6     1.73300000E+02   # m_t(pole)
+Block MINPAR
+         3     4.00000000E+00   # tan(beta)
+Block EXTPAR
+         3     1.50000000E+03   # Gluino mass
+        11     1.50000000E+03   # A_t
+        12     0.00000000E+00   # A_b
+        43     1.50000000E+03   # M3SQ
+        46     1.50000000E+03   # M3SU
+        49     1.50000000E+03   # M3SD
+        61     2.00000000E-01   # lambda
+        65     2.00000000E+02   # eff. mu
+Block MASS
+        36     7.43468055E+01   # 1.  CP-odd Higgs mass in GeV
+Block NMHMIX # CP-even Higgs mixing matrix
+  1  1     1.80521392E-01   # Mixing matrix
+  1  2     5.90672416E-01   # Mixing matrix
+  1  3     7.86459232E-01   # Mixing matrix
+  2  1    -1.71821917E-01   # Mixing matrix
+  2  2    -7.68362111E-01   # Mixing matrix
+  2  3     6.16519988E-01   # Mixing matrix
+  3  1     9.68446826E-01   # Mixing matrix
+  3  2    -2.46425980E-01   # Mixing matrix
+  3  3    -3.72153308E-02   # Mixing matrix
+Block NMAMIXR # Prerot. CP-odd Higgs mixing matrix
+  1  1    -3.51217284E-02   # Mixing matrix
+  1  2     9.99383042E-01   # Mixing matrix
+  2  1     9.99383042E-01   # Mixing matrix
+  2  2     3.51217284E-02   # Mixing matrix
+Block DISTRIB
+         1      0   # total XS                      
+Block SCALES
+         1     1.00000000E+00   # Renormalization scale muR/mh
+         2     1.00000000E+00   # Factorization scale muF/mh
+       101     5.00E-01  2.00E+00   # min and max for muR scale uncertainty around SCALES(1)
+       102     1.00E-01  1.00E+01   100   # min/max/steps for table output of muR variation
+        11     1.00000000E+00   # Renormalization scale muR/mh for bbh
+        12     2.50000000E-01   # Factorization scale muF/mh for bbh
+Block RENORMBOT
+         1      0   # mb used for bottom Yukawa
+         2      1   # Resummation of sbottom effects
+Block RENORMSBOT
+         1      2   # Renormalization of m_b
+         2      0   # Renormalization of A_b
+         3      0   # Renormalization of theta_b
+Block PDFSPEC
+         1   MMHT2014lo68cl.LHgrid                           # LO   PDF set
+        11      0   # LO   PDF set number
+         2   MMHT2014nlo68cl.LHgrid                          # NLO  PDF set
+        12      0   # NLO  PDF set number
+         3   MMHT2014nnlo68cl.LHgrid                         # NNLO PDF set
+        13      0   # NNLO PDF set number
+Block VEGAS
+# parameters for NLO SusHi
+         1    10000   # Number of points
+         2        5   # Number of iterations
+         3       10   # Output format of VEGAS integration
+# parameters for ggh@nnlo:
+         4     2000   # Number of points
+         5        5   # Number of iterations
+        14     5000   # Number of points in second run
+        15        2   # Number of iterations in second run
+         6        0   # Output format of VEGAS integration
+# parameters for bbh@nnlo:
+         7     2000   # Number of points
+         8        5   # Number of iterations
+        17     5000   # Number of points in second run
+        18        2   # Number of iterations in second run
+         9        0   # Output format of VEGAS integration
+Block FACTORS
+         1     0.00000000E+00   # Factor multiplied with Yukawa of c quark
+         2     1.00000000E+00   # t quark
+         3     1.00000000E+00   # b quark
+         4     1.00000000E+00   # top squark
+         5     1.00000000E+00   # bottom squark
+#--------------------------------------------------#
+# End of SusHi output                              #
+#--------------------------------------------------#

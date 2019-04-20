@@ -1,0 +1,303 @@
+#--------------------------------------------------#
+# SusHi: Supersymmetric Higgs production through   #
+#  __      __        gluon fusion and bottom-quark #
+# [_  | | [_  |_| |  annihilation                  #
+# __] |_| __] | | |                                #
+#                                                  #
+#        R. Harlander, S. Liebler, and H. Mantler  #
+#               (harlander@physik.rwth-aachen.de)  #
+#                        (stefan.liebler@desy.de)  #
+#                       (hendrik.mantler@kit.edu)  #
+#            BU Wuppertal, RWTH Aachen, DESY, KIT  #
+#--------------------------------------------------#
+# SusHi is based on a number of calculations       #
+# due to various groups. Please acknowledge these  #
+# efforts by citing the list of references which   #
+# are included in the output file of every run.    #
+# SusHi can be used with FeynHiggs/2HDMC.          #
+#--------------------------------------------------#
+
+INSTALLATION AND USAGE:
+1. To use SusHi, type "./configure"
+  or "./configure F77FLAGS=..." if additional compiler
+  flags are necessary.
+  The script looks for the ifort or gfortran compiler
+  and relevant directories/libraries.
+  If you want to use a different compiler, please
+  specify the corresponding variables/paths
+  in the compilerissues.
+
+2. Please adjust the paths to a compiled version of
+  LHAPDF in the Makefile and, if requested, to compiled
+  versions of FeynHiggs/2HDMC/HiggsBounds/HiggsSignals.
+
+3. Type "make" or
+   for the MSSM
+   for linking SusHi to FeynHiggs(FH)      "make predef=FH" or
+   for linking SusHi to HiggsBounds(HB)+FH "make predef=HB" or
+   for linking SusHi to HiggsSignals+HB+FH "make predef=HS" or
+   for the 2HDM
+   for linking SusHi to 2HDMC              "make predef=2HDMC".
+
+4. Go to the "/bin" directory and run SusHi by
+   typing "./sushi inputfile.in outputfile.out".
+   Example inputfiles can be found in the folder
+   "/example".
+
+CHANGELOG:
+
+2016.08.08: V 1.6.1: Minor improvements and bug fixes.
+- Improvements for what concerns the numerical integrations.
+- Bug in the qg- and qqbar-channel for pseudorapidity cuts fixed.
+  The numerical effects are small.
+- Bug in the qqbar-channel for simultaneous pt- and rapidity-cuts fixed.
+  Impact on the cross section is small.
+- Correction of an error in the perturbative running
+  of DIM5 operators, minor effects on cross sections
+  (thanks to Johannes Michel).
+- Compatibility with FeynHiggs 2.12.0.
+- Improvement in the Makefile.
+
+2016.05.12: V 1.6.0:
+New features for the gluon fusion cross section:
+Soft expansion, N^3LO contributions, 1/m_t^n terms at NNLO
+Matching to high-energy limit, Analytic renormalization
+scale variation, Dimension-5 operators
+New processes: Higgs production in the annihilation of heavy quarks
+- The new developments in V 1.6.0 are described in:
+  ------------------------------------------
+  SusHi Bento: Beyond NNLO and the heavy-top limit
+  Robert V. Harlander, Stefan Liebler, Hendrik Mantler
+  [arXiv:1605.03190]
+  ------------------------------------------
+- Implementation of soft expansion (1-x)^n around the threshold
+  of Higgs production x=M_H^2/s at NLO, NNLO and N^3LO
+  in the heavy-top limit.
+- Implementation of N^3LO contributions to gluon fusion using the
+  previously mentioned soft expansion in the heavy-top limit.
+- Implementation of 1/m_t^n terms to NLO and NNLO contributions
+  in the heavy-top limit. Matching to the exact
+  result in the limit x->0 is possible at NLO, NNLO and N^3LO.
+- Implementation of dimension-5 operators including perturbative
+  and resummed running. They can be added to all Higgs bosons
+  of the supported models.
+- SusHi calculates the annihilation cross section of arbitrary
+  quarks up to NNLO, see:
+  ------------------------------------------
+  Higgs production in heavy quark annihilation through next-to-next-to-leading order QCD
+  Robert V. Harlander
+  [arXiv:1512.04901]
+  ------------------------------------------
+  Also pT distributions are available at lowest order.
+- SusHi performs a renormalization scale (muR) variation within a single
+  run. Results for different muR are provided in an additional output file.
+  The maximal and minimal deviation, serving as an estimate of the
+  theoretical error on the cross section, is given in the usual output file.
+- Changed *CONVENTIONS* for pseudoscalar mass matrix to fit SLHA
+  in the NMSSM:
+  The Goldstone moved to the last position in the vector of mass
+  eigenstates, such that the ordering is now (A,S,G).
+- Corrected a bug in the squark contributions to pseudoscalar
+  Higgs production, minor effects for m_{A_i} > 2*m_t (thanks
+  to Alessio Agostini).
+- Version numbers of the external codes (FeynHiggs, 2HDMC, etc.)
+  are written to the block "SUSHIinfo" in the output file.
+
+2015.03.01: V 1.5.0 (R361):
+New model NMSSM! Added Block BBHREWEIGHT with effective couplings.
+Correction of minor issues related to the squark mixing angle in evalcsusy
+and the read in of negative soft-breaking masses.
+Specification of stop and sbottom sector by user.
+- SusHi allows to calculate Higgs cross sections for the NMSSM.
+  For details we refer to:
+  ------------------------------------------
+  Neutral Higgs production at proton colliders in the CP-conserving NMSSM
+  Stefan Liebler
+  [arXiv:1502.07972]
+  ------------------------------------------
+  In contrast to the MSSM/2HDM we do not provide a direct link
+  to a spectrum generator, but the NMSSM Higgs spectrum has to
+  be specified in the input file, see /example.
+- The output block BBHREWEIGHT provided for the MSSM/2HDM/NMSSM
+  allows to extract the relevant couplings for reweighting
+  SM cross sections for bottom-quark associated production.
+- evalcsusy accepts also squark mixing angles with cos(theta_q)<0
+  (thanks to Pietro Slavich and Alessio Agostini).
+- SusHi accepts negative soft-breaking masses in the stop and
+  sbottom sector (thanks to Tim Stefaniak).
+- The input files *_MASS.in provided for the NMSSM and MSSM
+  in the folder /example allow to specify the stop and sbottom
+  sector explicitly. The user is however asked to pay attention
+  to the employed default renormalization scheme (see SusHi manual).
+
+2014.11.05: V 1.4.1 (R343):
+Cross section calculations for large SUSY masses.
+Adding FeynHiggs flags to input and output.
+Changing convention for 2HDM type 3 and 4.
+- SusHi now provides reasonable cross sections also for large SUSY masses.
+- The FeynHiggs flags can be added to the input and are always
+  part of the output. This in particular allows to adjust
+  the flag 'looplevel' to value 3 for large SUSY masses.
+- CORRECTION OF A BUG (thanks to CMS and ATLAS!):
+  The link of SusHi to 2HDMC in case of the 2HDM types
+  'lepton-specific' and 'flipped' was wrong, in detail
+  the two types were interchanged in the link. Now,
+  type 3 always denotes the 'flipped' scenario and
+  type 4 the 'lepton-specific' scenario. The 2HDM type 
+  conventions within SusHi therefore changed! Manual, example files
+  and webpage are updated accordingly.
+
+2014.10.07: V 1.4.0 (R335): Compatibility with LHAPDF 6.
+Cross section calculations up to sqrt(s)=100TeV.
+Links to HiggsBounds and HiggsSignals.
+Small corrections in the output.
+- SusHi is now compatible with LHAPDF 6.
+- Small bug fixes allow for cross section calculations up to 100TeV.
+- SusHi now allows to link to HiggsSignals and HiggsBounds
+  in case of the MSSM. Accordingly the links to compiled
+  versions of HiggsBounds or HiggsSignals have to be
+  provided in HBPATH/HSPATH in the Makefile.
+  Afterwards type "make" together with "predef=HB" or "HS".
+  Make sure that HB/HS were compiled with the same compiler.
+  For now, the input of HB/HS is based on the XS calculations of FH.
+
+2014.04.03: V 1.3.0 (R321): Implementation of
+NNLO stop contributions for H/A.
+Allowance of different PDF set numbers. Bug fixes.
+- Implementation of NNLO stop contributions for h/H/A
+  in accordance to arXiv:1404.0327.
+- If 2HDMC entry 10 set to 1, SusHi aborts if one of
+  the 2HDMC checks on unitarity, stability, perturbativity fails.
+- Allow separate PDF set number at LO, NLO, NNLO
+  by specifying entries 11 (LO), 12 (NLO), 13 (NNLO) in Block PDFSPEC.
+  If entry 4 is given, all these entries will be overridden.
+- Bug fixes for factors\neq 1 in the SM, scale choices
+  of muR and muF within ggh@nnlo (minor effects on XS obtained
+  with previous versions in case of muR\neq \muF),
+  correction of upper cuts on p_T/eta (induces large
+  differences).
+- Cleanup of the code.
+- If SusHi needs to be compiled with additional compiler flags,
+  you may provide them by typing "./configure F77FLAGS= ...".
+- cch production can be calculated in analogy to bbh production.
+  For more details of this option get in contact with the authors.
+
+2014.01.13: V 1.2.0 (R296): Implementation of different
+ggh/bbh scales and more detailled VEGAS input. Output
+of ggh@nnlo subprocesses.
+- SusHi allows the choice of different renormalization
+and factorization scales for ggh and bbh. Accordingly all
+example inputfiles are updated.
+- VEGAS parameters can be specified independently for
+the NLO SusHi calculations, the ggh@nnlo and bbh@nnlo calls.
+- Setting entry 20 of SUSHI to 10 the various subprocesses
+of ggh@nnlo are printed. Entry 19 allows to reduce the
+screen output of SusHi.
+- Cleanup of the Makefile and the code.
+
+2013.09.27: V 1.1.1 (R259): Inclusion of a link to 2HDMC.
+Support of FeynHiggs 2.9.5.
+- SusHi now contains a link to 2HDMC. For using it, please
+  type "make predef=2HDMC" and run one of the input files
+  "2HDMC_xxx.in" provided in the "/example" folder.
+  ------------------------------------------
+  2HDMC - Two-Higgs-Doublet Model Calculator
+  D. Eriksson, J. Rathsman, O. Stål
+  Comput.Phys.Commun.181:189-205 (2010)
+  [arXiv:0902.0851]
+  ------------------------------------------
+- SusHi supports FeynHiggs 2.9.5. Please provide the
+  FeynHiggs version in "FHVERSION" in the Makefile.
+- Added more warnings related to fixed order p_T distributions.
+
+2013.04.30: V 1.1.0 (R242): Reorganization of the output.
+Inclusion of a reference list. Correction of a bug in bottom-quark
+annihilation. Expansion of counterterms of stop contributions
+for heavy Higgs. Deletion of obsolete routines. Difference in
+the Makefile. Input value of SM Higgs mass changed.
+- The output was reorganized. The input file is not simply attached,
+  but completely reprocessed for the output file. In addition
+  BLOCK SCALESOUT was replaced by BLOCK ALPHASOUT, which does
+  not contain redundant information. The relevant SCALES can
+  be found in the reprocessed input file. Moreover the output file
+  contains a list of references to all relevant codes and formulas
+  being input to SusHi for the specific run. Please cite the
+  listed references.
+- Bug in the calculation of bottom-quark annihilation fixed.
+  The old version was valid only for mu_F = mu_R.
+- Expansion of counterterms in mt for stop contributions in case of
+  the heavy Higgs. Effects for very large gluino masses/
+  very low SUSY spectrum (thanks to Emanuele Bagnaschi and Pietro Slavich).
+- Input value "1" in Block "MASS" changed to "25" for SM Higgs mass.
+- Some obsolete routines were deleted.
+- DIFFERENCE IN THE MAKEFILE:
+  FOR LINKING SUSHI TO FEYNHIGGS TYPE "make predef=FH"!
+
+2013.04.02: V 1.0.6 (R226): Electroweak corrections for distributions added.
+Extension of the electroweak grid. Certain distributions and cuts disabled
+in case of numerical instabilities. Speed improvements by some percent.
+- Assuming complete factorization electroweak corrections
+  by light quarks can now be added to gluon fusion distributions
+  and cross sections with cuts.
+- The electroweak grid by light quarks is extended to Higgs
+  masses between 20 GeV and 1.5 TeV.
+- Some combinations of cuts and distributions leading to
+  numerical instabilities are not allowed anymore.
+- A bug in the call of PDF member sets different than 0 is corrected.
+- More efficient calls of dilogarithms lead to speed improvments
+  of some percent.
+
+2013.03.13: V 1.0.5 (R218): Significant speed improvements.
+Changes in MSSM XS without FeynHiggs usage.
+- Significant speed improvements by 30-40 percent. Cross sections
+  might be slightly different, but within the numerical error.
+- A bug in the calculation of MSSM cross sections without 
+  the usage of FeynHiggs (e.g. MSSM_SLHA.in) is corrected.
+  Changes in XS mostly at permil level (except sin(2thetab)
+  is small). (thanks to Alexandre Arbey)
+- For MSSM-SLHA input files and 2HDM input files the input
+  value 26 in block "MASS" is changed to 35 for the heavy
+  Higgs mass in accordance to SLHA standard.
+
+2013.02.22: V 1.0.4 (R200): Differences in pt distributions.
+Speed improvements. FeynHiggs input extended.
+- Different SUSY breaking masses and trilinear couplings
+  for FeynHiggs can be specified.
+- The program prints an error when asked to calculate
+  a pT-distribution at LO (in our notation NLO is the first order
+  at which a nontrivial pT-distribution occurs).
+- When a pT-distribution is calculated, the renormalization and
+  factorisation scale can now be set to "sqrt(mh^2+pT^2)"
+  rather than "mh". Set Block "SCALES 3" to "1".
+- Improvements within the code and a new algorithm for the
+  real dilogarithm (from HqT) shortens the running time slightly. 
+
+2013.02.08: V 1.0.3 (R186): 2HDM improvements.
+- 2-Higgs-Doublet-Model (2HDM) now in accordance
+  to arxiv:1106.0034, Table 1+2 (=arXiv:1207.4835, Table 2+3).
+  Different types can be distinguished by "Block 2HDM" in the
+  input file "/example/in2HDM.in". For SusHi it yields type I=III
+  and II=IV, since the lepton couplings are irrelevant.
+  Correction of bbh cross section for the 2HDM.
+- Initialization of PDFs optimized.
+
+2013.01.30: V 1.0.2 (R180): 2HDM added. No changes in XS.
+- 2-Higgs-Doublet-Model (2HDM) added. Example input and
+  output file in folder /example.
+- Example input and output file for mhmax scenario
+  with LHC Higgs XS working group parameters added.
+- Heavy Higgs mass input parameter added
+  (relevant for in2HDM.in and inMSSM_SLHA.in).
+- Compiler errors on some machines fixed.
+
+2013.01.08: V 1.0.1 (R170): Minor changes.
+- Example output files added.
+- Correction of a reweighting factor for the sbottom NLO QCD
+  contributions to pseudoscalar Higgs production in the MSSM,
+  minimal effect.
+- Correction of PDF usage for LO gluon fusion cross section:
+  If bbh was asked at higher order, the NLO/NNLO PDF set
+  was used accidentially for the LO ggh cross section as well.
+  Now the specified LO PDF set is used instead.
+
+2012.12.14: V 1.0.0 (R164): Initial release.

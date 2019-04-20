@@ -1,0 +1,20 @@
+# Simplified Template Cross Section Measurement
+# for VBF (pT > 200 GeV) events. We assume that
+# this does *not* contain qq->VH->(qq)H events,
+# as these have been measured separately.
+# Data taken from Tab. 9.
+# Measured XS is given in pb
+1712023047
+arXiv:1712.02304 (ATLAS)
+LHC, ATL, ATL
+(pp)->h->Z Z-> 4l (VBFpThigh)
+13	36.1	0.032
+0	0
+
+125.09
+2.5
+1	125.09
+23
+1.0
+0.019	0.060	0.111
+0.004	0.0042	0.0046

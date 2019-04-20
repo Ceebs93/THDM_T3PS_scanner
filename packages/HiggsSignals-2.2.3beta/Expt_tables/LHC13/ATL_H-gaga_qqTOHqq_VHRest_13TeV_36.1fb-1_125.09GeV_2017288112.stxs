@@ -1,0 +1,17 @@
+# Simplified Template Cross Section Measurement for qq->Hqq (VH+Rest) production.
+# Data taken from Tab.21, CERN-EP-2017-288
+# Eff. calc with Rivet script
+2017288112
+CERN-EP-2017-288
+LHC, ATL, ATL
+(pp)->h->gamma gamma (qq->Hqq VH+Rest)
+13	36.1	0.032
+0	0
+
+125.09
+2.5
+3      125.09
+21 31 41
+1.0 0.919456 0.827800
+-0.041      -0.019	0.003
+ 0.0073	    0.0077	0.0081

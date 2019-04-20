@@ -1,0 +1,18 @@
+# Simplified Template Cross Section Measurement for qq->Hqq (VBF-like) production.
+# Data taken from Tab.21, CERN-EP-2017-288
+# Eff. calc with Rivet script
+2017288111
+CERN-EP-2017-288
+LHC, ATL, ATL
+(pp)->h->gamma gamma (qq)
+13	36.1	0.032
+0	0
+
+125.09
+2.5
+3	125.09
+21 31 41
+1.00 0.032611 0.031188
+0.0015	     0.0038	0.0063
+0.0025	     0.0027	0.0029
+

@@ -1,0 +1,16 @@
+# This observable should not be used together with the category results!!!
+# Data extracted from the mu plot at 124.7 GeV of arXiv:1407.0558
+# Corresponding note: CMS-PAS-HIG-13-001
+# This peak observable contains the mass measurement.
+0558100	055800		1
+arXiv:1407.0558
+LHC, CMS, CMS
+(pp)->h->gamma gamma (inclusive)
+8	19.6	0.026
+1	1
+0.34
+124.7 124.7 0.1
+5	-1
+11 21 31 41 51
+
+124.7		0.91		1.14		1.40

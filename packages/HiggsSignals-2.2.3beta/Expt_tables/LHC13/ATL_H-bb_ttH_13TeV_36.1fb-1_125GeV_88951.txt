@@ -1,0 +1,14 @@
+# Data taken from Fig.13 (combined value), 1712.08895
+# Implemented as pure production mode
+88951	88951		1
+arXiv:1712.08895
+LHC, ATL, ATL
+(pp)->h->bb (ttH)
+13	36.1	0.021
+1	0
+10.0
+125 125 1.0
+1	-1
+55
+
+125 	0.23	0.84	1.48

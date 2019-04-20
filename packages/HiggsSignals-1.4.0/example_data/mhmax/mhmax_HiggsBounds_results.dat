@@ -1,0 +1,41 @@
+ # generated with HiggsBounds version 4.1.3 on 25.09.2014 at 15:54
+ # settings: LandH, part
+ #
+ # column abbreviations
+ #   n          : line id of input
+ #   Mh(i)      : Neutral Higgs boson masses in GeV
+ #   Mhplus(i)  : Charged Higgs boson masses in GeV
+ #   HBresult   : scenario allowed flag (1: allowed, 0: excluded, -1: unphysical)
+ #   chan       : most sensitive channel (see below). chan=0 if no channel applies
+ #   obsratio   : ratio [sig x BR]_model/[sig x BR]_limit (<1: allowed, >1: excluded)
+ #   ncomb      : number of Higgs bosons combined in most sensitive channel
+ #   additional : optional additional data stored in <prefix>additional.dat (e.g. tan beta)
+ #
+ # channel numbers used in this file
+ #           1 : (e e)->(h1)Z->(b b-bar)Z   (hep-ex/0602042, table 14b (LEP))
+ #          19 : (e e)->(h1)Z->(2 jets)Z   (hep-ex/0107034 (LHWG))
+ #          69 : (ee)->(h1->h3 h3)Z->(tau tau tau tau)Z   (hep-ex/0602042, table 16 (LEP))
+ #          82 : (ee)->(h3 h1)->(b b b b)   (hep-ex/0602042, table 18 (LEP))
+ #         148 : (p p)->V h1->b b where h1 is SM-like (CMS-PAS-HIG-13-012)
+ #         151 : (p p)->h1/VBF->bb+... where h1 is SM-like (CMS-PAS-HIG-13-011)
+ #         155 : (p p-bar)->W(h2)->l nu (b b-bar)   (D0 Note 6309)
+ #         168 : (p p)->Vh3->V (invisible)   ([hep-ex] arXiv:1402.3244 (ATLAS))
+ #         277 : (p p)->h1->Z Z-> l l l l (low mass) where h1 is SM-like (CMS-PAS-HIG-13-002)
+ #         278 : (p p)->h2->Z Z-> l l l l (low mass) where h2 is SM-like (CMS-PAS-HIG-13-002)
+ #         280 : (p p)->h1->Z Z-> l l l l (high mass) where h1 is SM-like (CMS-PAS-HIG-13-002)
+ #         281 : (p p)->h2->Z Z-> l l l l (high mass) where h2 is SM-like (CMS-PAS-HIG-13-002)
+ #         282 : (p p)->h3->Z Z-> l l l l (high mass) where h3 is SM-like (CMS-PAS-HIG-13-002)
+ #         355 : (p p)->h1->tau tau ([hep-ex] arXiv:1107.5003 (ATLAS))
+ #         357 : (p p)->h3->tau tau ([hep-ex] arXiv:1107.5003 (ATLAS))
+ #         358 : (p p)->bbh1->tau tau (ATLAS-CONF-2014-049)
+ #         372 : (p p)->h3->tau tau ([hep-ex] arXiv: 1202.4083 (CMS))
+ #         373 : (p p)->h1->tau tau (CMS-PAS-HIG-12-050)
+ #         374 : (p p)->h2->tau tau (CMS-PAS-HIG-12-050)
+ #         421 : (p p)->h1/VBF/Wh1/Zh1/tth1->gamma gamma  ([hep-ex] arXiv:1407.6583)
+ #         462 : t->(H1+)b->tau nu b   (ATLAS-CONF-2014-050)
+ #         463 : t->(H1+)b->tau nu b   (CMS-PAS-HIG-14-020)
+ #         470 : (p p-bar)->h2->h3 h3->mu mu mu mu   ([hep-ex] arXiv:0905.3381, table I (D0))
+ #         473 : (p p-bar)->h3->h3 h3->mu mu mu mu   ([hep-ex] arXiv:0905.3381, table I (D0))
+ #         476 : (p p-bar)->h1->h3 h3->tau tau mu mu   ([hep-ex] arXiv:0905.3381, table II (D0))
+ #         516 :(pp)->h1->tautau, using -2ln(L) reconstruction  ([hep-ex] arXiv:1408.3316 (CMS))
+ #         517 :(pp)->h3->tautau, using -2ln(L) reconstruction  ([hep-ex] arXiv:1408.3316 (CMS))

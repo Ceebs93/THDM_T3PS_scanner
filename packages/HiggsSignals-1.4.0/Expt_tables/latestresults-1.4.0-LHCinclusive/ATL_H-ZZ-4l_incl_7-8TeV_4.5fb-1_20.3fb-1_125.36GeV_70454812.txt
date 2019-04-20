@@ -1,0 +1,16 @@
+# Data is taken from Fig. 2 in arXiv:1507.04548.
+# The measurement was performed at mH=125.36GeV.
+# This observable does not come with a mass measurement, since the combined
+# mass measurement is already implemented in the H->gamma gamma observable (201500711) 
+70454812	7045482	1
+arXiv:1507.04548,arXiv:1408.5191
+LHC, ATL, ATL
+(pp)->h->ZZ->4l (inclusive)
+8	24.8	0.028
+1	0
+1.0 ATLCMScomb
+125.36 125.36 0.1
+5	-1
+13 23 33 43 53
+
+       125.36           1.12           1.46           1.86

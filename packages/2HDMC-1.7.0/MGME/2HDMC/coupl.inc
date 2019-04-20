@@ -1,0 +1,102 @@
+
+
+c Define common block containing all coupling constants and masses
+c  which are used in the HELAS routines.
+c
+c  These include masses, widths and real/complex couplings.
+c
+c  This file can be built automatically from particles.dat and
+c  interactions.dat
+c
+c====================================================================
+c
+c
+c
+c     QCD 
+c
+      double complex       gg(2)
+      double precision     g
+      common /COUPL_QCD/   g,gg   
+c
+c    kinematical masses
+c
+      double precision     hmass, wmass, zmass, amass,
+     &                     tmass, bmass, lmass, cmass
+      common /COUPL_MASS/  hmass, wmass, zmass, amass,
+     &                     tmass, bmass, lmass, cmass
+c
+c   widths
+c
+      double precision     hwidth, wwidth, zwidth, 
+     &                     twidth, lwidth, awidth
+      common /COUPL_WIDTH/ hwidth, wwidth, zwidth, 
+     &                     twidth, lwidth, awidth
+c
+c  couplings in the feynman rules
+c
+      double complex       gal(2), gad(2), gau(2), gwf(2),
+     &                     gzn(2), gzl(2), gzd(2), gzu(2)
+      double precision     gw, gwwa, gwwz
+      common /COUPL_GAUGE/ gal   , gad   , gau   , gwf   ,
+     &                     gzn   , gzl   , gzd   , gzu   ,
+     &                     gw, gwwa, gwwz
+c
+      double complex       gwfud(2),  gwfcd(2), gwftd(2),
+     &                     gwfus(2),  gwfcs(2), gwfts(2),
+     &                     gwfub(2),  gwfcb(2), gwftb(2)
+      common /coupl_ckm/   gwfud,     gwfcd   , gwftd,
+     &                     gwfus,     gwfcs   , gwfts,
+     &                     gwfub,     gwfcb   , gwftb
+c
+      double complex       gwwh, gzzh, gwwhh, gzzhh, ghhh, ghhhh
+      common /COUPL_SCAL/  gwwh, gzzh, gwwhh, gzzhh, ghhh, ghhhh
+c
+      double complex       ghtop(2), ghbot(2), ghtau(2), ghcha(2)
+      common /COUPL_YUK/   ghtop   , ghbot   , ghtau   , ghcha
+
+
+      double complex   GH1EE(2),GH2EE(2),GH3EE(2),GH1MUMU(2),GH2MUMU(2),GH3MUMU(2),GH1TATA(2),GH2TATA(2),GH3TA
+     +TA(2),GH1UU(2),GH2UU(2),GH3UU(2),GH1CC(2),GH2CC(2),GH3CC(2),GH1TT(2),GH2TT(2),GH3TT(2),GH1DD(2),GH2DD(2),GH3DD
+     +(2),GH1SS(2),GH2SS(2),GH3SS(2),GH1BB(2),GH2BB(2),GH3BB(2),GHCUD(2),GHCUS(2),GHCUB(2),GHCCD(2),GHCCS(2),GHCCB(2
+     +),GHCTD(2),GHCTS(2),GHCTB(2),GHCDU(2),GHCDC(2),GHCDT(2),GHCSU(2),GHCSC(2),GHCST(2),GHCBU(2),GHCBC(2),GHCBT(2),
+     +GHCVEE(2),GHCVMMU(2),GHCVTTA(2),GHCEVE(2),GHCMUVM(2),GHCTAVT(2),GWWH1,GWWH2,GZZH1,GZZH2,GAHCHC,GZH1H2,GZH1H3,G
+     +ZH2H3,GZHCHC,GWPHCH1,GWMH1HC,GWPHCH2,GWMH2HC,GWPHCH3,GWMH3HC,GH1H1H1,GH1H1H2,GH1H2H2,GH1H3H3,GH2H2H2,GH2H3H3,G
+     +H1HCHC,GH2HCHC,GAAHCHC,GAZHCHC,GAWPHCH1,GAWPHCH2,GAWPHCH3,GAWMH1HC,GAWMH2HC,GAWMH3HC,GZZH1H1,GZZH2H2,GZZH3H3,G
+     +ZZHCHC,GZWPHCH1,GZWPHCH2,GZWPHCH3,GZWMH1HC,GZWMH2HC,GZWMH3HC,GWWH1H1,GWWH2H2,GWWH3H3,GWWHCHC
+      common /DC_COUPL/ GH1EE,GH2EE,GH3EE,GH1MUMU,GH2MUMU,GH3MUMU,GH1TATA,GH2TATA,GH3TATA,GH1UU,GH2UU,GH3UU,GH
+     +1CC,GH2CC,GH3CC,GH1TT,GH2TT,GH3TT,GH1DD,GH2DD,GH3DD,GH1SS,GH2SS,GH3SS,GH1BB,GH2BB,GH3BB,GHCUD,GHCUS,GHCUB,GHCC
+     +D,GHCCS,GHCCB,GHCTD,GHCTS,GHCTB,GHCDU,GHCDC,GHCDT,GHCSU,GHCSC,GHCST,GHCBU,GHCBC,GHCBT,GHCVEE,GHCVMMU,GHCVTTA,G
+     +HCEVE,GHCMUVM,GHCTAVT,GWWH1,GWWH2,GZZH1,GZZH2,GAHCHC,GZH1H2,GZH1H3,GZH2H3,GZHCHC,GWPHCH1,GWMH1HC,GWPHCH2,GWMH2
+     +HC,GWPHCH3,GWMH3HC,GH1H1H1,GH1H1H2,GH1H2H2,GH1H3H3,GH2H2H2,GH2H3H3,GH1HCHC,GH2HCHC,GAAHCHC,GAZHCHC,GAWPHCH1,GA
+     +WPHCH2,GAWPHCH3,GAWMH1HC,GAWMH2HC,GAWMH3HC,GZZH1H1,GZZH2H2,GZZH3H3,GZZHCHC,GZWPHCH1,GZWPHCH2,GZWPHCH3,GZWMH1HC
+     +,GZWMH2HC,GZWMH3HC,GWWH1H1,GWWH2H2,GWWH3H3,GWWHCHC
+      double precision H1MASS,H2MASS,H3MASS,HCMASS
+      double precision H1WIDTH,H2WIDTH,H3WIDTH,HCWIDTH
+      common /USR_MASS/  H1MASS,H2MASS,H3MASS,HCMASS
+      common /USR_DECAY/ H1WIDTH,H2WIDTH,H3WIDTH,HCWIDTH
+      double precision RESGH1EE   ,IMSGH1EE   ,REPGH1EE   ,IMPGH1EE   ,RESGH2EE   ,IMSGH2EE   ,REPGH2EE   ,IMP
+     +GH2EE   ,RESGH3EE   ,IMSGH3EE   ,REPGH3EE   ,IMPGH3EE   ,RESGH1MUMU ,IMSGH1MUMU ,REPGH1MUMU ,IMPGH1MUMU ,RESGH
+     +2MUMU ,IMSGH2MUMU ,REPGH2MUMU ,IMPGH2MUMU ,RESGH3MUMU ,IMSGH3MUMU ,REPGH3MUMU ,IMPGH3MUMU ,RESGH1TATA ,IMSGH1T
+     +ATA ,REPGH1TATA ,IMPGH1TATA ,RESGH2TATA ,IMSGH2TATA ,REPGH2TATA ,IMPGH2TATA ,RESGH3TATA ,IMSGH3TATA ,REPGH3TAT
+     +A ,IMPGH3TATA ,RESGH1UU   ,IMSGH1UU   ,REPGH1UU   ,IMPGH1UU   ,RESGH2UU   ,IMSGH2UU   ,REPGH2UU   ,IMPGH2UU   
+     +,RESGH3UU   ,IMSGH3UU   ,REPGH3UU   ,IMPGH3UU   ,RESGH1CC   ,IMSGH1CC   ,REPGH1CC   ,IMPGH1CC   ,RESGH2CC   ,I
+     +MSGH2CC   ,REPGH2CC   ,IMPGH2CC   ,RESGH3CC   ,IMSGH3CC   ,REPGH3CC   ,IMPGH3CC   ,RESGH1TT   ,IMSGH1TT   ,REP
+     +GH1TT   ,IMPGH1TT   ,RESGH2TT   ,IMSGH2TT   ,REPGH2TT   ,IMPGH2TT   ,RESGH3TT   ,IMSGH3TT   ,REPGH3TT   ,IMPGH
+     +3TT   ,RESGH1DD   ,IMSGH1DD   ,REPGH1DD   ,IMPGH1DD   ,RESGH2DD   ,IMSGH2DD   ,REPGH2DD   ,IMPGH2DD   ,RESGH3D
+     +D   ,IMSGH3DD   ,REPGH3DD   ,IMPGH3DD   ,RESGH1SS   ,IMSGH1SS   ,REPGH1SS   ,IMPGH1SS   ,RESGH2SS   ,IMSGH2SS 
+     +  ,REPGH2SS   ,IMPGH2SS   ,RESGH3SS   ,IMSGH3SS   ,REPGH3SS   ,IMPGH3SS   ,RESGH1BB   ,IMSGH1BB   ,REPGH1BB   
+     +,IMPGH1BB   ,RESGH2BB   ,IMSGH2BB   ,REPGH2BB   ,IMPGH2BB   ,RESGH3BB   ,IMSGH3BB   ,REPGH3BB   ,IMPGH3BB   ,R
+     +ESGHCUD   ,IMSGHCUD   ,REPGHCUD   ,IMPGHCUD   ,RESGHCUS   ,IMSGHCUS   ,REPGHCUS   ,IMPGHCUS   ,RESGHCUB   ,IMS
+     +GHCUB   ,REPGHCUB   ,IMPGHCUB   ,RESGHCCD   ,IMSGHCCD   ,REPGHCCD   ,IMPGHCCD   ,RESGHCCS   ,IMSGHCCS   ,REPGH
+     +CCS   ,IMPGHCCS   ,RESGHCCB   ,IMSGHCCB   ,REPGHCCB   ,IMPGHCCB   ,RESGHCTD   ,IMSGHCTD   ,REPGHCTD   ,IMPGHCT
+     +D   ,RESGHCTS   ,IMSGHCTS   ,REPGHCTS   ,IMPGHCTS   ,RESGHCTB   ,IMSGHCTB   ,REPGHCTB   ,IMPGHCTB   ,RESGHCVEE
+     +  ,IMSGHCVEE  ,REPGHCVEE  ,IMPGHCVEE  ,RESGHCVMMU ,IMSGHCVMMU ,REPGHCVMMU ,IMPGHCVMMU ,RESGHCVTTA ,IMSGHCVTTA 
+     +,REPGHCVTTA ,IMPGHCVTTA ,REGWWH1     ,IMGWWH1     ,REGWWH2     ,IMGWWH2     ,REGZZH1     ,IMGZZH1     ,REGZZH2
+     +     ,IMGZZH2     ,REGAHCHC    ,IMGAHCHC    ,REGZH1H2    ,IMGZH1H2    ,REGZH1H3    ,IMGZH1H3    ,REGZH2H3    ,
+     +IMGZH2H3    ,REGZHCHC    ,IMGZHCHC    ,REGWPHCH1   ,IMGWPHCH1   ,REGWPHCH2   ,IMGWPHCH2   ,REGWPHCH3   ,IMGWPH
+     +CH3   ,REGH1H1H1   ,IMGH1H1H1   ,REGH1H1H2   ,IMGH1H1H2   ,REGH1H2H2   ,IMGH1H2H2   ,REGH1H3H3   ,IMGH1H3H3   
+     +,REGH2H2H2   ,IMGH2H2H2   ,REGH2H3H3   ,IMGH2H3H3   ,REGH1HCHC   ,IMGH1HCHC   ,REGH2HCHC   ,IMGH2HCHC   ,REGAA
+     +HCHC   ,IMGAAHCHC   ,REGAZHCHC   ,IMGAZHCHC   ,REGAWPHCH1  ,IMGAWPHCH1  ,REGAWPHCH2  ,IMGAWPHCH2  ,REGAWPHCH3 
+     + ,IMGAWPHCH3  ,REGZZH1H1   ,IMGZZH1H1   ,REGZZH2H2   ,IMGZZH2H2   ,REGZZH3H3   ,IMGZZH3H3   ,REGZZHCHC   ,IMGZ
+     +ZHCHC   ,REGZWPHCH1  ,IMGZWPHCH1  ,REGZWPHCH2  ,IMGZWPHCH2  ,REGZWPHCH3  ,IMGZWPHCH3  ,REGWWH1H1   ,IMGWWH1H1 
+     +  ,REGWWH2H2   ,IMGWWH2H2   ,REGWWH3H3   ,IMGWWH3H3   ,REGWWHCHC   ,IMGWWHCHC   

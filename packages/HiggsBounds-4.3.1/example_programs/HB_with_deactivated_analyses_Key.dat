@@ -1,0 +1,1232 @@
+***********         Key to Process Numbers       *************
+ This key has been generated with HiggsBounds version 4.3.0 
+ with the setting whichanalyses=onlyH
+
+**************************************************************
+
+process    0
+  no process applies
+**************************************************************
+      CDF Note 10799
+
+process    1
+  (p p-bar)->Z(h1 )->l l (b b-bar)   (CDF Note 10799)
+process    2
+  (p p-bar)->Z(h2 )->l l (b b-bar)   (CDF Note 10799)
+process    3
+  (p p-bar)->Z(h3 )->l l (b b-bar)   (CDF Note 10799)
+**************************************************************
+      D0 Note 6296
+
+process    4
+  (p p-bar)->Z(h1 )->l l (b b-bar)   (D0 Note 6296)
+process    5
+  (p p-bar)->Z(h2 )->l l (b b-bar)   (D0 Note 6296)
+process    6
+  (p p-bar)->Z(h3 )->l l (b b-bar)   (D0 Note 6296)
+**************************************************************
+      [hep-ex] arXiv:1008.3564 (D0)
+
+process    7
+  (p p-bar)->Z(h1 )->l l (b b-bar)   ([hep-ex] arXiv:1008.3564 (D0))
+process    8
+  (p p-bar)->Z(h2 )->l l (b b-bar)   ([hep-ex] arXiv:1008.3564 (D0))
+process    9
+  (p p-bar)->Z(h3 )->l l (b b-bar)   ([hep-ex] arXiv:1008.3564 (D0))
+**************************************************************
+      CDF Note 10798
+
+process   10
+  (p p-bar)->V h1 -> (b b-bar) +missing Et where h1  is SM-like  (CDF Note 10798)
+process   11
+  (p p-bar)->V h2 -> (b b-bar) +missing Et where h2  is SM-like  (CDF Note 10798)
+process   12
+  (p p-bar)->V h3 -> (b b-bar) +missing Et where h3  is SM-like  (CDF Note 10798)
+**************************************************************
+      D0 Note 6299
+
+process   13
+  (p p-bar)->V h1 -> (b b-bar) +missing Et where h1  is SM-like  (D0 Note 6299)
+process   14
+  (p p-bar)->V h2 -> (b b-bar) +missing Et where h2  is SM-like  (D0 Note 6299)
+process   15
+  (p p-bar)->V h3 -> (b b-bar) +missing Et where h3  is SM-like  (D0 Note 6299)
+**************************************************************
+      ATLAS-CONF-2012-161
+
+process   16
+  (p p)->V(h1 )->V (b b-bar)   (ATLAS-CONF-2012-161)
+process   17
+  (p p)->V(h2 )->V (b b-bar)   (ATLAS-CONF-2012-161)
+process   18
+  (p p)->V(h3 )->V (b b-bar)   (ATLAS-CONF-2012-161)
+**************************************************************
+      CMS-PAS-HIG-13-012
+
+process   19
+  (p p)->V h1 ->b b where h1  is SM-like (CMS-PAS-HIG-13-012)
+process   20
+  (p p)->V h2 ->b b where h2  is SM-like (CMS-PAS-HIG-13-012)
+process   21
+  (p p)->V h3 ->b b where h3  is SM-like (CMS-PAS-HIG-13-012)
+**************************************************************
+      CMS-PAS-HIG-13-011
+
+process   22
+  (p p)->h1 /VBF->bb+... where h1  is SM-like (CMS-PAS-HIG-13-011)
+process   23
+  (p p)->h2 /VBF->bb+... where h2  is SM-like (CMS-PAS-HIG-13-011)
+process   24
+  (p p)->h3 /VBF->bb+... where h3  is SM-like (CMS-PAS-HIG-13-011)
+**************************************************************
+      D0 Note 6309
+
+process   25
+  (p p-bar)->W(h1 )->l nu (b b-bar)   (D0 Note 6309)
+process   26
+  (p p-bar)->W(h2 )->l nu (b b-bar)   (D0 Note 6309)
+process   27
+  (p p-bar)->W(h3 )->l nu (b b-bar)   (D0 Note 6309)
+**************************************************************
+      CDF Note 10796
+
+process   28
+  (p p-bar)->W(h1 )->l nu (b b-bar)   (CDF Note 10796)
+process   29
+  (p p-bar)->W(h2 )->l nu (b b-bar)   (CDF Note 10796)
+process   30
+  (p p-bar)->W(h3 )->l nu (b b-bar)   (CDF Note 10796)
+**************************************************************
+      [hep-ex] arXiv:1012.0874 (D0)
+
+process   31
+  (p p-bar)->W(h1 )->l nu (b b-bar)   ([hep-ex] arXiv:1012.0874 (D0))
+process   32
+  (p p-bar)->W(h2 )->l nu (b b-bar)   ([hep-ex] arXiv:1012.0874 (D0))
+process   33
+  (p p-bar)->W(h3 )->l nu (b b-bar)   ([hep-ex] arXiv:1012.0874 (D0))
+**************************************************************
+      [hep-ex] arXiv:0906.5613 (CDF)
+
+process   34
+  (p p-bar)->W(h1 )->l nu (b b-bar)   ([hep-ex] arXiv:0906.5613 (CDF))
+process   35
+  (p p-bar)->W(h2 )->l nu (b b-bar)   ([hep-ex] arXiv:0906.5613 (CDF))
+process   36
+  (p p-bar)->W(h3 )->l nu (b b-bar)   ([hep-ex] arXiv:0906.5613 (CDF))
+**************************************************************
+      [hep-ex] arXiv:1402.3244 (ATLAS)
+
+process   37
+  (p p)->Vh1 ->V (invisible)   ([hep-ex] arXiv:1402.3244 (ATLAS))
+process   38
+  (p p)->Vh2 ->V (invisible)   ([hep-ex] arXiv:1402.3244 (ATLAS))
+process   39
+  (p p)->Vh3 ->V (invisible)   ([hep-ex] arXiv:1402.3244 (ATLAS))
+**************************************************************
+      [hep-ex] arXiv:1404.1344 (CMS)
+
+process   40
+  (p p)->Zh1 ->Z (invisible)   ([hep-ex] arXiv:1404.1344 (CMS))
+process   41
+  (p p)->Zh2 ->Z (invisible)   ([hep-ex] arXiv:1404.1344 (CMS))
+process   42
+  (p p)->Zh3 ->Z (invisible)   ([hep-ex] arXiv:1404.1344 (CMS))
+**************************************************************
+      [hep-ex] arXiv:1404.1344 (CMS)
+
+process   43
+  (p p)->h1 (VBF)->V (invisible)   ([hep-ex] arXiv:1404.1344 (CMS))
+process   44
+  (p p)->h2 (VBF)->V (invisible)   ([hep-ex] arXiv:1404.1344 (CMS))
+process   45
+  (p p)->h3 (VBF)->V (invisible)   ([hep-ex] arXiv:1404.1344 (CMS))
+**************************************************************
+      [hep-ex] arXiv:1404.1344 (CMS)
+
+process   46
+  (p p)->h1 (VBF)/Zh1 , h1 ->(invisible)  ([hep-ex] arXiv:1404.1344 (CMS))
+process   47
+  (p p)->h2 (VBF)/Zh2 , h2 ->(invisible)  ([hep-ex] arXiv:1404.1344 (CMS))
+process   48
+  (p p)->h3 (VBF)/Zh3 , h3 ->(invisible)  ([hep-ex] arXiv:1404.1344 (CMS))
+**************************************************************
+      D0 Note 5757
+
+process   49
+  (p p-bar)->h1 /VBF->W W->l l where h1  is SM-like   (D0 Note 5757)
+process   50
+  (p p-bar)->h2 /VBF->W W->l l where h2  is SM-like   (D0 Note 5757)
+process   51
+  (p p-bar)->h3 /VBF->W W->l l where h3  is SM-like   (D0 Note 5757)
+**************************************************************
+      [hep-ex] arXiv:0809.3930 (CDF)
+
+process   52
+  (p p-bar)->h1 ->W W   ([hep-ex] arXiv:0809.3930 (CDF))
+process   53
+  (p p-bar)->h2 ->W W   ([hep-ex] arXiv:0809.3930 (CDF))
+process   54
+  (p p-bar)->h3 ->W W   ([hep-ex] arXiv:0809.3930 (CDF))
+**************************************************************
+      D0 Note 6276
+
+process   55
+  (p p-bar)->h1 +...->V V +... ->l l l missing Et +... where h1  is SM-like (D0 Note 6276)
+process   56
+  (p p-bar)->h2 +...->V V +... ->l l l missing Et +... where h2  is SM-like (D0 Note 6276)
+process   57
+  (p p-bar)->h3 +...->V V +... ->l l l missing Et +... where h3  is SM-like (D0 Note 6276)
+**************************************************************
+      D0 Note 6301
+
+process   58
+  (p p-bar)->V h1 ->V W W   (D0 Note 6301)
+process   59
+  (p p-bar)->V h2 ->V W W   (D0 Note 6301)
+process   60
+  (p p-bar)->V h3 ->V W W   (D0 Note 6301)
+**************************************************************
+      CDF Note 10599
+
+process   61
+  (p p-bar)->h1 ->W W   (CDF Note 10599)
+process   62
+  (p p-bar)->h2 ->W W   (CDF Note 10599)
+process   63
+  (p p-bar)->h3 ->W W   (CDF Note 10599)
+**************************************************************
+      CDF Note 10599
+
+process   64
+  (p p-bar)->h1 +...->W W +... where h1  is SM-like (CDF Note 10599)
+process   65
+  (p p-bar)->h2 +...->W W +... where h2  is SM-like (CDF Note 10599)
+process   66
+  (p p-bar)->h3 +...->W W +... where h3  is SM-like (CDF Note 10599)
+**************************************************************
+      [hep-ex] arXiv:1001.4468 (CDF)
+
+process   67
+  (p p-bar)->h1 +...->W W +... where h1  is SM-like ([hep-ex] arXiv:1001.4468 (CDF))
+process   68
+  (p p-bar)->h2 +...->W W +... where h2  is SM-like ([hep-ex] arXiv:1001.4468 (CDF))
+process   69
+  (p p-bar)->h3 +...->W W +... where h3  is SM-like ([hep-ex] arXiv:1001.4468 (CDF))
+**************************************************************
+      D0 Note 6302
+
+process   70
+  (p p-bar)->h1 +...->W W +... where h1  is SM-like (D0 Note 6302)
+process   71
+  (p p-bar)->h2 +...->W W +... where h2  is SM-like (D0 Note 6302)
+process   72
+  (p p-bar)->h3 +...->W W +... where h3  is SM-like (D0 Note 6302)
+**************************************************************
+      D0 Note 6183
+
+process   73
+  (p p-bar)->h1 +... where h1  is SM-like  (D0 Note 6183)
+process   74
+  (p p-bar)->h2 +... where h2  is SM-like  (D0 Note 6183)
+process   75
+  (p p-bar)->h3 +... where h3  is SM-like  (D0 Note 6183)
+**************************************************************
+      [hep-ex] arXiv:1001.4481 (D0)
+
+process   76
+  (p p-bar)->h1 +...->W W +... where h1  is SM-like ([hep-ex] arXiv:1001.4481 (D0))
+process   77
+  (p p-bar)->h2 +...->W W +... where h2  is SM-like ([hep-ex] arXiv:1001.4481 (D0))
+process   78
+  (p p-bar)->h3 +...->W W +... where h3  is SM-like ([hep-ex] arXiv:1001.4481 (D0))
+**************************************************************
+      [hep-ex] arXiv:1108.3331 (TEVNPHWG)
+
+process   79
+  (p p-bar)->h1 ->V V   ([hep-ex] arXiv:1108.3331 (TEVNPHWG))
+process   80
+  (p p-bar)->h2 ->V V   ([hep-ex] arXiv:1108.3331 (TEVNPHWG))
+process   81
+  (p p-bar)->h3 ->V V   ([hep-ex] arXiv:1108.3331 (TEVNPHWG))
+**************************************************************
+      ATLAS-CONF-2012-012
+
+process   82
+  (p p)->h1 ->W W where h1  is SM-like (ATLAS-CONF-2012-012)
+process   83
+  (p p)->h2 ->W W where h2  is SM-like (ATLAS-CONF-2012-012)
+process   84
+  (p p)->h3 ->W W where h3  is SM-like (ATLAS-CONF-2012-012)
+**************************************************************
+      ATLAS-CONF-2013-030
+
+process   85
+  (p p)->h1 ->W W where h1  is SM-like (ATLAS-CONF-2013-030)
+process   86
+  (p p)->h2 ->W W where h2  is SM-like (ATLAS-CONF-2013-030)
+process   87
+  (p p)->h3 ->W W where h3  is SM-like (ATLAS-CONF-2013-030)
+**************************************************************
+      [hep-ex] arxiv:1112.2577
+
+process   88
+ pp->h + X->W W* + X ->l l nu nu, h=1 where h is SM-like ([hep-ex] arxiv:1112.2577)
+process   89
+ pp->h + X->W W* + X ->l l nu nu, h=2 where h is SM-like ([hep-ex] arxiv:1112.2577)
+process   90
+ pp->h + X->W W* + X ->l l nu nu, h=3 where h is SM-like ([hep-ex] arxiv:1112.2577)
+**************************************************************
+      CMS-PAS-HIG-13-003
+
+process   91
+  (p p)->h1 +...->W W +... where h1  is SM-like (CMS-PAS-HIG-13-003)
+process   92
+  (p p)->h2 +...->W W +... where h2  is SM-like (CMS-PAS-HIG-13-003)
+process   93
+  (p p)->h3 +...->W W +... where h3  is SM-like (CMS-PAS-HIG-13-003)
+**************************************************************
+      CMS-PAS-HIG-13-027
+
+process   94
+  (p p)->h1 +...->W W +... where h1  is SM-like (CMS-PAS-HIG-13-027)
+process   95
+  (p p)->h2 +...->W W +... where h2  is SM-like (CMS-PAS-HIG-13-027)
+process   96
+  (p p)->h3 +...->W W +... where h3  is SM-like (CMS-PAS-HIG-13-027)
+**************************************************************
+      CMS-PAS-HIG-13-022
+
+process   97
+  (p p)->h1 (VBF)->WW   (CMS-PAS-HIG-13-022)
+process   98
+  (p p)->h2 (VBF)->WW   (CMS-PAS-HIG-13-022)
+process   99
+  (p p)->h3 (VBF)->WW   (CMS-PAS-HIG-13-022)
+**************************************************************
+      [hep-ex] arXiv:1109.3357 (ATLAS)
+
+process  100
+  (p p)->h1 ->V V-> l l nu nu where h1  is SM-like ([hep-ex] arXiv:1109.3357 (ATLAS))
+process  101
+  (p p)->h2 ->V V-> l l nu nu where h2  is SM-like ([hep-ex] arXiv:1109.3357 (ATLAS))
+process  102
+  (p p)->h3 ->V V-> l l nu nu where h3  is SM-like ([hep-ex] arXiv:1109.3357 (ATLAS))
+**************************************************************
+      ATLAS-CONF-2012-016
+
+process  103
+  (p p)->h1 ->V V-> l l nu nu where h1  is SM-like (ATLAS-CONF-2012-016)
+process  104
+  (p p)->h2 ->V V-> l l nu nu where h2  is SM-like (ATLAS-CONF-2012-016)
+process  105
+  (p p)->h3 ->V V-> l l nu nu where h3  is SM-like (ATLAS-CONF-2012-016)
+**************************************************************
+      [hep-ex] arxiv:1202.3478 (CMS)
+
+process  106
+  (p p)->h1 /VBF->V V-> l l nu nu where h1  is SM-like ([hep-ex] arxiv:1202.3478 (CMS))
+process  107
+  (p p)->h2 /VBF->V V-> l l nu nu where h2  is SM-like ([hep-ex] arxiv:1202.3478 (CMS))
+process  108
+  (p p)->h3 /VBF->V V-> l l nu nu where h3  is SM-like ([hep-ex] arxiv:1202.3478 (CMS))
+**************************************************************
+      [hep-ex] arXiv:1109.3615 (ATLAS)
+
+process  109
+  (p p)->h1 /VBF->W W where h1  is SM-like ([hep-ex] arXiv:1109.3615 (ATLAS))
+process  110
+  (p p)->h2 /VBF->W W where h2  is SM-like ([hep-ex] arXiv:1109.3615 (ATLAS))
+process  111
+  (p p)->h3 /VBF->W W where h3  is SM-like ([hep-ex] arXiv:1109.3615 (ATLAS))
+**************************************************************
+      ATLAS-CONF-2012-018
+
+process  112
+  (p p)->h1 /VBF->W W where h1  is SM-like (ATLAS-CONF-2012-018)
+process  113
+  (p p)->h2 /VBF->W W where h2  is SM-like (ATLAS-CONF-2012-018)
+process  114
+  (p p)->h3 /VBF->W W where h3  is SM-like (ATLAS-CONF-2012-018)
+**************************************************************
+      CMS-PAS-HIG-12-046
+
+process  115
+  (p p)->h1 ->W W-> l nu q q where h1  is SM-like (CMS-PAS-HIG-12-046)
+process  116
+  (p p)->h2 ->W W-> l nu q q where h2  is SM-like (CMS-PAS-HIG-12-046)
+process  117
+  (p p)->h3 ->W W-> l nu q q where h3  is SM-like (CMS-PAS-HIG-12-046)
+**************************************************************
+      [hep-ex] arXiv:1108.5064 (ATLAS)
+
+process  118
+  (p p)->h1 /VBF->Z Z-> l l q q where h1  is SM-like ([hep-ex] arXiv:1108.5064 (ATLAS))
+process  119
+  (p p)->h2 /VBF->Z Z-> l l q q where h2  is SM-like ([hep-ex] arXiv:1108.5064 (ATLAS))
+process  120
+  (p p)->h3 /VBF->Z Z-> l l q q where h3  is SM-like ([hep-ex] arXiv:1108.5064 (ATLAS))
+**************************************************************
+      ATLAS-CONF-2012-017
+
+process  121
+  (p p)->h1 /VBF->Z Z-> l l q q where h1  is SM-like (ATLAS-CONF-2012-017)
+process  122
+  (p p)->h2 /VBF->Z Z-> l l q q where h2  is SM-like (ATLAS-CONF-2012-017)
+process  123
+  (p p)->h3 /VBF->Z Z-> l l q q where h3  is SM-like (ATLAS-CONF-2012-017)
+**************************************************************
+      [hep-ex] arXiv:1202.1416 (CMS)
+
+process  124
+  (p p)->h1 /VBF->Z Z-> l l q q where h1  is SM-like ([hep-ex] arXiv:1202.1416 (CMS))
+process  125
+  (p p)->h2 /VBF->Z Z-> l l q q where h2  is SM-like ([hep-ex] arXiv:1202.1416 (CMS))
+process  126
+  (p p)->h3 /VBF->Z Z-> l l q q where h3  is SM-like ([hep-ex] arXiv:1202.1416 (CMS))
+**************************************************************
+      [hep-ex] arXiv:1202.1416 (CMS)
+
+process  127
+  (p p)->h1 /VBF->Z Z-> l l q q where h1  is SM-like ([hep-ex] arXiv:1202.1416 (CMS))
+process  128
+  (p p)->h2 /VBF->Z Z-> l l q q where h2  is SM-like ([hep-ex] arXiv:1202.1416 (CMS))
+process  129
+  (p p)->h3 /VBF->Z Z-> l l q q where h3  is SM-like ([hep-ex] arXiv:1202.1416 (CMS))
+**************************************************************
+      [hep-ex] arXiv:1202.1415 (ATLAS)
+
+process  130
+  (p p)->h1 /VBF/V h1 ->Z Z-> l l l l where h1  is SM-like ([hep-ex] arXiv:1202.1415 (ATLAS))
+process  131
+  (p p)->h2 /VBF/V h2 ->Z Z-> l l l l where h2  is SM-like ([hep-ex] arXiv:1202.1415 (ATLAS))
+process  132
+  (p p)->h3 /VBF/V h3 ->Z Z-> l l l l where h3  is SM-like ([hep-ex] arXiv:1202.1415 (ATLAS))
+**************************************************************
+      ATLAS-CONF-2012-092
+
+process  133
+  (p p)->h1 /VBF/V h1 ->Z Z-> l l l l where h1  is SM-like (ATLAS-CONF-2012-092)
+process  134
+  (p p)->h2 /VBF/V h2 ->Z Z-> l l l l where h2  is SM-like (ATLAS-CONF-2012-092)
+process  135
+  (p p)->h3 /VBF/V h3 ->Z Z-> l l l l where h3  is SM-like (ATLAS-CONF-2012-092)
+**************************************************************
+      ATLAS-CONF-2013-013
+
+process  136
+  (p p)->h1 ->Z Z-> l l l l where h1  is SM-like (ATLAS-CONF-2013-013)
+process  137
+  (p p)->h2 ->Z Z-> l l l l where h2  is SM-like (ATLAS-CONF-2013-013)
+process  138
+  (p p)->h3 ->Z Z-> l l l l where h3  is SM-like (ATLAS-CONF-2013-013)
+**************************************************************
+      ATLAS-CONF-2013-013
+
+process  139
+  (p p)->h1 /ggF h->Z Z-> l l l l (ATLAS-CONF-2013-013)
+process  140
+  (p p)->h2 /ggF h->Z Z-> l l l l (ATLAS-CONF-2013-013)
+process  141
+  (p p)->h3 /ggF h->Z Z-> l l l l (ATLAS-CONF-2013-013)
+**************************************************************
+      ATLAS-CONF-2013-013
+
+process  142
+  (p p)->h1 /VBF/V h->Z Z-> l l l l (ATLAS-CONF-2013-013)
+process  143
+  (p p)->h2 /VBF/V h->Z Z-> l l l l (ATLAS-CONF-2013-013)
+process  144
+  (p p)->h3 /VBF/V h->Z Z-> l l l l (ATLAS-CONF-2013-013)
+**************************************************************
+      [hep-ex] arxiv:1202.1997 (CMS)
+
+process  145
+  (p p)->h1 /VBF/V/tt h1 ->Z Z-> l l l l where h1  is SM-like ([hep-ex] arxiv:1202.1997 (CMS))
+process  146
+  (p p)->h2 /VBF/V/tt h2 ->Z Z-> l l l l where h2  is SM-like ([hep-ex] arxiv:1202.1997 (CMS))
+process  147
+  (p p)->h3 /VBF/V/tt h3 ->Z Z-> l l l l where h3  is SM-like ([hep-ex] arxiv:1202.1997 (CMS))
+**************************************************************
+      CMS-PAS-HIG-13-002
+
+process  148
+  (p p)->h1 ->Z Z-> l l l l (low mass) where h1  is SM-like (CMS-PAS-HIG-13-002)
+process  149
+  (p p)->h2 ->Z Z-> l l l l (low mass) where h2  is SM-like (CMS-PAS-HIG-13-002)
+process  150
+  (p p)->h3 ->Z Z-> l l l l (low mass) where h3  is SM-like (CMS-PAS-HIG-13-002)
+**************************************************************
+      CMS-PAS-HIG-13-002
+
+process  151
+  (p p)->h1 ->Z Z-> l l l l (high mass) where h1  is SM-like (CMS-PAS-HIG-13-002)
+process  152
+  (p p)->h2 ->Z Z-> l l l l (high mass) where h2  is SM-like (CMS-PAS-HIG-13-002)
+process  153
+  (p p)->h3 ->Z Z-> l l l l (high mass) where h3  is SM-like (CMS-PAS-HIG-13-002)
+**************************************************************
+      [hep-ex] arXiv:1504.00936 (CMS)
+
+process  154
+  (p p)->h1 ->V V where h1  is SM-like ([hep-ex] arXiv:1504.00936 (CMS))
+process  155
+  (p p)->h2 ->V V where h2  is SM-like ([hep-ex] arXiv:1504.00936 (CMS))
+process  156
+  (p p)->h3 ->V V where h3  is SM-like ([hep-ex] arXiv:1504.00936 (CMS))
+**************************************************************
+      CDF Note 10439
+
+process  157
+  (p p-bar)->h1 +...->tau tau +... where h1  is SM-like  (CDF Note 10439)
+process  158
+  (p p-bar)->h2 +...->tau tau +... where h2  is SM-like  (CDF Note 10439)
+process  159
+  (p p-bar)->h3 +...->tau tau +... where h3  is SM-like  (CDF Note 10439)
+**************************************************************
+      D0 Note 5845
+
+process  160
+  (p p-bar)->h1 +...->tau tau (2 jets) where h1  is SM-like  (D0 Note 5845)
+process  161
+  (p p-bar)->h2 +...->tau tau (2 jets) where h2  is SM-like  (D0 Note 5845)
+process  162
+  (p p-bar)->h3 +...->tau tau (2 jets) where h3  is SM-like  (D0 Note 5845)
+**************************************************************
+      CDF Note 9999
+
+process  163
+  (p p-bar)->h1 +... where h1  is SM-like  (CDF Note 9999)
+process  164
+  (p p-bar)->h2 +... where h2  is SM-like  (CDF Note 9999)
+process  165
+  (p p-bar)->h3 +... where h3  is SM-like  (CDF Note 9999)
+**************************************************************
+      D0 Note 6305
+
+process  166
+  (p p-bar)->h1 +...->tau tau +... where h1  is SM-like  (D0 Note 6305)
+process  167
+  (p p-bar)->h2 +...->tau tau +... where h2  is SM-like  (D0 Note 6305)
+process  168
+  (p p-bar)->h3 +...->tau tau +... where h3  is SM-like  (D0 Note 6305)
+**************************************************************
+      CDF Note 10010
+
+process  169
+  (p p-bar)->V (h1 )/VBF-> (b b-bar) q q where h1  is SM-like (CDF Note 10010)
+process  170
+  (p p-bar)->V (h2 )/VBF-> (b b-bar) q q where h2  is SM-like (CDF Note 10010)
+process  171
+  (p p-bar)->V (h3 )/VBF-> (b b-bar) q q where h3  is SM-like (CDF Note 10010)
+**************************************************************
+      D0 Note 6171
+
+process  172
+  (p p-bar)->h1 +...->tau tau (2 jets) where h1  is SM-like  (D0 Note 6171)
+process  173
+  (p p-bar)->h2 +...->tau tau (2 jets) where h2  is SM-like  (D0 Note 6171)
+process  174
+  (p p-bar)->h3 +...->tau tau (2 jets) where h3  is SM-like  (D0 Note 6171)
+**************************************************************
+      D0 Note 6304
+
+process  175
+  (p p-bar)->h1 +... where h1  is SM-like  (D0 Note 6304)
+process  176
+  (p p-bar)->h2 +... where h2  is SM-like  (D0 Note 6304)
+process  177
+  (p p-bar)->h3 +... where h3  is SM-like  (D0 Note 6304)
+**************************************************************
+      CDF Note 10500
+
+process  178
+  (p p-bar)->V h1 -> V tau tau (CDF Note 10500)
+process  179
+  (p p-bar)->V h2 -> V tau tau (CDF Note 10500)
+process  180
+  (p p-bar)->V h3 -> V tau tau (CDF Note 10500)
+**************************************************************
+      CDF Note 10573
+
+process  181
+  (p p-bar)->h1 +...->V V +... ->l l l l +... where h1  is SM-like (CDF Note 10573)
+process  182
+  (p p-bar)->h2 +...->V V +... ->l l l l +... where h2  is SM-like (CDF Note 10573)
+process  183
+  (p p-bar)->h3 +...->V V +... ->l l l l +... where h3  is SM-like (CDF Note 10573)
+**************************************************************
+      D0 Note 6286
+
+process  184
+  (p p-bar)->h1 +...->tau tau +... where h1  is SM-like  (D0 Note 6286)
+process  185
+  (p p-bar)->h2 +...->tau tau +... where h2  is SM-like  (D0 Note 6286)
+process  186
+  (p p-bar)->h3 +...->tau tau +... where h3  is SM-like  (D0 Note 6286)
+**************************************************************
+      [hep-ex] arXiv:1207.0449 (TEVNPHWG)
+
+process  187
+  (p p-bar)->h1 +... where h1  is SM-like  ([hep-ex] arXiv:1207.0449 (TEVNPHWG))
+process  188
+  (p p-bar)->h2 +... where h2  is SM-like  ([hep-ex] arXiv:1207.0449 (TEVNPHWG))
+process  189
+  (p p-bar)->h3 +... where h3  is SM-like  ([hep-ex] arXiv:1207.0449 (TEVNPHWG))
+**************************************************************
+      [hep-ex] arXiv:1207.6436 (TEVNPHWG)
+
+process  190
+  (p p-bar)->V (h1 )-> (b b-bar)+...([hep-ex] arXiv:1207.6436 (TEVNPHWG))
+process  191
+  (p p-bar)->V (h2 )-> (b b-bar)+...([hep-ex] arXiv:1207.6436 (TEVNPHWG))
+process  192
+  (p p-bar)->V (h3 )-> (b b-bar)+...([hep-ex] arXiv:1207.6436 (TEVNPHWG))
+**************************************************************
+      (hep-ex) arxiv:1202.1408 (ATLAS)
+
+process  193
+  (p p)->h1 +... where h1  is SM-like ((hep-ex) arxiv:1202.1408 (ATLAS))
+process  194
+  (p p)->h2 +... where h2  is SM-like ((hep-ex) arxiv:1202.1408 (ATLAS))
+process  195
+  (p p)->h3 +... where h3  is SM-like ((hep-ex) arxiv:1202.1408 (ATLAS))
+**************************************************************
+      ATLAS-CONF-2012-019
+
+process  196
+ (p p)->h+..., h=1 where h is SM-like (ATLAS-CONF-2012-019)
+process  197
+ (p p)->h+..., h=2 where h is SM-like (ATLAS-CONF-2012-019)
+process  198
+ (p p)->h+..., h=3 where h is SM-like (ATLAS-CONF-2012-019)
+**************************************************************
+      (hep-ex) arXiv:1207.7214 (ATLAS)
+
+process  199
+ (p p)->h+..., h=1 where h is SM-like ((hep-ex) arXiv:1207.7214 (ATLAS))
+process  200
+ (p p)->h+..., h=2 where h is SM-like ((hep-ex) arXiv:1207.7214 (ATLAS))
+process  201
+ (p p)->h+..., h=3 where h is SM-like ((hep-ex) arXiv:1207.7214 (ATLAS))
+**************************************************************
+      ATLAS-CONF-2011-157, CMS-PAS-HIG-11-023
+
+process  202
+  (p p)->h1 +... where h1  is SM-like (ATLAS-CONF-2011-157, CMS-PAS-HIG-11-023)
+process  203
+  (p p)->h2 +... where h2  is SM-like (ATLAS-CONF-2011-157, CMS-PAS-HIG-11-023)
+process  204
+  (p p)->h3 +... where h3  is SM-like (ATLAS-CONF-2011-157, CMS-PAS-HIG-11-023)
+**************************************************************
+      [hep-ex] arxiv:1202.1488 (CMS)
+
+process  205
+  (p p)->h1 +... where h1  is SM-like ([hep-ex] arxiv:1202.1488 (CMS))
+process  206
+  (p p)->h2 +... where h2  is SM-like ([hep-ex] arxiv:1202.1488 (CMS))
+process  207
+  (p p)->h3 +... where h3  is SM-like ([hep-ex] arxiv:1202.1488 (CMS))
+**************************************************************
+      CMS-PAS-HIG-12-045
+
+process  208
+ (p p)->h+..., h=1 where h is SM-like (CMS-PAS-HIG-12-045)
+process  209
+ (p p)->h+..., h=2 where h is SM-like (CMS-PAS-HIG-12-045)
+process  210
+ (p p)->h+..., h=3 where h is SM-like (CMS-PAS-HIG-12-045)
+**************************************************************
+      [hep-ex] arXiv:1011.1931 (D0)
+
+process  211
+  (p p-bar)->h1 (b/b-bar)->(b b-bar) (b/b-bar)   ([hep-ex] arXiv:1011.1931 (D0))
+process  212
+  (p p-bar)->h2 (b/b-bar)->(b b-bar) (b/b-bar)   ([hep-ex] arXiv:1011.1931 (D0))
+process  213
+  (p p-bar)->h3 (b/b-bar)->(b b-bar) (b/b-bar)   ([hep-ex] arXiv:1011.1931 (D0))
+**************************************************************
+      arXiv:1106.4782 (CDF)
+
+process  214
+  (p p-bar)->h1 (b/b-bar)->(b b-bar) (b/b-bar)   (arXiv:1106.4782 (CDF))
+process  215
+  (p p-bar)->h2 (b/b-bar)->(b b-bar) (b/b-bar)   (arXiv:1106.4782 (CDF))
+process  216
+  (p p-bar)->h3 (b/b-bar)->(b b-bar) (b/b-bar)   (arXiv:1106.4782 (CDF))
+**************************************************************
+      [hep-ex] arXiv:1106.4555 (D0)
+
+process  217
+  (p p-bar)->h1 ->tau tau   ([hep-ex] arXiv:1106.4555 (D0))
+process  218
+  (p p-bar)->h2 ->tau tau   ([hep-ex] arXiv:1106.4555 (D0))
+process  219
+  (p p-bar)->h3 ->tau tau   ([hep-ex] arXiv:1106.4555 (D0))
+**************************************************************
+      [hep-ex] arXiv:0906.1014 (CDF)
+
+process  220
+  (p p-bar)->h1 ->tau tau   ([hep-ex] arXiv:0906.1014 (CDF))
+process  221
+  (p p-bar)->h2 ->tau tau   ([hep-ex] arXiv:0906.1014 (CDF))
+process  222
+  (p p-bar)->h3 ->tau tau   ([hep-ex] arXiv:0906.1014 (CDF))
+**************************************************************
+      [hep-ex] arXiv:1003.3363 (TEVNPHWG)
+
+process  223
+  (p p-bar)->h1 ->tau tau   ([hep-ex] arXiv:1003.3363 (TEVNPHWG))
+process  224
+  (p p-bar)->h2 ->tau tau   ([hep-ex] arXiv:1003.3363 (TEVNPHWG))
+process  225
+  (p p-bar)->h3 ->tau tau   ([hep-ex] arXiv:1003.3363 (TEVNPHWG))
+**************************************************************
+      ATLAS-CONF-2012-160
+
+process  226
+  (p p)->h1 ->tau tau +... where h1  is SM-like (ATLAS-CONF-2012-160)
+process  227
+  (p p)->h2 ->tau tau +... where h2  is SM-like (ATLAS-CONF-2012-160)
+process  228
+  (p p)->h3 ->tau tau +... where h3  is SM-like (ATLAS-CONF-2012-160)
+**************************************************************
+      ATLAS-CONF-2014-049,arXiv:1409.6064
+
+process  229 (DEACTIVATED BY THE USER!)
+  (p p)->bbh1 ->tau tau (ATLAS-CONF-2014-049,arXiv:1409.6064)
+process  230 (DEACTIVATED BY THE USER!)
+  (p p)->bbh2 ->tau tau (ATLAS-CONF-2014-049,arXiv:1409.6064)
+process  231 (DEACTIVATED BY THE USER!)
+  (p p)->bbh3 ->tau tau (ATLAS-CONF-2014-049,arXiv:1409.6064)
+**************************************************************
+      ATLAS-CONF-2014-049,arXiv:1409.6064
+
+process  232 (DEACTIVATED BY THE USER!)
+  (p p)->ggh1 ->tau tau (ATLAS-CONF-2014-049,arXiv:1409.6064)
+process  233 (DEACTIVATED BY THE USER!)
+  (p p)->ggh2 ->tau tau (ATLAS-CONF-2014-049,arXiv:1409.6064)
+process  234 (DEACTIVATED BY THE USER!)
+  (p p)->ggh3 ->tau tau (ATLAS-CONF-2014-049,arXiv:1409.6064)
+**************************************************************
+      CMS-PAS-HIG-12-043
+
+process  235
+  (p p)->h1 ->tau tau +... where h1  is SM-like (CMS-PAS-HIG-12-043)
+process  236
+  (p p)->h2 ->tau tau +... where h2  is SM-like (CMS-PAS-HIG-12-043)
+process  237
+  (p p)->h3 ->tau tau +... where h3  is SM-like (CMS-PAS-HIG-12-043)
+**************************************************************
+      [hep-ex] arXiv:1509.04670 (ATLAS)
+
+process  238
+  (p p)->h1 ->h(SM,125)h(SM,125)-> bb/tautau/WW/gaga (combination) ([hep-ex] arXiv:1509.04670 (ATLAS))
+process  239
+  (p p)->h2 ->h(SM,125)h(SM,125)-> bb/tautau/WW/gaga (combination) ([hep-ex] arXiv:1509.04670 (ATLAS))
+process  240
+  (p p)->h3 ->h(SM,125)h(SM,125)-> bb/tautau/WW/gaga (combination) ([hep-ex] arXiv:1509.04670 (ATLAS))
+**************************************************************
+      [hep-ex] arXiv:1509.04670 (ATLAS)
+
+process  241
+  (p p)->h1 ->h(SM,125)h(SM,125)-> gaga WW ([hep-ex] arXiv:1509.04670 (ATLAS))
+process  242
+  (p p)->h2 ->h(SM,125)h(SM,125)-> gaga WW ([hep-ex] arXiv:1509.04670 (ATLAS))
+process  243
+  (p p)->h3 ->h(SM,125)h(SM,125)-> gaga WW ([hep-ex] arXiv:1509.04670 (ATLAS))
+**************************************************************
+      [hep-ex] arXiv:1509.04670 (ATLAS)
+
+process  244
+  (p p)->h1 ->h(SM,125)h(SM,125)-> bb tautau ([hep-ex] arXiv:1509.04670 (ATLAS))
+process  245
+  (p p)->h2 ->h(SM,125)h(SM,125)-> bb tautau ([hep-ex] arXiv:1509.04670 (ATLAS))
+process  246
+  (p p)->h3 ->h(SM,125)h(SM,125)-> bb tautau ([hep-ex] arXiv:1509.04670 (ATLAS))
+**************************************************************
+      ATLAS-CONF-2013-010
+
+process  247
+  (p p)->h1 ->mu mu +... where h1  is SM-like (ATLAS-CONF-2013-010)
+process  248
+  (p p)->h2 ->mu mu +... where h2  is SM-like (ATLAS-CONF-2013-010)
+process  249
+  (p p)->h3 ->mu mu +... where h3  is SM-like (ATLAS-CONF-2013-010)
+**************************************************************
+      [hep-ex] arXiv:1406.7663 (ATLAS)
+
+process  250
+  (p p)->h1 ->mu mu +... where h1  is SM-like ([hep-ex] arXiv:1406.7663 (ATLAS))
+process  251
+  (p p)->h2 ->mu mu +... where h2  is SM-like ([hep-ex] arXiv:1406.7663 (ATLAS))
+process  252
+  (p p)->h3 ->mu mu +... where h3  is SM-like ([hep-ex] arXiv:1406.7663 (ATLAS))
+**************************************************************
+      D0 Note 5873
+
+process  253
+  (p p-bar)->W(h1 )->W W W->l l nu nu   (D0 Note 5873)
+process  254
+  (p p-bar)->W(h2 )->W W W->l l nu nu   (D0 Note 5873)
+process  255
+  (p p-bar)->W(h3 )->W W W->l l nu nu   (D0 Note 5873)
+**************************************************************
+      CDF Note 7307 vs 3
+
+process  256
+  (p p-bar)->W(h1 )->W W W   (CDF Note 7307 vs 3)
+process  257
+  (p p-bar)->W(h2 )->W W W   (CDF Note 7307 vs 3)
+process  258
+  (p p-bar)->W(h3 )->W W W   (CDF Note 7307 vs 3)
+**************************************************************
+      [hep-ex] arXiv:1107.1268 (D0)
+
+process  259
+  (p p-bar)->V h1 -> ll + X where h1  is SM-like ([hep-ex] arXiv:1107.1268 (D0))
+process  260
+  (p p-bar)->V h2 -> ll + X where h2  is SM-like ([hep-ex] arXiv:1107.1268 (D0))
+process  261
+  (p p-bar)->V h3 -> ll + X where h3  is SM-like ([hep-ex] arXiv:1107.1268 (D0))
+**************************************************************
+      CMS-PAS-HIG-13-009
+
+process  262
+  (p p)->W(h1 )->W W W where h1  is SM-like (CMS-PAS-HIG-13-009)
+process  263
+  (p p)->W(h2 )->W W W where h2  is SM-like (CMS-PAS-HIG-13-009)
+process  264
+  (p p)->W(h3 )->W W W where h3  is SM-like (CMS-PAS-HIG-13-009)
+**************************************************************
+      CMS-PAS-HIG-12-006
+
+process  265
+  (p p)->W(h1 )->W tau tau   (CMS-PAS-HIG-12-006)
+process  266
+  (p p)->W(h2 )->W tau tau   (CMS-PAS-HIG-12-006)
+process  267
+  (p p)->W(h3 )->W tau tau   (CMS-PAS-HIG-12-006)
+**************************************************************
+      CMS-PAS-HIG-12-051
+
+process  268
+  (p p)->V(h1 )->V tau tau   (CMS-PAS-HIG-12-051)
+process  269
+  (p p)->V(h2 )->V tau tau   (CMS-PAS-HIG-12-051)
+process  270
+  (p p)->V(h3 )->V tau tau   (CMS-PAS-HIG-12-051)
+**************************************************************
+      ATLAS-CONF-2012-078
+
+process  271
+  (p p)->W(h1 )->W W W where h1  is SM-like (ATLAS-CONF-2012-078)
+process  272
+  (p p)->W(h2 )->W W W where h2  is SM-like (ATLAS-CONF-2012-078)
+process  273
+  (p p)->W(h3 )->W W W where h3  is SM-like (ATLAS-CONF-2012-078)
+**************************************************************
+      D0 Note 6295
+
+process  274
+  (p p-bar)->h1 +...->gamma gamma+... where h1  is SM-like  (D0 Note 6295)
+process  275
+  (p p-bar)->h2 +...->gamma gamma+... where h2  is SM-like  (D0 Note 6295)
+process  276
+  (p p-bar)->h3 +...->gamma gamma+... where h3  is SM-like  (D0 Note 6295)
+**************************************************************
+      [hep-ex] arXiv:0901.1887 (D0)
+
+process  277
+  (p p-bar)->h1 +...->gamma gamma+... where h1  is SM-like  ([hep-ex] arXiv:0901.1887 (D0))
+process  278
+  (p p-bar)->h2 +...->gamma gamma+... where h2  is SM-like  ([hep-ex] arXiv:0901.1887 (D0))
+process  279
+  (p p-bar)->h3 +...->gamma gamma+... where h3  is SM-like  ([hep-ex] arXiv:0901.1887 (D0))
+**************************************************************
+      CDF Note 10485
+
+process  280
+  (p p-bar)->h1 +...->gamma gamma+... where h1  is SM-like  (CDF Note 10485)
+process  281
+  (p p-bar)->h2 +...->gamma gamma+... where h2  is SM-like  (CDF Note 10485)
+process  282
+  (p p-bar)->h3 +...->gamma gamma+... where h3  is SM-like  (CDF Note 10485)
+**************************************************************
+      [hep-ex] arXiv:1107.4960 (TEVNPHWG)
+
+process  283
+  (p p-bar)->h1 +...->gamma gamma+... where h1  is SM-like  ([hep-ex] arXiv:1107.4960 (TEVNPHWG))
+process  284
+  (p p-bar)->h2 +...->gamma gamma+... where h2  is SM-like  ([hep-ex] arXiv:1107.4960 (TEVNPHWG))
+process  285
+  (p p-bar)->h3 +...->gamma gamma+... where h3  is SM-like  ([hep-ex] arXiv:1107.4960 (TEVNPHWG))
+**************************************************************
+      [hep-ex] arXiv:1202.1414 (ATLAS)
+
+process  286
+  (p p)->h1 +...->gamma gamma+... where h1  is SM-like ([hep-ex] arXiv:1202.1414 (ATLAS))
+process  287
+  (p p)->h2 +...->gamma gamma+... where h2  is SM-like ([hep-ex] arXiv:1202.1414 (ATLAS))
+process  288
+  (p p)->h3 +...->gamma gamma+... where h3  is SM-like ([hep-ex] arXiv:1202.1414 (ATLAS))
+**************************************************************
+      ATLAS-CONF-2012-168
+
+process  289
+  (p p)->h1 +...->gamma gamma+... where h1  is SM-like (ATLAS-CONF-2012-168)
+process  290
+  (p p)->h2 +...->gamma gamma+... where h2  is SM-like (ATLAS-CONF-2012-168)
+process  291
+  (p p)->h3 +...->gamma gamma+... where h3  is SM-like (ATLAS-CONF-2012-168)
+**************************************************************
+      [hep-ex] arXiv:1407.6583
+
+process  292
+  (p p)->h1 /VBF/Wh1 /Zh1 /tth1 ->gamma gamma  ([hep-ex] arXiv:1407.6583)
+process  293
+  (p p)->h2 /VBF/Wh2 /Zh2 /tth2 ->gamma gamma  ([hep-ex] arXiv:1407.6583)
+process  294
+  (p p)->h3 /VBF/Wh3 /Zh3 /tth3 ->gamma gamma  ([hep-ex] arXiv:1407.6583)
+**************************************************************
+      [hep-ex] arXiv:1507.05930 (ATLAS)
+
+process  295
+  (p p)->h1 ->Z Z ([hep-ex] arXiv:1507.05930 (ATLAS))
+process  296
+  (p p)->h2 ->Z Z ([hep-ex] arXiv:1507.05930 (ATLAS))
+process  297
+  (p p)->h3 ->Z Z ([hep-ex] arXiv:1507.05930 (ATLAS))
+**************************************************************
+      [hep-ex] arXiv:1507.05930 (ATLAS)
+
+process  298
+  (p p)->h1 (VBF)->Z Z ([hep-ex] arXiv:1507.05930 (ATLAS))
+process  299
+  (p p)->h2 (VBF)->Z Z ([hep-ex] arXiv:1507.05930 (ATLAS))
+process  300
+  (p p)->h3 (VBF)->Z Z ([hep-ex] arXiv:1507.05930 (ATLAS))
+**************************************************************
+      [hep-ex] arXiv:1509.00389 (ATLAS)
+
+process  301
+  (p p)->h1 ->W W (employs NWA)([hep-ex] arXiv:1509.00389 (ATLAS))
+process  302
+  (p p)->h2 ->W W (employs NWA)([hep-ex] arXiv:1509.00389 (ATLAS))
+process  303
+  (p p)->h3 ->W W (employs NWA)([hep-ex] arXiv:1509.00389 (ATLAS))
+**************************************************************
+      [hep-ex] arXiv:1509.00389 (ATLAS)
+
+process  304
+  (p p)->VBF, h1 ->W W (employs NWA)([hep-ex] arXiv:1509.00389 (ATLAS))
+process  305
+  (p p)->VBF, h2 ->W W (employs NWA)([hep-ex] arXiv:1509.00389 (ATLAS))
+process  306
+  (p p)->VBF, h3 ->W W (employs NWA)([hep-ex] arXiv:1509.00389 (ATLAS))
+**************************************************************
+      [hep-ex] arXiv:1509.00389 (ATLAS)
+
+process  307
+  (p p)->h1 ->W W (assumes SM Higgs width, employs CPS)([hep-ex] arXiv:1509.00389 (ATLAS))
+process  308
+  (p p)->h2 ->W W (assumes SM Higgs width, employs CPS)([hep-ex] arXiv:1509.00389 (ATLAS))
+process  309
+  (p p)->h3 ->W W (assumes SM Higgs width, employs CPS)([hep-ex] arXiv:1509.00389 (ATLAS))
+**************************************************************
+      [hep-ex] arXiv:1509.00389 (ATLAS)
+
+process  310
+  (p p)->VBF, h1 ->W W (assumes SM Higgs width, employs CPS)([hep-ex] arXiv:1509.00389 (ATLAS))
+process  311
+  (p p)->VBF, h2 ->W W (assumes SM Higgs width, employs CPS)([hep-ex] arXiv:1509.00389 (ATLAS))
+process  312
+  (p p)->VBF, h3 ->W W (assumes SM Higgs width, employs CPS)([hep-ex] arXiv:1509.00389 (ATLAS))
+**************************************************************
+      CMS-PAS-HIG-13-001
+
+process  313
+  (p p)->h1 +...->gamma gamma+... where h1  is SM-like (CMS-PAS-HIG-13-001)
+process  314
+  (p p)->h2 +...->gamma gamma+... where h2  is SM-like (CMS-PAS-HIG-13-001)
+process  315
+  (p p)->h3 +...->gamma gamma+... where h3  is SM-like (CMS-PAS-HIG-13-001)
+**************************************************************
+      CMS-PAS-HIG-14-037
+
+process  316
+  (p p)->h1 /VBF/Wh1 /Zh1 /tth1 ->gamma gamma  (CMS-PAS-HIG-14-037)
+process  317
+  (p p)->h2 /VBF/Wh2 /Zh2 /tth2 ->gamma gamma  (CMS-PAS-HIG-14-037)
+process  318
+  (p p)->h3 /VBF/Wh3 /Zh3 /tth3 ->gamma gamma  (CMS-PAS-HIG-14-037)
+**************************************************************
+      CMS-PAS-HIG-14-031
+
+process  319
+  (p p)->h1 ->Z gamma -> l l gamma (CMS-PAS-HIG-14-031)
+process  320
+  (p p)->h2 ->Z gamma -> l l gamma (CMS-PAS-HIG-14-031)
+process  321
+  (p p)->h3 ->Z gamma -> l l gamma (CMS-PAS-HIG-14-031)
+**************************************************************
+      [hep-ex] arXiv:1307.5515 (CMS)
+
+process  322
+  (p p)->h1 +...->gamma Z+... where h1  is SM-like ([hep-ex] arXiv:1307.5515 (CMS))
+process  323
+  (p p)->h2 +...->gamma Z+... where h2  is SM-like ([hep-ex] arXiv:1307.5515 (CMS))
+process  324
+  (p p)->h3 +...->gamma Z+... where h3  is SM-like ([hep-ex] arXiv:1307.5515 (CMS))
+**************************************************************
+      [hep-ex] arXiv:1402.3051 (ATLAS)
+
+process  325
+  (p p)->h1 +...->gamma Z+... where h1  is SM-like ([hep-ex] arXiv:1402.3051 (ATLAS))
+process  326
+  (p p)->h2 +...->gamma Z+... where h2  is SM-like ([hep-ex] arXiv:1402.3051 (ATLAS))
+process  327
+  (p p)->h3 +...->gamma Z+... where h3  is SM-like ([hep-ex] arXiv:1402.3051 (ATLAS))
+**************************************************************
+      [hep-ex] arXiv:1106.4885 (D0)
+
+process  328
+  (p p-bar)->h1 (b/b-bar)->(tau tau) (b/b-bar)   ([hep-ex] arXiv:1106.4885 (D0))
+process  329
+  (p p-bar)->h2 (b/b-bar)->(tau tau) (b/b-bar)   ([hep-ex] arXiv:1106.4885 (D0))
+process  330
+  (p p-bar)->h3 (b/b-bar)->(tau tau) (b/b-bar)   ([hep-ex] arXiv:1106.4885 (D0))
+**************************************************************
+      D0 Note 6083
+
+process  331
+  (p p-bar)->h1 (b/b-bar)->(tau tau) (b/b-bar)   (D0 Note 6083)
+process  332
+  (p p-bar)->h2 (b/b-bar)->(tau tau) (b/b-bar)   (D0 Note 6083)
+process  333
+  (p p-bar)->h3 (b/b-bar)->(tau tau) (b/b-bar)   (D0 Note 6083)
+**************************************************************
+      D0 Note 5739
+
+process  334
+  (p p-bar)->t t-bar h1 ->t t-bar b b-bar   (D0 Note 5739)
+process  335
+  (p p-bar)->t t-bar h2 ->t t-bar b b-bar   (D0 Note 5739)
+process  336
+  (p p-bar)->t t-bar h3 ->t t-bar b b-bar   (D0 Note 5739)
+**************************************************************
+      CDF Note 10574
+
+process  337
+  (p p-bar)->t t-bar h1 ->t t-bar b b-bar   (CDF Note 10574)
+process  338
+  (p p-bar)->t t-bar h2 ->t t-bar b b-bar   (CDF Note 10574)
+process  339
+  (p p-bar)->t t-bar h3 ->t t-bar b b-bar   (CDF Note 10574)
+**************************************************************
+      ATLAS-CONF-2012-135
+
+process  340
+  (p p)->t t-bar h1 ->t t-bar b b-bar   (ATLAS-CONF-2012-135)
+process  341
+  (p p)->t t-bar h2 ->t t-bar b b-bar   (ATLAS-CONF-2012-135)
+process  342
+  (p p)->t t-bar h3 ->t t-bar b b-bar   (ATLAS-CONF-2012-135)
+**************************************************************
+      CMS-PAS-HIG-12-025
+
+process  343
+  (p p)->t t-bar h1 ->t t-bar b b-bar   (CMS-PAS-HIG-12-025)
+process  344
+  (p p)->t t-bar h2 ->t t-bar b b-bar   (CMS-PAS-HIG-12-025)
+process  345
+  (p p)->t t-bar h3 ->t t-bar b b-bar   (CMS-PAS-HIG-12-025)
+**************************************************************
+      [hep-ex] arXiv:0806.0611 (D0)
+
+process  346
+  (p p-bar)->h1 ->Z gamma   ([hep-ex] arXiv:0806.0611 (D0))
+process  347
+  (p p-bar)->h2 ->Z gamma   ([hep-ex] arXiv:0806.0611 (D0))
+process  348
+  (p p-bar)->h3 ->Z gamma   ([hep-ex] arXiv:0806.0611 (D0))
+**************************************************************
+      [hep-ex] arXiv:0905.3381, table I (D0)
+
+process  349
+  ***
+process  350
+  (p p-bar)->h1 ->h2  h2 ->mu mu mu mu   ([hep-ex] arXiv:0905.3381, table I (D0))
+process  351
+  (p p-bar)->h1 ->h3  h3 ->mu mu mu mu   ([hep-ex] arXiv:0905.3381, table I (D0))
+ ------------------------------------------------------------ 
+process  352
+  (p p-bar)->h2 ->h1  h1 ->mu mu mu mu   ([hep-ex] arXiv:0905.3381, table I (D0))
+process  353
+  ***
+process  354
+  (p p-bar)->h2 ->h3  h3 ->mu mu mu mu   ([hep-ex] arXiv:0905.3381, table I (D0))
+ ------------------------------------------------------------ 
+process  355
+  (p p-bar)->h3 ->h1  h1 ->mu mu mu mu   ([hep-ex] arXiv:0905.3381, table I (D0))
+process  356
+  (p p-bar)->h3 ->h2  h2 ->mu mu mu mu   ([hep-ex] arXiv:0905.3381, table I (D0))
+process  357
+  ***
+**************************************************************
+      [hep-ex] arXiv:0905.3381, table II (D0)
+
+process  358
+  ***
+process  359
+  (p p-bar)->h1 ->h2  h2 ->tau tau mu mu   ([hep-ex] arXiv:0905.3381, table II (D0))
+process  360
+  (p p-bar)->h1 ->h3  h3 ->tau tau mu mu   ([hep-ex] arXiv:0905.3381, table II (D0))
+ ------------------------------------------------------------ 
+process  361
+  (p p-bar)->h2 ->h1  h1 ->tau tau mu mu   ([hep-ex] arXiv:0905.3381, table II (D0))
+process  362
+  ***
+process  363
+  (p p-bar)->h2 ->h3  h3 ->tau tau mu mu   ([hep-ex] arXiv:0905.3381, table II (D0))
+ ------------------------------------------------------------ 
+process  364
+  (p p-bar)->h3 ->h1  h1 ->tau tau mu mu   ([hep-ex] arXiv:0905.3381, table II (D0))
+process  365
+  (p p-bar)->h3 ->h2  h2 ->tau tau mu mu   ([hep-ex] arXiv:0905.3381, table II (D0))
+process  366
+  ***
+**************************************************************
+      D0 Note 6227
+
+process  367
+  (p p-bar)->h1 (b/b-bar)->(b b-bar) (b/b-bar) or (tau tau) (b/b-bar) (D0 Note 6227)
+ ------------------------------------------------------------ 
+process  368
+  (p p-bar)->h2 (b/b-bar)->(b b-bar) (b/b-bar) or (tau tau) (b/b-bar) (D0 Note 6227)
+ ------------------------------------------------------------ 
+process  369
+  (p p-bar)->h3 (b/b-bar)->(b b-bar) (b/b-bar) or (tau tau) (b/b-bar) (D0 Note 6227)
+**************************************************************
+      [hep-ex] arXiv:1406.5053 (ATLAS)
+
+process  370
+  ***
+process  371
+  (p p)->h1 ->h2  h2 ->gamma gamma b b, where h2  is SM-like around 125 GeV  ([hep-ex] arXiv:1406.5053 (ATLAS))
+process  372
+  (p p)->h1 ->h3  h3 ->gamma gamma b b, where h3  is SM-like around 125 GeV  ([hep-ex] arXiv:1406.5053 (ATLAS))
+ ------------------------------------------------------------ 
+process  373
+  (p p)->h2 ->h1  h1 ->gamma gamma b b, where h1  is SM-like around 125 GeV  ([hep-ex] arXiv:1406.5053 (ATLAS))
+process  374
+  ***
+process  375
+  (p p)->h2 ->h3  h3 ->gamma gamma b b, where h3  is SM-like around 125 GeV  ([hep-ex] arXiv:1406.5053 (ATLAS))
+ ------------------------------------------------------------ 
+process  376
+  (p p)->h3 ->h1  h1 ->gamma gamma b b, where h1  is SM-like around 125 GeV  ([hep-ex] arXiv:1406.5053 (ATLAS))
+process  377
+  (p p)->h3 ->h2  h2 ->gamma gamma b b, where h2  is SM-like around 125 GeV  ([hep-ex] arXiv:1406.5053 (ATLAS))
+process  378
+  ***
+**************************************************************
+      CMS-PAS-HIG-13-032
+
+process  379
+  ***
+process  380
+  (p p)->h1 ->h2  h2 ->gamma gamma b b, where h2  lies around 125 GeV  (CMS-PAS-HIG-13-032)
+process  381
+  (p p)->h1 ->h3  h3 ->gamma gamma b b, where h3  lies around 125 GeV  (CMS-PAS-HIG-13-032)
+ ------------------------------------------------------------ 
+process  382
+  (p p)->h2 ->h1  h1 ->gamma gamma b b, where h1  lies around 125 GeV  (CMS-PAS-HIG-13-032)
+process  383
+  ***
+process  384
+  (p p)->h2 ->h3  h3 ->gamma gamma b b, where h3  lies around 125 GeV  (CMS-PAS-HIG-13-032)
+ ------------------------------------------------------------ 
+process  385
+  (p p)->h3 ->h1  h1 ->gamma gamma b b, where h1  lies around 125 GeV  (CMS-PAS-HIG-13-032)
+process  386
+  (p p)->h3 ->h2  h2 ->gamma gamma b b, where h2  lies around 125 GeV  (CMS-PAS-HIG-13-032)
+process  387
+  ***
+**************************************************************
+      CMS-PAS-HIG-14-013
+
+process  388
+  ***
+process  389
+  (p p)->h1 ->h2  h2 ->b b b b, where h2  lies around 125 GeV  (CMS-PAS-HIG-14-013)
+process  390
+  (p p)->h1 ->h3  h3 ->b b b b, where h3  lies around 125 GeV  (CMS-PAS-HIG-14-013)
+ ------------------------------------------------------------ 
+process  391
+  (p p)->h2 ->h1  h1 ->b b b b, where h1  lies around 125 GeV  (CMS-PAS-HIG-14-013)
+process  392
+  ***
+process  393
+  (p p)->h2 ->h3  h3 ->b b b b, where h3  lies around 125 GeV  (CMS-PAS-HIG-14-013)
+ ------------------------------------------------------------ 
+process  394
+  (p p)->h3 ->h1  h1 ->b b b b, where h1  lies around 125 GeV  (CMS-PAS-HIG-14-013)
+process  395
+  (p p)->h3 ->h2  h2 ->b b b b, where h2  lies around 125 GeV  (CMS-PAS-HIG-14-013)
+process  396
+  ***
+**************************************************************
+      CMS-PAS-HIG-14-022
+
+process  397
+  ***
+process  398
+  (p p)->h1 ->h2  h2 ->tau tau tau tau, where h1  lies around 125 GeV and is SM-like (CMS-PAS-HIG-14-022)
+process  399
+  (p p)->h1 ->h3  h3 ->tau tau tau tau, where h1  lies around 125 GeV and is SM-like (CMS-PAS-HIG-14-022)
+ ------------------------------------------------------------ 
+process  400
+  (p p)->h2 ->h1  h1 ->tau tau tau tau, where h2  lies around 125 GeV and is SM-like (CMS-PAS-HIG-14-022)
+process  401
+  ***
+process  402
+  (p p)->h2 ->h3  h3 ->tau tau tau tau, where h2  lies around 125 GeV and is SM-like (CMS-PAS-HIG-14-022)
+ ------------------------------------------------------------ 
+process  403
+  (p p)->h3 ->h1  h1 ->tau tau tau tau, where h3  lies around 125 GeV and is SM-like (CMS-PAS-HIG-14-022)
+process  404
+  (p p)->h3 ->h2  h2 ->tau tau tau tau, where h3  lies around 125 GeV and is SM-like (CMS-PAS-HIG-14-022)
+process  405
+  ***
+**************************************************************
+      [hep-ex] arXiv:1506.02301 (CMS)
+
+process  406
+  (p p)->h1 /VBF/Wh1 /Zh1 /tth1 ->gamma gamma (including widths effects)([hep-ex] arXiv:1506.02301 (CMS))
+ ------------------------------------------------------------ 
+process  407
+  (p p)->h2 /VBF/Wh2 /Zh2 /tth2 ->gamma gamma (including widths effects)([hep-ex] arXiv:1506.02301 (CMS))
+ ------------------------------------------------------------ 
+process  408
+  (p p)->h3 /VBF/Wh3 /Zh3 /tth3 ->gamma gamma (including widths effects)([hep-ex] arXiv:1506.02301 (CMS))
+**************************************************************
+      [hep-ex] arXiv:1509.00389 (ATLAS)
+
+process  409
+  (p p)->h1 /VBF->W W (including widths effects)([hep-ex] arXiv:1509.00389 (ATLAS))
+ ------------------------------------------------------------ 
+process  410
+  (p p)->h2 /VBF->W W (including widths effects)([hep-ex] arXiv:1509.00389 (ATLAS))
+ ------------------------------------------------------------ 
+process  411
+  (p p)->h3 /VBF->W W (including widths effects)([hep-ex] arXiv:1509.00389 (ATLAS))
+**************************************************************
+      CMS-HIG-PAS 14-029
+
+process  412 (DEACTIVATED BY THE USER!)
+ (pp)->h1->tautau, using -2ln(L) reconstruction  (CMS-HIG-PAS 14-029)
+process  413 (DEACTIVATED BY THE USER!)
+ (pp)->h2->tautau, using -2ln(L) reconstruction  (CMS-HIG-PAS 14-029)
+process  414 (DEACTIVATED BY THE USER!)
+ (pp)->h3->tautau, using -2ln(L) reconstruction  (CMS-HIG-PAS 14-029)

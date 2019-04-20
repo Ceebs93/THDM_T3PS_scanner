@@ -1,0 +1,12 @@
+*.pyc
+MCMC/job_submission/jobs/*
+*.o
+*.a
+*lib/*
+*.pyc
+*bin/
+links/inc/
+links/lib/
+MCMC/job_submission/tests/
+2HDM-Processor/*.txt
+2HDM-Processor/*.dat

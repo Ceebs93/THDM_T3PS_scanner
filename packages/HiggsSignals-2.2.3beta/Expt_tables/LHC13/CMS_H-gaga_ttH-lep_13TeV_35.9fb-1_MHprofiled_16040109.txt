@@ -1,0 +1,13 @@
+# Data taken from additional Fig.1, CMS-PAS-HIG-16-040
+16040109	1604009		1
+CMS-PAS-HIG-16-040
+LHC, CMS, CMS
+(pp)->h->gaga (ttH leptonic)
+13	35.9	0.025
+1	0
+2.5
+125.09 125.09 1.0
+5	125.09
+11 21 31 41 51
+1	0.28	23.10	28.27	4395.12
+125.09		1.8		2.9		4.3

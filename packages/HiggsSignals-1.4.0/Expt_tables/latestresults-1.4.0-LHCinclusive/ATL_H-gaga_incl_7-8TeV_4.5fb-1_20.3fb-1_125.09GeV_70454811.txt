@@ -1,0 +1,16 @@
+# The signal strengths is measured at mH = 125.36 GeV, taken from arXiv:1507.04548, Fig.2.
+#
+# NOTE: This observable carries the ATLAS+CMS combined mass measurement (arXiv:1503.07589).
+# of 125.09 +- 0.21 (stat) +- 0.11 (syst) GeV. Here, we add these uncertainties linearly.
+70454811	7045481	1
+arXiv:1507.04548,arXiv:1408.7084
+LHC, ATL, ATL
+(pp)->h->gammagamma (inclusive)
+8 	20.3	0.028
+1	1
+0.32 ATLCMScomb
+125.09 125.09 0.1
+5	-1
+11 21 31 41 51
+
+125.09	0.91   1.17   1.45

@@ -1,0 +1,17 @@
+# Simplified Template Cross Section Measurement for qq->Hqq (jet pT>200 GeV) production.
+# Data taken from Tab.21, CERN-EP-2017-288
+# Eff. calc with Rivet script
+2017288113
+CERN-EP-2017-288
+LHC, ATL, ATL
+(pp)->h->gamma gamma (qq->Hqq)
+13	36.1	0.032
+0	0
+
+125.09
+2.5
+3      125.09
+21 31 41
+1.00 0.210864 0.173017
+-0.0052	     -0.0032	-0.0013
+ 0.0004	      0.0005	 0.0006

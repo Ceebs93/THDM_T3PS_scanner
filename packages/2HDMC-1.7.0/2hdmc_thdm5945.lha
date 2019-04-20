@@ -1,0 +1,39 @@
+
+2HDM parameters in physical mass basis:
+      m_h:     71.95579
+      m_H:    305.28687
+      m_A:    300.00000
+     m_H+:    310.54970
+ sin(b-a):     -0.99895
+ lambda_6:      0.00000
+ lambda_7:      0.00000
+    m12^2:  27000.00000
+tan(beta):      3.00000
+
+2HDM parameters in generic basis:
+ lambda_1:      0.13819
+ lambda_2:      0.13819
+ lambda_3:      0.07430
+ lambda_4:     -0.21249
+ lambda_5:      0.00000
+ lambda_6:      0.00000
+ lambda_7:      0.00000
+    m12^2:  27000.00000
+tan(beta):      3.00000
+
+Constraints:
+ Tree-level unitarity: 1
+ Perturbativity:       1
+ Stability:            1
+
+Oblique parameters:
+ S            -5.20856e-02
+ T             3.10308e-02
+ U             1.68652e-03
+ V            -1.59347e-02
+ W            -9.99685e-03
+ X            -6.16100e-05
+ Delta_rho     9.21182e-05
+ Delta_amu    -3.64943e-12
+
+LesHouches output written to file /home/de3u14/lib/build/hep/SuperIso/superiso_v3.6/tmp/thdm5945.lha

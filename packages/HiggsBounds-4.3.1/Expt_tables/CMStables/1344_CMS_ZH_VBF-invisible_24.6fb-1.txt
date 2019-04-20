@@ -1,0 +1,12 @@
+# arXiv:1404.1344, April 2014, CMS
+# 1344_CMS_ZH_VBF-invisible_24.6fb-1
+# Fig. 12
+# mass obs exp (ZH+VBF x BR(H->inv) normalized to SM expectation)
+
+       115.0          0.5517          0.4113    
+       120.0          0.5635          0.4268    
+       125.0          0.5754          0.4424    
+       130.0          0.6005          0.4490    
+       135.0          0.6256          0.4557    
+       140.0          0.6441          0.4653    
+       145.0          0.6626          0.4749    

@@ -1,0 +1,17 @@
+# Simplified Template Cross Section Measurement for ggH (1j-low) production.
+# Data taken from Tab.21, CERN-EP-2017-288
+# Eff. calc with Rivet script
+2017288102
+CERN-EP-2017-288
+LHC, ATL, ATL
+(pp)->h->gamma gamma (ggH 1j-low)
+13	36.1	0.032
+0	0
+
+125.09
+2.5
+2      125.09
+11 41
+1.0 0.0066656
+0.010	0.023	0.037
+0.013	0.015	0.017

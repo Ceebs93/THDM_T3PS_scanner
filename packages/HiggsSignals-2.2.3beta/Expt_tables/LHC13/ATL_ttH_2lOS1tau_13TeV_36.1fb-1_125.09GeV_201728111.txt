@@ -1,0 +1,15 @@
+# Results from CERN-EP-2017-281
+# Data from Fig. 13., Signal composition from Fig. 4 Left
+# Assumption: H->other  contains only H->mumu and H->bb with relative signal  fractions as in SM
+201728111	20172811		1
+CERN-EP-2017-281
+LHC, ATL, ATL
+(pp)->tth->multilepton (2lOS 1tau_h)
+13 	36.1	0.021
+1	0
+10
+125 125 0.1
+5	125
+52 53 54 55 58
+1.00 0.3093 5.01867 0.031933 0.031933
+125	-0.2	1.7	3.8

@@ -1,0 +1,230 @@
+#     interactions_sm_v1.0.dat
+#
+#       File which contains allowed interactions. Must be named
+#       interactions.dat and reside in the current directory for MadGraph
+#       to see it.
+#
+#       3-particle vertices are entered as follows:
+#
+#       particle1 particle2  particle3 coupling_name model (QCD,QFD,QED,BRS)
+#
+#       Note: The ordering of particles is very important.
+#       For FFV interactions, must use particles, not anti_particles.
+#
+
+#
+# QCD interactions
+#
+
+d d g GG QCD
+u u g GG QCD
+s s g GG QCD
+c c g GG QCD
+b b g GG QCD
+t t g GG QCD
+
+g g g G  QCD
+
+g g g g G G QCD QCD
+
+#
+# QED interactions
+#
+
+d d a GAD QED
+u u a GAU QED
+s s a GAD QED
+c c a GAU QED
+b b a GAD QED
+t t a GAU QED
+
+e-  e-  a GAL QED
+mu- mu- a GAL QED
+ta- ta- a GAL QED
+
+#
+# QFD Interactions
+#
+
+# FFV (qqZ)
+d d z GZD QED
+u u z GZU QED
+s s z GZD QED
+c c z GZU QED
+b b z GZD QED
+t t z GZU QED
+
+# FFV (llZ)
+e-  e-  z GZL QED
+mu- mu- z GZL QED
+ta- ta- z GZL QED
+ve  ve  z GZN QED
+vm  vm  z GZN QED
+vt  vt  z GZN QED
+
+# FFV (qq'W) - diagonal CKM
+d u w- GWFUD QED
+s c w- GWFCS QED
+b t w- GWFTB QED
+u d w+ GWFUD QED
+c s w+ GWFCS QED
+t b w+ GWFTB QED
+
+# FFV (qq'W) - off-diagonal
+d c w- GWFCD QED
+d t w- GWFTD QED
+s u w- GWFUS QED
+s t w- GWFTS QED
+b u w- GWFUB QED
+b c w- GWFCB QED
+c d w+ GWFCD QED
+t d w+ GWFTD QED
+u s w+ GWFUS QED
+t s w+ GWFTS QED
+u b w+ GWFUB QED
+c b w+ GWFCB QED
+
+# FFV (ll'W)
+ve  e-  w+ GWF QED
+vm  mu- w+ GWF QED
+vt  ta- w+ GWF QED
+e-  ve  w- GWF QED
+mu- vm  w- GWF QED
+ta- vt  w- GWF QED
+
+#
+# Boson 3-,4-pt
+#
+
+#   VVV
+w- w+ a  GWWA  QED
+w- w+ z  GWWZ  QED
+
+#   VVVV
+w- a  w+ a  GWWA  GWWA  QED QED
+w- z  w+ a  GWWZ  GWWA  QED QED
+w- z  w+ z  GWWZ  GWWZ  QED QED
+w- w+ w- w+ GWWZ  GWWA  QED QED
+
+#   USRVertex
+# New interactions
+
+# FFS (Yukawa-type)
+e-  e-  h1 GH1EE   QED
+e-  e-  h2 GH2EE   QED
+e-  e-  h3 GH3EE   QED
+
+mu- mu- h1 GH1MUMU QED
+mu- mu- h2 GH2MUMU QED
+mu- mu- h3 GH3MUMU QED
+
+ta- ta- h1 GH1TATA QED
+ta- ta- h2 GH2TATA QED
+ta- ta- h3 GH3TATA QED
+
+u   u   h1 GH1UU   QED
+u   u   h2 GH2UU   QED
+u   u   h3 GH3UU   QED
+c   c   h1 GH1CC   QED
+c   c   h2 GH2CC   QED
+c   c   h3 GH3CC   QED
+t   t   h1 GH1TT   QED
+t   t   h2 GH2TT   QED
+t   t   h3 GH3TT   QED
+
+d   d   h1 GH1DD   QED
+d   d   h2 GH2DD   QED
+d   d   h3 GH3DD   QED
+s   s   h1 GH1SS   QED
+s   s   h2 GH2SS   QED
+s   s   h3 GH3SS   QED
+b   b   h1 GH1BB   QED
+b   b   h2 GH2BB   QED
+b   b   h3 GH3BB   QED
+
+# FFS (Charged)
+u   d   h+ GHCUD   QED
+u   s   h+ GHCUS   QED
+u   b   h+ GHCUB   QED
+c   d   h+ GHCCD   QED
+c   s   h+ GHCCS   QED
+c   b   h+ GHCCB   QED
+t   d   h+ GHCTD   QED
+t   s   h+ GHCTS   QED
+t   b   h+ GHCTB   QED
+
+d   u   h- GHCDU   QED
+d   c   h- GHCDC   QED
+d   t   h- GHCDT   QED
+s   u   h- GHCSU   QED
+s   c   h- GHCSC   QED
+s   t   h- GHCST   QED
+b   u   h- GHCBU   QED
+b   c   h- GHCBC   QED
+b   t   h- GHCBT   QED
+
+ve  e+  h+ GHCVEE  QED
+vm  mu+ h+ GHCVMMU QED
+vt  ta+ h+ GHCVTTA QED
+
+e-  ve  h- GHCEVE  QED
+mu- vm  h- GHCMUVM QED
+ta- vt  h- GHCTAVT QED
+
+#   VVS
+w-  w+  h1 GWWH1   QED
+w-  w+  h2 GWWH2   QED
+z   z   h1 GZZH1   QED
+z   z   h2 GZZH2   QED
+
+#   VSS
+a   h-  h+ GAHCHC  QED
+
+z   h1  h2 GZH1H2  QED
+z   h1  h3 GZH1H3  QED
+z   h2  h3 GZH2H3  QED
+z   h+  h- GZHCHC  QED
+
+w+  h-  h1 GWPHCH1 QED
+w-  h1  h+ GWMH1HC QED
+w+  h-  h2 GWPHCH2 QED
+w-  h2  h+ GWMH2HC QED
+w+  h-  h3 GWPHCH3 QED
+w-  h3  h+ GWMH3HC QED
+
+#   SSS
+h1  h1  h1 GH1H1H1 QED
+h1  h1  h2 GH1H1H2 QED
+h1  h2  h2 GH1H2H2 QED
+h1  h3  h3 GH1H3H3 QED
+h2  h2  h2 GH2H2H2 QED
+h2  h3  h3 GH2H3H3 QED
+
+h1  h+  h- GH1HCHC QED
+h2  h+  h- GH2HCHC QED
+
+#   VVSS
+a   a   h+  h- GAAHCHC  GAAHCHC  QED QED
+a   z   h+  h- GAZHCHC  GAZHCHC  QED QED
+a   w+  h+  h1 GAWPHCH1 GAWPHCH1 QED QED
+a   w+  h+  h2 GAWPHCH2 GAWPHCH2 QED QED
+a   w+  h+  h3 GAWPHCH3 GAWPHCH3 QED QED
+a   w-  h1  h- GAWMH1HC GAWMH1HC QED QED
+a   w-  h2  h- GAWMH2HC GAWMH2HC QED QED
+a   w-  h3  h- GAWMH3HC GAWMH3HC QED QED
+
+z   z   h1  h1 GZZH1H1  GZZH1H1  QED QED
+z   z   h2  h2 GZZH2H2  GZZH1H2  QED QED
+z   z   h3  h3 GZZH3H3  GZZH3H3  QED QED
+z   z   h+  h- GZZHCHC  GZZHCHC  QED QED
+z   w+  h+  h1 GZWPHCH1 GZWPHCH1 QED QED
+z   w+  h+  h2 GZWPHCH2 GZWPHCH2 QED QED
+z   w+  h+  h3 GZWPHCH3 GZWPHCH3 QED QED
+z   w-  h1  h- GZWMH1HC GZWMH1HC QED QED
+z   w-  h2  h- GZWMH2HC GZWMH2HC QED QED
+z   w-  h3  h- GZWMH3HC GZWMH3HC QED QED
+
+w+  w-  h1  h1 GWWH1H1  GWWH1H1  QED QED
+w+  w-  h2  h2 GWWH2H2  GWWH2H2  QED QED
+w+  w-  h3  h3 GWWH3H3  GWWH3H3  QED QED
+w+  w-  h+  h- GWWHCHC  GWWHCHC  QED QED

@@ -1,0 +1,18 @@
+# Simplified Template Cross Section Measurement for ggH (2j-BSM) production.
+# Data taken from Tab.21, CERN-EP-2017-288
+# Eff. calc with Rivet script
+2017288109
+CERN-EP-2017-288
+LHC, ATL, ATL
+(pp)->h->gamma gamma (ggH 2j-BSM)
+13	36.1	0.032
+0	0
+
+125.09
+2.5
+2	125.09
+11 41
+1.0 0.556696
+0.0012 0.0026 0.0042
+0.0007 0.0010 0.0013
+

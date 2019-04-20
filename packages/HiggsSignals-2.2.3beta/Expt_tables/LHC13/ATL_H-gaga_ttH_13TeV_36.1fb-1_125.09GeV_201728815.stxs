@@ -1,0 +1,17 @@
+# Simplified Template Cross Section Measurement for ttH production.
+# Data taken from Tab.21, CERN-EP-2017-288
+# Eff. calc with Rivet script
+2017288115
+CERN-EP-2017-288
+LHC, ATL, ATL
+(pp)->h->gamma gamma (top)
+13	36.1	0.032
+0	0
+
+125.09
+2.5
+1       125.09
+51
+1.0
+0.0000	0.0007	0.0015
+0.0012	0.0013	0.0014

@@ -1,0 +1,16 @@
+# WARNING: Do not use together with category measurements!
+# Data taken from Eq.(16) in ATL-CONF-2014-060.
+# Published in October 2014.
+2014060100	201406000	1
+ATL-CONF-2014-060
+LHC, ATL, ATL
+(pp)->h->WW->lnulnu (inclusive)
+8 	24.8	0.028
+1	0
+8.0
+125.36 125.36 0.1
+5	-1
+12 22 32 42 52
+
+       125.36          0.88		1.08	1.30
+       

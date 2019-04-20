@@ -1,0 +1,14 @@
+# Data taken from Fig.21a, arXiv:1708.00373
+# Efficiencies guestimated from Section 6.
+1708003732	1708003732		1
+arXiv:1708.00373
+LHC, CMS, CMS
+(pp)->h->tautau (boosted)
+13	35.9	0.025
+1	0
+20.0
+125.09 125.09 1.0
+4	125.09
+14 24 34 44
+1	1.74	1.93	1.88
+125.09		0.77	1.17	1.64

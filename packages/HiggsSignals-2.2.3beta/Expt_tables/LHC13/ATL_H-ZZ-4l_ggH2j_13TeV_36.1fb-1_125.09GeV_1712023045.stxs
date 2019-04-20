@@ -1,0 +1,19 @@
+# Simplified Template Cross Section Measurement
+# for gluon fusion. Contains bbH. Strictly speaking, should also
+# contain gg->Zh->(jj)h contribution, but neglected here.
+# Data taken from Tab. 9.
+# Measured XS is given in pb
+1712023045
+arXiv:1712.02304 (ATLAS)
+LHC, ATL, ATL
+(pp)->h->Z Z-> 4l (ggH2j)
+13	36.1	0.032
+0	0
+
+125.09
+2.5
+1	125.09
+13
+1.0
+0.057	0.200	0.362
+0.108	0.137	0.166

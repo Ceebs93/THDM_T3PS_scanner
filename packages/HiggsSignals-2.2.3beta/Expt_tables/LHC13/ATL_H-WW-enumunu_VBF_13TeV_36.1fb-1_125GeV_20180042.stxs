@@ -1,0 +1,18 @@
+# Stage-0 Simplified Template Cross Section Measurement
+# for VBF production.
+# Data taken from p9 of ATL-CONF-2018-004
+# Measured XS is given in pb
+20180042
+ATL-CONF-2018-004
+LHC, ATL, ATL
+(pp)->h->WW-> e nu mu nu (VBF)
+13	36.1	0.032
+0	0
+
+125.0
+5.0
+1	125.0
+22
+1.0
+0.21	0.50	0.80
+0.79	0.81	0.83

@@ -1,0 +1,103 @@
+ # List of peak observables used from latestresults:
+ #
+ # Number        : HS internal numbering of analysis
+ # Analysis-ID   : identity number of analysis
+ # mh_obs        : Mass position of peak observable (hypothetical Higgs mass where signal strength was measured)
+ # mu_obs        : Observed (best-fit) signal strength value
+ # dmu_low       : Lower 1s (cyan band) signal strength value
+ # dmu_high      : Upper 1s (cyan band) signal strength value
+ # dmh_exp       : Experimental mass uncertainty of analysis
+ # collaboration : Exp. collaboration which published the data
+ # energy        : center-of-mass energy of the experiment (TeV)
+ # luminosity    : integrated luminosity used for the measurement (fb-1)
+ # mass-chi2     : Mass measurement entering the Chi^2 (1/0=yes/no)
+ # description   : Higgs process of analysis
+ # reference     : Experimental publication of the data/analysis
+ #
+ # Number Analysis-ID   mh_obs    mu_obs  dmu_low dmu_high  dmh_exp  collaboration  energy  luminosity  mass-chi2                         description     reference
+ #
+  1         201406002   125.36    1.2700   0.4500   0.5300   8.0000       ATL        8.00      24.80     0           (pp)->h->WW->lnulnu(VBFenhanced)     ATL-CONF-2014-060                            
+  2         201406001   125.36    1.0100   0.2500   0.2700   8.0000       ATL        8.00      24.80     0           (pp)->h->WW->lnulnu(ggFenhanced)     ATL-CONF-2014-060                            
+  3            519103   125.36    0.2600   0.9400   1.6400   2.0000       ATL        8.00      25.30     0               (pp)->h->ZZ->4l(VBF/VH-like)     arXiv:1408.5191                              
+  4            519102   124.51    1.6600   0.4400   0.5100   0.5200       ATL        8.00      24.80     1                  (pp)->h->ZZ->4l(ggH-like)     arXiv:1408.5191                              
+  5            708405   125.40    1.3270   0.7732   0.9150   2.0000       ATL        8.00      20.30     0             (pp)->h->gammagamma(VBF-loose)     arXiv:1408.7084                              
+  6            708406   125.40    0.6820   0.5082   0.6670   2.0000       ATL        8.00      20.30     0             (pp)->h->gammagamma(VBF-tight)     arXiv:1408.7084                              
+  7            708408   125.40    3.5100   2.4170   3.3040   1.5600       ATL        8.00      20.30     0             (pp)->h->gammagamma(VH-ETmiss)     arXiv:1408.7084                              
+  8            708407   125.40    0.2268   1.3878   1.6742   2.0000       ATL        8.00      20.30     0              (pp)->h->gammagamma(VH-dijet)     arXiv:1408.7084                              
+  9            708409   125.40    0.4080   1.0560   1.4270   2.0000       ATL        8.00      20.30     0          (pp)->h->gammagamma(VH-onelepton)     arXiv:1408.7084                              
+ 10            708402   125.40    1.6190   0.8311   1.0030   2.0000       ATL        8.00      20.30     0        (pp)->h->gammagamma(central-highpT)     arXiv:1408.7084                              
+ 11            708401   125.98    0.6244   0.3976   0.4246   0.5000       ATL        8.00      20.30     1         (pp)->h->gammagamma(central-lowpT)     arXiv:1408.7084                              
+ 12            708404   125.40    1.7290   1.1800   1.3430   2.0000       ATL        8.00      20.30     0        (pp)->h->gammagamma(forward-highpT)     arXiv:1408.7084                              
+ 13            708403   125.40    2.0340   0.5260   0.5700   2.0000       ATL        8.00      20.30     0         (pp)->h->gammagamma(forward-lowpT)     arXiv:1408.7084                              
+ 14            708410   125.40   -0.8424   1.2503   3.2294   2.0000       ATL        8.00      20.30     0          (pp)->h->gammagamma(ttH-hadronic)     arXiv:1408.7084                              
+ 15            708411   125.40    2.4230   2.0681   3.2120   2.0000       ATL        8.00      20.30     0          (pp)->h->gammagamma(ttH-leptonic)     arXiv:1408.7084                              
+ 16         201406106   125.36    1.4000   0.7000   0.9000  20.0000       ATL        8.00      24.80     0                (pp)->h->tautau(VBF,hadhad)     ATLAS-CONF-2014-061                          
+ 17         201406105   125.36    3.6000   1.6000   2.0000  20.0000       ATL        8.00      24.80     0            (pp)->h->tautau(boosted,hadhad)     ATLAS-CONF-2014-061                          
+ 18         201406104   125.36    1.0000   0.5000   0.6000  20.0000       ATL        8.00      24.80     0                (pp)->h->tautau(VBF,lephad)     ATLAS-CONF-2014-061                          
+ 19         201406103   125.36    0.9000   0.9000   1.0000  20.0000       ATL        8.00      24.80     0            (pp)->h->tautau(boosted,lephad)     ATL-CONF-2014-061                            
+ 20         201406102   125.36    1.8000   0.9000   1.1000  20.0000       ATL        8.00      24.80     0                (pp)->h->tautau(VBF,leplep)     ATL-CONF-2014-061                            
+ 21         201406101   125.36    3.0000   1.7000   1.9000  20.0000       ATL        8.00      24.80     0            (pp)->h->tautau(boosted,leplep)     ATL-CONF-2014-061                            
+ 22            621201   125.00   -0.3500   0.5200   0.5500  15.0000       ATL        8.00      25.00     0                     (pp)->Vh->Vbb(0lepton)     arXiv:1409.6212                              
+ 23            621202   125.00    1.1700   0.6000   0.6600  15.0000       ATL        8.00      25.00     0                     (pp)->Vh->Vbb(1lepton)     arXiv:1409.6212                              
+ 24            621203   125.00    0.9400   0.7900   0.8800  15.0000       ATL        8.00      25.00     0                     (pp)->Vh->Vbb(2lepton)     arXiv:1409.6212                              
+ 25          20150053   125.36    3.7000   1.8000   1.9000  20.0000       ATL        8.00      24.80     0                          (pp)->Vh->VWW(2l)     ATL-CONF-2015-005                            
+ 26          20150052   125.36    0.7200   1.1000   1.3000  20.0000       ATL        8.00      24.80     0                          (pp)->Vh->VWW(3l)     ATL-CONF-2015-005                            
+ 27          20150051   125.36    4.9000   3.1000   4.6000  20.0000       ATL        8.00      24.80     0                          (pp)->Vh->VWW(4l)     ATL-CONF-2015-005                            
+ 28          20150065   125.00   -9.6000   9.7000   9.6000  20.0000       ATL        8.00      20.30     0         (pp)->tth->multilepton(1l2tau_had)     ATL-CONF-2015-006                            
+ 29          20150061   125.00    2.8000   1.9000   2.1000  20.0000       ATL        8.00      20.30     0         (pp)->tth->multilepton(2l0tau_had)     ATL-CONF-2015-006                            
+ 30          20150063   125.00   -0.9000   2.0000   3.1000  20.0000       ATL        8.00      20.30     0         (pp)->tth->multilepton(2l1tau_had)     ATL-CONF-2015-006                            
+ 31          20150062   125.00    2.8000   1.8000   2.2000  20.0000       ATL        8.00      20.30     0                 (pp)->tth->multilepton(3l)     ATL-CONF-2015-006                            
+ 32          20150064   125.00    1.8000   6.9000   6.9000  20.0000       ATL        8.00      20.30     0                 (pp)->tth->multilepton(4l)     ATL-CONF-2015-006                            
+ 33             50661   125.00    1.5000   1.1000   1.1000  25.0000       ATL        8.00      20.30     0                          (pp)->tth->tt(bb)     arXiv:1503.05066                             
+ 34         130166683   125.00    0.0000   1.7800   1.7800  30.0000       CDF        1.96       9.70     0                             (ppbar)->h->WW     arXiv:1301.6668                              
+ 35         130166682   125.00    7.8100   4.4200   4.6100   5.0000       CDF        1.96       9.70     0                     (ppbar)->h->gammagamma     arXiv:1301.6668                              
+ 36         130166684   125.00    0.0000   8.4400   8.4400  25.0000       CDF        1.96       9.70     0                         (ppbar)->h->tautau     arXiv:1301.6668                              
+ 37         130166685   125.00    1.7200   0.8700   0.9200  20.0000       CDF        1.96       9.70     0                           (ppbar)->Vh->Vbb     arXiv:1301.6668                              
+ 38         130166681   125.00    9.4900   6.2800   6.6000  30.0000       CDF        1.96       9.70     0                         (ppbar)->tth->ttbb     arXiv:1301.6668                              
+ 39         131211291   125.60    0.7400   0.2000   0.2200  20.0000       CMS        8.00      25.30     0                 (pp)->h->WW->2l2nu(0/1jet)     arXiv:1312.1129                              
+ 40         131211292   125.60    0.6000   0.4600   0.5700  20.0000       CMS        8.00      25.30     0                    (pp)->h->WW->2l2nu(VBF)     arXiv:1312.1129                              
+ 41           1400901   125.63    0.8830   0.2720   0.3360   0.4500       CMS        8.00      24.70     1                    (pp)->h->ZZ->4l(0/1jet)     CMS-PAS-HIG-14-009,arXiv:1312.5353           
+ 42           1400902   125.00    1.5490   0.6610   0.9530   2.0000       CMS        8.00      24.70     0                      (pp)->h->ZZ->4l(2jet)     CMS-PAS-HIG-14-009,arXiv:1312.5353           
+ 43             55805   124.70    4.8470   1.7590   2.1700   2.0000       CMS        7.00       5.10     0             (pp)->h->gammagamma(VBFdijet0)     arXiv:1407.0558                              
+ 44             55816   124.70    0.8170   0.5780   0.7520   2.0000       CMS        8.00      19.60     0             (pp)->h->gammagamma(VBFdijet0)     arXiv:1407.0558                              
+ 45             55806   124.70    2.6000   1.7570   2.1610   2.0000       CMS        7.00       5.10     0             (pp)->h->gammagamma(VBFdijet1)     arXiv:1407.0558                              
+ 46             55817   124.70   -0.2090   0.6890   0.7460   2.0000       CMS        8.00      19.60     0             (pp)->h->gammagamma(VBFdijet1)     arXiv:1407.0558                              
+ 47             55818   124.70    2.5960   0.9940   1.3260   2.0000       CMS        8.00      19.60     0             (pp)->h->gammagamma(VBFdijet2)     arXiv:1407.0558                              
+ 48             55808   124.70    4.3240   4.1520   6.7180   2.0000       CMS        7.00       5.10     0              (pp)->h->gammagamma(VHETmiss)     arXiv:1407.0558                              
+ 49             55821   124.70    0.0760   1.2770   1.8620   2.0000       CMS        8.00      19.60     0              (pp)->h->gammagamma(VHETmiss)     arXiv:1407.0558                              
+ 50             55809   124.70    7.8550   6.3990   8.8550   2.0000       CMS        7.00       5.10     0               (pp)->h->gammagamma(VHdijet)     arXiv:1407.0558                              
+ 51             55822   124.70    0.3920   1.4820   2.1580   2.0000       CMS        8.00      19.60     0               (pp)->h->gammagamma(VHdijet)     arXiv:1407.0558                              
+ 52             55807   124.70    3.1000   5.3420   8.2890   2.0000       CMS        7.00       5.10     0               (pp)->h->gammagamma(VHloose)     arXiv:1407.0558                              
+ 53             55820   124.70    1.2430   2.6240   3.6940   2.0000       CMS        8.00      19.60     0               (pp)->h->gammagamma(VHloose)     arXiv:1407.0558                              
+ 54             55819   124.70   -0.3430   0.6290   1.3000   2.0000       CMS        8.00      19.60     0               (pp)->h->gammagamma(VHtight)     arXiv:1407.0558                              
+ 55             55824   124.70    1.2430   2.6970   4.2350   2.0000       CMS        8.00      19.60     0           (pp)->h->gammagamma(ttHmultijet)     arXiv:1407.0558                              
+ 56             55823   124.70    3.5210   2.4500   3.8920   2.0000       CMS        8.00      19.60     0             (pp)->h->gammagamma(ttHlepton)     arXiv:1407.0558                              
+ 57             55810   124.70    0.7140   3.5630   6.1970   2.0000       CMS        7.00       5.10     0               (pp)->h->gammagamma(ttHtags)     arXiv:1407.0558                              
+ 58             55801   124.70    1.9730   1.2500   1.5050   2.0000       CMS        7.00       5.10     0             (pp)->h->gammagamma(untagged0)     arXiv:1407.0558                              
+ 59             55811   124.70    0.1300   0.7440   1.0940   2.0000       CMS        8.00      19.60     0             (pp)->h->gammagamma(untagged0)     arXiv:1407.0558                              
+ 60             55802   124.70    1.2330   0.8800   0.9790   2.0000       CMS        7.00       5.10     0             (pp)->h->gammagamma(untagged1)     arXiv:1407.0558                              
+ 61             55812   124.70    0.9190   0.4870   0.5670   2.0000       CMS        8.00      19.60     0             (pp)->h->gammagamma(untagged1)     arXiv:1407.0558                              
+ 62             55803   124.70    1.6020   1.1740   1.2460   2.0000       CMS        7.00       5.10     0             (pp)->h->gammagamma(untagged2)     arXiv:1407.0558                              
+ 63             55813   124.70    1.1020   0.4400   0.4770   0.3400       CMS        8.00      19.60     1             (pp)->h->gammagamma(untagged2)     arXiv:1407.0558                              
+ 64             55804   124.70    2.6120   1.6530   1.7380   2.0000       CMS        7.00       5.10     0             (pp)->h->gammagamma(untagged3)     arXiv:1407.0558                              
+ 65             55814   124.70    0.6480   0.8870   0.6530   2.0000       CMS        8.00      19.60     0             (pp)->h->gammagamma(untagged3)     arXiv:1407.0558                              
+ 66             55815   124.70    1.4570   1.2380   1.2890   2.0000       CMS        8.00      19.60     0             (pp)->h->gammagamma(untagged4)     arXiv:1407.0558                              
+ 67           1300701   125.70    2.9000   2.7000   2.8000   2.0000       CMS        8.00      25.40     0                              (pp)->h->mumu     CMS-PAS-HIG-13-007                           
+ 68           1300401   125.00    0.4000   1.1300   0.7300  25.0000       CMS        8.00      24.30     0                      (pp)->h->tautau(0jet)     CMS-PAS-HIG-13-004                           
+ 69           1300402   125.00    1.0600   0.4700   0.4700  25.0000       CMS        8.00      24.30     0                      (pp)->h->tautau(1jet)     CMS-PAS-HIG-13-004                           
+ 70           1300404   125.00    0.9300   0.4100   0.4100  20.0000       CMS        8.00      24.50     0                       (pp)->h->tautau(VBF)     CMS-PAS-HIG-13-004                           
+ 71         131211293   125.60    0.3900   1.8700   1.9700  20.0000       CMS        8.00      25.30     0                     (pp)->h->WW->2l2nu(VH)     arXiv:1312.1129                              
+ 72           1301701   125.00    1.0000   2.0000   2.0000  20.0000       CMS        8.00      25.40     0                   (pp)->Vh->VWW(hadronicV)     CMS-PAS-HIG-13-017                           
+ 73           1301201   125.70    1.0000   0.4857   0.5070  12.5000       CMS        8.00      24.00     0                              (pp)->Vh->Vbb     CMS-PAS-HIG-13-012                           
+ 74           1300403   125.70    0.9810   1.4960   1.6800  20.0000       CMS        8.00      24.30     0                           (pp)->Vh->tautau     CMS-PAS-HIG-13-004                           
+ 75         131211294   125.60    0.5600   0.9500   1.2700  20.0000       CMS        8.00      25.30     0                     (pp)->h->WW->3l3nu(WH)     arXiv:1312.1129                              
+ 76            168204   125.60    5.3000   1.8000   2.1000  25.0000       CMS        8.00      19.60     0              (pp)->tth->2leptons(samesign)     arXiv:1408.1682                              
+ 77            168205   125.60    3.1000   2.0000   2.4000  25.0000       CMS        8.00      19.60     0                        (pp)->tth->3leptons     arXiv:1408.1682                              
+ 78            168206   125.60   -4.7000   1.3000   5.0000  25.0000       CMS        8.00      19.60     0                        (pp)->tth->4leptons     arXiv:1408.1682                              
+ 79            168202   125.60    0.7000   1.9000   1.9000  25.0000       CMS        8.00      24.50     0                          (pp)->tth->tt(bb)     arXiv:1408.1682                              
+ 80            168201   125.60    2.7000   1.8000   2.6000  15.0000       CMS        8.00      19.60     0                  (pp)->tth->tt(gammagamma)     arXiv:1408.1682                              
+ 81            168203   125.60   -1.3000   5.5000   6.3000  25.0000       CMS        8.00      24.50     0                      (pp)->tth->tt(tautau)     arXiv:1408.1682                              
+ 82         130308232   125.00    1.9000   1.5200   1.6300  25.0000       D0         1.96       9.70     0                             (ppbar)->h->WW     arXiv:1303.0823                              
+ 83         130308234   125.00    1.2300   1.1700   1.2400  25.0000       D0         1.96       9.70     0                             (ppbar)->h->bb     arXiv:1303.0823                              
+ 84         130308231   125.00    4.2000   4.2000   4.6000   5.0000       D0         1.96       9.70     0                     (ppbar)->h->gammagamma     arXiv:1303.0823                              
+ 85         130308233   125.00    3.9600   3.3800   4.1100  25.0000       D0         1.96       9.70     0                         (ppbar)->h->tautau     arXiv:1303.0823                              
