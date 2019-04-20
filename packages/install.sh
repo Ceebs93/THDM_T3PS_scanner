@@ -25,6 +25,7 @@ echo "make"
 echo ""
 
 cd ${HiggsBounds_pkg_path}
+make clean
 ./configure
 make
 
@@ -48,6 +49,7 @@ echo "make"
 echo ""
 
 cd ${HiggsSignals_pkg_path}
+make clean
 ./configure
 make
 
@@ -71,7 +73,7 @@ echo ""
 
 
 cd ${THDMC_pkg_path}
-make clear
+make clean
 make
 
 
@@ -81,19 +83,21 @@ make
 
 LHAPDF_folder_name=LHAPDF-6.2.1
 LHAPDF_pkg_path=${THDM_T3PS_SCANNER_DIR}/packages/${LHAPDF_folder_name}
+LHAPDF_pkg_build_path=${THDM_T3PS_SCANNER_DIR}/packages/${LHAPDF_folder_name}_build
 
 echo -e "\n\n\n"
 echo "############################################################"
 echo "### --- Attempting to install ${LHAPDF_folder_name} --- ####"
 echo "############################################################"
 echo ""
-echo "cd {LHAPDF_pkg_path}"
-echo ""
-echo ""
-echo ""
+echo "cd ${LHAPDF_pkg_path}"
+echo "./configure --prefix=${LHAPDF_pkg_path}"
+echo "make"
+echo "make install"
 
 cd ${LHAPDF_pkg_path}
-./configure --prefix=${LHAPDF_pkg_path}
+make clean
+./configure --prefix=${LHAPDF_pkg_build_path}
 make
 make install
 
@@ -110,11 +114,12 @@ echo "############################################################"
 echo "### --- Attempting to install ${SusHi_folder_name} --- ####"
 echo "############################################################"
 echo ""
-echo "cd {SusHi_pkg_path}"
-echo ""
-echo ""
+echo "cd ${SusHi_pkg_path}"
+echo "./configure"
+echo "make"
 echo ""
 
 cd ${SusHi_pkg_path}
+make clean
 ./configure 
 make

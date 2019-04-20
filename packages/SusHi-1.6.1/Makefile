@@ -28,7 +28,7 @@ HSVERSION = 1.2.0
 2HDMCPATH = ${THDM_T3PS_SCANNER_DIR}/packages/2HDMC-1.7.0
 2HDMCVERSION = 1.7.0
 # Specify the path to the compiled LHAPDF libraries (might be found automatically):
-LHAPATH = ${THDM_T3PS_SCANNER_DIR}/packages/LHAPDF-6.2.1/lib
+LHAPATH = ${THDM_T3PS_SCANNER_DIR}/packages/LHAPDF-6.2.1_build/lib
 # Specify the path to standard C++ libraries (libstdc) 
 # (only needed when linked to 2HDMC, might be found automatically):
 STDLIB = -L/local/software/gsl/1.15/lib

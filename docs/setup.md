@@ -17,7 +17,8 @@
     to setup `python 2.7` and load `gsl` libraries.
 
 
-2. Source the `setup.sh` script to set up some environment variables.
+2. Source the `setup.sh` script standing in the root directory of this package
+	to set up some environment variables.
 
     ~~~~
     source setup.sh

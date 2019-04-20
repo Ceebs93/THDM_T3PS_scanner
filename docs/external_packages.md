@@ -11,7 +11,6 @@ https://2hdmc.hepforge.org/
 
 
 
-
 ## HiggsSignals
 
 
