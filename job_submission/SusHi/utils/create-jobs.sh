@@ -14,6 +14,7 @@ echo -e "####################"
 JOB_PROJECT_DIR=${ROOT_DIR}/jobs/${TAG}
 JOB_PROJECT_DIR=${ROOT_DIR}/jobs/${TAG}
 
+
 # - Create job project directory
 mkdir -p ${JOB_PROJECT_DIR}
 
@@ -37,8 +38,9 @@ do
 	JOB_DIR=${ROOT_DIR}/jobs/${TAG}/job_${id}
 
 	mkdir -p ${JOB_DIR}
-   sed "s/prgam_/${program}/g" ${ROOT_DIR}/${CONFIG} > ${JOB_DIR}/t3ps.conf
-   sed "s/nCores_/${nCores}/g" ${ROOT_DIR}/${CONFIG} > ${JOB_DIR}/t3ps.conf
+	cp ${ROOT_DIR}/${CONFIG} ${JOB_DIR}/t3ps.conf
+   sed -i "s;program_;${program};g" ${JOB_DIR}/t3ps.conf
+   sed -i "s/nCores_/${nCores}/g" ${JOB_DIR}/t3ps.conf
 	cp ${ROOT_DIR}/${TEMPLATE} ${JOB_DIR}/template.slha
 #	cp ${ROOT_DIR}/${TASK}     ${JOB_DIR}/job.sh
 	mv ${JOB_PROJECT_DIR}/split_${id} ${JOB_DIR}/to_be_processed.dat

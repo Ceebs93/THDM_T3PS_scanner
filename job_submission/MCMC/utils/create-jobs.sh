@@ -24,7 +24,7 @@ do
 
 	mkdir -p ${JOB_DIR}
 	cp ${ROOT_DIR}/${CONFIG} ${JOB_DIR}/t3ps.conf
-   sed -i "s/program_/${program}/g" ${JOB_DIR}/t3ps.conf
+   sed -i "s;program_;${program};g" ${JOB_DIR}/t3ps.conf
    sed -i "s/nCores_/${nCores}/g" ${JOB_DIR}/t3ps.conf
    sed -i "s/chain_length_/${chain_length}/g" ${JOB_DIR}/t3ps.conf
 	cp ${ROOT_DIR}/${TEMPLATE} ${JOB_DIR}/job.template

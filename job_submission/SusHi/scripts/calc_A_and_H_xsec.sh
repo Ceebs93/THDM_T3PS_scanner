@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# -- Input:
+#  - template.slha: an .slha config file with particle_ token
+
+
 SUSHI_BIN=${THDM_T3PS_SCANNER_DIR}/packages/SusHi-1.6.1/bin/sushi.2HDMC
 
 TEMPLATE=$1

@@ -1,5 +1,6 @@
 *.pyc
-MCMC/job_submission/jobs/*
+job_submission/MCMC/jobs/
+job_submission/SusHi/jobs/*
 *.o
 *.a
 *lib/*

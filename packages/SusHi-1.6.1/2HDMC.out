@@ -10,16 +10,16 @@ Block FMODSEL # FLHA definitions, see [arXiv:1008.0762]
     1   32    #  Model
     5    0    #  No CP-violation
 Block THDM
-    1    0    #  Valid parameters (1=Yes, 0=no)
+    1    1    #  Valid parameters (1=Yes, 0=no)
     2    1    #  Tree-level unitarity (1=Yes, 0=no)
-    3    0    #  Perturbativity (1=Yes, 0=no)
+    3    1    #  Perturbativity (1=Yes, 0=no)
     4    1    #  Stability (1=Yes, 0=no)
 Block SMINPUTS  # Standard Model inputs
     1        1.27934000e+02   # 1/alpha_em(MZ) SM MSbar
     2        1.16637000e-05   # G Fermi
     3        1.17200000e-01   # alpha_s(MZ) SM MSbar
     4        9.11876000e+01   # MZ
-    5        4.18000250e+00   # mb(mb)
+    5        4.20004074e+00   # mb(mb)
     6        1.73300000e+02   # mt (pole)
     7        1.77684000e+00   # mtau(pole)
 Block GAUGE  # SM Gauge couplings
@@ -28,17 +28,17 @@ Block GAUGE  # SM Gauge couplings
     3        1.47277864e+00   # g_3
 Block MINPAR    # Model parameters
 # Parameters for general potential in generic basis
-    3        2.00000000e+00   # tan(beta)
-   11        1.00000000e+00   # lambda_1
-   12        2.00000000e+00   # lambda_2
-   13        3.00000000e+00   # lambda_3
-   14        4.00000000e+00   # lambda_4
-   15        5.00000000e+00   # lambda_5
+    3        1.00000000e+01   # tan(beta)
+   11        9.99999751e-02   # lambda_1
+   12        1.99999998e-01   # lambda_2
+   13        2.99999956e-01   # lambda_3
+   14        3.99999995e-01   # lambda_4
+   15        5.00000000e-01   # lambda_5
    16        0.00000000e+00   # lambda_6
    17        0.00000000e+00   # lambda_7
    18        1.00000000e+04   # m_12^2
-   20        2.56985515e-01   # sin(beta-alpha)
-   21        9.66415255e-01   # cos(beta-alpha)
+   20        9.97717153e-01   # sin(beta-alpha)
+   21        6.75313454e-02   # cos(beta-alpha)
    24     2                   # Yukawas Type
 Block MGCKM     # CKM elements
     1     1        9.74270000e-01   # Vud
@@ -56,58 +56,111 @@ Block MASS      #  Mass spectrum (kinematic masses)
      2        0.00000000e+00   # Mu
      3        1.00000000e-01   # Ms
      4        1.42000000e+00   # Mc
-     5        4.49102805e+00   # Mb
+     5        4.51226689e+00   # Mb
      6        1.73300000e+02   # Mt
     11        5.10998918e-04   # Me
     13        1.05658367e-01   # Mmu
     15        1.77684000e+00   # Mta
     23        9.11876000e+01   # MZ
     24        8.03695100e+01   # MW
-    25       -4.64864931e+02   # Mh1, lightest CP-even Higgs
-    35        5.91796948e+02   # Mh2, heaviest CP-even Higgs
-    36       -5.27373533e+02   # Mh3, CP-odd Higgs
-    37       -4.97805744e+02   # Mhc
+    25        1.13644566e+02   # Mh1, lightest CP-even Higgs
+    35        3.16464535e+02   # Mh2, heaviest CP-even Higgs
+    36        2.65871615e+02   # Mh3, CP-odd Higgs
+    37        2.71512328e+02   # Mhc
 Block ALPHA     # Effective Higgs mixing parameter
-              8.47247059e-01   # alpha
+             -3.20858722e-02   # alpha
 Block UCOUPL
     1     1     0.00000000e+00   # LU_{1,1}
     1     2     0.00000000e+00   # LU_{1,2}
     1     3     0.00000000e+00   # LU_{1,3}
     2     1     0.00000000e+00   # LU_{2,1}
-    2     2     5.00000000e-01   # LU_{2,2}
+    2     2     1.00000000e-01   # LU_{2,2}
     2     3     0.00000000e+00   # LU_{2,3}
     3     1     0.00000000e+00   # LU_{3,1}
     3     2     0.00000000e+00   # LU_{3,2}
-    3     3     5.00000000e-01   # LU_{3,3}
+    3     3     1.00000000e-01   # LU_{3,3}
 Block DCOUPL
     1     1     0.00000000e+00   # LD_{1,1}
     1     2     0.00000000e+00   # LD_{1,2}
     1     3     0.00000000e+00   # LD_{1,3}
     2     1     0.00000000e+00   # LD_{2,1}
-    2     2    -2.00000000e+00   # LD_{2,2}
+    2     2    -1.00000000e+01   # LD_{2,2}
     2     3     0.00000000e+00   # LD_{2,3}
     3     1     0.00000000e+00   # LD_{3,1}
     3     2     0.00000000e+00   # LD_{3,2}
-    3     3    -2.00000000e+00   # LD_{3,3}
+    3     3    -1.00000000e+01   # LD_{3,3}
 Block LCOUPL
-    1     1    -2.00000000e+00   # LL_{1,1}
+    1     1    -1.00000000e+01   # LL_{1,1}
     1     2     0.00000000e+00   # LL_{1,2}
     1     3     0.00000000e+00   # LL_{1,3}
     2     1     0.00000000e+00   # LL_{2,1}
-    2     2    -2.00000000e+00   # LL_{2,2}
+    2     2    -1.00000000e+01   # LL_{2,2}
     2     3     0.00000000e+00   # LL_{2,3}
     3     1     0.00000000e+00   # LL_{3,1}
     3     2     0.00000000e+00   # LL_{3,2}
-    3     3    -2.00000000e+00   # LL_{3,3}
+    3     3    -1.00000000e+01   # LL_{3,3}
 #     PDG   Width
-DECAY  6               -nan   # top decays
+DECAY  6     1.36232860e+00   # top decays
 #            BR          NDA    ID1   ID2
-DECAY  25               -nan   # h1 decays, lightest CP-even Higgs
+       7.53504546e-05     2      24     1
+       1.63610020e-03     2      24     3
+       9.98288549e-01     2      24     5
+DECAY  25     8.81322517e-04   # h1 decays, lightest CP-even Higgs
 #            BR          NDA    ID1   ID2
-DECAY  35               -nan   # h2 decays, heaviest CP-even Higgs
+       1.17163833e-04     2       3    -3
+       1.34309754e-01     2       4    -4
+       2.68174244e-01     2       5    -5
+       2.29702267e-09     2      11   -11
+       9.82043794e-05     2      13   -13
+       2.77322214e-02     2      15   -15
+       7.10422565e-03     2      22    22
+       2.42397852e-02     2      23    23
+       2.46114049e-01     2      24   -24
+       2.08102889e-03     2      23    22
+       2.90029321e-01     2      21    21
+DECAY  35     6.70974206e-01   # h2 decays, heaviest CP-even Higgs
 #            BR          NDA    ID1   ID2
-DECAY  36               -nan   # h3 decays, CP-odd Higgs
+       3.13903505e-04     2       3    -3
+       4.17073621e-07     2       4    -4
+       7.69656059e-01     2       5    -5
+       2.37067504e-06     2       6    -6
+       8.15539221e-09     2      11   -11
+       3.48668239e-04     2      13   -13
+       9.85869396e-02     2      15   -15
+       1.51311398e-06     2      22    22
+       2.11280343e-02     2      23    23
+       4.71013223e-02     2      24   -24
+       3.85486319e-06     2      23    22
+       4.36373266e-04     2      21    21
+       6.14667409e-02     2      25    25
+       2.51041553e-04     2      23    36
+       3.51376826e-04     2      24   -37
+       3.51376826e-04     2      37   -24
+DECAY  36     5.06998495e-01   # h3 decays, CP-odd Higgs
 #            BR          NDA    ID1   ID2
-DECAY  37               -nan   # Charged Higgs decays
+       3.57224850e-04     2       3    -3
+       4.64426578e-06     2       4    -4
+       8.76129509e-01     2       5    -5
+       8.98704143e-09     2      11   -11
+       3.84223951e-04     2      13   -13
+       1.08651226e-01     2      15   -15
+       2.06849540e-07     2      22    22
+       1.95541106e-08     2      23    22
+       2.51000177e-04     2      21    21
+       1.42219367e-02     2      23    25
+DECAY  37     3.27174924e-01   # Charged Higgs decays
 #            BR          NDA    ID1   ID2
+       2.79073329e-05     2       2    -3
+       1.66119122e-05     2       2    -5
+       3.54152803e-07     2       4    -1
+       5.27266873e-04     2       4    -3
+       2.28864250e-03     2       4    -5
+       1.30242380e-05     2       6    -1
+       2.83098161e-04     2       6    -3
+       7.93652263e-01     2       6    -5
+       1.42220101e-08     2     -11    12
+       6.08035140e-04     2     -13    14
+       1.71941403e-01     2     -15    16
+       3.06413571e-02     2      24    25
+       2.23120733e-08     2      24    36
 #

@@ -195,7 +195,15 @@ int main(int argc, char* argv[])
 
 	
 	double tot_hbobs = hbobs[0];
-	double sens_ch = hbchan[0];
+	double sens_ch  = hbchan[0];
+
+   printf("sens_ch: %f \n", sens_ch);
+
+
+//	for(int i=0; i<6; i++)
+//   {
+//		  printf("sens_ch_%d: %f \n", i, hbchan[i]);
+//   }
 	
 	double csqmu;
 	double csqmh_ref;
@@ -208,6 +216,8 @@ int main(int argc, char* argv[])
 	
 	
 	HS_run(&csqmu, &csqmh_ref, &chi2_HS, &nobs, &pval);
+
+
 
 
   	# ifdef FAST
@@ -233,8 +243,6 @@ int main(int argc, char* argv[])
 	double delta_rho = constr.delta_rho(mh_ref);
 	double delta_amu = constr.delta_amu();
 
-
-	
 	/////////////////////
 	// -- COUPLINGS -- //
 	/////////////////////
@@ -503,7 +511,9 @@ int main(int argc, char* argv[])
 	printf("tot_hbobs:   %.3e\n", tot_hbobs);           
 	printf("sens_ch:     %f\n", sens_ch);           
 	printf("chi2_HS:     %.3e\n", chi2_HS);           
-	 
+
+
+
 	# endif
 	
 	//////////////////

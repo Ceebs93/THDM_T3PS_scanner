@@ -39,10 +39,10 @@
 
         1. Check if the path variables are correctly set within the package `Makefile`s
 			- `2HDMC`: Check if `HIGGSBOUNDS_PATH` and `HIGGSSIGNALS_PATH` are correctly specified in the `Makefile`.
-			- `SusHi`: Check `LHAPATH` and `2HDMCPATH` path variable are correctly specified in the `Makefile`
+			- `SusHi`: Check if `LHAPATH` and `2HDMCPATH` path variable are correctly specified in the `Makefile`
         2. Run `./packages/install.sh`
 
-    - b) Manual install. Please refer to the 
+    - b) Manual install. Please refer to the packages manuals
 
 
 ------------------------------------------------------------

@@ -1,10 +1,12 @@
 #!/bin/bash
 
-PROGRAM=/home/de3u14/lib/build/hep/T3PS/T3PS-1.0.2/src/t3ps
+PROGRAM=${THDM_T3PS_SCANNER_DIR}/packages/T3PS/t3ps
 
+
+# - Local setup
 module load gsl
 module load gcc/6.1.0
-source /home/de3u14/lib/build/miniconda/envs/py27/bin/activate py27
+source /home/de3u14/lib/build/miniconda3/bin/activate py27
 
 ############################################
 

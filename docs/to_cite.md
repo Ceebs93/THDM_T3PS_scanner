@@ -1,6 +1,6 @@
 # Citation guide
 
-If you use this package, please cite the following references.
+If you use this package, please cite the following packages.
 
 - T3PS: https://t3ps.hepforge.org/
 - 2HDMC: https://2hdmc.hepforge.org/

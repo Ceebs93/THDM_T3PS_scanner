@@ -25,7 +25,7 @@ HBVERSION = 4.3.1
 HSPATH = 
 HSVERSION = 1.2.0
 # Specify the path to a compiled 2HDMC version (for "make predef=2HDMC"):
-2HDMCPATH = ${THDM_T3PS_SCANNER_DIR}/packages/2HDMC-1.7.0
+2HDMCPATH = ${THDM_T3PS_SCANNER_DIR}/packages/2HDMC-1.7.0/
 2HDMCVERSION = 1.7.0
 # Specify the path to the compiled LHAPDF libraries (might be found automatically):
 LHAPATH = ${THDM_T3PS_SCANNER_DIR}/packages/LHAPDF-6.2.1_build/lib
