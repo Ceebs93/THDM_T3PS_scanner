@@ -15,7 +15,7 @@ bottleneck of calculating cross sections.
     1. The calculation of the production cross section is only performed for points surviving the theoretical consistency checks.
 
 Note that due to the need for adequeate number of points, both steps are performed on a cluster.
-The framework in its current is compatible with PBS cluster.
+The framework in its current form is compatible only with PBS cluster.
 
 ------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------
@@ -66,7 +66,9 @@ Default parameter point processor:
 
 ### Job submission
 
-Associated work area is found in [./job_submission/MCMC/](./job_submission/MCMC/).
+Associated work area is found in [./job_submission/MCMC/](../job_submission/MCMC/).
+
+`Makefile`
 
 **Directories:**
 - `utils`: contains utility `shell` scripts which received input from the `Makefile` and help with
@@ -85,10 +87,32 @@ Associated work area is found in [./job_submission/MCMC/](./job_submission/MCMC/
     - `t3ps.conf`: the `T3PS` configuration of the submitted jobs
     - `job.template`: the job template needed by `T3PS`.
 
+
+**Instructions:**
+1. Create cluster jobs.
+    Specify the following options in the `Makefile`:
+    - `CREATE_JOB_TAG`: Name/tag of the job batch.
+    - `CREATE_JOB_CONFIG`: `T3PS` MCMC configuration file.
+    - `CREATE_JOB_nCores`: Number of cores to use.
+    - `CREATE_JOB_program`: The path to the Paramater Point Processor binary.
+    - `CREATE_JOB_nJobs`: Total number of jobs to submit
+    - `CREATE_JOB_chain_length`: Length of the chains.
+    - `CREATE_JOB_TEMPLATE`: Path to the `T3PS` job template.
+    
+    Having done this issue the command:
+    ~~~~
+    make create-jobs
+    ~~~~
+
+2. Submit cluster jobs.
+    
+
+
 ------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------
 
 ## Cross-section computation scan
+
 
 ### Overview
 
@@ -98,4 +122,7 @@ Computation of cross sections with `SusHi`.
 
 The computational speed, (processed points)/(second) is much slower in this step
 
-### Technical implementation 
+
+
+### Job submission
+
