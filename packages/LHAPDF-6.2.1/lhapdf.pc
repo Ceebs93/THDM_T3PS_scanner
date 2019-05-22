@@ -1,4 +1,4 @@
-prefix=/scratch/de3u14/2HDM/Magellan_THDM_T3PS_scanner/packages/LHAPDF-6.2.1_build
+prefix=/scratch/de3u14/2HDM/test/THDM_T3PS_scanner/packages/LHAPDF-6.2.1_build
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include

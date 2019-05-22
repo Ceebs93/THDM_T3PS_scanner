@@ -40,8 +40,8 @@ F90FLAGS = -fbounds-check -ffixed-line-length-none
 ### --- HiggsBounds --- ###
 ###########################
 
-HBLIBS =-L/scratch/de3u14/2HDM/Magellan_THDM_T3PS_scanner/packages/HiggsBounds-5.3.2beta
-HBINCLUDE =-I/scratch/de3u14/2HDM/Magellan_THDM_T3PS_scanner/packages/HiggsBounds-5.3.2beta
+HBLIBS =-L/scratch/de3u14/2HDM/test/THDM_T3PS_scanner/packages/HiggsBounds-5.3.2beta
+HBINCLUDE =-I/scratch/de3u14/2HDM/test/THDM_T3PS_scanner/packages/HiggsBounds-5.3.2beta
 #HBLIBS = -L /home/de3u14/lib/build/hep/HiggsBounds/HiggsBounds-5.3.2beta/
 #HBINCLUDE = -I /home/de3u14/lib/build/hep/HiggsBounds/HiggsBounds-5.3.2beta
 #HBLIBS = -L/home/de3u14/lib/build/hep/HiggsBounds/HiggsBounds-4.2.1/

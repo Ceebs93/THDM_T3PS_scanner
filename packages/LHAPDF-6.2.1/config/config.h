@@ -46,7 +46,8 @@
 /* "LHAPDF version as an int" */
 #define LHAPDF_VERSION_CODE 60201
 
-/* Define to the sub-directory where libtool stores uninstalled libraries. */
+/* Define to the sub-directory in which libtool stores uninstalled libraries.
+   */
 #define LT_OBJDIR ".libs/"
 
 /* Name of package */
@@ -63,9 +64,6 @@
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "LHAPDF"
-
-/* Define to the home page for this package. */
-#define PACKAGE_URL ""
 
 /* Define to the version of this package. */
 #define PACKAGE_VERSION "6.2.1"

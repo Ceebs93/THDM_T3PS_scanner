@@ -6,7 +6,7 @@
 
 1. **Setting up local directives, environment variables (`setup_local.sh`).**
 
-	If you have any local setup directives you might want to store them in `setup_local.sh` which is
+	If you have any local setup directives you may want to store them in `setup_local.sh` which is
    automatically sourced by `setup.sh` if it exists.
 
     E.g. my `setup_local.sh` contains:
