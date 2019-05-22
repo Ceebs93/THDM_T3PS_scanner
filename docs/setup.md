@@ -14,9 +14,13 @@
     ~~~~
     source /home/de3u14/lib/build/miniconda3/bin/activate py27
     module load gsl
+    module load gcc/6.1.0
     ~~~~
 
-    to setup `python 2.7` and load `gsl` libraries.
+    Which loads:
+    - `python 2.7` environment
+    - the `gsl` libraries (needed by 2HDMC)
+    - `gcc` 6.1.0 version
 
 2. **Source `setup.sh`**
 
