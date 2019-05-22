@@ -4,12 +4,12 @@
 
 
 
-1. **Setting up local directives, environment variables (`setup_local.sh`).**
+1. **Setting up local directives, environment variables (`env.sh`).**
 
-	If you have any local setup directives you may want to store them in `setup_local.sh` which is
-   automatically sourced by `setup.sh` if it exists.
+	If you have any local setup directives you may want to store them in `env_local.sh` which is
+   automatically sourced by `env.sh` if it exists.
 
-    E.g. my `setup_local.sh` contains:
+    E.g. my `env_local.sh` contains:
 
     ~~~~
     source /home/de3u14/lib/build/miniconda3/bin/activate py27
@@ -22,13 +22,13 @@
     - the `gsl` libraries (needed by 2HDMC)
     - `gcc` 6.1.0 version
 
-2. **Source `setup.sh`**
+2. **Source `env.sh`**
 
-	Source the `setup.sh` script standing in the root directory of this package
+	Source the `env.sh` script standing in the root directory of this package
 	to set up some environment variables.
 	
 	~~~~
-	source setup.sh
+	source env.sh
 	~~~~
 	
 	The environment variables which are set up are:
