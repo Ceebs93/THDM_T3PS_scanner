@@ -4,7 +4,9 @@
 
 
 
-1. If you have any local setup directives you might want to store them in `setup_local.sh` which is
+1. **Setting up local directives, environment variables (`setup_local.sh`).**
+
+	If you have any local setup directives you might want to store them in `setup_local.sh` which is
    automatically sourced by `setup.sh` if it exists.
 
     E.g. my `setup_local.sh` contains:
@@ -16,7 +18,9 @@
 
     to setup `python 2.7` and load `gsl` libraries.
 
-2. Source the `setup.sh` script standing in the root directory of this package
+2. **Source `setup.sh`**
+
+	Source the `setup.sh` script standing in the root directory of this package
 	to set up some environment variables.
 	
 	~~~~
@@ -28,12 +32,13 @@
 	- `PATH` environment variables is prepended by `packages/T3PS` in order the give access to the `T3PS` executable.
 
 
-3. Install the external packages
+3. **Installing the external packages.**
 
     - [`HiggsBounds`][HiggsBounds-url]
     - [`HiggsSignals`][HiggsSignals-url]
     - [`2HDMC`][2HDMC-url]
     - [`LHAPDF`][LHAPDF-url]
+	- [`SusHi`][SusHi-url]
 
     Your options:
 
@@ -54,6 +59,13 @@
 
 	- b) You can also opt to manually install these packages one-by-one. In
 	 	this case please refer to the documentation of the packages.
+
+
+
+4. **Installation complete. Start using the scanner.**
+	
+	At this point hopefully you have a working setup. For instructions on how
+	to submit jobs please refer to [usage.md](./usage.md).
 
 
 ------------------------------------------------------------
