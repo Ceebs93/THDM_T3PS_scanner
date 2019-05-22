@@ -63,7 +63,7 @@ INCDIRLINK = ${THDM_T3PS_SCANNER_DIR}/links/inc
 CC = g++
 
 # - CFLAGS
-CCFLAGS = -I../inc/ -I$(INCDIRLINK) $(2HDMC_CFLAGS) -MMD -MF .depend_cpp
+CCFLAGS = -I../inc/ -I$(INCDIRLINK) $(2HDMC_CFLAGS) -MMD -MF .depend_cpp -fpermissive
 2HDMC_CFLAGS = -I/local/software/gsl/1.15/include -DHiggsBounds
 
 # - LFLAGS

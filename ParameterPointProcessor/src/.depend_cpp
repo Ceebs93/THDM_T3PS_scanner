@@ -1,7 +1,7 @@
 ../lib/ParameterScan_T3PS_with_HB_HS_FAST.cpp.o: \
  ParameterScan_T3PS_with_HB_HS.cpp \
- /scratch/de3u14/2HDM/2HDM_analysis/scanners/2HDM_T3PS_scanner/links/inc/2HDMC/THDM.h \
- /scratch/de3u14/2HDM/2HDM_analysis/scanners/2HDM_T3PS_scanner/links/inc/2HDMC/SM.h \
+ /scratch/de3u14/2HDM/test/THDM_T3PS_scanner/links/inc/2HDMC/THDM.h \
+ /scratch/de3u14/2HDM/test/THDM_T3PS_scanner/links/inc/2HDMC/SM.h \
  /local/software/gsl/1.15/include/gsl/gsl_matrix.h \
  /local/software/gsl/1.15/include/gsl/gsl_matrix_complex_long_double.h \
  /local/software/gsl/1.15/include/gsl/gsl_types.h \
@@ -51,10 +51,10 @@
  /local/software/gsl/1.15/include/gsl/gsl_matrix_char.h \
  /local/software/gsl/1.15/include/gsl/gsl_vector_char.h \
  /local/software/gsl/1.15/include/gsl/gsl_block_char.h \
- /scratch/de3u14/2HDM/2HDM_analysis/scanners/2HDM_T3PS_scanner/links/inc/2HDMC/SM.h \
- /scratch/de3u14/2HDM/2HDM_analysis/scanners/2HDM_T3PS_scanner/links/inc/2HDMC/HBHS.h \
- /scratch/de3u14/2HDM/2HDM_analysis/scanners/2HDM_T3PS_scanner/links/inc/2HDMC/THDM.h \
- /scratch/de3u14/2HDM/2HDM_analysis/scanners/2HDM_T3PS_scanner/links/inc/2HDMC/DecayTable.h \
+ /scratch/de3u14/2HDM/test/THDM_T3PS_scanner/links/inc/2HDMC/SM.h \
+ /scratch/de3u14/2HDM/test/THDM_T3PS_scanner/links/inc/2HDMC/HBHS.h \
+ /scratch/de3u14/2HDM/test/THDM_T3PS_scanner/links/inc/2HDMC/THDM.h \
+ /scratch/de3u14/2HDM/test/THDM_T3PS_scanner/links/inc/2HDMC/DecayTable.h \
  /local/software/gsl/1.15/include/gsl/gsl_integration.h \
  /local/software/gsl/1.15/include/gsl/gsl_math.h \
  /local/software/gsl/1.15/include/gsl/gsl_sys.h \
@@ -63,6 +63,6 @@
  /local/software/gsl/1.15/include/gsl/gsl_nan.h \
  /local/software/gsl/1.15/include/gsl/gsl_pow_int.h \
  /local/software/gsl/1.15/include/gsl/gsl_minmax.h \
- /scratch/de3u14/2HDM/2HDM_analysis/scanners/2HDM_T3PS_scanner/links/inc/2HDMC/Constraints.h \
- /scratch/de3u14/2HDM/2HDM_analysis/scanners/2HDM_T3PS_scanner/links/inc/2HDMC/DecayTable.h \
+ /scratch/de3u14/2HDM/test/THDM_T3PS_scanner/links/inc/2HDMC/Constraints.h \
+ /scratch/de3u14/2HDM/test/THDM_T3PS_scanner/links/inc/2HDMC/DecayTable.h \
  ../inc/EWPO.h

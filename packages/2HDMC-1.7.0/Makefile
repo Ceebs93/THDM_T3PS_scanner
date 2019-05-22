@@ -13,7 +13,7 @@ VPATH=src
 
 # *x* Note to self: Added gsl/1.15/include here
 CFLAGS= -Wall $(DEBUG) $(OPT) -I/local/software/gsl/1.15/include -fpermissive
-CFLAGS_HBHS= $(CFLAGS) -DHiggsBounds
+CFLAGS_HBHS= $(CFLAGS) -DHiggsBounds -fpermissive
 
 OBJDIR=lib
 LIBDIR=$(OBJDIR)

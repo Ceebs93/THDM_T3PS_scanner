@@ -10,6 +10,12 @@
 # - Exit if any error is found
 set -e
 
+if [ -z "${THDM_T3PS_SCANNER_DIR}" ]; then
+    echo "Variable THDM_T3PS_SCANNER_DIR is not defined."
+    echo "Please source setup.sh first in the root directory of the package."
+	 exit 1
+fi
+
 ###########################
 ### --- HiggsBounds --- ###
 ###########################
@@ -128,3 +134,7 @@ cd ${SusHi_pkg_path}
 make clean
 ./configure 
 make predef=2HDMC
+
+
+echo -e "install.sh script has finished."
+echo -e "All packages should be installed."
