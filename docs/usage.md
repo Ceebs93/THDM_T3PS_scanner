@@ -72,7 +72,8 @@ The job preparation, submission and merging is handled by the [`Makefile`](../jo
 
 #### Instructions:
 
-1. Create cluster jobs.
+1. **Create cluster jobs.**
+
     Specify the following options in the `Makefile`:
     - `CREATE_JOB_TAG`: Name/tag of the job batch.
     - `CREATE_JOB_CONFIG`: `T3PS` MCMC configuration file.
@@ -82,12 +83,17 @@ The job preparation, submission and merging is handled by the [`Makefile`](../jo
     - `CREATE_JOB_chain_length`: Length of the chains.
     - `CREATE_JOB_TEMPLATE`: Path to the `T3PS` job template.
     
-    Having done this, issue the command:
+    After you have cross-checked the specifications, you can prepare the jobs (job folders are created, and
+    relevant config files are copied over) by issuing:
+
     ~~~~
     make create-jobs
     ~~~~
 
-2. Submit cluster jobs.
+    which exports the relevant Makefile variables and calls
+    [`job_submission/MCMC/utils/create-jobs.sh`](../job_submission/MCMC/utils/create-jobs.sh).
+
+2. **Submit cluster jobs.**
 
     Specify the following options in the `Makefile`:
     - `SUBMIT_JOB_TAG`: Name/tag of the to-be-submitted job batch.
@@ -96,24 +102,42 @@ The job preparation, submission and merging is handled by the [`Makefile`](../jo
     - `SUBMIT_JOB_RESOURCES`: PBS job resource specifications.
     - `SUBMIT_JOB_TASK`: Path to the job task script.
 
-    
-    Having done this, issue the command:
+    After you have cross-checked the job submission specifications, you can submit the jobs by issuing:
+
     ~~~~
-    make create-jobs
+    make submit-jobs
     ~~~~
 
-3. Merge cluster jobs.
+    which exports the relevant Makefile variables and calls
+    [`job_submission/MCMC/utils/submit-jobs.sh`](../job_submission/MCMC/utils/submit-jobs.sh).
+    
+3. **Merge cluster jobs.**
+
     After the cluster jobs have finished you can merge the individual chains together.
+
+    Specify the following options in the `Makefile`:
+    - `MERGE_JOB_TAG`: Name/tag of the job batch.
+    - `MERGE_JOB_HEADER`: Header file by which the merged ASCII file is prepended.
+    - `MERGE_JOB_CONVERT_ONLY`: If you would like to convert and already merged ASCII file, without re-merging the jobs use this option.
+    - `MERGE_JOB_CONVERT`: Convert the ASCII file to HDF5.
+    - `MERGE_JOB_COMPRESSION`: Compression library used. Recommended: `"blosc"`
+    - `MERGE_JOB_DATASET_NAME`: Name of the dataset within HDF5. Do not start with numerical characters.
+    - `MERGE_JOB_FORMAT`: Format of the HDF5 dataset. Recommended: `"table"`
+
+    After you have cross-checked the merge specifications, you can merge the jobs by issuing:
 
     ~~~~
     make merge-jobs
     ~~~~
 
+    which exports the relevant Makefile variables and calls
+    [`job_submission/MCMC/utils/merge-jobs.sh`](../job_submission/MCMC/utils/merge-jobs.sh).
+
 #### Contents of the work area
 
 **Directories:**
 - `utils`: contains utility `shell` scripts which received input from the `Makefile` and help with
-    tasks, such as job submission preperations, job submission, and merging of the jobs.
+    tasks, such as job submission preparations, job submission, and merging of the jobs.
     Contains:
     - `create-jobs.sh`: Prepares the jobs passed on to it by the `Makefile`.
     - `submit-jobs.sh`: Submits jobs to PBS cluster.
@@ -124,7 +148,7 @@ The job preparation, submission and merging is handled by the [`Makefile`](../jo
     dataset. Needs to be consistent with Parameter Point Processor.
 - `config`: contains the `T3PS` config templates. The token placeholders `program_`, `nCores_`,
     `chain_length_` are replaced by 
-- `jobs`: folder contains the invididual jobs in format of `JOB_TAG/job_XXX`. This directory contains:
+- `jobs`: folder contains the individual jobs in format of `JOB_TAG/job_XXX`. This directory contains:
     - `t3ps.conf`: the `T3PS` configuration of the submitted jobs
     - `job.template`: the job template needed by `T3PS`.
 
@@ -141,11 +165,77 @@ Computation of cross sections with `SusHi`.
 - gg -> A (NNLO QCD)
 - gg -> H (NNLO QCD)
 
-The computational speed, (processed points)/(second) is much slower in this step
+The computational speed i.e. (processed points)/(second) is much slower in this step, therefore this
+is only applied to the points which survive the theoretical consistency conditions.
 
 
 ### Job submission
 
-<font color='red'>To be filled!</font>
+The work area of the MCMC scan jobs is found in [./job_submission/SusHi/](../job_submission/SusHi/).
 
-Built on the same principle as the MCMC scan job submission.
+The job preparation, submission and merging is handled by the [`Makefile`](../job_submission/SusHi/Makefile).
+
+
+#### Instructions:
+
+1. **Create cluster jobs.**
+
+    Specify the following options in the `Makefile`:
+    - `CREATE_JOB_TAG`: Name/tag of the job batch.
+    - `CREATE_JOB_INPUT_DATA`: Path to the input parameter points which are to be appended by the cross section values.
+        This is on default the merged output of the MCMC scan.
+    - `CREATE_JOB_CONFIG`: `T3PS` MCMC configuration file.
+    - `CREATE_JOB_nCores`: Number of cores to use.
+    - `CREATE_JOB_nJobs`: Total number of jobs to submit
+    - `CREATE_JOB_program`: The path to the program which is called by T3PS to process a single point.
+        The current default program is
+        [`/job_submission/SusHi/template/SusHi_2HDMC_hybrid_cba_template_A_and_H.slha`](../job_submission/SusHi/template/SusHi_2HDMC_hybrid_cba_template_A_and_H.slha),
+        which calculates both &sigma;(pp -> H) and &sigma;(pp -> A) for the same point.
+    - `CREATE_JOB_TEMPLATE`: Path to the `T3PS` job template.
+    
+    After you have cross-checked the specifications, you can prepare the jobs (job folders are created, and
+    relevant config files are copied over) by issuing:
+
+    ~~~~
+    make submit-jobs
+    ~~~~
+
+    which exports the relevant Makefile variables and calls
+    [`job_submission/SusHi/utils/create-jobs.sh`](../job_submission/SusHi/utils/create-jobs.sh).
+
+
+2. **Submit cluster jobs.**
+
+    Specify the following options in the `Makefile`:
+    - `SUBMIT_JOB_TAG`: Name/tag of the to-be-submitted job batch.
+    - `SUBMIT_JOB_LIST`: Name of the file in the `jobbs/$JOB_TAG` folder containing the list of job
+    directories. The submission script loops over these.
+    - `SUBMIT_JOB_RESOURCES`: PBS job resource specifications.
+    - `SUBMIT_JOB_TASK`: Path to the job task script.
+
+    After you have cross-checked the job submission specifications, you can submit the jobs by issuing:
+
+    ~~~~
+    make submit-jobs
+    ~~~~
+
+    which exports the relevant Makefile variables and calls
+    [`job_submission/SusHi/utils/submit-jobs.sh`](../job_submission/SusHi/utils/submit-jobs.sh).
+
+3. **Merge cluster jobs.**
+
+    After the cluster jobs have finished you can merge the individual jobs together.
+
+    Specify the following options in the `Makefile`:
+    - `MERGE_JOB_TAG`: Name/tag of the job batch.
+    - `MERGE_JOB_HEADER`: Header file by which the merged ASCII file is prepended.
+
+    After you have cross-checked the merge specifications, you can merge the jobs by issuing:
+
+    ~~~~
+    make merge-jobs
+    ~~~~
+
+    which exports the relevant Makefile variables and calls
+    [`job_submission/SusHi/utils/merge-jobs.sh`](../job_submission/SusHi/utils/merge-jobs.sh).
+
