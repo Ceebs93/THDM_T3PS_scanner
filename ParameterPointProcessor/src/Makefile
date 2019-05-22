@@ -77,8 +77,8 @@ CLFLAGS_2HDMC_WITH_HB_HS_SuperIso = -L$(LIBDIRLINK) ${2HDMC_WITH_HB_HS_LFLAGS} $
 ############
 
 # - 2HDMC flags
-2HDMC_WITH_HB_HS_LFLAGS = -L$(LIBDIRLINK) -l2HDMC -L/local/software/gsl/1.15/lib -lgsl -lgslcblas -lgfortran
-2HDMC_STANDALONE_LFLAGS = -L$(LIBDIRLINK) -l2HDMC_standalone -L/local/software/gsl/1.15/lib -lgsl -lgslcblas -lgfortran
+2HDMC_WITH_HB_HS_LFLAGS = -L$(LIBDIRLINK) -l2HDMC_HBHS -L/local/software/gsl/1.15/lib -lgsl -lgslcblas -lgfortran
+2HDMC_STANDALONE_LFLAGS = -L$(LIBDIRLINK) -l2HDMC -L/local/software/gsl/1.15/lib -lgsl -lgslcblas -lgfortran
 
 # - HiggsBounds/HiggsSignals flags
 HB_HS_LFLAGS = ${HB_LFLAGS} ${HS_LFLAGS}

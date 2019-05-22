@@ -2,9 +2,11 @@
 
 ## Instructions
 
+Automatic installation `setup_auto.sh`.
 
 
-1. **Setting up local directives, environment variables (`env.sh`).**
+
+1. **Setting up local directives, environment variables (`env_local.sh`).**
 
 	If you have any local setup directives you may want to store them in `env_local.sh` which is
    automatically sourced by `env.sh` if it exists.
