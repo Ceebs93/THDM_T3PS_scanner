@@ -2,11 +2,13 @@
 ### --- Create jobs  --- ###
 ############################
 
-CREATE_JOB_TAG          = "2019_05_09_Diadem2"
-CREATE_JOB_CONFIG       = "config/mcmc_scan_diadem.conf"
+# - Specify the following settings for preparing the jobs
+
+CREATE_JOB_TAG          = "job_batch1"
+CREATE_JOB_CONFIG       = "config/mcmc_scan_default.conf"
 CREATE_JOB_nCores       = 8
 CREATE_JOB_program      = ${THDM_T3PS_SCANNER_DIR}/ParameterPointProcessor/bin/ParameterScan_T3PS_with_HB_HS_FAST
-CREATE_JOB_nJobs        = 200
+CREATE_JOB_nJobs        = 1
 CREATE_JOB_chain_length = 9999999
 CREATE_JOB_TEMPLATE     = "template/mcmc_scan.func"
 
@@ -14,20 +16,20 @@ CREATE_JOB_TEMPLATE     = "template/mcmc_scan.func"
 ### --- Job Submission --- ###
 ##############################
 
-#SUBMIT_JOB_LIST       = "test.jobs"
-#SUBMIT_JOB_LIST       = "batch1.jobs"
-#SUBMIT_JOB_LIST       = "batch2.jobs"
-SUBMIT_JOB_LIST       = "batch3.jobs"
-SUBMIT_JOB_TAG        = "2019_05_09_Diadem2"
-SUBMIT_JOB_RESOURCES  = "nodes=1:ppn=8,walltime=60:00:00"
+# - Specify the following settings for submitting the jobs
+
+SUBMIT_JOB_LIST       = "all.jobs"
+SUBMIT_JOB_TAG        = "job_batch1"
+SUBMIT_JOB_RESOURCES  = "nodes=1:ppn=8,walltime=00:30:00"
 SUBMIT_JOB_TASK       = "job_task/job.sh"
 
 ########################
 ### --- Merge jobs - ###
 ########################
 
-MERGE_JOB_TAG          = "2019_04_03_Diadem"
-#MERGE_JOB_HEADER      = "header/default.header"
+# - Specify the following settings for merging the jobs
+
+MERGE_JOB_TAG          = "job_batch1"
 MERGE_JOB_HEADER       = "header/default.header"
 MERGE_JOB_DATASET_NAME = ${MERGE_JOB_TAG}
 MERGE_JOB_CONVERT      = "yes"

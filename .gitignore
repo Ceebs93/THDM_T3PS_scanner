@@ -19,3 +19,4 @@ packages/LHAPDF-6.2.1_build/
 *.lo
 setup_local.sh
 env_local.sh
+job_submission/MCMC/tests/local_test/
