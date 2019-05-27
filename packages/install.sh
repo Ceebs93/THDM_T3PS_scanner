@@ -107,7 +107,6 @@ echo "make install"
 
 mkdir -p ${LHAPDF_pkg_build_path}
 cd ${LHAPDF_pkg_path}
-make clean
 ./configure --prefix=${LHAPDF_pkg_build_path}
 make
 make install
