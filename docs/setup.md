@@ -2,9 +2,14 @@
 
 ## Instructions
 
-Automatic installation `setup_auto.sh`.
+There is a main installation script `setup_auto.sh`, which aims to setup everything necessary for
+the parameters scanner.
+It is unlikely that it will work out-of-the-box due to mismatching package versions, missing
+environment variables etc. When an error message is prompted, the user expected to debug.
+Below are the steps that `setup_auto.sh` aims to do.
 
-
+In case you run into errors, see the [setup troubleshooting docs][setup_troubleshoot] which might be
+able to help with your issue.
 
 1. **Setting up local directives, environment variables (`env_local.sh`).**
 
@@ -67,8 +72,20 @@ Automatic installation `setup_auto.sh`.
 	 	this case please refer to the documentation of the packages.
 
 
+4. **Setup symbolis links.**
 
-4. **Installation complete. Start using the scanner.**
+    This is done by the `setup_links.sh` script.
+    It creates symbolic links of the headers and libraries of the various packages in
+    the `./links` directory.
+
+5. **Compile `ParameterPointProcessor`.**
+
+    ~~~~
+    cd ParameterPointProcessor
+    make
+    ~~~~
+
+6. **Installation complete. Start using the scanner.**
 	
 	At this point hopefully you have a working setup. For instructions on how
 	to submit jobs please refer to [usage.md](./usage.md).
@@ -76,7 +93,7 @@ Automatic installation `setup_auto.sh`.
 
 ------------------------------------------------------------
 
-
+[setup_troubleshoot]: ./setup_troubleshoot.md
 [2HDMC-url]: https://2hdmc.hepforge.org/
 [HiggsBounds-url]: https://higgsbounds.hepforge.org/
 [HiggsSignals-url]: https://higgsbounds.hepforge.org/
