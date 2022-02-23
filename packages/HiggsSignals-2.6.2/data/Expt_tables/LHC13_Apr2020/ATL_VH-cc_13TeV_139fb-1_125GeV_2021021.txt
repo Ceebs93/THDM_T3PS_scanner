@@ -1,0 +1,13 @@
+# Data taken from Results, ATLAS-CONF-2021-021.
+2021021	2021021		1
+ATLAS-CONF-2021-021
+LHC, ATL, ATL
+(pp)->Vh,h->cc
+13	139.0	0.025
+1	0
+5.0
+125.09 125.09 1.0
+2	-1
+37 47
+
+125.09		-24	-9	6

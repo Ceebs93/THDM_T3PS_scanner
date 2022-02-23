@@ -1,0 +1,58 @@
+build:gcc:
+  image: registry.gitlab.com/higgsbounds/ci-utils/gcc-cmake-feynhiggs
+  stage: build
+  before_script:
+    - git clone https://gitlab.com/higgsbounds/higgsbounds.git
+    - cd higgsbounds
+    - git checkout $CI_COMMIT_REF_NAME || git checkout develop
+    - mkdir build && cd build
+    - cmake -DFeynHiggs_ROOT=$FH_PATH ..
+    - make
+    - cd $CI_PROJECT_DIR
+  script:
+    - mkdir build && cd build
+    - cmake -DCMAKE_Fortran_FLAGS='-Werror -fimplicit-none -fcheck=all' -DFeynHiggs_ROOT=$FH_PATH ..
+    - make
+  artifacts:
+    paths:
+      - build
+      - higgsbounds/data
+    expire_in: 1 hour
+  tags:
+    - docker
+
+test:gcc:
+  image: registry.gitlab.com/higgsbounds/ci-utils/gcc-cmake-feynhiggs
+  stage: test
+  script:
+    - cd build
+    - ctest --output-on-failure
+  tags:
+    - docker
+  dependencies:
+    - build:gcc
+
+pages:
+  stage: deploy
+  image: registry.gitlab.com/higgsbounds/ci-utils/gcc-cmake-feynhiggs
+  dependencies: []
+  before_script:
+    - apt-get update && apt-get install -y doxygen graphviz libjs-mathjax
+    - git clone https://gitlab.com/higgsbounds/higgsbounds.git
+    - cd higgsbounds
+    - git checkout $CI_COMMIT_REF_NAME || git checkout develop
+    - mkdir build && cd build
+    - cmake -DFeynHiggs_ROOT=$FH_PATH ..
+    - make
+    - cd $CI_PROJECT_DIR
+  script:
+    - mkdir build && cd build
+    - cmake -DDOXYGEN_MATHJAX_RELPATH='mathjax' ..
+    - make doc
+    - mv doc/html/ ../public/
+    - cp -r /usr/share/javascript/mathjax/ ../public/
+  artifacts:
+    paths:
+      - public
+  only:
+    - tags

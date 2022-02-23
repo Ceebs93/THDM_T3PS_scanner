@@ -1,0 +1,7 @@
+# [hep-ex] 1907.06131 (ATLAS)
+# 6131_Atlas_H125-etau_36.1fb-1
+# Fig 4a
+# mass obs exp (pp -> H -> e tau / pp -> HSM)
+
+          120.0          0.0047          0.0034
+          130.0          0.0047          0.0034

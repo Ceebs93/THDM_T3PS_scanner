@@ -1,12 +1,10 @@
 #!/bin/bash
 
+source /scratch/cb27g11/sofware/THDM_T3PS_scanner/env.sh
+
+echo "job_task/job.sh thinks scanner dir is: ${THDM_T3PS_SCANNER_DIR}"
 
 PROGRAM=${THDM_T3PS_SCANNER_DIR}/packages/T3PS/t3ps
-
-# - Local setup
-module load gsl
-source /home/de3u14/lib/build/miniconda3/bin/activate py27
-
 
 ############################################
 echo "Program: ${PROGRAM}"

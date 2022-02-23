@@ -2130,10 +2130,11 @@ def process_item(point, test_mode=False, print_error_trace=False):
                     process_item.bounds,
                     point, point_vars, processed_point
                 )
-
+# -- Below was previously commented out, presumably by David
 #                print('point', point)
-#                print('point_vars', point_vars)
+                print('point_vars', point_vars)
 #                print('processed_point', processed_point)
+#--------------------------------------------------------------
 
 # - Warning - made a change here
                 return (list(point), list(point_vars), list(processed_point))
@@ -2630,6 +2631,14 @@ if no_config:
 config_dir = os.path.abspath(os.path.dirname(chosen_scan_setup))
 base_name = os.path.basename(chosen_scan_setup)
 draw_progress.scan_file = os.path.abspath(chosen_scan_setup)
+# Print statements added by Ciara ---------------------------
+print("                                                             ")
+print("config_dir appears to be: " + str(config_dir))
+print("                                                              ")
+print("base_name (AKA the scan setup chosen) appears to be: " + str(base_name))
+print("                                                               ")
+print("draw_progress.scan_file appears to be: " + str(draw_progress.scan_file))
+
 
 if cli_arguments.output_dir:
     try:
@@ -3022,6 +3031,7 @@ if mode in [MODE_MCMC, MODE_EXPLORER, MODE_OPTIMIZE] or \
 
     def likelihood(data, code=likelihood_code):
         """Return likelihood of given parameter point data triple."""
+        print(data[2])
         return formula_eval(
             code,
             pars=data[0],
@@ -4252,6 +4262,9 @@ elif mode == MODE_MCMC:
                 iterations[i] = iteration
 
                 L = likelihood(point_with_data)
+                print("                                           ")
+                print( "The likelihood value is currently:    " + str(L))
+		print("                                           ")
                 if L == 0:
                     # either the likelihood function changed or something
                     #   went wrong

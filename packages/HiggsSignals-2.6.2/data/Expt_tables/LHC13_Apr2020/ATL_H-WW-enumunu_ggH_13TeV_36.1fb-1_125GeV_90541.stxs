@@ -1,0 +1,18 @@
+# Stage-0 Simplified Template Cross Section Measurement
+# for ggH production.
+# Data taken from p11 of 1808.09054
+# Measured XS is given in pb
+90541
+arxiv:1808.09054
+LHC, ATL, ATL
+(pp)->h->WW-> e nu mu nu (ggH)
+13	36.1	0.032
+0	0
+
+125.0
+5.0
+1	125.0
+12
+1.0
+9.3   11.4  13.6
+9.8		10.4	11.0

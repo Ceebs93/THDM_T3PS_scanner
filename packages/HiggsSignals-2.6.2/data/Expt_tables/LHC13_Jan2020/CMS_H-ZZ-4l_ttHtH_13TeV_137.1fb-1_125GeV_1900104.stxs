@@ -1,0 +1,18 @@
+# Simplified Template Cross Section Measurement for ttH/tH.
+# Data taken from Fig.14, CMS-PAS-HIG 19-001.
+# SM cross section uncertainty (in fb) guestimated from same figure (blue band).
+# Measurement is recalculated to obtain absolute value (in fb).
+1900104
+CMS-PAS-HIG-19-001
+LHC, CMS, CMS
+(pp)->h->Z Z-> 4l (ttH,tH)
+13	137.1	0.024
+0	0
+
+125.0
+2.5
+3      125.0
+5.3 8.3 9.3
+1.0 1.0 1.0
+-0.0474	0.0078	0.063
+0.048	0.06	0.0708

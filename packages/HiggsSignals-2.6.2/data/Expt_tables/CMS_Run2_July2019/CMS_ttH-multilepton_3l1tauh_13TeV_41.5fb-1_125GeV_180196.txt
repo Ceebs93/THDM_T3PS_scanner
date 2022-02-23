@@ -1,0 +1,14 @@
+# Data taken from CMS-PAS-HIG-18-019, Tab.7.
+# 2017 dataset, can be used together with 2016 results (36fb-1).
+180196	180196		1
+CMS-PAS-HIG-18-019
+LHC, CMS, CMS
+(pp)->tth,h->multilepton (3l+1tau_h)
+13	41.5	0.025
+1	0
+20
+125.0 125.0 1.0
+3	125.
+52 53 54
+1.	0.86	5.24
+125.0		-2.29	-0.96	1.00

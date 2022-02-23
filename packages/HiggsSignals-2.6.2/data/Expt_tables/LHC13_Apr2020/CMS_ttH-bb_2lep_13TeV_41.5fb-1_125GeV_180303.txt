@@ -1,0 +1,13 @@
+# Dilepton, sensitive to ttH and tWH
+180303	180303		1
+CMS-PAS-HIG-18-030
+LHC, CMS, CMS
+(pp)->tth->tt(bb) dilepton
+13	41.5	 0.025
+1	0
+25.0
+125.0 125.0 1.0
+2	-1
+5.5 12.5
+
+125.0	0.77 1.62 2.52

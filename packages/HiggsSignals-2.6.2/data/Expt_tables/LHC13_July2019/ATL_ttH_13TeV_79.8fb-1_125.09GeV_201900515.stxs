@@ -1,0 +1,18 @@
+# Simplified Template Cross Section Measurement for ttH + tH production.
+# Data taken from Tab.8, ATLAS-CONF-2019-005
+# Implemented as normalized to the H->ZZ decay
+# Measured XS is given in pb
+201900515
+ATLAS-CONF-2019-005
+LHC, ATL, ATL
+(pp)->h->ZZ (ttH + tH)
+13	79.8	0.020
+0	0
+
+125.09
+2.5
+3     125.09
+5.3 8.3 9.3
+1.0 1.0 1.0
+0.65	0.84	1.07
+0.54	0.59	0.63

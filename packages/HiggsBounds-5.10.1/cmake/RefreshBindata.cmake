@@ -1,0 +1,5 @@
+file(WRITE ${HB_DATA_DIR}/Expt_tables/S95_t1.binary )
+file(WRITE ${HB_DATA_DIR}/Expt_tables/S95_t2.binary )
+file(WRITE ${HB_DATA_DIR}/Expt_tables/tautau_llh.binary )
+file(WRITE ${HB_DATA_DIR}/Expt_tables/BRSM.binary )
+file(WRITE ${HB_DATA_DIR}/Theory_tables/XSSM.binary )

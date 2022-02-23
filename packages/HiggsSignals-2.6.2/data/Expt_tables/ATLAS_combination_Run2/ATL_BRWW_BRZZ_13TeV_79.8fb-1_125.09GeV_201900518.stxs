@@ -1,0 +1,17 @@
+# Simplified Template Cross Section Measurement for the ratio BR(WW)/BR(ZZ).
+# Data taken from Tab.8, ATLAS-CONF-2019-005
+# Measurement is not normalized to the SM.
+201900518
+ATLAS-CONF-2019-005
+LHC, ATL, ATL
+BR(h->WW)/BR(h->ZZ)
+13	79.8	0.020
+0	0
+
+125.09
+2.5
+1     125.09
+2:3
+1.0
+5.7	7.0	8.5
+8.15	8.15	8.15

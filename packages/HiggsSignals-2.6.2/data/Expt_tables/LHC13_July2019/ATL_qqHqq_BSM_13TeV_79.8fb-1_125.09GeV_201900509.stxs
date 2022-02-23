@@ -1,0 +1,19 @@
+# Simplified Template Cross Section Measurement for qq->Hqq (pt >= 200 GeV) production.
+# Data taken from Tab.8, ATLAS-CONF-2019-005
+# Implemented as normalized to the H->ZZ decay
+# Factors in the BR(W/Z -> hadrons) in efficiencies.
+# Measured XS is given in pb
+201900509
+ATLAS-CONF-2019-005
+LHC, ATL, ATL
+(pp)->h->ZZ (qq->Hqq BSM)
+13	79.8	0.020
+0	0
+
+125.09
+2.5
+3     125.09
+2.3 3.3 4.3
+1.0 0.6741 0.69911
+-0.54	-0.21	0.12
+0.215	0.22	0.225

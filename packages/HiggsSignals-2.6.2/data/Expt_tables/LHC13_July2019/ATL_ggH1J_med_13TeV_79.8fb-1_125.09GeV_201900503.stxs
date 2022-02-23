@@ -1,0 +1,18 @@
+# Simplified Template Cross Section Measurement for ggH (1j med pt) production.
+# Data taken from Tab.8, ATLAS-CONF-2019-005
+# Implemented as normalized to the H->ZZ decay
+# Measured XS is given in pb
+201900503
+ATLAS-CONF-2019-005
+LHC, ATL, ATL
+(pp)->h->ZZ (ggH 1J med)
+13	79.8	0.020
+0	0
+
+125.09
+2.5
+1     125.09
+1.3
+1.0
+2.5		4.0		5.7
+4.0		4.6		5.2

@@ -1,0 +1,15 @@
+# Results from ATLAS-CONF-2019-045
+# Data from Fig. 8. Signal composition from previous analysis (36fb-1).
+# Assumption: H->other  contains only H->mumu and H->bb with relative signal  fractions as in SM
+20190455	20190455		1
+ATLAS-CONF-2019-045
+LHC, ATL, ATL
+(pp)->tth->multilepton (2lSS 1tau_h)
+13 	79.9	0.021
+1	0
+10
+125 125 0.1
+20	125
+5.2 5.3 5.4 5.5 5.8 8.2 8.3 8.4 8.5 8.8 9.2 9.3 9.4 9.5 9.8 12.2 12.3 12.4 12.5 12.8
+1.00 0.19765 4.92022 0.008759 0.008759 1.00 0.19765 4.92022 0.008759 0.008759 1.00 0.19765 4.92022 0.008759 0.008759 1.00 0.19765 4.92022 0.008759 0.008759
+125	-0.42 0.43  1.53

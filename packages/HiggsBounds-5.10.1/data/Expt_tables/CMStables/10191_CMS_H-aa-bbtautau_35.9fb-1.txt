@@ -1,0 +1,15 @@
+# CMS, arXiv:1805.10191, May 2019
+# 10191_CMS_H-aa-bbtautau_35.9fb-1.txt
+# Limit is set on SM-normalized inclusive Higgs production x BR(H->aa) x BR(aa-> tau tau b b) (in %)
+# Mh 	exp	obs
+
+       15.00           12.08           7.837    
+       20.00           8.614           4.269    
+       25.00           5.144           3.809    
+       30.00           3.130           3.349    
+       35.00           3.437           3.393    
+       40.00           2.430           3.437    
+       45.00           3.656           4.488    
+       50.00           5.473           6.042    
+       55.00           7.290           8.910    
+       60.00           9.194           10.75    

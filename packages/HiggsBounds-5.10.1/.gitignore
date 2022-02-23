@@ -1,0 +1,71 @@
+### Fortran ###
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+### CMake ###
+build*
+
+### Python ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+### HiggsBounds ###
+
+# binary data
+*.binary
+
+# output files
+*Key.dat
+*HiggsBounds_results.dat
+*-fromHB
+*peakobservables.dat
+
+# debug files
+debug_channels.txt
+debug_predratio.txt
+
+#documentation
+doc/html/*
+
+### Linux ###
+*~
+
+### macOS ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+### Editor ###
+.vscode
+.atom

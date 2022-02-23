@@ -1,0 +1,15 @@
+# Data is taken from arXiv:1409.6212, Fig. 22.
+# This is the combined 7+8 TeV data.
+# Efficiencies are approximated (for 7+8TeV) from Tab. 3.
+6212103	621203	1
+arXiv:1409.6212
+LHC, ATL, ATL
+(pp)->Vh->Vbb (2l) 
+8 	25.0	0.028
+1	0
+15.
+125.0 125.0 1.0
+1	-1
+45
+
+125.0	0.15	0.94	1.82

@@ -1,0 +1,18 @@
+# Data extracted from the mu plot in Fig 17 of arXiv:1408.7084
+# aka ATLAS-HIGG-2013-08 aka CERN-PH-EP-2014-198
+# They analyze 7 and 8 TeV but only present combined mu's for both.
+# We here assume only 8 TeV and the 8 TeV luminosity.
+# Assignment follows the mass-sensitive observable 7084101.
+7084108	708408	1
+arXiv:1408.7084
+LHC, ATL, ATL
+(pp)->h->gammagamma (VH ETmiss) 
+8 	20.3	0.028
+1	0
+1.56	ATLgagacat
+125.4 125.4 1.0
+5	125.4
+11 21 31 41 51
+1.0 6.746 138.847 300.179 184.505
+125.4	1.093   3.51   6.814
+

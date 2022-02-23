@@ -1,0 +1,18 @@
+# Simplified Template Cross Section Measurement for gg/qq->Hll (pt(V) < 150 GeV) production.
+# Data taken from Tab.8, ATLAS-CONF-2019-005
+# Implemented as normalized to the H->ZZ decay
+# Measured XS is given in pb
+201900512
+ATLAS-CONF-2019-005
+LHC, ATL, ATL
+(pp)->h->ZZ (ZH low)
+13	79.8	0.020
+0	0
+
+125.09
+2.5
+1     125.09
+4.3
+1.0
+-0.14	0.17	0.42
+0.192	0.200	0.208

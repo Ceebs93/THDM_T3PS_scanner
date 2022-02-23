@@ -1,0 +1,255 @@
+ -------------------------------------------------------
+       2HDMC - TWO-HIGGS-DOUBLET MODEL CALCULATOR
+ -------------------------------------------------------
+
+  2HDMC is a C++ code for performing calculations in 
+  general, CP-conserving, two-Higgs-doublet models.        
+	
+
+  AUTHORS
+ -------------------------------------------------------
+  The original authors of the 2HDMC code are 
+  David Eriksson, Johan Rathsman and Oscar Stal
+
+  The code is currently developed and maintained by
+  Johan Rathsman    <johan.rathsman@thep.lu.se>
+
+
+  OBTAINING THE CODE
+ -------------------------------------------------------
+  The easiest way to obtain 2HDMC is from the 
+  official webpage: 
+
+  ->  http://2hdmc.hepforge.org
+
+  From this page the class documentation can also be 
+  downloaded. The full manual has been published and
+  is available from
+  
+  ->  http://arxiv.org/abs/0902.0851
+
+  We are currently working on an update of this document,
+  containing all changes since the original publication
+  (quite a few by now!) For important updates, 
+  please also consult the code webpage.
+ 
+  SYSTEM REQUIREMENTS
+ -------------------------------------------------------
+  2HDMC has been tested to compile (with gcc 4) and run 
+  under GNU/Linux on both 32- and 64-bit systems. It 
+  also runs on OS X (10.6/7/8) without trouble.
+
+  2HDMC requires a working installation of the GNU 
+  Scientific Library (GSL). The latter is often included
+  in standard Linux distributions, but can otherwise be 
+  obtained from
+
+  ->  http://www.gnu.org/software/gsl
+
+  To calculate cross sections for Higgs production,
+  2HDMC can now interface the public code SusHi
+
+  -> http://sushi.hepforge.org
+
+  For further information on how to use this interface,
+  we refer the user to this webpage and the SusHi
+  documentation.
+
+  It can also be useful to download HiggsBounds/
+  HiggsSignals (optional), since 2HDMC can interface the 
+  LEP, Tevatron and LHC constraints implemented in these
+  codes. HiggsBounds/HiggsSignals are available from
+
+  -> https://gitlab.com/higgsbounds/higgsbounds
+     https://gitlab.com/higgsbounds/higgssignals
+	
+  Starting from 2HDMC 1.8, HiggsBounds version 5.7.0 or
+  higher AND HiggsSignals 2.4.0 are required to use this
+  feature.
+
+  To link 2HDMC with HB/HS support, uncomment the corresponding
+  lines in the Makefile to define the orresponding build 
+  directories. If you use 2HDMC with HB/HS, please cite the 
+  relevant ublications.
+
+  INSTALLING AND RUNNING
+ -------------------------------------------------------
+  To compile the library and example programs, run:
+  $ make
+
+  To compile the 2HDMC library, run:
+  $ make lib
+
+  To compile a single program, with source Prog.cpp, 
+  located in src/, run
+  $ make Prog
+
+  To verify the 2HDMC installation (both with and without  
+  HB/HS link), the sample program 'Demo' can be executed.
+
+  FILE DESCRIPTION
+ --------------------------------------------------------------------
+  A complete installation of 2HDMC should contain the
+  following directory structure:
+ 
+   2HDMC
+     |
+     |--- lib
+     |
+     |--- MGME
+     |
+     |--- src 
+
+  The contents of each directory is as follows:
+ 	
+  2HDMC
+   README   	    This document
+
+   LH_sample_input  Sample LesHouches-style input file
+
+   Makefile   	    Main Makefile of 2HDMC
+
+  lib
+   The compiled 2HDMC library is put here.
+ 
+  MGME/2HDMC
+   The files in this directory make up the MadGraph/MadEvent
+   model which can be used together with the 2HDM output. These
+   files should be put in the "Models" directory of the MG/ME
+   installation (MadGraph/MadEvent v. 4 supported)
+  
+  src
+   Constaints.cpp    Source files for the Constraints class which
+   Constraints.h     calculates observables useful for constraining
+		     the two-Higgs-doublet model.
+
+   DecayTable.cpp    Sources for the DecayTable class. Calculates
+   DecayTable.h	     the decay modes of the 2HDM Higgs bosons.
+
+   HBHS.cpp	     Sources for the HiggsBounds/HiggsSignals
+   HBHS.h 	     interface (new from v. 1.7.0)
+
+   RunTHDM.cpp       Helper functions for external codes
+   RunTHDM.h
+
+   SM.cpp	     Source of the SM class which holds the SM 
+   SM.h		     parameters.
+
+   THDM.cpp	     Source files of the main (THDM) class. This
+   THDM.h	     class implements the two-Higgs-doublet model.
+
+   Util.cpp	     Contains helper functions.
+   Util.h
+
+   The src directory also contains the sample main programs:
+
+   Demo.cpp	     General Demo program (HB/HS demo)
+   CalcGen.cpp       Sample calculator for the generic (lambda) basis
+   CalcHybrid.cpp    Sample caluclator for the Hybrid basis [1507.04281]
+   CalcHiggs.cpp     Sample calculator for the Higgs basis
+   CalcHMSSM.cpp     Sample calculator for "HMSSM" approach of [1507.04281]
+   CalcLH.cpp        Sample calculator using LesHouches-style input
+   CalcMSSM.cpp	     Sample calculator for the (tree-level) MSSM
+   CalcInert.cpp     Sample calculator for the Inert Doublet model
+   CalcPhys.cpp      Sample calculator for the physical (mass) basis (HB/HS demo)
+	
+
+  RELEASE HISTORY
+ --------------------------------------------------------------------
+  1.8.0   2020-02-10    Included new interface for HiggsBounds/
+                        HiggsSignals. [Thanks to J. Wittbrodt].
+                        Added get_yukawas_type() and modified 
+                        write_LesHouches() to work with HB/HS
+                        [Thanks to J. Wittbrodt].
+                        Updated code to C++11 [Thanks to J. Wittbrodt].
+                        Corrected sorting in hhh and hhhh couplings.
+                        Corrected so that massive corrections for hqq 
+                        are only applied for equal masses.
+                        Clean-up of obsolete features.
+
+  1.7.0   2015-08-28    Included new interface for HiggsBounds/
+                        HiggsSignals. Included support for input in 
+                        hybrid basis as defined in [1507.04281].
+			Improved treatment of off-shell H+ decays
+			[Thanks to R. Hansen]
+			Addition of FCNC top decays
+			[Thanks to L. Zethraeus]
+                        Clean-up of obsolete features.
+
+  1.6.5   2014-10-24    Corrected bug which affected constraints from
+                        HiggsBounds in the case when the lightest 
+                        scalar is stable (inert doublet model). 
+                        [Thanks to T. Robens]
+
+  1.6.4   2014-01-21    Corrected bug affecting 2-loop QCD corrections
+                        to h->ss on rare occassions. Insignificant
+                        numerical impact. [Thanks to P. Li]
+
+  1.6.3   2014-01-08    Corrected bug in tt*, t*b off-shell decays, 
+                        which caused occasional crashes. 
+                        [Thanks to G. Carvalho-Dorsch, T. Li]
+
+  1.6.2   2013-12-09    Bug in FCNC decays h->tu, tc for mh<~mt 
+                        corrected.
+
+  1.6.1	  2013-12-06    Bug in h->Z gamma for mh<mZ corrected.
+                        [Thanks to L. Wang]
+
+  1.6     2013-11-27    Off-shell decays to tt*, t*b added.
+                        Mass-dependent threshold corrections added
+                        for tt and tb decays.
+                        More complete alpha_s^2 corrections for decays
+                        into light quarks.
+                        Modified running of alpha_s and running quark 
+                        masses (now also including the strange quark) 
+                        for higher precision.
+                        Default settings for QCD evolution changed.
+
+  1.5     2013-09-25    New cross section interface to SusHi.
+                        HiggsBounds interface updated for HB-4.0.0
+                        Added H->gamma Z decay.
+                        QCD corrections to gg, gamma gamma, Z gamma
+                        and quark decays added/improved.
+                        Default value for SM parameters changed.
+                        New input basis: H2 (for LHC benchmarks). 
+                        Bug fixed in running charm mass.
+ 
+  1.41b   2013-07-27    Private version for LHC Collaborations.
+                        Added Higgs decays to doubly-offshell vector 
+                        bosons. 
+  
+  1.4b    2013-05-01    First interface to SusHi for cross section
+                        calculations. 
+
+  1.2b2   2012-11-01    Added beta support for HiggsBounds 3.8/4.0.
+                        Corrected bug in H->gamma gamma width.
+                        Minor cosmetic changes.
+
+  1.2b1   2012-02-20	Added beta support for HiggsBounds 3.6
+
+  1.1	  2010-10-07	Fixed bug in MG/ME model with LHA reading of
+			BLOCK Alpha. 
+			Implemented new interface for HiggsBounds 2.0.
+			Removed legacy support for NMSSMTools Higgs
+                   	mass limits.
+ 
+  1.0.7   2010-06-21	Improved memory handling.
+
+  1.0.6   2009-12-11	Fixed problems with calculation of the 
+			oblique parameters for degenerate masses.
+			Bugs corrected, affecting calculation 
+			of S,U,V, and X. [Thanks to M. Wiebusch]
+
+  1.0.5   2009-08-31  	Les Houches interface improved to provide
+			output for SuperIso.
+
+  1.0.3   2009-06-22    Implemented check of perturbativity.
+
+  1.0.2   2009-06-15    Implemented interface to HiggsBounds.
+                        More efficient handling of DecayTables.
+                        Improved handling of gsl errors.
+                        Various small fixes.
+
+  1.0.1   2009-03-04    Fixed compiler problem with gcc-3.4.
+
+  1.0     2009-02-05    First release of 2HDMC.

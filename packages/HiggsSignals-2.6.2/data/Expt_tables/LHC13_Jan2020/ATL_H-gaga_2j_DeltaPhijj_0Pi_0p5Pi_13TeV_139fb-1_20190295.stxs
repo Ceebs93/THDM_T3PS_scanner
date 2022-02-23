@@ -1,0 +1,20 @@
+# Taken from fiducial cross section measurements,
+# split into 0j, 1j and four >=2j DeltaPhi_jj bins.
+# No correlations available. Efficiencies taken from
+# comparison of ggH and XH XS in plot.
+# Data taken from Tab.7 of ATLAS-CONF-2019-029.
+# Measured XS is given in pb
+20190295
+ATLAS-CONF-2019-029
+LHC, ATL, ATL
+(pp)->h->gammagamma, 2j, 0 < DeltaPhi_jj < Pi/2
+13	139	0.02
+0	0
+
+125.0
+2.5
+5	125.0
+1.1 2.1 3.1 4.1 5.1
+0.360 1. 1. 1. 1.
+0.000971 0.00141  0.001841
+0.001833 0.002033 0.002243

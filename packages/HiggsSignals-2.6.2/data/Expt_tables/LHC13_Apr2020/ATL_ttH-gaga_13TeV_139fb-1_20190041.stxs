@@ -1,0 +1,17 @@
+# Inclusive XS measurement for ttH, H->gammagamma
+# Assume signal efficiencies to be equal for ttH and tH.
+# Measured XS is given in pb
+20190041
+ATLAS-CONF-2019-004
+LHC, ATL, ATL
+(pp)->tth, h->gammagamma
+13	139	0.02
+0	0
+
+125.0
+2.5
+4	125.0
+1.1 8.1 9.1 12.1
+1. 1. 1. 1.
+1.20  1.59  2.02
+1.03  1.15  1.24

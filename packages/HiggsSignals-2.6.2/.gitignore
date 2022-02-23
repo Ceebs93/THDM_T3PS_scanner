@@ -1,0 +1,78 @@
+### Fortran ###
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+## CMake
+build*
+
+### Python ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+### HiggsSignals
+
+# Executables
+HiggsSignals
+example_programs/HBandHSwithFH
+example_programs/HBandHSwithSLHA
+example_programs/HS_2Higgses
+example_programs/HS_SM_LHCRun1
+example_programs/HS_efficiencies
+example_programs/HS_mass
+example_programs/HSeffC
+example_programs/HSeffCwithSTXS
+example_programs/HSgga
+example_programs/HShadr
+example_programs/HShadrwithSTXS
+example_programs/HSscaleUncertainties
+example_programs/HSwithSLHA
+example_programs/HSwithSTXS
+example_programs/HSwithToys
+
+# binary data
+*.binary
+
+# output files
+HS_correlations.txt
+STXS_analyses.txt
+STXS_correlations.txt
+STXS_ncorrelations.txt
+*HiggsBounds_results.dat
+*_peakobservables.dat
+*.fh.*
+*-fromHS
+
+# system specific garbage
+.DS_Store
+._*
+
+## Editor
+.vscode
+.atom

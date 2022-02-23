@@ -1,0 +1,19 @@
+# Stage-0 STXS measurement of WH, H->WW->lnulnu,
+# Inclusive result.
+# Data taken from p16 in arXiv:1903.10052,
+# uncertainties combined in quadrature.
+# Measured XS is given in pb
+100521
+arXiv:1903.10052
+LHC, ATL, ATL
+(pp)->Wh->W(WW)->W(lnulnu)
+13	36.1	0.02
+0	0
+
+125.0
+5.0
+1	125.0
+3.2
+1.0
+0.37  0.67  1.03
+0.286 0.293 0.300

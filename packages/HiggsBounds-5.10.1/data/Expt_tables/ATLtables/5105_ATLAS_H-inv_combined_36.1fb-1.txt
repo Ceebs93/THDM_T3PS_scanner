@@ -1,0 +1,7 @@
+# [hep-ph] 1904.05105 (ATLAS)
+# 5105_ATLAS_H->inv_combined_36.1fb-1
+# Tab 1
+# mass obs exp (h125 -> inv, combined run1+2 and VBF+VH)
+
+          120.0            0.26            0.17
+          130.0            0.26            0.17

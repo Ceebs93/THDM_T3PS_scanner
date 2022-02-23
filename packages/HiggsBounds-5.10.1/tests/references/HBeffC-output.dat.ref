@@ -1,0 +1,84 @@
+ HBresult   =     0          (0: excluded, 1: allowed)
+ channel ID =   322
+ obsratio   =   23.382
+ ncombined  =     1
+ Higgs boson h1 (m =  25.0 GeV) at 13 TeV LHC:
+  
+ pp -> h1 (inclusive) :   1.000
+ gg -> h1:                1.000
+ bb -> h1:                1.000
+ pp -> qqh1:              0.000
+ pp -> Wh1:               0.000
+ pp -> Zh1:               0.002
+ pp -> tth1:              1.000
+ BR(h1->ss):              0.039 %
+ BR(h1->cc):              4.528 %
+ BR(h1->bb):             86.657 %
+ BR(h1->tt):              0.000 %
+ BR(h1->mumu):            0.024 %
+ BR(h1->tautau):          6.627 %
+ BR(h1->WW):              0.000 %
+ BR(h1->ZZ):              0.000 %
+ BR(h1->Zga):             0.000 %
+ BR(h1->gaga):            0.007 %
+ BR(h1->gg):              2.119 %
+  
+ Higgs boson h2 (m = 125.0 GeV) at 13 TeV LHC:
+  
+ pp -> h2 (inclusive) :   1.000
+ gg -> h2:                1.000
+ bb -> h2:                1.000
+ pp -> qqh2:              1.000
+ pp -> Wh2:               1.000
+ pp -> Zh2:               1.000
+ pp -> tth2:              1.000
+ BR(h2->ss):              0.010 %
+ BR(h2->cc):              1.156 %
+ BR(h2->bb):             23.637 %
+ BR(h2->tt):              0.000 %
+ BR(h2->mumu):            0.009 %
+ BR(h2->tautau):          2.540 %
+ BR(h2->WW):              8.319 %
+ BR(h2->ZZ):              1.048 %
+ BR(h2->Zga):             0.062 %
+ BR(h2->gaga):            0.092 %
+ BR(h2->gg):              3.128 %
+  
+ Higgs boson h3 (m = 340.0 GeV) at 13 TeV LHC:
+  
+ pp -> h3 (inclusive) :   1.001
+ gg -> h3:                1.000
+ bb -> h3:                1.000
+ pp -> qqh3:              1.000
+ pp -> Wh3:               1.000
+ pp -> Zh3:               1.000
+ pp -> tth3:              1.000
+ BR(h3->ss):              0.000 %
+ BR(h3->cc):              0.001 %
+ BR(h3->bb):              0.028 %
+ BR(h3->tt):              0.084 %
+ BR(h3->mumu):            0.000 %
+ BR(h3->tautau):          0.004 %
+ BR(h3->WW):             47.286 %
+ BR(h3->ZZ):             21.537 %
+ BR(h3->Zga):             0.003 %
+ BR(h3->gaga):            0.001 %
+ BR(h3->gg):              0.056 %
+  
+  Higgs-no      rank  HBresult   channel  obsratio  predratio ncombined
+         1         1         1       488     0.893     1.206         1
+         1         2         1       683     0.278     0.541         1
+         1         3         1       470     0.375     0.521         1
+         2         1         1       387     0.315     1.619         1
+         2         2         1       312     0.252     1.470         1
+         2         3         1       234     0.349     0.988         1
+         3         1         0       322    23.382    14.391         1
+         3         2         0       849    12.055    14.104         1
+         3         3         0       271    18.018    13.836         1
+         4         1         0       130     1.358     2.670         1
+         4         2         0       131     2.045     2.403         1
+         4         3         1       134     0.944     0.961         1
+      rank  HBresult   channel  obsratio  predratio ncombined
+         1         0       322    23.382    14.391         1
+         2         0       849    12.055    14.104         1
+         3         0       271    18.018    13.836         1

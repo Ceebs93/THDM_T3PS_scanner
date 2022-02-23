@@ -20,7 +20,7 @@ fi
 ### --- HiggsBounds --- ###
 ###########################
 
-HiggsBounds_folder_name=HiggsBounds-5.3.2beta
+HiggsBounds_folder_name=HiggsBounds-5.10.1
 HiggsBounds_pkg_path=${THDM_T3PS_SCANNER_DIR}/packages/${HiggsBounds_folder_name}
 
 echo "############################################################"

@@ -64,7 +64,7 @@ CC = g++
 
 # - CFLAGS
 CCFLAGS = -I../inc/ -I$(INCDIRLINK) $(2HDMC_CFLAGS) -MMD -MF .depend_cpp -fpermissive
-2HDMC_CFLAGS = -I/local/software/gsl/1.15/include -DHiggsBounds
+2HDMC_CFLAGS = -I/local/software/gsl/2.6/include -DHiggsBounds
 
 # - LFLAGS
 CLFLAGS_2HDMC_WITH_HB             = -L$(LIBDIRLINK)
@@ -77,13 +77,13 @@ CLFLAGS_2HDMC_WITH_HB_HS_SuperIso = -L$(LIBDIRLINK) ${2HDMC_WITH_HB_HS_LFLAGS} $
 ############
 
 # - 2HDMC flags
-2HDMC_WITH_HB_HS_LFLAGS = -L$(LIBDIRLINK) -l2HDMC_HBHS -L/local/software/gsl/1.15/lib -lgsl -lgslcblas -lgfortran
-2HDMC_STANDALONE_LFLAGS = -L$(LIBDIRLINK) -l2HDMC -L/local/software/gsl/1.15/lib -lgsl -lgslcblas -lgfortran
+2HDMC_WITH_HB_HS_LFLAGS = -L$(LIBDIRLINK) -l2HDMC_HBHS -L/local/software/gsl/2.6/lib -lgsl -lgslcblas -lgfortran
+2HDMC_STANDALONE_LFLAGS = -L$(LIBDIRLINK) -l2HDMC -L/local/software/gsl/2.6/lib -lgsl -lgslcblas -lgfortran
 
 # - HiggsBounds/HiggsSignals flags
 HB_HS_LFLAGS = ${HB_LFLAGS} ${HS_LFLAGS}
-HB_LFLAGS = -L$(LIBDIRLINK) -lHB-5.3.2beta
-HS_LFLAGS = -L$(LIBDIRLINK) -lHS-2.2.3beta
+HB_LFLAGS = -L$(LIBDIRLINK) -lHB-5.10.1
+HS_LFLAGS = -L$(LIBDIRLINK) -lHS-2.6.2
 
 #HB_HS_LFLAGS = -L$(LIBDIRLINK) -lHB -lHS
 #HB_HS_LFLAGS = -L$(LIBDIRLINK) -lHB-4.2.1 -lHS

@@ -1,0 +1,18 @@
+# Simplified Template Cross Section Measurement for ggH (2j) production.
+# Data taken from Fig.10 and Tab.9, CMS-PAS-HIG 18-032
+# SM reference value (in pb) is taken from Tab. 9, 
+# and measurement is recalculated to obtain absolute value (in pb).
+1803205
+CMS-PAS-HIG-18-032
+LHC, CMS, CMS
+(pp)->h->tau tau (ggH 2j)
+13	77.4	0.024
+0	0
+
+125.0
+5.0
+1      125.09
+14
+1.0
+-0.0819 0.0987 0.2898
+0.16	0.21	0.26

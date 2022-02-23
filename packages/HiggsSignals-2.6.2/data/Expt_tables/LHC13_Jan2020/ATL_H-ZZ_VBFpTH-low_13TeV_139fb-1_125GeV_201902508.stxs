@@ -1,0 +1,18 @@
+# Reduced stage-1.1 STXS measurement of H->ZZ->4l,
+# VBFpTH-low
+# Data taken from Tab.9 of ATLAS-CONF-2019-025.
+# Measured XS is given in pb
+201902508
+ATLAS-CONF-2019-025
+LHC, ATL, ATL
+(pp)->h->ZZ->4l, VBFpTH-low
+13	139	0.02
+0	0
+
+125.0
+2.5
+1	125.0
+2.3
+1.0
+0.089   0.14    0.191
+0.0833  0.0863  0.0893

@@ -1,0 +1,19 @@
+# Taken from fiducial cross section measurements,
+# split Njet bins.
+# Signal efficiencies extracted from Fig.6(right) of CMS-PAS-HIG-19-002.
+# Data taken from Tab. 4
+# Measured XS is given in pb
+1900202
+CMS-PAS-HIG-19-002
+LHC, CMS, CMS
+(pp)->h->WW->lnulnu, 1j
+13	137	0.02
+0	0
+
+125.0
+10.
+7	125.0
+1.2 2.2 3.2 4.2 5.2 8.2 9.2
+1.  1.577 0.336 0.274 2.617 2.617 2.617
+0.01893 0.02398 0.02969
+0.01950 0.02174  0.02400

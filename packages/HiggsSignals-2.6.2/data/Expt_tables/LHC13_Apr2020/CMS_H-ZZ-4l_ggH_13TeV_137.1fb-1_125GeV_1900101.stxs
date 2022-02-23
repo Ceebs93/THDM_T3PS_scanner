@@ -1,0 +1,18 @@
+# Simplified Template Cross Section Measurement for ggH/bbH.
+# Data taken from Fig.14, CMS-PAS-HIG 19-001.
+# SM cross section uncertainty (in fb) guestimated from same figure (blue band).
+# Measurement is recalculated to obtain absolute value (in fb).
+1900101
+CMS-PAS-HIG-19-001
+LHC, CMS, CMS
+(pp)->h->Z Z-> 4l (ggH,bbH)
+13	137.1	0.024
+0	0
+
+125.0
+2.5
+1      125.0
+1.3
+1.0
+4.7175 5.328 5.9385
+4.90	5.55	6.15

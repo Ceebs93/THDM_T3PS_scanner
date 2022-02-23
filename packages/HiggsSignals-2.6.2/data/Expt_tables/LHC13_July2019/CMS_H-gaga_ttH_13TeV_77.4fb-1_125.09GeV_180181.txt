@@ -1,0 +1,15 @@
+# Data taken from Fig.8, CMS-PAS-HIG-18-018
+# Combined value from 2016 + 2017 data.
+# Channel efficiencies roughly guessed from Tab.2.
+180181	180181		1
+CMS-PAS-HIG-18-018
+LHC, CMS, CMS
+(pp)->h->gaga (ttH)
+13	77.4	0.025
+1	0
+2.5
+125.09 125.09 1.0
+7	125.09
+11 21 31 41 51 81 91
+0.5	0.2	5	10	1000	350		350
+125.09		1.2		1.7		2.3

@@ -1,0 +1,17 @@
+# WARNING: Do not use together with
+# ATL_H-WW-lnulnu_7-8TeV_4.5fb-1_20.3fb-1_125.36GeV_2014060100.txt
+# Data taken from Eq.(16) in CERN-PH-EP-2014-270.
+# Published in October 2014.
+1412264112	141226412	1
+CERN-PH-EP-2014-270
+LHC, ATL, ATL
+(pp)->h->WW->lnulnu (VBF enhanced) 
+8 	24.8	0.028
+1	0
+8.0
+125.36 125.36 0.1
+2	125.36
+12 22
+1.	50.
+       125.36	0.82	1.27	1.80
+ 

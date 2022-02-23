@@ -1,0 +1,14 @@
+# Data taken from Fig.9a, arXiv:1806.05246
+# Efficiencies extracted from Fig. 7.
+52464	52464		1
+arXiv:1806.05246
+LHC, CMS, CMS
+(pp)->h->WW (0-jet SF ggH-tagged)
+13	35.9	0.025
+1	0
+15.0
+125.09 125.09 1.0
+4	125.09
+12 22 32 42
+1	0.084	0.415	0.518
+125.09		1.21	1.75	2.36

@@ -1,0 +1,17 @@
+# Inclusive XS measurement, implemented as STXS.
+# Channel efficiencies roughly guessed from Tab.1.
+108661
+arXiv:2003.10866
+LHC, CMS, CMS
+(pp)->h->gaga (ttH)
+13	137.0	0.025
+0	0
+
+125.0
+2.5
+
+8	125.0
+1.1 2.1 3.1 4.1 5.1 8.1 9.1 12.1
+0.5	0.2	5	10	1000	350		350 1000.
+0.00124 0.00156 0.00190
+0.00102 0.00113 0.00121

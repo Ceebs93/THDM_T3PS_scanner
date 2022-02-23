@@ -1,0 +1,19 @@
+# Reduced stage-1.1 STXS measurement of H->ZZ->4l,
+# VH-lep
+# Relative weights between WH and ZH according to leptonic (e,mu) BRs.
+# Data taken from Tab.9 of ATLAS-CONF-2019-025.
+# Measured XS is given in pb
+201902511
+ATLAS-CONF-2019-025
+LHC, ATL, ATL
+(pp)->h->ZZ->4l, VHlep
+13	139	0.02
+0	0
+
+125.0
+2.5
+2	125.0
+3.3 4.3
+0.2157 0.0673
+0.005   0.022   0.050
+0.0149  0.0165  0.0175

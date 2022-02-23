@@ -1,0 +1,17 @@
+# Published Summer 2014. Data is taken from CMS-PAS-HIG 14-009:
+# https://twiki.cern.ch/twiki/bin/view/CMSPublic/Hig14009TWiki
+# Best-fit mass: 125.63 +- 0.45 GeV. (read off from Fig.2 left)
+# This peak observable contains the mass measurement.
+# Efficiencies are chosen such that we have about 10% VBF.
+14009101	1400901		1
+CMS-PAS-HIG-14-009,arXiv:1312.5353
+LHC, CMS, CMS
+(pp)->h->ZZ->4l (0/1jet) 
+8 	24.7	0.028
+1	1
+0.45	CMSZZ
+125.63 125.63 0.1
+2	125.63
+13 23 
+1.00 1.40
+125.63	0.611	0.883	1.219

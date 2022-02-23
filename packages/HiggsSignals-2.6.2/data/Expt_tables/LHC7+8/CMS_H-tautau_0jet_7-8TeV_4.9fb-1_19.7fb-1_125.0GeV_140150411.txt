@@ -1,0 +1,15 @@
+# Result taken from CERN-PH-EP/2014-001
+# Data taken from Fig. 15.
+# This is the 0 jet result. Assume 98.2% ggH, 1% VBF, 0.8% VH
+1401504111	140150411	1
+CERN-PH-EP/2014-001
+LHC, CMS, CMS
+(pp)->h->tautau (0 jet) 
+8	24.3	 0.026
+1	0
+25
+125.0 125.0 1.0
+4	125.0
+14 24 34 44
+1.0 0.125 0.15 0.15
+125.0	-0.75	0.34	1.43

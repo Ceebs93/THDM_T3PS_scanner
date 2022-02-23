@@ -1,0 +1,15 @@
+# Data extracted from the mu plot at 124.7 GeV of arXiv:1407.0558
+# Corresponding note: CMS-PAS-HIG-13-001
+# Efficiencies from composition in Table 3 divided by cross sections from LHC Higgs XS WG
+0558107	055807		1
+arXiv:1407.0558
+LHC, CMS, CMS
+(pp)->h->gammagamma (VH loose) 
+7	5.1	 0.022
+1	0
+2.0	CMSgagacat
+124.7 124.7 1.0
+5	124.7
+11 21 31 41 51
+1.0 3.7938775510204086 573.3359066735288 190.2251184834123 48.59114433582519
+124.7		-2.242	3.100		11.389

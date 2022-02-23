@@ -1,0 +1,19 @@
+# Published Summer 2014. Data is taken from CMS-PAS-HIG 14-009:
+# https://twiki.cern.ch/twiki/bin/view/CMSPublic/Hig14009TWiki
+# Mass resolution set to 2GeV. Mass measurement does not
+# enter the mass chi^2.
+# The assignment is linked to 0/1jet result (14009101), 
+# which holds the mass observable.
+# Efficiencies are chosen such that we have about 30% VBF.
+14009102	1400902		1
+CMS-PAS-HIG-14-009,arXiv:1312.5353
+LHC, CMS, CMS
+(pp)->h->ZZ->4l (2 jet) 
+8 	24.7	0.044
+1	0
+2.0	CMSZZ
+125.0 125.0 0.1
+2	125.0
+13 23
+1.00 5.00
+125.0	0.888	1.549	2.502

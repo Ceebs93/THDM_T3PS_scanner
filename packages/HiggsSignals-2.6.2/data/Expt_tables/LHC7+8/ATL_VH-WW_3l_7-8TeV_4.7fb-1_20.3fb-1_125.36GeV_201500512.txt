@@ -1,0 +1,16 @@
+# Contribution from VH->Vtautau is non-negligible, however,
+# it is treated as background, assuming SM strength. Therefore,
+# these results are based on an additional model-assumption.
+# Efficiencies derived from Tab. 3 from the 8 TeV results.
+201500512	20150052		1
+ATL-CONF-2015-005
+LHC, ATL, ATL
+(pp)->Vh->VWW (3l) 
+8	24.8 0.028
+1	0
+20.0
+125.36 125.36 1.0
+2	125.36
+32 42
+1.0 0.269
+125.36	-0.38		0.72		2.02

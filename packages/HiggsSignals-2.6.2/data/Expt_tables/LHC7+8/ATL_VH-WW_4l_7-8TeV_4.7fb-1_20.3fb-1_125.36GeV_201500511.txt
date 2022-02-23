@@ -1,0 +1,15 @@
+# Contribution from VH->Vtautau is non-negligible, however,
+# it is treated as background, assuming SM strength. Therefore,
+# these results are based on an additional model-assumption.
+201500511	20150051		1
+ATL-CONF-2015-005
+LHC, ATL, ATL
+(pp)->Vh->VWW (4l) 
+8	24.8 0.028
+1	0
+20.0
+125.36 125.36 1.0
+1	-1
+42
+
+125.36	1.8		4.9		9.5

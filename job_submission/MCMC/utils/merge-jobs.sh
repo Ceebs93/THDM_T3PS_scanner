@@ -11,7 +11,7 @@ if [ ${CONVERT_ONLY} == "no" ]; then
 	 echo "TAG: ${TAG}"
 	 echo "Merging data..."
 	 
-	 tail --lines=+1000 --quiet $(find ./jobs/${TAG} -name "*.chain.*") > ${OUTPUT_MERGED_FILE}
+	 tail -n 1000 --quiet $(find ./jobs/${TAG} -name "*.chain.*") > ${OUTPUT_MERGED_FILE}
 	 
 	 echo -e "Removing duplicate spaces/tabs..."
 	 sed -i "s/[[:space:]]\+/ /g" ${OUTPUT_MERGED_FILE}

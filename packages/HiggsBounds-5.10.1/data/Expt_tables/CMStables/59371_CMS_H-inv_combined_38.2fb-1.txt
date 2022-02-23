@@ -1,0 +1,7 @@
+# [hep-ph] 1809.05937 (CMS)
+# 59371_CMS_H->inv_combined_38.2fb-1
+# Fig 9
+# mass obs exp (h125 -> inv, combined run1+2 and VBF+VH)
+
+          120.0            0.19            0.15
+          130.0            0.19            0.15

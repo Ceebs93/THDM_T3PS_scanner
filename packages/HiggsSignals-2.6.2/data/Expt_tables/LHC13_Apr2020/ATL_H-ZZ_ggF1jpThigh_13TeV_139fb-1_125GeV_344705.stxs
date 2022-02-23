@@ -1,0 +1,18 @@
+# Reduced stage-1.1 STXS measurement of H->ZZ->4l,
+# ggF-1j-pTH-high
+# Data taken from Fig. 10c of 2004.03447.
+# Measured XS is given in pb
+344705
+2004.03447
+LHC, ATL, ATL
+(pp)->h->ZZ->4l, ggF-1j-pTH-high
+13	139	0.02
+0	0
+
+125.0
+2.5
+1	125.0
+1.3
+1.0
+-0.003  0.009   0.025
+0.016   0.020   0.024

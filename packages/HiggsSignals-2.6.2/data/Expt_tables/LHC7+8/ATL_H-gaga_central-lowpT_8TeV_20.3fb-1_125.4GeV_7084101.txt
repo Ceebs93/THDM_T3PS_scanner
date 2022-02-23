@@ -1,0 +1,20 @@
+# Data extracted from the mu plot in Fig 17 of arXiv:1408.7084
+# aka ATLAS-HIGG-2013-08 aka CERN-PH-EP-2014-198
+# They analyze 7 and 8 TeV but only present combined mu's for both.
+# We here assume only 8 TeV and the 8 TeV luminosity.
+# The signal strengths is measured at mH = 125.4 GeV. This peak observable
+# carries the mass measurement of 125.98 +- 0.50 GeV presented in
+# arXiv:1406.3827 from the H->gammagamma channel.
+# 125.98	0.2252   0.6225   1.0464
+7084101	708401	1
+arXiv:1408.7084
+LHC, ATL, ATL
+(pp)->h->gammagamma (central low pT) 
+8 	20.3	0.028
+1	1
+0.50	ATLgagacat
+125.98 125.98 0.1
+5	125.98
+11 21 31 41 51
+1.0 0.6978 0.5809 0.6255 0.2426
+125.98	0.2268   0.6244   1.049

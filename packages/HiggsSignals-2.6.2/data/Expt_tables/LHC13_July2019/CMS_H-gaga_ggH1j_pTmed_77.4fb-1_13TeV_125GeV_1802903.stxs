@@ -1,0 +1,16 @@
+# Simplified Template Cross Section Measurement for ggH-1j pTmed.
+# Data taken from Tab.6, CMS-PAS-HIG 18-029.
+1802903
+CMS-PAS-HIG-18-029
+LHC, CMS, CMS
+(pp)->h->gamma gamma (ggH1j, pTmed)
+13	77.4	0.024
+0	0
+
+125.0
+2.5
+1      125.0
+1.1
+1.0
+3.6		7.6		11.6
+9.8		10.0	10.2

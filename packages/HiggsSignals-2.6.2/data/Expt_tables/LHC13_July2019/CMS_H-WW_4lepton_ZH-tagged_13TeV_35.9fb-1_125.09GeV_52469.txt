@@ -1,0 +1,14 @@
+# Data taken from Fig.9a, 1806.05246
+# Efficiencies extracted from Fig. 7.
+52469	52469		1
+arXiv:1806.05246
+LHC, CMS, CMS
+(pp)->h->WW (4-lepton ZH-tagged)
+13	35.9	0.025
+1	0
+15.0
+125.09 125.09 1.0
+1	125.09
+42
+1.
+125.09		-0.43	0.77	2.26

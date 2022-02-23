@@ -1,0 +1,16 @@
+# Data extracted from the mu plot at 124.7 GeV of arXiv:1407.0558
+# Corresponding note: CMS-PAS-HIG-13-001
+# Efficiencies from composition in Table 3 divided by cross sections from LHC Higgs XS WG
+# This peak observable contains the mass measurement.
+0558113	055813		1
+arXiv:1407.0558
+LHC, CMS, CMS
+(pp)->h->gammagamma (untagged 2) 
+8	19.6	0.026
+1	1
+0.34	CMSgagacat
+124.7 124.7 0.1
+5	124.7
+11 21 31 41 51
+1.0 0.822 0.921 0.8898 0.740
+124.7		0.662		1.102		1.579

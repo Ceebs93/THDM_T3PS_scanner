@@ -1,0 +1,10 @@
+module install_data_HS
+    implicit none
+
+    integer, parameter:: pathname_length_HS = @path_length@+1
+    character(len=pathname_length_HS), parameter :: pathname_HS = &
+        "@HS_DATA_DIR@/"
+
+    character(LEN=10), parameter :: version = '@HiggsSignals_VERSION@'
+
+end module install_data_HS

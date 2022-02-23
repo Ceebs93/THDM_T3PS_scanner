@@ -1,0 +1,17 @@
+# Simplified Template Cross Section Measurement for the ratio BR(tautau)/BR(ZZ).
+# Data taken from Tab.8, ATLAS-CONF-2019-005
+# Measurement is not normalized to the SM.
+201900519
+ATLAS-CONF-2019-005
+LHC, ATL, ATL
+BR(h->tautau)/BR(h->ZZ)
+13	79.8	0.020
+0	0
+
+125.09
+2.5
+1     125.09
+4:3
+1.0
+1.5		2.1		2.8
+2.35	2.37	2.39

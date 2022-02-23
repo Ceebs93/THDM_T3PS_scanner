@@ -1,0 +1,14 @@
+# Data taken from p.23 (separate fit), 1712.08895
+# Dilepton, applies to ttH and tWH.
+88952	88952		1
+arXiv:1712.08895
+LHC, ATL, ATL
+(pp)->h->bb (ttH) dilepton
+13	36.1	0.021
+1	0
+10.0
+125 125 1.0
+2	-1
+5.5 12.5
+
+125 	-1.30 0.11 1.47

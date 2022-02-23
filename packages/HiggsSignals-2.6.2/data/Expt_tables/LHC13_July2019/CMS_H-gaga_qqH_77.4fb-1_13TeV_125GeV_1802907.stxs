@@ -1,0 +1,16 @@
+# Simplified Template Cross Section Measurement for qqH.
+# Data taken from Tab.6, CMS-PAS-HIG 18-029.
+1802907
+CMS-PAS-HIG-18-029
+LHC, CMS, CMS
+(pp)->h->gamma gamma (qqH)
+13	77.4	0.024
+0	0
+
+125.0
+2.5
+3      125.0
+2.1	3.1	4.1
+1.0 0.676  0.699
+5.80	9.1		13.5
+10.8	11		11.2

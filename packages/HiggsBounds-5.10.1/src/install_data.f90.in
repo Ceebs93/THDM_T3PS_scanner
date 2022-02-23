@@ -1,0 +1,10 @@
+module install_data
+    implicit none
+
+    integer, parameter:: pathname_length = @path_length@+1
+    character(len=pathname_length), parameter :: pathname = &
+        "@HB_DATA_DIR@/"
+
+    character(LEN=10), parameter :: version = '@HiggsBounds_VERSION@'
+
+end module install_data

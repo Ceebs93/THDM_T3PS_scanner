@@ -74,7 +74,9 @@ def init(config_dir, config, module):
         timeout = config.getint("SimpleProcessor", "timeout")
     else:
         timeout = 10
-    print "# Timeout:", timeout, "second" + ("s" if timeout > 1 else "")
+#-- Commented out by Ciara ----------------------------
+#    print "# Timeout:", timeout, "second" + ("s" if timeout > 1 else "")
+#------------------------------------------------------
 
     if config.has_option("SimpleProcessor", "data_values"):
         data_fields_code = config.get("SimpleProcessor", "data_values")
@@ -93,25 +95,27 @@ def is_listlike(x):
 
 def main(template_file, pars, vars):
     """Run requested command and return list of result values."""
-#    print('### --- Inside SimpleProcessor.main --- ')
-
+    print('### --- Inside SimpleProcessor.main --- ')
+    print('                                        ')
     global arguments, timeout, timelimit, formula_eval, data_fields_code
 
-#    print('arguments', arguments)
-#    print('timeout', timeout)
-#    print('timelimit', timelimit)
-#    print('formula_eval', formula_eval)
-#    print('data_fields_code', data_fields_code)
-#    print('template_file', template_file)
-
-#    with open(os.devnull) as devnull, timelimit(timeout):
-#        output = subprocess.check_output(
-#            arguments + ([template_file] if template_file else []),
-#            stdin=devnull,
-#            stderr=subprocess.STDOUT
-#        )
-#
-  #  print('command output: ', commands.getstatusoutput('{} {}'.format(arguments[0], template_file)) )
+#-- Below was previously commented out - presumably by David
+   # print('arguments', arguments)
+   # print('timeout', timeout)
+   # print('timelimit', timelimit)
+    print('formula_eval', formula_eval)
+   # print('data_fields_code', data_fields_code)
+   # print('template_file', template_file)
+#---------------------------------------------------------
+    with open(os.devnull) as devnull, timelimit(timeout):
+        output = subprocess.check_output(
+            arguments + ([template_file] if template_file else []),
+            stdin=devnull,
+            stderr=subprocess.STDOUT
+        )
+#-- Commented out by Ciara ----------------------------
+   # print('command output: ', commands.getstatusoutput('{} {}'.format(arguments[0], template_file)) )
+#-------------------------------------------------------------------------------------------------------
 
     with open(os.devnull) as devnull, timelimit(timeout):
         output = subprocess.check_output(
@@ -121,47 +125,53 @@ def main(template_file, pars, vars):
         )
 
 
+#-- Below was previous commented out - presumably by David
+   # with open( template_file, 'r' ) as f:
+    #    content = f.read()
+     #   print('content: ', content)
+#---------------------------------------------
+    command = arguments + [template_file]
+#-- Commented out by Ciara-------------
+    print('command', command)
+   # print('template_file 3', template_file)
+#-------------------------------------------
+    output = subprocess.Popen( command )
+    output.communicate()
 
-#    with open( template_file, 'r' ) as f:
-#        content = f.read()
-#        print('content: ', content)
-#
-#    command = arguments + [template_file]
-#    print('command', command)
-#    print('template_file 3', template_file)
-#    output = subprocess.Popen( command )
-#    output.communicate()
-#
-#    print('### --- End of SimpleProcessor.main --- ')
+    print('### --- End of SimpleProcessor.main --- ')
 	
-#    def handler(signum,frame):
-#        print "Error Occured",signum
-#        raise IOError("Segmentation Fault Occured.")
-#    
-#    try:
-#        signal.signal(signal.SIGSEGV,handler)  
-#    except IOError as e:
-#        print e
+    def handler(signum,frame):
+        print "Error Occured",signum
+        raise IOError("Segmentation Fault Occured.")
+    
+    try:
+        signal.signal(signal.SIGSEGV,handler)  
+    except IOError as e:
+        print e
 
 
-#    output = subprocess.call(arguments + [template_file])
+    output = subprocess.call(arguments + [template_file])
+#--------------------------------------------------------------------
 
     # group 0 is the full number match
     # make sure it stays that way when changing number_pattern!
     all_numbers = [float(x[0]) for x in re.findall(number_pattern, output)]
 
-#    print('vars', vars)
-#    print('pars', pars)
-#    print('all_numbers', all_numbers)
+#-- Below was previously commented out - presumably by David
+   # print('vars', vars)
+   # print('pars', pars)
+   # print('all_numbers', all_numbers)
+#-----------------------------------------------------------------
 
     return all_numbers
     
 
 
     # - This gets called when running test bin
-    #if not data_fields_code:
+#-- Below was previously commented out - presumably by David
+   # if not data_fields_code:
     #    return all_numbers
-
+#----------------------------------------------------------------
 
 
 if __name__ == "__main__":

@@ -1,0 +1,17 @@
+# Inclusive signal cross section (STXS stage 0).
+# Data taken from Tab.3, ATLAS-CONF-2020-027
+# Measured XS is given in pb
+202002705
+ATLAS-CONF-2020-027
+LHC, ATL, ATL
+VBF, h \to \gamma \gamma
+13	139.0	0.021
+0	0
+
+125.09
+2.5
+1     125.09
+2.1
+1.0
+8.7 10.5  12.6
+7.77  7.98  8.19  

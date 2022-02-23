@@ -1,0 +1,15 @@
+# Data read in from Fig.10 in arXiv:1501.04943.
+# Boosted lep-had category.
+# Assume 68.8% ggH, 16.2% VBF, 10.0% WH, 5.0% ZH
+010494313	01049433	1
+arXiv:1501.04943
+LHC, ATL, ATL
+(pp)->h->tautau (boosted lephad) 
+8 	24.8	0.028
+1	0
+20
+125.36 125.36 1.0
+4	125.36
+14 24 34 44
+1.0 2.9 4.2 3.7
+125.36	0.0	0.9	1.9

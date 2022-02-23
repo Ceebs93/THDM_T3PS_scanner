@@ -1,0 +1,18 @@
+# Simplified Template Cross Section Measurement for the Rest category.
+# Data taken from Fig.10 and Tab.9, CMS-PAS-HIG 18-032
+# SM reference value (in pb) is taken from Tab. 9, 
+# and measurement is recalculated to obtain absolute value (in pb).
+1803209
+CMS-PAS-HIG-18-032
+LHC, CMS, CMS
+(pp)->h->tau tau (Rest)
+13	77.4	0.024
+0	0
+
+125.0
+5.0
+3      125.09
+24	34	44
+0.555	0.521	0.521
+-0.68632 -0.19504 0.31096
+0.179	0.184	0.189

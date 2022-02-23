@@ -129,8 +129,8 @@ int main(int argc, char* argv[])
 	// You need to call HB&HS initialization before constr(mode)!
 	
 	// -- Call HB & HS initialization
-	HB_init();
-	HS_init();
+//	HB_init();
+//	HS_init();
 
 	// -- Prepare to calculate observables
 	Constraints constr(model);
@@ -178,12 +178,12 @@ int main(int argc, char* argv[])
 	// -- See HiggsSignals manual for more information
 	
 	int mass_pdf = 2;
-	HS_set_pdf(mass_pdf);
-	HS_setup_assignment_range_massobservables(2.);
-	HS_set_output_level(0);
+//	HS_set_pdf(mass_pdf);
+//	HS_setup_assignment_range_massobservables(2.);
+//	HS_set_output_level(0);
 	
 	// -- Share couplings of 2HDM model with HiggsBounds/HiggsSignals
-	HB_set_input_effC(model);
+//	HB_set_input_effC(model);
 	
 	int    hbres[6];
 	int    hbchan[6];
@@ -191,7 +191,7 @@ int main(int argc, char* argv[])
 	int    hbcomb[6];  
 	
 	// -- Run HiggsBounds 'full', i.e. with each Higgs result separately  
-	HB_run_full(hbres, hbchan, hbobs, hbcomb);
+//	HB_run_full(hbres, hbchan, hbobs, hbcomb);
 	
 	double tot_hbobs = hbobs[0];
 	double sens_ch = hbchan[0];
@@ -203,9 +203,9 @@ int main(int argc, char* argv[])
 	double pval;
 	
 	double dMh[3]={0., 0., 0.,};
-	HS_set_mass_uncertainties(dMh);
+//	HS_set_mass_uncertainties(dMh);
 	
-	HS_run(&csqmu, &csqmh_ref, &chi2_HS, &nobs, &pval);
+//	HS_run(&csqmu, &csqmh_ref, &chi2_HS, &nobs, &pval);
 
 	# ifdef FAST
 	if ( chi2_HS > 110.0 )
@@ -253,42 +253,42 @@ int main(int argc, char* argv[])
 	// param h Index of Higgs boson (1,2,3,4 = h,H,A,H+)
 	
 	// -- Branching fractions
-	struct BR BRfrac_A, BRfrac_H, BRfrac_Hp;
+//	struct BR BRfrac_A, BRfrac_H, BRfrac_Hp;
 
-	table.geth_BR( 3, BRfrac_A );
-	table.geth_BR( 2, BRfrac_H );
-	table.geth_BR( 4, BRfrac_Hp);
+//	table.geth_BR( 3, BRfrac_A );
+//	table.geth_BR( 2, BRfrac_H );
+//	table.geth_BR( 4, BRfrac_Hp);
 	
-	double br_A_tt     = BRfrac_A.bruu[3][3];
-	double br_A_bb     = BRfrac_A.brdd[3][3];
-	double br_A_gg     = BRfrac_A.brhgg;
-	double br_A_tautau = BRfrac_A.brll[3][3];
-	double br_A_Zh     = BRfrac_A.brvh[2][1];
-	double br_A_ZH     = BRfrac_A.brvh[2][2];
-	double br_A_gaga   = BRfrac_A.brvv[1];
+//	double br_A_tt     = BRfrac_A.bruu[3][3];
+//	double br_A_bb     = BRfrac_A.brdd[3][3];
+//	double br_A_gg     = BRfrac_A.brhgg;
+//	double br_A_tautau = BRfrac_A.brll[3][3];
+//	double br_A_Zh     = BRfrac_A.brvh[2][1];
+//	double br_A_ZH     = BRfrac_A.brvh[2][2];
+//	double br_A_gaga   = BRfrac_A.brvv[1];
 
-	double br_H_tt     = BRfrac_H.bruu[3][3];
-	double br_H_bb     = BRfrac_H.brdd[3][3];
-	double br_H_gg     = BRfrac_H.brhgg;
-	double br_H_tautau = BRfrac_H.brll[3][3];
-	double br_H_Zh     = BRfrac_H.brvh[2][1];
-	double br_H_WW     = BRfrac_H.brvh[3][4];
-	double br_H_ZZ     = BRfrac_H.brvv[2];
-	double br_H_ZA     = BRfrac_H.brvh[2][3];
-	double br_H_AA     = BRfrac_H.brhh[3];
-	double br_H_gaga   = BRfrac_H.brvv[1];
+//	double br_H_tt     = BRfrac_H.bruu[3][3];
+//	double br_H_bb     = BRfrac_H.brdd[3][3];
+//	double br_H_gg     = BRfrac_H.brhgg;
+//	double br_H_tautau = BRfrac_H.brll[3][3];
+//	double br_H_Zh     = BRfrac_H.brvh[2][1];
+//	double br_H_WW     = BRfrac_H.brvh[3][4];
+//	double br_H_ZZ     = BRfrac_H.brvv[2];
+//	double br_H_ZA     = BRfrac_H.brvh[2][3];
+//	double br_H_AA     = BRfrac_H.brhh[3];
+//	double br_H_gaga   = BRfrac_H.brvv[1];
 
-	double br_Hp_Wh    = BRfrac_Hp.brvh[3][1];
-	double br_Hp_WA    = BRfrac_Hp.brvh[3][3];
-	double br_Hp_tb    = BRfrac_Hp.brdu[3][3];
-	double br_Hp_taunu = BRfrac_Hp.brln[3][3];
+//	double br_Hp_Wh    = BRfrac_Hp.brvh[3][1];
+//	double br_Hp_WA    = BRfrac_Hp.brvh[3][3];
+//	double br_Hp_tb    = BRfrac_Hp.brdu[3][3];
+//	double br_Hp_taunu = BRfrac_Hp.brln[3][3];
 	
 	// -- From 2HDMC:
 	// const char *hnames[6] = {" ","h ", "H ", "A ", "H+", "H-"};
-	double Gamma_h  = table.get_gammatot_h(1);
-	double Gamma_H  = table.get_gammatot_h(2);
-	double Gamma_A  = table.get_gammatot_h(3);
-	double Gamma_Hc = table.get_gammatot_h(4);
+//	double Gamma_h  = table.get_gammatot_h(1);
+//	double Gamma_H  = table.get_gammatot_h(2);
+//	double Gamma_A  = table.get_gammatot_h(3);
+//	double Gamma_Hc = table.get_gammatot_h(4);
 	
 	double mh,mH,mA,mHc,sinba,m12_2,tb;
 	double l1,l2,l3,l4,l5,l6,l7;
@@ -381,17 +381,17 @@ int main(int argc, char* argv[])
 	//printf("br zh:      %.3e\n", br_A_Zh    );
 	//
 	//You can cross-check the branching fractions here with the full table
-	printf("br tt:      %.3e\n", BRfrac_A.bruu[3][3]);
-	printf("br bb:      %.3e\n", BRfrac_A.brdd[3][3]);
-	printf("br gg:      %.3e\n", BRfrac_A.brhgg);
-	printf("br tau tau: %.3e\n", BRfrac_A.brll[3][3]);
-	printf("br zh:      %.3e\n", BRfrac_A.brvh[2][1]);
+//	printf("br tt:      %.3e\n", BRfrac_A.bruu[3][3]);
+//	printf("br bb:      %.3e\n", BRfrac_A.brdd[3][3]);
+//	printf("br gg:      %.3e\n", BRfrac_A.brhgg);
+//	printf("br tau tau: %.3e\n", BRfrac_A.brll[3][3]);
+//	printf("br zh:      %.3e\n", BRfrac_A.brvh[2][1]);
 	//table.print_decays(3);
 	//
-	table.print_decays(1);
-	table.print_decays(2);
-	table.print_decays(3);
-	table.print_decays(4);
+//	table.print_decays(1);
+//	table.print_decays(2);
+//	table.print_decays(3);
+//	table.print_decays(4);
 
 	printf("Z7_in:       %.3e\n", Z7);
 	printf("mH_in:       %.3e\n", mH_in);                 
@@ -416,40 +416,40 @@ int main(int argc, char* argv[])
 	printf("l7:          %.3e\n", l7);                         
 
 	// -- Couplings
-	printf("g_HpHmh.r:   %.3e\n", g_HpHmh.real());             
-	printf("g_HpHmh.i:   %.3e\n", g_HpHmh.imag());             
+//	printf("g_HpHmh.r:   %.3e\n", g_HpHmh.real());             
+//	printf("g_HpHmh.i:   %.3e\n", g_HpHmh.imag());             
 
 	// -- Widths
-	printf("Gamma_h:     %.3e\n", Gamma_h);             
-	printf("Gamma_H:     %.3e\n", Gamma_H);             
-	printf("Gamma_Hc:    %.3e\n", Gamma_Hc);             
-	printf("Gamma_A:     %.3e\n", Gamma_A);             
+//	printf("Gamma_h:     %.3e\n", Gamma_h);             
+//	printf("Gamma_H:     %.3e\n", Gamma_H);             
+//	printf("Gamma_Hc:    %.3e\n", Gamma_Hc);             
+//	printf("Gamma_A:     %.3e\n", Gamma_A);             
 	
    // -- BR(A->XX)
-	printf("br_A_tt:     %.3e\n", br_A_tt);      
-	printf("br_A_bb:     %.3e\n", br_A_bb);      
-	printf("br_A_gg:     %.3e\n", br_A_gg);      
-	printf("br_A_gaga:   %.3e\n", br_A_gaga);      
-	printf("br_A_tautau: %.3e\n", br_A_tautau);      
-	printf("br_A_Zh:     %.3e\n", br_A_Zh);      
+//	printf("br_A_tt:     %.3e\n", br_A_tt);      
+//	printf("br_A_bb:     %.3e\n", br_A_bb);      
+//	printf("br_A_gg:     %.3e\n", br_A_gg);      
+//	printf("br_A_gaga:   %.3e\n", br_A_gaga);      
+//	printf("br_A_tautau: %.3e\n", br_A_tautau);      
+//	printf("br_A_Zh:     %.3e\n", br_A_Zh);      
 
 	// -- BR(H->XX)
-	printf("br_H_tt:     %.3e\n", br_H_tt);      
-	printf("br_H_bb:     %.3e\n", br_H_bb);      
-	printf("br_H_gg:     %.3e\n", br_H_gg);      
-	printf("br_H_gaga:   %.3e\n", br_H_gaga);      
-	printf("br_H_tautau: %.3e\n", br_H_tautau);      
-	printf("br_H_Zh:     %.3e\n", br_H_Zh);      
-	printf("br_H_ZA:     %.3e\n", br_H_ZA);      
-	printf("br_H_AA:     %.3e\n", br_H_AA);      
-	printf("br_H_WW:     %.3e\n", br_H_WW);      
-	printf("br_H_ZZ:     %.3e\n", br_H_ZZ);
+//	printf("br_H_tt:     %.3e\n", br_H_tt);      
+//	printf("br_H_bb:     %.3e\n", br_H_bb);      
+//	printf("br_H_gg:     %.3e\n", br_H_gg);      
+//	printf("br_H_gaga:   %.3e\n", br_H_gaga);      
+//	printf("br_H_tautau: %.3e\n", br_H_tautau);      
+//	printf("br_H_Zh:     %.3e\n", br_H_Zh);      
+//	printf("br_H_ZA:     %.3e\n", br_H_ZA);      
+//	printf("br_H_AA:     %.3e\n", br_H_AA);      
+//	printf("br_H_WW:     %.3e\n", br_H_WW);      
+//	printf("br_H_ZZ:     %.3e\n", br_H_ZZ);
 
 	// -- BR(H+->XX)
-	printf("br_Hp_Wh:     %.3e\n", br_Hp_Wh);
-	printf("br_Hp_WA:     %.3e\n", br_Hp_WA);      
-	printf("br_Hp_tb:     %.3e\n", br_Hp_tb);
-	printf("br_Hp_taunu:  %.3e\n", br_Hp_taunu);
+//	printf("br_Hp_Wh:     %.3e\n", br_Hp_Wh);
+//	printf("br_Hp_WA:     %.3e\n", br_Hp_WA);      
+//	printf("br_Hp_tb:     %.3e\n", br_Hp_tb);
+//	printf("br_Hp_taunu:  %.3e\n", br_Hp_taunu);
 
 
 	// -- Theory
@@ -509,40 +509,40 @@ int main(int argc, char* argv[])
 	<< l7 << " "                        //
 
 	// -- Coupling
-	<< g_HpHmh.imag() << " "            //
+//	<< g_HpHmh.imag() << " "            //
 	
 	// -- Widths
-	<< Gamma_h  << " "                  //
-	<< Gamma_H  << " "                  //
-	<< Gamma_Hc << " "                  //
-	<< Gamma_A  << " "                  //
+//	<< Gamma_h  << " "                  //
+//	<< Gamma_H  << " "                  //
+//	<< Gamma_Hc << " "                  //
+//	<< Gamma_A  << " "                  //
 	
    // -- BR(A -> XX)
-	<< br_A_tt     << " "               //
-	<< br_A_bb     << " "               //
-	<< br_A_gg     << " "               //
-	<< br_A_tautau << " "               //
-	<< br_A_Zh     << " "               //
-	<< br_A_ZH     << " "               //
-	<< br_A_gaga   << " "               //
-           
+//	<< br_A_tt     << " "               //
+//	<< br_A_bb     << " "               //
+//	<< br_A_gg     << " "               //
+//	<< br_A_tautau << " "               //
+//	<< br_A_Zh     << " "               //
+//	<< br_A_ZH     << " "               //
+//	<< br_A_gaga   << " "               //
+         
    // -- BR(H -> XX)
-	<< br_H_tt       << " "             //
-	<< br_H_bb       << " "             //
-	<< br_H_gg       << " "             //
-	<< br_H_tautau   << " "             //
-	<< br_H_Zh       << " "             //
-	<< br_H_WW       << " "             //
-	<< br_H_ZZ       << " "             //
-	<< br_H_ZA       << " "             //
-	<< br_H_AA       << " "             //
-	<< br_H_gaga     << " "             //
-           
+//	<< br_H_tt       << " "             //
+//	<< br_H_bb       << " "             //
+//	<< br_H_gg       << " "             //
+//	<< br_H_tautau   << " "             //
+//	<< br_H_Zh       << " "             //
+//	<< br_H_WW       << " "             //
+//	<< br_H_ZZ       << " "             //
+//	<< br_H_ZA       << " "             //
+//	<< br_H_AA       << " "             //
+//	<< br_H_gaga     << " "             //
+         
    // -- BR(H+ -> XX)
-	<< br_Hp_tb     << " "              //
-	<< br_Hp_taunu  << " "              //
-	<< br_Hp_Wh     << " "              //
-	<< br_Hp_WA     << " "              //
+//	<< br_Hp_tb     << " "              //
+//	<< br_Hp_taunu  << " "              //
+//	<< br_Hp_Wh     << " "              //
+//	<< br_Hp_WA     << " "              //
 	
 	// -- Theory
 	<< sta     << " "                   //
@@ -578,8 +578,8 @@ int main(int argc, char* argv[])
 	
 	<< std::endl;
 	
-	HB_finish();
-	HS_finish();
+//	HB_finish();
+//	HS_finish();
 	
 	return 0;
 

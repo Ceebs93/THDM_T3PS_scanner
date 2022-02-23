@@ -1,0 +1,18 @@
+# Simplified Template Cross Section Measurement for VBF.
+# Data taken from Fig.14, CMS-PAS-HIG 19-001.
+# SM cross section uncertainty (in fb) guestimated from same figure (blue band).
+# Measurement is recalculated to obtain absolute value (in fb).
+1900102
+CMS-PAS-HIG-19-001
+LHC, CMS, CMS
+(pp)->h->Z Z-> 4l (VBF)
+13	137.1	0.024
+0	0
+
+125.0
+2.5
+1      125.0
+2.3
+1.0
+0.117	0.279	0.490
+0.44	0.45	0.46

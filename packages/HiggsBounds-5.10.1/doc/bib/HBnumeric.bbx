@@ -1,0 +1,141 @@
+\ProvidesFile{mynumeric.bbx}
+\RequireBibliographyStyle{numeric}
+
+\ExecuteBibliographyOptions{giveninits=true}
+
+
+% hide titles
+\AtEveryBibitem{%
+\clearfield{title}
+}
+
+% if the author field contains "collaboration" move it to the collaboration field
+\DeclareSourcemap{
+  \maps[datatype=bibtex,overwrite=false]{
+    \map{
+      \step[fieldsource=author, match=\regexp{.+[cC]ollaboration.+}, final=true]
+      \step[fieldset=Collaboration, origfieldval, final=true]
+    }
+  }
+}
+
+% show collaboration if present
+\DeclareSourcemap{
+ \maps[datatype=bibtex,overwrite=false]{
+  \map{
+    \step[fieldsource=Collaboration, final=true]
+    \step[fieldset=author, fieldvalue=dummy]
+    \step[fieldset=usera, origfieldval, final=true]
+  }
+ }
+}
+\renewbibmacro*{author}{%
+  \iffieldundef{usera}{\printnames{author}}{\printfield{usera}}%
+}
+
+
+% show report numbers if no other identifying info is available
+\DeclareSourcemap{
+    \maps[datatype=bibtex]{
+        \map{
+            \step[notfield=eprint, final]
+            \step[notfield=journal, final]
+            \step[fieldsource=reportNumber, final]
+            \step[fieldset=addendum, origfieldval]
+            \step[typesource=article,typetarget=inproceedings]
+        }
+    }
+}
+
+
+
+% use year for date, dont use month
+\ExecuteBibliographyOptions{date=year}
+\AtEveryBibitem{%
+\clearfield{month}
+}
+
+% Journal in upright font
+\DeclareFieldFormat[article]{journaltitle}{#1\isdot}
+\DeclareFieldFormat[article]{journalsubtitle}{#1\isdot}
+
+% Volume in bold font
+\DeclareFieldFormat[article]{volume}{\textbf{#1}\isdot}
+
+% Suppress issue number
+\AtEveryBibitem{%
+\ifentrytype{article}{\clearfield{number}\clearfield{issue}}{}%
+}
+\AtEveryCite{%
+\ifentrytype{article}{\clearfield{number}\clearfield{issue}}{}%
+}
+
+
+% suppress address
+\AtEveryBibitem{%
+\clearlist{location}%
+}
+
+
+% journal link to doi
+\ExecuteBibliographyOptions{doi=false}
+\DeclareFieldFormat{string+doi}{%
+      \iffieldundef{doi}{#1}{\href{http://dx.doi.org/\thefield{doi}}{#1}}}
+
+% include the page in this field to make it part of the link
+\renewbibmacro*{journal+issuetitle}{%
+      \printtext[string+doi]{%
+      \usebibmacro{journal}%
+      \setunit*{\addspace}%
+      \iffieldundef{series}
+        {}
+        {\newunit
+         \printfield{series}%
+         \setunit{\addspace}}%
+      \usebibmacro{volume+number+eid}%
+      \setunit{\addspace}%
+      \usebibmacro{issue+date}%
+      \setunit{\addcolon\space}%
+      \usebibmacro{issue}%
+      \setunit{\bibpagespunct}%
+      \printfield{pages}%
+      \newunit
+      }%
+}
+% remove the page from here and also get rid of the note
+\renewbibmacro*{note+pages}{%
+    % \printfield{reportToPrint}%
+    %\setunit{\bibpagespunct}%
+    %\printfield{pages}%
+    % \newunit%
+}
+
+% only print first page and remove p.
+\renewcommand{\bibpagespunct}{\addspace}
+\DeclareFieldFormat{pages}{\mkfirstpage{#1}}
+
+% Change punctuation to comma
+\renewcommand*{\newunitpunct}{\addcomma\space}
+
+% no urls in books and proceedings
+\AtEveryBibitem{%
+  \ifentrytype{book}%
+    {\clearfield{url}}%
+    {}%
+    \ifentrytype{inproceedings}%
+    {\clearfield{url}}%
+    {}%
+}
+
+% supress https prefix in URL
+\DeclareFieldFormat{url}{URL\addcolon\space\href{https://#1}{\nolinkurl{#1}}}
+
+% No arxiv: or [hep-hp]
+\DeclareFieldFormat{eprint:arxiv}{%
+  \href{https://arxiv.org/\abx@arxivpath/#1}{\nolinkurl{#1}}}
+
+
+% no "In:" for articles
+\renewbibmacro{in:}{%
+  \ifentrytype{article}{}{\iffieldundef{booktitle}{}{
+  \printtext{\bibstring{in}\intitlepunct}}}}

@@ -1,0 +1,15 @@
+# Data read in from Fig.10 in arXiv:1501.04943
+# VBF had-had category.
+# Assume 25% ggH, 75% VBF
+010494316	01049436	1
+arXiv:1501.04943
+LHC, ATL, ATL
+(pp)->h->tautau (VBF hadhad) 
+8 	24.8	0.028
+1	0
+20
+125.36 125.36 1.0
+2	125.36
+14 24
+1.0 36.85
+125.36	0.7	1.4 2.3

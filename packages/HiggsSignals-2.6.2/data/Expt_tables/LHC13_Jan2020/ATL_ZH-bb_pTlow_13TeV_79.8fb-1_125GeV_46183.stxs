@@ -1,0 +1,18 @@
+# Reduced stage-1 STXS measurement of ZH, H->bb, Z-> ll, nunu,
+# 75 GeV <= pT^V <= 150 GeV
+# Data taken from Tab.3 of arXiv:1903.04618, 5-POI scheme.
+# Measured XS is given in pb
+46183
+arXiv:1903.04618
+LHC, ATL, ATL
+(pp)->Zh->(ll)bb, 75 GeV <= pT^V <= 150 GeV
+13	79.8	0.02
+0	0
+
+125.0
+5.0
+2	125.0
+10.5  11.5
+1. 2.2273
+0.036 0.081 0.126
+0.0465  0.0506  0.0547

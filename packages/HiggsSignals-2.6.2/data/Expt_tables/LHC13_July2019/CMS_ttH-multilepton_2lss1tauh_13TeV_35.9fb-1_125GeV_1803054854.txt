@@ -1,0 +1,14 @@
+# Data taken from Fig.6, arXiv:1803.05485
+# Efficiencies from composition in aux. Fig. 1
+54854	54854		1
+arXiv:1803.05485
+LHC, CMS, CMS
+(pp)->tth,h->multilepton (2lss+1tau_h)
+13	35.9	0.025
+1	0
+20
+125.0 125.0 1.0
+3	125.
+52 53 54
+1.	0.19	4.47
+125.0		0.27	0.94	1.74

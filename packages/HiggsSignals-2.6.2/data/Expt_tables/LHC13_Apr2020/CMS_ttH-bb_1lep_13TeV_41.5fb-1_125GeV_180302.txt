@@ -1,0 +1,13 @@
+# Single-lepton, sensitive to all Higgs-top production modes
+180302	180302		1
+CMS-PAS-HIG-18-030
+LHC, CMS, CMS
+(pp)->tth->tt(bb) single-lepton
+13	41.5	 0.025
+1	0
+25.0
+125.0 125.0 1.0
+4	-1
+5.5 8.5 9.5 12.5
+
+125.0	1.28 1.84 2.46
