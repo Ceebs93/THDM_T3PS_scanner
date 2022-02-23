@@ -3,9 +3,12 @@ job_submission/MCMC/jobs/
 job_submission/SusHi/jobs/*
 *.o
 *.a
+*.exe
 *lib/*
 *.pyc
 *bin/
+packages/HiggsBounds-5.10.1/build
+packages/HiggsSignals-2.6.2/build
 links/inc/
 links/lib/
 MCMC/job_submission/tests/
@@ -17,6 +20,4 @@ packages/LHAPDF-6.2.1_build/
 *.so
 *.la
 *.lo
-setup_local.sh
-env_local.sh
-job_submission/MCMC/tests/local_test/
+job_submission/MCMC/tests/
