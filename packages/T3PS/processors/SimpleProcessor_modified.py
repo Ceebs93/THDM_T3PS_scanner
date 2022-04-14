@@ -55,15 +55,23 @@ def init(config_dir, config, module):
     Find the absolute path of the requested callable file and prints out what
     it found.
     """
-    print('### --- Inside SimpleProcessor.init --- ')
+    print '### --- Inside SimpleProcessor.init --- '
 
     global arguments, timeout, timelimit, data_fields_code, formula_eval
     timelimit = module.TimeLimit
     formula_eval = module.formula_eval
-
+    print "arguments, timeout, timelimit, data_fields_code, formula_eval"
+    print arguments, timeout, timelimit, data_fields_code, formula_eval
 
     arguments = shlex.split(config.get("SimpleProcessor", "program"))
+    print "                              "
+    print "variable 'arguments' is :"
+    print arguments
+    print "                       "
     original = arguments[0]
+    print "variable 'original' is : "
+    print original
+    print "                    "
     arguments[0] = module.find_binary_file(arguments[0], config_dir)
     if not os.path.isfile(arguments[0]):
         module.exit_program('Error: no such file found: ' + original)
@@ -75,14 +83,17 @@ def init(config_dir, config, module):
     else:
         timeout = 10
 #-- Commented out by Ciara ----------------------------
-#    print "# Timeout:", timeout, "second" + ("s" if timeout > 1 else "")
+#    print("# Timeout:", timeout, "second" + ("s" if timeout > 1 else ""))
 #------------------------------------------------------
 
     if config.has_option("SimpleProcessor", "data_values"):
         data_fields_code = config.get("SimpleProcessor", "data_values")
         # check for syntax errors
         compile(data_fields_code, repr(data_fields_code), "eval")
-        print "# Data values:", data_fields_code
+        print("# Data values:", data_fields_code)
+        print "                          "
+        print("#repr(data_fields_code", repr(data_fields_code))
+        print("                                  ")
     else:
         data_fields_code = None
         print "# Data values: <all>"
@@ -95,17 +106,17 @@ def is_listlike(x):
 
 def main(template_file, pars, vars):
     """Run requested command and return list of result values."""
-    print('### --- Inside SimpleProcessor.main --- ')
-    print('                                        ')
+    print '### --- Inside SimpleProcessor.main --- '
+    print '                                        '
     global arguments, timeout, timelimit, formula_eval, data_fields_code
 
 #-- Below was previously commented out - presumably by David
-   # print('arguments', arguments)
-   # print('timeout', timeout)
-   # print('timelimit', timelimit)
-    print('formula_eval', formula_eval)
-   # print('data_fields_code', data_fields_code)
-   # print('template_file', template_file)
+    print 'arguments', arguments
+    print 'timeout', timeout
+    print 'timelimit', timelimit
+    print 'formula_eval', formula_eval
+    print'data_fields_code', data_fields_code
+    print 'template_file', template_file
 #---------------------------------------------------------
     with open(os.devnull) as devnull, timelimit(timeout):
         output = subprocess.check_output(
@@ -113,8 +124,11 @@ def main(template_file, pars, vars):
             stdin=devnull,
             stderr=subprocess.STDOUT
         )
+    print "                                     "
+    print output
+    print "                                     "
 #-- Commented out by Ciara ----------------------------
-   # print('command output: ', commands.getstatusoutput('{} {}'.format(arguments[0], template_file)) )
+    print('command output: ', commands.getstatusoutput('{} {}'.format(arguments[0], template_file)) )
 #-------------------------------------------------------------------------------------------------------
 
     with open(os.devnull) as devnull, timelimit(timeout):
@@ -125,32 +139,37 @@ def main(template_file, pars, vars):
         )
 
 
-#-- Below was previous commented out - presumably by David
+#-- Below was previous commented out - presumably by David                               "
    # with open( template_file, 'r' ) as f:
     #    content = f.read()
      #   print('content: ', content)
 #---------------------------------------------
-    command = arguments + [template_file]
+   # command = arguments + [template_file]
 #-- Commented out by Ciara-------------
-    print('command', command)
+   # print('command', command)
    # print('template_file 3', template_file)
 #-------------------------------------------
-    output = subprocess.Popen( command )
-    output.communicate()
+   # output = subprocess.Popen( command )
+   # print "output is ", output
+   # output.communicate()
+   # print "output.communicate() gives : "
+   # print output.communicate()
 
     print('### --- End of SimpleProcessor.main --- ')
 	
-    def handler(signum,frame):
-        print "Error Occured",signum
-        raise IOError("Segmentation Fault Occured.")
+    #def handler(signum,frame):
+    #    print "Error Occured",signum
+    #    raise IOError("Segmentation Fault Occured.")
     
-    try:
-        signal.signal(signal.SIGSEGV,handler)  
-    except IOError as e:
-        print e
+    #try:
+    #    signal.signal(signal.SIGSEGV,handler)  
+    #except IOError as e:
+    #    print e
 
 
-    output = subprocess.call(arguments + [template_file])
+   # output = subprocess.call(arguments + [template_file])
+   # print "subprocess.call(arguments +[template_file]"
+   # print output
 #--------------------------------------------------------------------
 
     # group 0 is the full number match
@@ -158,9 +177,9 @@ def main(template_file, pars, vars):
     all_numbers = [float(x[0]) for x in re.findall(number_pattern, output)]
 
 #-- Below was previously commented out - presumably by David
-   # print('vars', vars)
-   # print('pars', pars)
-   # print('all_numbers', all_numbers)
+    print('vars', vars)
+    print('pars', pars)
+  #  print('all_numbers', all_numbers)
 #-----------------------------------------------------------------
 
     return all_numbers
@@ -181,7 +200,11 @@ if __name__ == "__main__":
         sys.exit()
 
     text = sys.stdin.read()
-
+    print "                              "
+    print "About to print out sys.stdin.read() - should be the values the processor recieves from parameterprocesser?"
+    print "                                         "
+    print text
+    print "                                "
     def mark_number(s):
         """Mark numbers in color together with index into list of numbers."""
         mark_number.counter += 1

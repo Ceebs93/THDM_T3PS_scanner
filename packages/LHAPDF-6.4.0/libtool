@@ -281,7 +281,7 @@ finish_eval=""
 hardcode_into_libs=yes
 
 # Compile-time system search path for libraries.
-sys_lib_search_path_spec="/mainfs/local/software/gcc/11.1.0/lib/gcc/x86_64-pc-linux-gnu/11.1.0 /mainfs/local/software/gcc/11.1.0/lib/gcc /mainfs/local/software/gcc/11.1.0/lib64 /lib64 /usr/lib64 /local/software/gsl/2.6/lib /local/software/python/3.6.4/lib /mainfs/local/software/gcc/11.1.0/lib /lib /usr/lib "
+sys_lib_search_path_spec="/mainfs/local/software/gcc/11.1.0/lib/gcc/x86_64-pc-linux-gnu/11.1.0 /mainfs/local/software/gcc/11.1.0/lib/gcc /mainfs/local/software/gcc/11.1.0/lib64 /lib64 /usr/lib64 /local/software/gsl/2.6/lib /mainfs/local/software/gcc/11.1.0/lib /lib /usr/lib "
 
 # Detected run-time system search path for libraries.
 sys_lib_dlsearch_path_spec="/lib /usr/lib /usr/lib64/atlas /usr/lib64//bind9-export/ /usr/lib64/dyninst /opt/mellanox/hcoll/lib /opt/ibutils/lib64 /usr/lib64/mysql /opt/mellanox/mxm/lib /usr/lib64/qt-3.3/lib /opt/mellanox/sharp/lib "
@@ -11800,7 +11800,7 @@ file_list_spec=""
 hardcode_action=immediate
 
 # The directories searched by this compiler when creating a shared library.
-compiler_lib_search_dirs="/mainfs/local/software/gcc/11.1.0/bin/../lib/gcc/x86_64-pc-linux-gnu/11.1.0 /mainfs/local/software/gcc/11.1.0/bin/../lib/gcc /mainfs/local/software/gcc/11.1.0/bin/../lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../lib64 /lib/../lib64 /usr/lib/../lib64 /local/software/gsl/2.6/lib /local/software/python/3.6.4/lib /mainfs/local/software/gcc/11.1.0/bin/../lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../.."
+compiler_lib_search_dirs="/mainfs/local/software/gcc/11.1.0/bin/../lib/gcc/x86_64-pc-linux-gnu/11.1.0 /mainfs/local/software/gcc/11.1.0/bin/../lib/gcc /mainfs/local/software/gcc/11.1.0/bin/../lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../lib64 /lib/../lib64 /usr/lib/../lib64 /local/software/gsl/2.6/lib /mainfs/local/software/gcc/11.1.0/bin/../lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../.."
 
 # Dependencies to place before and after the objects being linked to
 # create a shared library.
@@ -11811,6 +11811,6 @@ postdeps="-lstdc++ -lm -lgcc_s -lc -lgcc_s"
 
 # The library search path used internally by the compiler when linking
 # a shared library.
-compiler_lib_search_path="-L/mainfs/local/software/gcc/11.1.0/bin/../lib/gcc/x86_64-pc-linux-gnu/11.1.0 -L/mainfs/local/software/gcc/11.1.0/bin/../lib/gcc -L/mainfs/local/software/gcc/11.1.0/bin/../lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/local/software/gsl/2.6/lib -L/local/software/python/3.6.4/lib -L/mainfs/local/software/gcc/11.1.0/bin/../lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../.."
+compiler_lib_search_path="-L/mainfs/local/software/gcc/11.1.0/bin/../lib/gcc/x86_64-pc-linux-gnu/11.1.0 -L/mainfs/local/software/gcc/11.1.0/bin/../lib/gcc -L/mainfs/local/software/gcc/11.1.0/bin/../lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/local/software/gsl/2.6/lib -L/mainfs/local/software/gcc/11.1.0/bin/../lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../.."
 
 # ### END LIBTOOL TAG CONFIG: CXX

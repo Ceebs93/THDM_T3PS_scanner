@@ -1,9 +1,10 @@
 
 # Load Python environment
-conda deactivate
+#conda deactivate
 module unload --all
-
-conda activate THDM
+module load conda
+#conda activate THDM
+source activate THDM
 
 # Load libraries and compiler
 module load gcc/11.1.0

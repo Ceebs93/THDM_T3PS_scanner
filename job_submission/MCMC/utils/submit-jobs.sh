@@ -2,6 +2,9 @@
 
 JOB_PROJECT_DIR=${ROOT_DIR}/jobs/${NAME}
 
+echo "JOB_PROJECT_DIR is ${JOB_PROJECT_DIR}"
+echo "ROOT_DIR/TASK IS ${ROOT_DIR/${TASK}}"
+
 cd ${JOB_PROJECT_DIR}
 cp ${ROOT_DIR}/${TASK} ./
 
@@ -18,7 +21,10 @@ echo
 
 while read -r DIR; do
 	 echo "DIR: ${DIR}"
-	 sbatch ${NODES} ${PPN} ${TIME} --export=DIR=${DIR},THDM_T3PS_SCANNER_DIR=${THDM_T3PS_SCANNER_DIR} ${ROOT_DIR}/${TASK}
+
+	 echo "command being run is: sbatch ${NODES} ${PPN} ${TIME} --export=DIR=${DIR},THDM_T3PS_SCANNER_DIR=${THDM_T3PS_SCANNER_DIR} ${ROOT_DIR}/${TASK}"
+
+	 sbatch ${NODES} ${PPN} ${TIME} --export=DIR=${DIR},THDM_T3PS_SCANNER_DIR=${THDM_T3PS_SCANNER_DIR}, ${ROOT_DIR}/${TASK}
 done < ${LIST}
 
 echo -e "\nJobs should be submitted now."

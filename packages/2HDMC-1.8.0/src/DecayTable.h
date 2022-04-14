@@ -7,6 +7,21 @@
 #include <gsl/gsl_matrix.h>
 #include <gsl/gsl_integration.h>
 
+struct BR
+{
+  double brdd[4][4];
+  double bruu[4][4];
+	double brdu[4][4];
+	double brll[4][4];
+	double brln[4][4];
+	double brvv[4];
+	double brvh[4][5];
+	double brhh[5];
+	double brhZga;
+	double brhgg;
+};
+
+
 using namespace std;
 
 /**
@@ -256,6 +271,8 @@ class DecayTable {
 
 
   double  get_gamma_uhu(int u1, int h, int u2);
+
+	void geth_BR(int h, struct BR &br);
 
   
   /**

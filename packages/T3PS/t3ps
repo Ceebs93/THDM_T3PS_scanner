@@ -167,13 +167,25 @@ ERROR_MARKER = "E"
 # | [C] Command Line Interface | #
 # ------------------------------ #
 
+print "                                      "
+print "I have just entered section C of T3PS!"
+print "                                      "
+
 # always listen to SIGINT!
 signal.signal(signal.SIGINT, signal.default_int_handler)
+print "signal.signal(signal.SIGINT, signal.default_int_handler is: "
+print signal.signal(signal.SIGINT, signal.default_int_handler)
+
 
 parser = argparse.ArgumentParser(
     description='Perform parameter scans over multiple processors ' +
     '(local and remote).'
 )
+print "                      "
+print "parser is: "
+print parser
+
+
 parser.add_argument(
     '-v', '--version',
     action='version',
@@ -268,7 +280,7 @@ def TemporaryDirectory(keep_dir=False):
                 but only at the end of the program's execution
     """
     tmpdir = mkdtemp()
-    if keep_dir:
+    if keep_dir: 
         atexit.register(shutil.rmtree, tmpdir)
     try:
         yield tmpdir
@@ -840,15 +852,23 @@ def pad_list(iterable, padding, length):
 # |  [D.05] File Input | #
 # ---------------------- #
 
+print "                                   "
+print "Starting section D.05!"
+print "                                   "
+
 def parspace_file_iterator(file_names):
     """Loop over lines in multiple files and return columns for each line.
 
     This ignores lines marked as invalid.
     """
+    print "------------inside 'parspace_file_iterator'--------------"
     for file_name in file_names:
+        print "filename", filename
         with open(file_name) as f:
             for line in f:
+                print "line in file is : ", line
                 p = map(maybefloat, line.strip().split("\t"))
+                print "p is : ", p
                 if p[0] == ERROR_MARKER:
                     continue
                 yield p
@@ -865,8 +885,11 @@ def linecount(file_name):
         # mmap seems to be the fastest way to do this and requires mode "r+"
         with open(file_name, "r+") as f:
             buf = mmap.mmap(f.fileno(), 0)
-
+            print "------------inside linecount-------------------"
+            print "buf is : ", buf
             rl = buf.readline
+            print "              "
+            print "rl = buf.readline = ", rl
             while rl():
                 lines += 1
     # ignore any errors regarding missing or unreadable files
@@ -880,10 +903,13 @@ def linecount(file_name):
 def get_columns(columns, row):
     """Extract the columns (given as list of formulas) from a given row."""
     p = []
+    print "-----------inside get_columns-------------"
     for col in columns:
+        print "col is: ", col
         p.append(
             float(formula_eval(col, file=row))
         )
+    print p
     return p
 
 
@@ -894,6 +920,8 @@ def split_cols(cols, ns):
     """
     # if one ns[i] is inf (or NaN), all columns will be funneled into this
     #   one after ones before it are full
+    print "-------------inside split_cols------------"
+    
     r = [[] for _ in ns]
     i = 0
     for col in cols:
@@ -906,13 +934,17 @@ def split_cols(cols, ns):
 
         r[i].append(col)
 
+    print r
     return r
 
 
 def out_repr(x):
     """Convert value to its representation in output files."""
+    print "-----------inside out_repr(x)------------"
+    print "basestring", basestring
     if isinstance(x, basestring):
         return x.replace("\t", " ").replace("\n", " ")
+    print repr(x)
     return repr(x)
 
 
@@ -932,7 +964,9 @@ def find_file(path, base_dir):
 
     This always returns an absolute path.
     """
+    print "---------------inside find_file---------------"
     path = os.path.expanduser(path)
+    print "path is ", path
     if os.path.isabs(path):
         return path
 
@@ -963,11 +997,14 @@ def find_file(path, base_dir):
 
 def find_in_path(program):
     """Find executable in PATH environment variable."""
+    print "-----------inside find_in_path-----------------"
     for path in os.environ["PATH"].split(os.pathsep):
         path = path.strip('"')
+        print "path after stripping is: ", path
         if path == ".":
             continue  # ignore "." in PATH since it is not constant
         exe_file = os.path.join(path, program)
+        print "exe_file is given by : ", exe_file
         if os.path.exists(exe_file):
             return exe_file
 
@@ -980,9 +1017,13 @@ def find_binary_file(binary_path, base_dir):
     First tries finding it in PATH environment variable, else uses
     find_file function
     """
+    print "inside 'find_binary_file' looking for executable"
+    print( 'binary_path' , binary_path)
+    print( 'base_dir' , base_dir)
     # searching through PATH is only necessary for paths that are just names
     if not os.path.isabs(binary_path) and os.path.dirname(binary_path) == "":
         candidate = find_in_path(binary_path)
+        print('candiate' , candidate)
         if candidate is not None and os.path.isfile(candidate):
             return candidate
 
@@ -993,14 +1034,17 @@ def PreprocessedConfigFile(file_name, short_name=None, base_dir=None,
                            depth=0, max_depth=10):
     """Return file-like object with @include statements processed."""
     # base_dir is only supposed to be None on the depth = 0 file
+    print 'inside PreprocessedConfigFile '
     if base_dir is None:
         base_dir = os.path.dirname(find_file(file_name, "."))
+        print( 'base_dir' , base_dir)
 
     # likewise short_name
     if short_name is None:
         short_name = file_name
 
     contents = StringIO.StringIO()
+    print( 'contents' , contents)
     # if not depth:
     #     contents.write("[DEFAULT]\n")
     lineno = 0
@@ -1024,14 +1068,16 @@ def PreprocessedConfigFile(file_name, short_name=None, base_dir=None,
                 #   and the rest of the line with arbitrary whitespace after
                 #   the "@include"
                 other_filename = line.rstrip("\n").split(None, 1)[-1]
+                print( ' other_filename ' , other_filename)
                 full_name = find_file(other_filename, base_dir)
-
+                print( 'full_name' , full_name)
                 other_file = PreprocessedConfigFile(
                     full_name,
                     short_name=other_filename,
                     base_dir=base_dir,
                     depth=depth + 1
                 )
+                print( 'other_file', other_file)
                 real_locations.extend(other_file.real_locations)
                 for line in other_file:
                     contents.write(line)
@@ -1655,7 +1701,16 @@ class ProbabilityError(ValueError):
 
 def allowed_by_prior(x, par_ranges):
     """Check whether given point has non-zero prior likelihood."""
+    print "                                 " 
+    print "----------------------- Inside 'allowed_by_prior'---------------------------------- "
+    print " par_ranges are as follows       "
+    print par_ranges
+    print "                                 "
     for i, r in enumerate(par_ranges):
+        print " i and r in enumerate(par_ranges) are: "
+        print(i , r)
+        print " x[i] is : "
+        print x[i]
         if x[i] not in r:
             return False
     return True
@@ -1664,10 +1719,17 @@ def allowed_by_prior(x, par_ranges):
 def prior_likelihood(x, par_ranges):
     """Calculate prior likelihood for given point and parameter ranges."""
     p = 1
+    print "                                           "
+    print "---------------------------------Inside 'prior likelihood-----------------------------"
+    print "Intial p is :", p
     for i, r in enumerate(par_ranges):
+        print "i and r are as follows"
+        print i, r
         # contained check also works for continuous ranges
         if x[i] not in r:
             p = 0
+            print "x[i] is not in r"
+            print x[i], r
             break
 
         values = r.values
@@ -1682,6 +1744,8 @@ def prior_likelihood(x, par_ranges):
                 raise ValueError("unsupported distribution type: " + str(dist))
         elif isinstance(values, ParameterRange_NormalVariate):
             p *= math.exp(-0.5 * ((x[i] - values.mu) / values.sigma) ** 2)
+            print "                                                 "
+            print "new p is : ", p
         elif isinstance(values, tuple):
             # finite -> Laplace probability (all equal)
             pass  # p *= 1
@@ -1700,6 +1764,12 @@ def mcmc_step(theta0, par_ranges):
         density q(theta, theta0) around theta0, together with the value
         of q(theta, theta0) and q(theta0, theta)
     """
+    print "                                  "
+    print "                                            "
+    print "-----------------------------Inside mcmc_step-----------------------      "
+    print " Value for theta0 is: "
+    print theta0
+    print "                          "
     theta, q, q0 = [], 1, 1
     append = theta.append
     randomnormalvariate = random.normalvariate
@@ -1710,6 +1780,7 @@ def mcmc_step(theta0, par_ranges):
             # q *= 1
             # q0 *= 1
             if r.is_finite:
+                print "r is_finite"
                 # if there are infinite indices, q(i1,i0) is symmetric
                 i0 = r.index(theta0[i])
                 i1 = int(round(
@@ -1724,16 +1795,28 @@ def mcmc_step(theta0, par_ranges):
                 if i1 < 0 or len(r) <= i1:
                     raise ProbabilityError("out of finite bounds")
                 append(r.values[i1])
+                print "                                "
+                print " Have appended new value to r "
             else:
                 append(
                     randomnormalvariate(theta0[i], r.options["mcmc_stepsize"])
                 )
+                print "                                  "
+                print " Have appended new value to r "
         else:
             # take from prior density -> not-symmetric but well known
+            print "                                  "
+            print " taking value from prior density"
             x = make_random_point([r])[0]
+            print "x is a new random point: ", x
             q *= prior_likelihood([x], [r])
+            print "The prior likelihood, (for x) for r is: ", q
             q0 *= prior_likelihood([theta0[i]], [r])
+            print "The prior likelihood, (for theta0), for r is: ", q0
             append(x)
+
+        print "                                      "
+        print "theta, q and q0 have values of", theta, q, q0
 
     return (theta, q, q0)
 
@@ -1757,8 +1840,19 @@ def make_chain(data):
         status_file_path, debug_mode, random_seed
     ) = data
 
+    "                          "
+    "----------------Inside 'make_chain'----------------------"
+    print "data is: output_file, rejected_file, x0, current_length, final_length, par_range, current_iteration, likelihood_code, heating_function_code, status_file_path, debug_mode, random_seed"
+    print data
+    print "                                           "
+
     def likelihood(x, code=likelihood_code):
+        print " ----Inside 'make_chain: def likelihood'-----"
+        print "                                          "
+        print formula_eval(code, pars=x[0], vars=x[1], data=x[2])
+
         return formula_eval(code, pars=x[0], vars=x[1], data=x[2])
+        
 
     if heating_function_code:
         def heating_function(iteration, dlogL, logL0):
@@ -1768,12 +1862,18 @@ def make_chain(data):
                 dlogL=dlogL,
                 logL0=logL0
             )
-
-    else:
-        heating_function = None
-
+            print "                                 "
+            print "----Inside 'make_chain: def heating_function_code'------------"
+            print "                                                  "
+            print formula_eval(
+                heating_function_code,
+                iteration=iteration,
+                dlogL=dlogL,
+                logL0=logL0
+            )    
     L0 = likelihood(x0) * prior_likelihood(x0[0], par_ranges)
-
+    print "L0 -> likelihood(x0) * prior(x0, par_ranges)"
+    print L0
     # IMPORTANT: re-seed PRNG so all chains are guaranteed to find distinct
     #   points - THIS HAS TO BE DIFFERENT FOR EACH CHAIN
     random.seed(random_seed)
@@ -1797,20 +1897,25 @@ def make_chain(data):
             try:
                 # x0[0] because x is (pars, vars, data)
                 x1, q1, q0 = mcmc_step(x0[0], par_ranges)
+                print " x1, q1, q0 are as follows "
+                print( x1, q1, q0)
                 if not allowed_by_prior(x1, par_ranges):
+                    print " values are not allowed by prior "
                     x1 = Exception(x1, "excluded by prior = 0")
                     reasons["prior"] += 1
                     staycount += 1
                     raise ProbabilityError("point excluded by prior = 0")
                 x1 = process_item(x1)
+                print("x1 is: ", x1 )
                 if isinstance(x1, Exception):
                     reasons["errors"] += 1
                     staycount += 1
                     raise ProbabilityError("point excluded by processor error")
 
                 L1 = likelihood(x1) * prior_likelihood(x1[0], par_ranges)
-
+                print("L1", L1)
                 if L1 <= 0:
+                    print "L1 is less than 0 so this point is excluded"
                     reasons["likelihood"] += 1
                     staycount += 1
                     raise ProbabilityError("point excluded by likelihood = 0")
@@ -1837,7 +1942,7 @@ def make_chain(data):
                         )
                     ) * q0 / q1
                 )
-
+                print " alpha value is:", alpha
             if random.random() < alpha:
                 with open(output_file, "a") as f:
                     f.write(
@@ -2138,6 +2243,10 @@ def process_item(point, test_mode=False, print_error_trace=False):
 
 # - Warning - made a change here
                 return (list(point), list(point_vars), list(processed_point))
+                print " I think these points have come out of the point processor right before this"
+                print list(point)
+                print list(point_vars) 
+                print list(processed_point)
 #                return (list(processed_point))
 
             except Exception as e:
@@ -2159,6 +2268,8 @@ def process_item(point, test_mode=False, print_error_trace=False):
                 msg = str(e).replace("\t", " ").replace("\n", " ")
                 return Exception(point, msg)
 
+    print " This is 'result', again, I think coming from the point processor "
+    print result
     return result
 
 
@@ -2573,8 +2684,11 @@ if not cli_arguments.input_file:
     no_config = True
 else:
     chosen_scan_setup = cli_arguments.input_file[-1].name
+    print "----------------inside E.1--------------------"
+    print "chosen_scan_setup is recognised as:", chosen_scan_setup
     for in_file in cli_arguments.input_file:
         file_name = in_file.name
+        print "file_name for input is: ", file_name
         # we read it through the preprocessor, so close this file instance
         in_file.close()
         try:
@@ -2632,13 +2746,17 @@ config_dir = os.path.abspath(os.path.dirname(chosen_scan_setup))
 base_name = os.path.basename(chosen_scan_setup)
 draw_progress.scan_file = os.path.abspath(chosen_scan_setup)
 # Print statements added by Ciara ---------------------------
-print("                                                             ")
+print "                                                             "
+print "                                                             "
+print "                                                             "
+print("chosen_scan_setup:  " +  str(chosen_scan_setup))
+print "                                                             "
 print("config_dir appears to be: " + str(config_dir))
-print("                                                              ")
+print "                                                              "
 print("base_name (AKA the scan setup chosen) appears to be: " + str(base_name))
-print("                                                               ")
+print "                                                               "
 print("draw_progress.scan_file appears to be: " + str(draw_progress.scan_file))
-
+print "                                                               "
 
 if cli_arguments.output_dir:
     try:
@@ -2650,7 +2768,7 @@ if cli_arguments.output_dir:
         exit_program("Error: %s" % e)
 
     base_name = os.path.join(cli_arguments.output_dir, base_name)
-
+    print " base_name is: ", base_name
 warn.log_file = base_name + ".log"
 warn("# Starting at", time.strftime("%d.%m.%Y %H:%M"))
 atexit.register(
@@ -2704,6 +2822,7 @@ if not config.has_section("setup"):
 
 # furthermore, the version of the config file has to match the program version
 scan_version = config_get(int, "setup", "version", default=1)
+print "scan_version is: ", scan_version
 if not 1 <= scan_version <= __major_version__:
     exit_program(
         "Error: incompatible version, got %i, expecting between 1 and %i" % (
@@ -2747,6 +2866,7 @@ processing_concurrency.value = concurrent_processors
 #       ("file")
 if config.has_option("parameter_space", "mode"):
     parspace_mode = config_get(str, "parameter_space", "mode").lower()
+    print "parspace_mode is : ", parspace_mode
     if parspace_mode not in parspace_mode_names:
         exit_program(
             "Error: unrecognized parameter space mode: %s" % parspace_mode
@@ -2791,6 +2911,8 @@ if mode not in [MODE_SCAN, MODE_TEST, MODE_WORKER] and \
 # the point_processor module must have the function "main" and can have
 #   the function "init"
 point_processor = config_get(str, "setup", "point_processor", default=None)
+print " ------seeking point_processor now------"
+print point_processor
 if point_processor:
     point_processor = find_file(
         point_processor,
@@ -2810,6 +2932,10 @@ else:
 template_file = config_get(str, "setup", "template", default=None)
 if template_file:
     template_file = find_file(template_file, config_dir)
+    print "                                                    "
+    print " line 2836 in t3ps, template_file appears to be:    "
+    print template_file
+    print "                                                    "
     if not os.path.isfile(template_file):
         exit_program("Error: not a file: " + template_file)
 else:
@@ -2827,7 +2953,14 @@ else:
 par_names = map(
     str.strip, config_get(str, "parameter_space", "par_names").split(",")
 )
+print "                                                             "
+print " t3ps line 2857, par_names appear to be:    "
+print "                                                             "
+print par_names
+print "                                                             "
 par_count = len(par_names)
+print "par_count is: "
+print par_count
 if not par_count:
     exit_program("Error: no parameters defined")
 try:
@@ -2838,6 +2971,11 @@ except Exception as e:
 # Beware of ''.split(",") == ['']!
 var_names = config_get(str, "parameter_space", "var_names", default="")
 var_names = map(str.strip, var_names.split(",")) if var_names else []
+print "                                      "
+print " t3ps line 2873, var_names appear to be:        "
+print "                                         "
+print var_names
+print "                                   "
 var_count = len(var_names)
 try:
     check_names(var_names)
@@ -2846,10 +2984,17 @@ except Exception as e:
 
 data_names = config_get(str, "parameter_space", "data_names", default="")
 data_names = map(str.strip, data_names.split(",")) if data_names else []
+print "data_names appear to be: "
+print data_names
 try:
     check_names(data_names)
 except Exception as e:
     exit_program("Error in data_names: %s" % e)
+
+print "                                                "
+print " t3ps line 2891, data_names appear to be:       "
+print data_names
+print "                                                "
 
 if data_names and not point_processor:
     exit_program(
@@ -2858,7 +3003,9 @@ if data_names and not point_processor:
     )
 
 bound_count = config_get(int, "parameter_space", "bound_count")
-
+print "bound_count (from parameter_space and previous bound_count) is: "
+print bound_count
+print "                                     "
 if mode in [MODE_MCMC, MODE_EXPLORER, MODE_OPTIMIZE] and \
    not config.has_option("algorithm", "likelihood"):
     # exit program if likelihood missing in mode that needs it
@@ -2877,6 +3024,9 @@ if parspace_mode == PARSPACE_MODE_FILE and \
         str.strip,
         config_get(str, "parameter_space", "file_columns").split(",")
     )
+    print "Acessing columns of input files directly, file_columns_names are : "
+    print file_column_names
+    print "                                     "
 else:
     file_column_names = []
 
@@ -2884,18 +3034,28 @@ par_definitions = [
     config_get(str, "parameter_space", "par_%s" % n)
     for n in par_names
 ]
+print " par_definitions are : "
+print par_definitions
+print "                         "
 raw_var_formulas = [
     config_get(str, "parameter_space", "var_%s" % n, raw=True)
     for n in var_names
 ]
+print " raw_var_formulas are : "
+print raw_var_formulas
 var_formulas = [
     config_get(str, "parameter_space", "var_%s" % n)
     for n in var_names
 ]
+print " var_formulas are : "
+print var_formulas
+print "                    "
 bounds = [
     config_get(str, "parameter_space", "bound_%i" % i)
     for i in range(bound_count)
 ]
+print "bounds are : "
+print bounds
 
 # | End of general configuration
 # |----------------------------------------------------------------------------
@@ -2950,6 +3110,11 @@ else:
 
 # check validity of parameter ranges
 if parspace_mode != PARSPACE_MODE_FILE:
+    print "                          "
+    print " t3ps line 2995, parspace_mode appears to be :  "
+    print "                                               "
+    print parspace_mode
+    print "                                 "
     par_ranges = []
     effective_par_count = 0
     for i in range(par_count):
@@ -3020,6 +3185,11 @@ if mode in [MODE_MCMC, MODE_EXPLORER, MODE_OPTIMIZE] or \
    (config.has_option("algorithm", "likelihood") and mode == MODE_TEST):
     # only define likelihood function if needed
     likelihood_code = config_get(str, "algorithm", "likelihood")
+    print "                              "
+    print " t3ps line 3070, likelihood_code appears to be :    "
+    print "                                  "
+    print likelihood_code
+    print "                                   "
     try:
         compile(
             "(" + likelihood_code + ")",
@@ -3031,6 +3201,10 @@ if mode in [MODE_MCMC, MODE_EXPLORER, MODE_OPTIMIZE] or \
 
     def likelihood(data, code=likelihood_code):
         """Return likelihood of given parameter point data triple."""
+        print "                                     "
+        print " Inside def likelihood, t3ps line 3086, data appears to be :   "
+        print data
+        print "                                   "
         print(data[2])
         return formula_eval(
             code,
@@ -3192,6 +3366,9 @@ elif mode == MODE_MCMC:
     heating_function_code = config_get(
         str, "algorithm", "heating_function", default=None
     )
+    print " THe heating code is: "
+    print heating_function_code
+    print "                               "
     if heating_function_code:
         try:
             compile(
@@ -4046,6 +4223,11 @@ elif mode == MODE_SCAN:
             columns.append(par_definitions[i])
 
         full_count = linecount(parspace_files)
+        print "                                     "
+        print "line 4059 of t3ps "
+        print " parspace_files is set to   "
+        print parspace_files
+        print "                                     "
         all_items = parspace_file_iterator(parspace_files)
         # columns_mapping is a wrapper to the input columns
         columns_mapping = lambda x: get_columns(columns, x)
@@ -4222,7 +4404,11 @@ elif mode == MODE_MCMC:
     #   computers independently without resorting to manager/worker
     #   architecture anyway
 
+    print " Correctly entering into MCMC mode "
+    print "                                   "
     chain_count = processing_concurrency()
+    print " Chain_count appears to be:    "
+    print chain_count
     points_with_data = [None for i in range(chain_count)]
     lengths = [0 for i in range(chain_count)]
     iterations = [0 for i in range(chain_count)]
@@ -4293,13 +4479,22 @@ elif mode == MODE_MCMC:
             candidates = [
                 make_random_point(par_ranges) for i in range(missing)
             ]
+            print "                                           "
+            print " t3ps line 4361, candidates for starting points are being generated. Current candidates are as follows : "
+            print candidates
+            print "                                           "
             # ... and pass them to the process pool
             for point in calculate_items(candidates):
                 if not isinstance(point, Exception):
                     L = likelihood(point)
+                    print " Testing point likelihood, below is point likelihood :   "
+                    print(point, L)
+                    print "                                                   "
                     if L > 0:
                         # we have a good point
                         #   -> put it into the first empty slot
+                        print " Good point! "
+                        print "                                "
                         for i in range(len(points_with_data)):
                             if points_with_data[i] is not None:
                                 continue
@@ -4307,6 +4502,8 @@ elif mode == MODE_MCMC:
                             missing -= 1
                             break
                     elif L < 0:
+                        print " Bad point! "
+                        print "                             "
                         raise ValueError(
                             "likelihood is negative for point: " +
                             repr(point[0])
@@ -4341,6 +4538,8 @@ elif mode == MODE_MCMC:
         # (MCMC does not make use of workers)
         # ParameterRange is picklable, so no problem here
         # result = map(
+        print "chain seeds", chain_seeds
+        print "chain_status_dir", chain_status_dir
         result = process_batch.pool.map_async(
             make_chain,
             [
@@ -4418,6 +4617,7 @@ elif mode == MODE_MCMC:
             #   in the abort prompt for much longer
             rate = (progress1 - progress0) / (time.time() - last_time)
             progress0 = progress1
+            print "progress0 is : ", progress0
             last_time = time.time()
             rates.append(rate)
             with open(base_name + ".speed", "a") as f:

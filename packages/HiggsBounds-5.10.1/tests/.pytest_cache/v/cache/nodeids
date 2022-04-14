@@ -1,0 +1,7 @@
+[
+  "test_HiggsBounds.py::test_HBeffC",
+  "test_HiggsBounds.py::test_HBwithLHClikelihood",
+  "test_HiggsBounds.py::test_HBwithchannelrates",
+  "test_HiggsBounds.py::test_HiggsBounds_effC",
+  "test_HiggsBounds.py::test_HiggsBounds_hadr"
+]

@@ -78,8 +78,10 @@ HBHS::EffC HBHS::effective_couplings(THDM &model) const {
   std::array<double, 3> Mh = {model.get_hmass(1), model.get_hmass(2),
                               model.get_hmass(3)};
 
-  DecayTable table(model);
+ // DecayTable table(model);
   THDM sm_like;
+  DecayTable table(model);
+
   for (size_t h = 1; h <= nHzero; ++h) {
     sm_like.set_param_sm(Mh[h - 1]);
     sm_like.set_yukawas_type(1);

@@ -127,8 +127,9 @@ if __name__ == "__main__":
     if "--help" in sys.argv:
         print __doc__
         sys.exit()
-
-    text = sys.stdin.read()
+    
+    with open('testoutput.txt') as f:
+        text = f.read()
 
     def mark_number(s):
         """Mark numbers in color together with index into list of numbers."""

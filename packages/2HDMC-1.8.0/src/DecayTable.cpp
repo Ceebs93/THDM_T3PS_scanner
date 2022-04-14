@@ -782,6 +782,63 @@ double DecayTable::br(double dG, double G) {
   return BR;
 }
 
+void DecayTable::geth_BR(int h, struct BR &brf)
+{
+
+  if ((h<1)||(h>4)) return;
+  double gtot = get_gammatot_h(h);
+
+  double gdd[4][4];
+  double guu[4][4];
+  double gdu[4][4];
+  double gll[4][4];
+  double gln[4][4];
+  double gvv[4];
+  double gvh[4][5];
+  double ghh[5];
+  double ghZga;
+  double ghgg;
+  
+  // Fermion decay modes
+  for (int i=1;i<4;i++) {
+    for (int j=1;j<4;j++) {
+      gdd[i][j]=get_gamma_hdd(h,i,j);
+      guu[i][j]=get_gamma_huu(h,i,j);
+      gdu[i][j]=get_gamma_hdu(h,i,j);
+      gll[i][j]=get_gamma_hll(h,i,j);
+      gln[i][j]=get_gamma_hln(h,i,j);
+      brf.brdd[i][j] = br(gdd[i][j],gtot);
+      brf.bruu[i][j] = br(guu[i][j],gtot);
+      brf.brdu[i][j] = br(gdu[i][j],gtot);
+      brf.brll[i][j] = br(gll[i][j],gtot);
+      brf.brln[i][j] = br(gln[i][j],gtot);
+    }
+  }
+
+  // Vector bosons
+  for (int i=1;i<4;i++) {
+    gvv[i]=get_gamma_hvv(h,i);
+    brf.brvv[i]=br(gvv[i],gtot);
+    for (int j=1;j<5;j++) {
+      gvh[i][j]=get_gamma_hvh(h,i,j);
+      brf.brvh[i][j]=br(gvh[i][j],gtot);
+    }
+  }
+
+  // Z gamma
+  ghZga = get_gamma_hZga(h);
+  brf.brhZga = br(ghZga,gtot);
+
+  // Gluons
+  ghgg = get_gamma_hgg(h);
+  brf.brhgg = br(ghgg,gtot);
+
+  for (int i=1;i<=4;i++) {
+    ghh[i]=get_gamma_hhh(h,i,i);
+    brf.brhh[i]=br(ghh[i],gtot);
+  }
+
+}
 
 void DecayTable::print_decays(FILE* output,int h, bool full, bool les) {
 
@@ -1014,6 +1071,7 @@ double DecayTable::hvv_offshell(int h, int V,double M) {
   
   double dV = 0.;
   double stw = sm.get_sintw();
+
   double GF = sm.get_GF();
 
   if (V==1) {
