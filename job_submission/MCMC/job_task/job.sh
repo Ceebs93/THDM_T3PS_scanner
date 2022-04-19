@@ -16,5 +16,5 @@ CWD=$(pwd)
 echo "Current dir: ${CWD}"
 
 echo "Job starting.."
-echo -ne '\n\n' | ${PROGRAM} -o ./ t3ps.conf
+echo -ne '\n\n' | ${PROGRAM} -o ./ t3ps.conf 
 #> testoutput.txt
