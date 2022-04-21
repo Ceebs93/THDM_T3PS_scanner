@@ -63,14 +63,6 @@ def init(config_dir, config, module):
 
 
     arguments = shlex.split(config.get("SimpleProcessor", "program"))
-    print "                              "
-    print "variable 'arguments' is :"
-    print arguments
-    print "                       "
-    original = arguments[0]
-    print "variable 'original' is : "
-    print original
-    print "                    "
     arguments[0] = module.find_binary_file(arguments[0], config_dir)
     if not os.path.isfile(arguments[0]):
         module.exit_program('Error: no such file found: ' + original)
@@ -105,17 +97,17 @@ def is_listlike(x):
 
 def main(template_file, pars, vars):
     """Run requested command and return list of result values."""
-   # print '### --- Inside SimpleProcessor.main --- '
+    print '### --- Inside SimpleProcessor.main --- '
     #print '                                        '
     global arguments, timeout, timelimit, formula_eval, data_fields_code
 
 #-- Below was previously commented out - presumably by David
-    print 'arguments', arguments
+   # print 'arguments', arguments
  #   print 'timeout', timeout
  #   print 'timelimit', timelimit
-    print 'formula_eval', formula_eval
+   # print 'formula_eval', formula_eval
  #   print'data_fields_code', data_fields_code
-    print 'template_file', template_file
+   # print 'template_file', template_file
 #---------------------------------------------------------
 #    with open(os.devnull) as devnull, timelimit(timeout):
 #        output = subprocess.check_output(
@@ -137,8 +129,6 @@ def main(template_file, pars, vars):
             stderr=subprocess.STDOUT
         )
         print output
-        print "                      "
-        print "                      "
         print "                      "
         print "The above is output from check_output"
         print "                      "
@@ -184,16 +174,53 @@ def main(template_file, pars, vars):
 
     # group 0 is the full number match
     # make sure it stays that way when changing number_pattern!
-    all_numbers = [float(x[0]) for x in re.findall(number_pattern, output)]
-    print " I am going to print 'all_numbers' : "
-    print all_numbers
+    #all_numbers = [float(x[0]) for x in re.findall(number_pattern, output)]
+    #print " I am going to print 'all_numbers' : "
+   # print all_numbers
 #-- Below was previously commented out - presumably by David
 #    print('vars', vars)
 #    print('pars', pars)
-    print('all_numbers', str(len(all_numbers)))
+   # print('all_numbers', str(len(all_numbers)))
 #-----------------------------------------------------------------
+    print "Current dir is: " + str(os.getcwd())
+    files = [f for f in os.listdir('.') if os.path.isfile(f)]
+    for f in files:
+        print "There is a file: " + str(f)
 
-    return all_numbers
+
+    path_to_file = "/mainfs/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MCMC/jobs/2104_ch9mod2_01/testoutput.txt"
+    print "the output file is: " + str(path_to_file)
+    print "os.path.abspath gives: "
+    print os.path.abspath(path_to_file)
+    print "os.path.realpath gives : "
+    print os.path.realpath(path_to_file)
+    print "os.path.exists gives: "
+    print os.path.exists(path_to_file)
+    print "os.listdir() using scratch/cb27g11/THDM_T3PS_scanner/job_submission/MCMC/jobs gives: "
+    print os.listdir("/mainfs/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MCMC/jobs")
+
+#If the output file exists
+    if os.path.isfile(path_to_file):
+        print str(path_to_file) + " exists"
+        temp_line_holder =[]
+        #Open it as output_file and read it
+        with open(path_to_file, 'r') as output_file:
+            lines = output_file.readlines()
+            for line in lines:
+            # looks for lines with the key phrase signalling start out the
+            # output
+                if 'Data_Start' in line:
+                    print "Found 'Data_Start' in a line!"
+                    temp_line_holder = line.split()
+
+                    print("Length of temp_line_holder is: " + str(len(temp_line_holder)))
+    else:
+        print str(path_to_file) + " could not be located"    
+
+    return temp_line_holder
+
+
+    #return all_numbers
     
 
 
