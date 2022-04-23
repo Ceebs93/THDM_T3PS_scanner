@@ -1,5 +1,29 @@
 # Setup
 
+----------Current Instructions-----------------
+
+env.sh sets the path for ${THDM_T3PS_scanner} that gets used throughout everything. Unfortunately it currently sets it by using pwd so env.sh needs to always be sourced from that top directory or everything will break. When doing the install comment out the if statement, some programs have tests that can be run only using python3 so its just easier to ignore env_local.sh which loads a python2 env.
+load gcc/11.1.0, gsl/2.6 and cmake/3.22.0
+
+cd into packages/HiggsBounds-5.10.1 and do mkdir build && cd build , cmake .. , make. There should be a tests dir now, and with python>3.5 pytest, numpy and pandas it should be possible to run, ctest --output-on-failure to check the install. If in doubt, there is a github for this https://gitlab.com/higgsbounds/higgsbounds which should cover anything I`ve forgotten.
+
+Set the HiggsBound_DIR environment variable to the build folder of HiggsBounds to make sure the next program can find it.
+cd into packages/HiggsSignals-2.6.2 and do mkdir build && cd build , cmake .. , make . Again there should be a tests dir now and ctest --output-on-failure can be run with the same python + modules as before. This shares a github with HiggsBounds https://gitlab.com/higgsbounds/higgssignals
+
+Next is LHAPDF, there`s currently two versions just due to issues installing the later one, so go with the older. This isn`t hugely important though and if theres problems it can be skipped. Do ./configure --prefix/path/for/installation , make , make install - in case I`ve forgotten something https://lhapdf.hepforge.org/install.html#install_quickstart .
+
+Then 2HDMC, a library from HiggsBounds and HiggsSignals needs to be copied into the lib directory of 2HDMC, then do make . After that if ./Demo runs successfully it should be okay.
+
+SusHi isn`t currently in use so can be ignored.
+
+There is a THDM-env.txt which contains the information on the conda environment used and conda env create --file THDM-env.txt can be used to recreate it.
+Then env_local.sh can be sourced
+run setup_links.sh
+cd into ParameterPointProcessor and do make
+That should be the installation done.
+
+
+-----------Old Instructions---------------------
 ## Instructions
 
 There is a main installation script `setup_auto.sh`, which aims to setup everything necessary for

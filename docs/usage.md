@@ -1,5 +1,17 @@
 # Usage instructions
 
+To run, cd into job_submission/MCMC (env.sh with the env_local statement uncommented needs to be sourced before you do this everytime you first enter the top directory).
+
+Inside config/mcmc_scan_default.conf you can set which 'point processor' is being used, this will be one of the files from inside THDM_T3PS_scanner/packages/T3PS/processor
+
+job_task/job.sh is what actually gets submitted with the Makefile. 
+
+The Makefile uses the files in utils to first create a job using make create-jobs, then submit a job using make submit-jobs. merge-jobs is only needed after jobs complete successfully.
+
+I think all the variable names in the make file itself are quite straight-forward, if you wanted to use an altered version of ParameterScan_T3PS_with_HB_HS you would change it in here.
+
+T3PS is the MCMC code, its very...well all the code is largely kept to one ~7000 line python file, which was apparently done `for easier distribution`. I`m not sure it`s best practice though, but as it was made for particle physics specifically it was chosen. It`s also the reason everything is python2! I tried to convert it but I couldn`t get it to work in the time allotted for trying that.
+
 
 **Overview:**
 
