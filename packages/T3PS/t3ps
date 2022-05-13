@@ -173,8 +173,6 @@ print "                                      "
 
 # always listen to SIGINT!
 signal.signal(signal.SIGINT, signal.default_int_handler)
-print "signal.signal(signal.SIGINT, signal.default_int_handler is: "
-print signal.signal(signal.SIGINT, signal.default_int_handler)
 
 
 parser = argparse.ArgumentParser(
@@ -184,7 +182,7 @@ parser = argparse.ArgumentParser(
 print "                      "
 print "parser is: "
 print parser
-
+print "                      "
 
 parser.add_argument(
     '-v', '--version',
@@ -242,6 +240,8 @@ parser.add_argument(
 #   - ...
 
 cli_arguments = parser.parse_args()
+print "cli_arguments"
+print cli_arguments
 
 print "#", __program_name__, "v%s" % __version__
 
@@ -280,7 +280,7 @@ def TemporaryDirectory(keep_dir=False):
                 but only at the end of the program's execution
     """
     tmpdir = mkdtemp()
-    if keep_dir: 
+    if keep_dir:
         atexit.register(shutil.rmtree, tmpdir)
     try:
         yield tmpdir
@@ -965,8 +965,11 @@ def find_file(path, base_dir):
     This always returns an absolute path.
     """
     print "---------------inside find_file---------------"
+    print "path before using os expanduser: "
+    print path
+    print "                      "
     path = os.path.expanduser(path)
-    print "path is ", path
+    print "after os expanduser, path is: ", path
     if os.path.isabs(path):
         return path
 
@@ -1034,7 +1037,9 @@ def PreprocessedConfigFile(file_name, short_name=None, base_dir=None,
                            depth=0, max_depth=10):
     """Return file-like object with @include statements processed."""
     # base_dir is only supposed to be None on the depth = 0 file
-    print 'inside PreprocessedConfigFile '
+    # print "                        "
+    # print 'inside PreprocessedConfigFile '
+    # print "                         "
     if base_dir is None:
         base_dir = os.path.dirname(find_file(file_name, "."))
         print( 'base_dir' , base_dir)
@@ -1044,7 +1049,7 @@ def PreprocessedConfigFile(file_name, short_name=None, base_dir=None,
         short_name = file_name
 
     contents = StringIO.StringIO()
-    print( 'contents' , contents)
+    #print( 'contents' , contents)
     # if not depth:
     #     contents.write("[DEFAULT]\n")
     lineno = 0
@@ -1525,11 +1530,15 @@ def formula_eval(function,
                  data=None, file=None,
                  **kwargs):
     """Compile and evaluate user supplied Python expression formulas."""
+    print "Inside formula_eval!"
+    print "evaluating " + str(function)
     # Has to be called as in
     #   formula_eval(None, par_names, var_names, data_names,
     #       file_column_names)
     #   to set names
     if not hasattr(formula_eval, "cache"):
+        print "formula_eval does not contain 'cache'"
+        print formula_eval
         formula_eval.cache = {}
 
     cache = formula_eval.cache
@@ -1645,6 +1654,7 @@ def scatter_iterator(count, par_ranges):
 
 def make_random_point(par_ranges):
     """Return random point with the distribution of the parameter ranges."""
+    print "Generating a random point now..."
     point = []
     # increase speed by minimizing the amount of look-ups
     append = point.append
@@ -1849,6 +1859,7 @@ def make_chain(data):
     def likelihood(x, code=likelihood_code):
         print " ----Inside 'make_chain: def likelihood'-----"
         print "                                          "
+        print "formula_eval(code, pars=x[0], vars=x[1], data=x[2])"
         print formula_eval(code, pars=x[0], vars=x[1], data=x[2])
 
         return formula_eval(code, pars=x[0], vars=x[1], data=x[2])
@@ -1873,7 +1884,8 @@ def make_chain(data):
             )    
     L0 = likelihood(x0) * prior_likelihood(x0[0], par_ranges)
     print "L0 -> likelihood(x0) * prior(x0, par_ranges)"
-    print L0
+    print "L0" + str(L0)
+    print "prior_liklihood " + str(prior_likelihood(x0[0], par_ranges))
     # IMPORTANT: re-seed PRNG so all chains are guaranteed to find distinct
     #   points - THIS HAS TO BE DIFFERENT FOR EACH CHAIN
     random.seed(random_seed)
@@ -1883,6 +1895,8 @@ def make_chain(data):
     #   this resets when new point is found and is only ever shown in expert
     #   mode
     reasons = {"prior": 0, "likelihood": 0, "errors": 0, "chance": 0}
+    print " Reasons for error: " + reasons
+    
     try:
         while current_length < final_length:
             with open(status_file_path, "w") as status_file:
@@ -1971,6 +1985,7 @@ def make_chain(data):
 
         # write the last point to file
         with open(output_file, "a") as f:
+            print "Inside liklihood code still. Outputfile is: " + outputfile
             f.write("\t".join(map(out_repr, list_sum(x0) + [L0, staycount])))
             f.write("\n")
         # and write the 100% status, too
@@ -2043,8 +2058,11 @@ def neighbors(index, par_ranges, stepsize=1):
       N
     This scales as 2*d for d dimensions
     """
+    print "-----------I am inside neighbours-----------"
     result = []
     rs = [range(len(r)) for r in par_ranges]
+    print "rs is: "
+    print rs
     multiindex = index2point(index, rs)
     stepsize_ = int(max(math.ceil(stepsize), 1))
     for i, r in enumerate(par_ranges):
@@ -2055,6 +2073,7 @@ def neighbors(index, par_ranges, stepsize=1):
         neighbor_multiindex[i] = max(multiindex[i] - stepsize_, 0)
         if neighbor_multiindex[i] != multiindex[i]:
             result.append(tuple(neighbor_multiindex))
+    print "I am just leaving neighbours now"
     return [point2index(n, rs) for n in result]
 
 
@@ -2168,9 +2187,14 @@ def process_item(point, test_mode=False, print_error_trace=False):
     The exception error message is the first caught exception and most likely
         the first bound that is not satisfied.
     """
+    print "Inside process_item"
+    print "point is "
+    print point
     # we get an already initialized point_processor from the main process
     #   through os.fork()
     global point_processor
+    print "point_processor is "
+    print point_processor
     # everything else is transferred via attributes of process_item
 
     (
@@ -2228,6 +2252,10 @@ def process_item(point, test_mode=False, print_error_trace=False):
                         dressed_pars,
                         dressed_vars
                     )
+                    print "point_processor"
+                    print point_processor
+                    print "processed_point"
+                    print processed_point
                 else:
                     processed_point = []
 
@@ -2275,28 +2303,42 @@ def process_item(point, test_mode=False, print_error_trace=False):
 
 def process_annotated_item(point_and_info):
     """Process point and keep track of info attached to it."""
+    print "(point, info) are "
     (point, info) = point_and_info
+    print(point, info)
     data = process_item(point)
+    print "data = process_item(point) which is: "
+    print data
     return (data, info)
 
 
 def process_batch(batch):
     """Process multiple points at once."""
+    print "-----------Entering process_batch now------------------"
     if not batch:
+        print "I am not processing multiple points at once"
         return []
     # Sequence means it has __getitem__ and __len__, so batch[0][0] works
     if not isinstance(batch[0], Sequence):
+        print "there is a problem with the batch I have received"
         raise ValueError("Invalid batch")
 
     # if batch has structure [(Sequence, something), ...], each list item
     #   must have form (parameter_values, annotation)
     if isinstance(batch[0][0], Sequence):
+        print "batch has been accepted"
         result = process_batch.pool.imap(
             process_annotated_item, batch
         )
+        print "result isinstance(batch[0][0], Sequence) is "
+        print result
+        print "sequence"
+        print sequence
     else:
+        print "result = process_batch.pool.imap(process_item, batch)"
         result = process_batch.pool.imap(process_item, batch)
-
+        print " I have calculated result now"
+        print result
     return result
 
 
@@ -2338,6 +2380,7 @@ def process_batch_as_worker(batch):
 
 def check_bounds(bounds, pars, vars, data):
     """Check all bounds and raise ValueError if one is violated."""
+    print "Now processing bounds..."
     for bound in bounds:
         allowed = formula_eval(
             bound,
@@ -2351,11 +2394,13 @@ def check_bounds(bounds, pars, vars, data):
 
 def apply_symmetry(rule, point, par_names):
     """Apply symmetry to parameter point."""
+    print "Now applying symmetry to parameter point..."
     transformed_point = list(point)
     replaced_values = formula_eval(
         rule,
         pars=transformed_point, **dict(zip(par_names, par_names))
     ).iteritems()
+    print "replaced_values are " + replaced_values
     for k, v in replaced_values:
         if isinstance(k, int):
             transformed_point[k] = v
@@ -2382,10 +2427,13 @@ def init_processing(
         var_formulas, bounds, template_file, config_dir, helper_modules
 ):
     """Initialize formula_eval, process_item and the template system."""
+    print "------inside init_processing-------------"
     # example: helper_modules = /path/to/module_a.py:/other/path/to/module_b.py
     # -> formulas have module_a and module_b objects available
     formula_eval.helper_modules = dict()
     for module in helper_modules:
+        print "module in helper_modules is "
+        print module
         try:
             module_path = find_file(module, config_dir)
             if os.path.isfile(module_path):
@@ -2428,8 +2476,12 @@ def init_processing(
         # initialize template function
         process_item.template = None
         if template_file:
+            print "There is a template_file: "
+            print template_file
             process_item.template = compile_template(template_file)
-
+            print "process_item.template = compile_template(template_file)"
+            print('objecttype is: ', type(process_item.template))
+            print "                              "
     except Exception as e:
         if cli_arguments.debug:
             traceback.print_exc()
@@ -2747,10 +2799,6 @@ base_name = os.path.basename(chosen_scan_setup)
 draw_progress.scan_file = os.path.abspath(chosen_scan_setup)
 # Print statements added by Ciara ---------------------------
 print "                                                             "
-print "                                                             "
-print "                                                             "
-print("chosen_scan_setup:  " +  str(chosen_scan_setup))
-print "                                                             "
 print("config_dir appears to be: " + str(config_dir))
 print "                                                              "
 print("base_name (AKA the scan setup chosen) appears to be: " + str(base_name))
@@ -2911,13 +2959,17 @@ if mode not in [MODE_SCAN, MODE_TEST, MODE_WORKER] and \
 # the point_processor module must have the function "main" and can have
 #   the function "init"
 point_processor = config_get(str, "setup", "point_processor", default=None)
+print "                                        "
 print " ------seeking point_processor now------"
 print point_processor
+print "                                  "
 if point_processor:
+    print "A point processor path has been given."
     point_processor = find_file(
         point_processor,
         config_dir
     )
+    print('point_processor' , point_processor)
     if not os.path.isfile(point_processor):
         exit_program("Error: not a file: " + point_processor)
 
@@ -2931,9 +2983,12 @@ else:
 
 template_file = config_get(str, "setup", "template", default=None)
 if template_file:
+    print "                        "
+    print "A template_file path has been given."
+    print template_file
     template_file = find_file(template_file, config_dir)
     print "                                                    "
-    print " line 2836 in t3ps, template_file appears to be:    "
+    print " line 2988 in t3ps, template_file appears to be:    "
     print template_file
     print "                                                    "
     if not os.path.isfile(template_file):
@@ -2992,9 +3047,9 @@ except Exception as e:
     exit_program("Error in data_names: %s" % e)
 
 print "                                                "
-print " t3ps line 2891, data_names appear to be:       "
-print data_names
-print "                                                "
+#print " t3ps line 2891, data_names appear to be:       "
+#print data_names
+#print "                                                "
 
 if data_names and not point_processor:
     exit_program(
@@ -3206,6 +3261,7 @@ if mode in [MODE_MCMC, MODE_EXPLORER, MODE_OPTIMIZE] or \
         print data
         print "                                   "
         print(data[2])
+        print('code for formula_eval is:', code)
         return formula_eval(
             code,
             pars=data[0],
@@ -3366,7 +3422,7 @@ elif mode == MODE_MCMC:
     heating_function_code = config_get(
         str, "algorithm", "heating_function", default=None
     )
-    print " THe heating code is: "
+    print " The heating code is: "
     print heating_function_code
     print "                               "
     if heating_function_code:
@@ -3710,6 +3766,8 @@ elif mode == MODE_MCMC:
 if worker_addresses is None:
     # Run calculation only locally.
     calculate_items = process_batch
+    print "process_batch is: "
+    print process_batch
 else:
     print "# Starting in manager mode"
     # register functions for (remote) use
@@ -4479,12 +4537,20 @@ elif mode == MODE_MCMC:
             candidates = [
                 make_random_point(par_ranges) for i in range(missing)
             ]
+
+            print " missing for range is: "
+            print missing
             print "                                           "
             print " t3ps line 4361, candidates for starting points are being generated. Current candidates are as follows : "
             print candidates
             print "                                           "
             # ... and pass them to the process pool
+            print "calculate_items(candidates):"
+            print "                         "
             for point in calculate_items(candidates):
+                print " point selected is: "
+                print point
+                print "                         "
                 if not isinstance(point, Exception):
                     L = likelihood(point)
                     print " Testing point likelihood, below is point likelihood :   "

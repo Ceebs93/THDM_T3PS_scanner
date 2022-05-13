@@ -576,8 +576,6 @@ int main(int argc, char* argv[])
 	+ br_A_gaga   ;
 
 	std::cout
-	// -- Marker for python to seek out as indicator of start of data
-	<< "Data_Start" << " "
 
 	// -- Input
 	<< Z7_in  << " "                    // 1
@@ -690,9 +688,9 @@ int main(int argc, char* argv[])
 
 	std::endl;
 
-	printf("                        ");
+	printf("\n\n");
 	printf("Finished passing variables over!");
-	printf("                                ");
+	printf("\n\n");
 	
 	return 0;
 

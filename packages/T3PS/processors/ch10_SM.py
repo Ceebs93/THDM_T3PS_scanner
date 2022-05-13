@@ -68,24 +68,21 @@ def init(config_dir, config, module):
     if not os.path.isfile(arguments[0]):
         module.exit_program('Error: no such file found: ' + original)
         
-    print "# Running", subprocess.list2cmdline(arguments)
+    #print "# Running", subprocess.list2cmdline(arguments)
 
     if config.has_option("SimpleProcessor", "timeout"):
         timeout = config.getint("SimpleProcessor", "timeout")
     else:
         timeout = 10
-#-- Commented out by Ciara ----------------------------
-#    print("# Timeout:", timeout, "second" + ("s" if timeout > 1 else ""))
-#------------------------------------------------------
 
     if config.has_option("SimpleProcessor", "data_values"):
         data_fields_code = config.get("SimpleProcessor", "data_values")
         # check for syntax errors
         compile(data_fields_code, repr(data_fields_code), "eval")
-        print("# Data values:", data_fields_code)
-        print "                          "
-        print("#repr(data_fields_code", repr(data_fields_code))
-        print("                                  ")
+       # print("# Data values:", data_fields_code)
+       # print "                          "
+      #  print("#repr(data_fields_code", repr(data_fields_code))
+     #   print("                                  ")
     else:
         data_fields_code = None
   #      print "# Data values: <all>"
@@ -99,20 +96,17 @@ def is_listlike(x):
 def main(template_file, pars, vars):
     """Run requested command and return list of result values."""
     print '### --- Inside SimpleProcessor.main --- '
-    #print '                                        '
+    print '                                        '
     global arguments, timeout, timelimit, formula_eval, data_fields_code
 
 #-- Below was previously commented out - presumably by David
     print 'arguments', arguments
-    print 'timeout', timeout
-    print 'timelimit', timelimit
+   # print 'timeout', timeout
+   # print 'timelimit', timelimit
     print 'formula_eval', formula_eval
     print'data_fields_code', data_fields_code
     print 'template_file', template_file
 #--------------------------------------------------------
-#-- Commented out by Ciara ----------------------------
-   #print('command output: ', commands.getstatusoutput('{} {}'.format(arguments[0], template_file)) )
-#-------------------------------------------------------------------------------------------------------
 
 #    with open(os.devnull) as devnull, timelimit(timeout):
 #        output = subprocess.check_output(
@@ -134,23 +128,9 @@ def main(template_file, pars, vars):
 #    output = subprocess.Popen( command )
 #    output.communicate()
 
-    print('### --- End of SimpleProcessor.main --- ')
-	
-#    def handler(signum,frame):
-#        print "Error Occured",signum
-#        raise IOError("Segmentation Fault Occured.")
-    
-#    try:
-#        signal.signal(signal.SIGSEGV,handler)  
-#    except IOError as e:
-#        print e
-
+   # print('### --- End of SimpleProcessor.main --- ')
 
 #    output = subprocess.call(arguments + [template_file])
-#    print " Below is the output from .call "
-#    print "                                "
-#    print output
-#    print "                                "
 #--------------------------------------------------------------------
 
     # group 0 is the full number match
@@ -165,20 +145,25 @@ def main(template_file, pars, vars):
 #-----------------------------------------------------------------
     print "Current dir is: " + str(os.getcwd())
     CDir = str(os.getcwd())
+    print CDir
     letters = string.ascii_letters
     identifier = ( ''.join(random.choice(letters) for i in range(10)) )
-    print "identifier is " + indentifier
-    path_to_file = CDir + "testoutput.dat" + letters
+    print "identifier is " + identifier
+    path_to_file = CDir + "testoutput" + identifier + ".dat"
     print "the output file is: " + str(path_to_file)
 
     # Calling C++ binary, ParameterPointProcessor, to check point and passing where output file should be saved
-    arguments.append(identifier)
+    #arguments.append(path_to_file)
     command = arguments + [template_file]
-   # print " arguments are: " + arguments
-   # print arguments + [template_file]
-    #output = subprocess.call(arguments + [template_file], identifier)
+    print "                      "
+    print "                      "
+    print " arguments are: " + arguments
+    print "                      "
+    print "                      "
+    print arguments + [template_file]
+    output = subprocess.call(arguments + [template_file], path_to_file)
    
-    output = subprocess.Popen( command)
+    #output = subprocess.Popen( command)
    #output.communicate(path_to_file)
 
 #If the output file exists

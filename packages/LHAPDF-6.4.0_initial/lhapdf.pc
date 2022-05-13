@@ -1,4 +1,4 @@
-prefix=/scratch/cb27g11/THDM_T3PS_scanner/packages/LHAPDF-6.4.0_install
+prefix=/scratch/cb27g11/THDM_T3PS_scanner/packages/LHAPDF-6.4.0
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include

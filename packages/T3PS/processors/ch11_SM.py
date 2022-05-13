@@ -32,6 +32,7 @@ Show output of COMMAND or content of FILE with extracted numbers highlighted.
 from __future__ import division
 
 from collections import Sequence
+from subprocess import Popen, PIPE
 import subprocess
 import signal
 import os.path
@@ -59,7 +60,8 @@ def init(config_dir, config, module):
     """
     print '### --- Inside SimpleProcessor.init --- '
 
-    global arguments, timeout, timelimit, data_fields_code, formula_eval
+ #   global arguments, timeout, timelimit, data_fields_code, formula_eval
+    global arguments, data_fields_code, formula_eval
     timelimit = module.TimeLimit
     formula_eval = module.formula_eval
 
@@ -68,24 +70,22 @@ def init(config_dir, config, module):
     if not os.path.isfile(arguments[0]):
         module.exit_program('Error: no such file found: ' + original)
         
-    print "# Running", subprocess.list2cmdline(arguments)
+    #print "# Running", subprocess.list2cmdline(arguments)
 
     if config.has_option("SimpleProcessor", "timeout"):
         timeout = config.getint("SimpleProcessor", "timeout")
     else:
         timeout = 10
-#-- Commented out by Ciara ----------------------------
-#    print("# Timeout:", timeout, "second" + ("s" if timeout > 1 else ""))
-#------------------------------------------------------
 
     if config.has_option("SimpleProcessor", "data_values"):
         data_fields_code = config.get("SimpleProcessor", "data_values")
+        print( "data_fields_code", data_fields_code)
         # check for syntax errors
         compile(data_fields_code, repr(data_fields_code), "eval")
-        print("# Data values:", data_fields_code)
+        print("# Data values after checking for errors:", data_fields_code)
         print "                          "
-        print("#repr(data_fields_code", repr(data_fields_code))
-        print("                                  ")
+      #  print("#repr(data_fields_code", repr(data_fields_code))
+     #   print("                                  ")
     else:
         data_fields_code = None
   #      print "# Data values: <all>"
@@ -99,65 +99,31 @@ def is_listlike(x):
 def main(template_file, pars, vars):
     """Run requested command and return list of result values."""
     print '### --- Inside SimpleProcessor.main --- '
-    #print '                                        '
+    print '                                        '
     global arguments, timeout, timelimit, formula_eval, data_fields_code
 
 #-- Below was previously commented out - presumably by David
     print 'arguments', arguments
-    print 'timeout', timeout
-    print 'timelimit', timelimit
+   # print 'timeout', timeout
+   # print 'timelimit', timelimit
     print 'formula_eval', formula_eval
     print'data_fields_code', data_fields_code
     print 'template_file', template_file
 #--------------------------------------------------------
-#-- Commented out by Ciara ----------------------------
-   #print('command output: ', commands.getstatusoutput('{} {}'.format(arguments[0], template_file)) )
-#-------------------------------------------------------------------------------------------------------
 
 #    with open(os.devnull) as devnull, timelimit(timeout):
-#        output = subprocess.check_output(
-#            arguments + ([template_file] if template_file else []),
-#            stdin=devnull,
-#            stderr=subprocess.STDOUT
-#        )
-#        print output
-#        print "                      "
-#        print "The above is output from check_output"
-#        print "                      "
-
-#---------------------------------------------
-    #command = arguments + [template_file]
-#-- Commented out by Ciara-------------
-    #print('command', command)
-#    print('template_file 3', template_file)
-#-------------------------------------------
-#    output = subprocess.Popen( command )
-#    output.communicate()
-
-    print('### --- End of SimpleProcessor.main --- ')
-	
-#    def handler(signum,frame):
-#        print "Error Occured",signum
-#        raise IOError("Segmentation Fault Occured.")
+    cwd = os.getcwd()
+    print "current working dir is: " + str(cwd)
+    output = subprocess.check_output(
+            arguments + [template_file])
     
-#    try:
-#        signal.signal(signal.SIGSEGV,handler)  
-#    except IOError as e:
-#        print e
+    result = output
+    print result
+    print "                      "
+    print "The above is output from check_output"
+    print "                      "
+    print( "result type is: ", type(result))
 
-
-#    output = subprocess.call(arguments + [template_file])
-#    print " Below is the output from .call "
-#    print "                                "
-#    print output
-#    print "                                "
-#--------------------------------------------------------------------
-
-    # group 0 is the full number match
-    # make sure it stays that way when changing number_pattern!
-    #all_numbers = [float(x[0]) for x in re.findall(number_pattern, output)]
-    #print " I am going to print 'all_numbers' : "
-   # print all_numbers
 #-- Below was previously commented out - presumably by David
 #    print('vars', vars)
 #    print('pars', pars)
@@ -165,33 +131,27 @@ def main(template_file, pars, vars):
 #-----------------------------------------------------------------
     print "Current dir is: " + str(os.getcwd())
     CDir = str(os.getcwd())
-    letters = string.ascii_letters
-    identifier = ( ''.join(random.choice(letters) for i in range(10)) )
-    print "identifier is " + indentifier
-    path_to_file = CDir + "testoutput.dat" + letters
+    path_to_file = str(output)
     print "the output file is: " + str(path_to_file)
 
-    # Calling C++ binary, ParameterPointProcessor, to check point and passing where output file should be saved
-    arguments.append(identifier)
-    command = arguments + [template_file]
-   # print " arguments are: " + arguments
-   # print arguments + [template_file]
-    #output = subprocess.call(arguments + [template_file], identifier)
-   
-    output = subprocess.Popen( command)
-   #output.communicate(path_to_file)
+    temp_line_holder =[]
 
 #If the output file exists
     if os.path.isfile(path_to_file):
         print str(path_to_file) + " exists"
+        print " I WILL NOW TRY TO READ THE OUTPUT FILE!!!"
         temp_line_holder =[]
         #Open it as output_file and read it
         with open(path_to_file, 'r') as output_file:
+            print "I have successfully opened the file!"
             lines = output_file.readlines()
+            print lines
             print "no. of lines is: " + str(len(lines))
             if str(len(lines)) > 1:
                 print "Error: too many lines in testoutput.dat"
             for line in lines:
+                print "                   "
+                print( "line is: ", line)
                 temp_line_holder = [float(x) for x in line.split()]
 
                 print("Length of temp_line_holder is: " + str(len(temp_line_holder)))
@@ -200,9 +160,6 @@ def main(template_file, pars, vars):
 
     #Return the list of floats that defines the parameter point properties to T3PS
     return temp_line_holder
-
-
-    #return all_numbers
     
     # - This gets called when running test bin
 #-- Below was previously commented out - presumably by David

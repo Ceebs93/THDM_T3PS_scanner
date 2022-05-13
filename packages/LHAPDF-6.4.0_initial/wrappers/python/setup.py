@@ -13,7 +13,7 @@ libdir = os.path.abspath("../../src/.libs")
 ext = Extension("lhapdf",
                 ["lhapdf.cpp"],
                 include_dirs=[incdir_src, incdir_build],
-                extra_compile_args=["-I/scratch/cb27g11/THDM_T3PS_scanner/packages/LHAPDF-6.4.0_install/include"],
+                extra_compile_args=["-I/scratch/cb27g11/THDM_T3PS_scanner/packages/LHAPDF-6.4.0/include"],
                 library_dirs=[libdir],
                 language="C++",
                 libraries=["stdc++", "LHAPDF"])
