@@ -8,30 +8,13 @@
 #include <fstream>
 #include <cmath>
 #include "EWPO.h"
-#include <filesystem>
-#include <unistd.h>
-#include <random>
-#include <algorithm>
 
 #define VERBOSE
 
 using namespace std;
 
-using std::cout; using std::cin;
-using std::endl; using std::string;
-using std::filesystem::current_path;
-
-//extern "C" string return_string(char* output_loc);
-
 int main(int argc, char* argv[])
 {
-
-	//char *cwd = get_current_dir_name();
-	string cwdr = "/scratch/cb27g11";
-	//getcwd(tmp, 256);
-	//const char tempstr = tmp.c_str()
-	//printf("current directory is:   ");
-	//printf(cwd);
 
 	/////////////////
 	//             //
@@ -39,14 +22,13 @@ int main(int argc, char* argv[])
 	//             //
 	/////////////////
 
-	int        yt_in;  // - Type
-	double     Z7_in;  // - Z7
-	double     mH_in;  // - mH
-	double    mHc_in;  // - mHc
-	double     mA_in;  // - mA
-	double    cba_in;  // - cos(b-a)
-	double     tb_in;  // - tan(b)
-        char* output_loc;  // - Identifier for output file
+	int       yt_in;  // - Type
+	double    Z7_in;  // - Z7
+	double    mH_in;  // - mH
+	double   mHc_in;  // - mHc
+	double    mA_in;  // - mA
+	double   cba_in;  // - cos(b-a)
+	double    tb_in;  // - tan(b)
 	
 	if     ( argc == 2 )   // - filename as input
 	{
@@ -71,8 +53,7 @@ int main(int argc, char* argv[])
 	 	 mA_in      = (double)atof(argv[5]);
 	 	 cba_in     = (double)atof(argv[6]);
 	 	 tb_in      = (double)atof(argv[7]);
-	         //output_loc = (char*)argv[8];
-        }
+	}
 
 	else
 	{
@@ -129,16 +110,17 @@ int main(int argc, char* argv[])
 	// -- Write model information to the screen
 	model.print_param_phys();
 	model.print_param_gen();
-// Command directly below MAY be needed, commenting out to check --Ciara
+
 	Constraints check(model);
 	check.print_all(mh_ref);
+
+	//int hs_pdf =2;
 
 	// -- Call HB & HS initialization
 	const HBHSResult *hbhsres_ptr = nullptr;
 
        #if defined HiggsBounds	
  	 HBHS hbhs{};
-// commented out by Ciara	 int higgssignals_pdf = 2;
 
         ///////////////////////////
         ///                     ///
@@ -149,6 +131,10 @@ int main(int argc, char* argv[])
 
         // -- Prepare to calculate observables
          Constraints constr(model);
+
+
+//	 double dMh[3]={0., 0., 0.,};
+//	 hbhs.set_mass_uncertainties(dMh);
 
         // -- EWPO
          double S,T,U,V,W,X;
@@ -203,14 +189,13 @@ int main(int argc, char* argv[])
               exit( -1 );
          }
          # endif
-            
+          
+	 //hbhs.effective_couplings(model);
+
   	 hbhs_result.hb.print();
  	 hbhs_result.hs.print();
  	 hbhsres_ptr = &hbhs_result;
        #endif
-      
-	//Write LesHouches-style output
- //	model.write_LesHouches("/scratch/cb27g11/Ciara_tst.lha", true, true, true, hbhsres_ptr);
 
 	////////////////////////////////////
 	// -- HiggsBounds/HiggsSignals -- //
@@ -219,26 +204,15 @@ int main(int argc, char* argv[])
 	// - !!! Important note !!!  -  //
 	// It seems that if you call constr.delta_amu() before
 	// HB/HS then HB/HS won't work properly!
-	
-	// -- See HiggsSignals manual for more information
-	
-	//int mass_pdf = 2;
-//	HS_set_pdf(mass_pdf);
-//	HS_setup_assignment_range_massobservables(2.);
-//	HS_set_output_level(0);
 
 
 	// -- Share couplings of 2HDM model with HiggsBounds/HiggsSignals
-//	HB_set_input_effC(model);
 
 	
 	int    hbres[6];
 	int    hbchan[6];
 	double hbobs[6];
 	int    hbcomb[6];  
-	
-	// -- Run HiggsBounds 'full', i.e. with each Higgs result separately  
-//	HB_run_full(hbres, hbchan, hbobs, hbcomb);
 
 	
 	double tot_hbobs = hbobs[0];
@@ -252,18 +226,6 @@ int main(int argc, char* argv[])
 		  printf("sens_ch_%d: %f \n", i, hbchan[i]);
    }
 	
-//	double csqmu;
-//	double csqmh_ref;
-	//double chi2_HS;
-//	int nobs;
-//	double pval;
-	
-//	double dMh[3]={0., 0., 0.,};
-	//HS_set_mass_uncertainties(dMh);
-	
-	
-	//run_HiggsSignals_full(&csqmu, &csqmh_ref, &chi2_HS, &nobs, &pval);
-
 
   	# ifdef FAST
   	if ( chi2_HS > 300.0 )
@@ -273,10 +235,6 @@ int main(int argc, char* argv[])
  	}
   	# endif
 	
-//	std::complex <double> cs;
-//	std::complex <double> cp;
-//	model.get_coupling_vvh(2,2,1,coupling);
-//	model.get_coupling_hdd(1,3,3,cs,cp);
 	
 	// Warning: Beware with these ones as they seem to destroy some HB/HS
 	// functionality!!!
@@ -298,14 +256,6 @@ int main(int argc, char* argv[])
 	
 	// -- Prepare to calculate decay widths
 	DecayTable table(model);
-	
-	// const char *dnames[4] = {" ","d ", "s ", "b "};
-	// const char *unames[4] = {" ","u ", "c ", "t "};
-	// const char *lnames[4] = {" ","e ", "mu", "ta"};
-	// const char *nnames[4] = {" ","ve", "vm", "vt"};
-	// const char *hnames[6] = {" ","h ", "H ", "A ", "H+", "H-"};
-	// const char *vnames[5] = {" ","ga", "Z ", "W+", "W-"};
-	// param h Index of Higgs boson (1,2,3,4 = h,H,A,H+)
 	
 	// -- Branching fractions
 	struct BR BRfrac_h, BRfrac_H, BRfrac_A, BRfrac_Hp;
@@ -382,7 +332,7 @@ int main(int argc, char* argv[])
 	# ifdef VERBOSE
 
 	printf("                             ");
-	printf("I'm printing out the stuff in the DEBUG section now!");
+	printf("Printing out the DEBUG section now!");
 	printf("                              ");
 	double mh_hybrid,mH_hybrid,cba_hybrid, Z4_hybrid, Z5_hybrid, Z7_hybrid, tb_hybrid;
 	double mh_phys,mH_phys,mA_phys,mHc_phys,sba_phys,l6_phys,l7_phys,m12_2_phys,tb_phys;
@@ -423,17 +373,6 @@ int main(int argc, char* argv[])
 	printf("       Perturbativity: %s\n", 
 	  (constr.check_perturbativity() ? "OK" : "Not OK"));
 
-	// Print the parameters in different parametrizations to stdout
-	//model.print_param_phys();
-	//model.print_param_gen();
-	//model.print_param_higgs();
-	//model.print_param_hybrid();
-	
-	//printf("\nHiggsSignals results:\n");
-	//printf(" Chi^2 from rates: %16.8E\n", csqmu);
-	//printf("  Chi^2 from mass: %16.8E\n", csqmh_ref);
-	//printf("      Total chi^2: %16.8E\n", csqtot);
-	//printf("    # observables: %16d\n\n", nobs);
 	
 	printf("\nHiggsBounds results (full):\n");
 	printf("  Higgs  res  chan       ratio        ncomb\n");
@@ -446,12 +385,6 @@ int main(int argc, char* argv[])
 
 	constr.print_all(mh_ref);
 
-	//printf("br tt:      %.3e\n", br_A_tt    );
-	//printf("br bb:      %.3e\n", br_A_bb    );
-	//printf("br gg:      %.3e\n", br_A_gg    );
-	//printf("br tau tau: %.3e\n", br_A_tautau);
-	//printf("br zh:      %.3e\n", br_A_Zh    );
-	//
 	//You can cross-check the branching fractions here with the full table
 	printf("br tt:      %.3e\n", BRfrac_A.bruu[3][3]);
 	printf("br bb:      %.3e\n", BRfrac_A.brdd[3][3]);
@@ -488,8 +421,6 @@ int main(int argc, char* argv[])
 	printf("l7:          %.3e\n", l7);                         
 
 	// -- Couplings
-	//printf("g_HpHmh.r:   %.3e\n", g_HpHmh.real());             
-	//printf("g_HpHmh.i:   %.3e\n", g_HpHmh.imag());             
 
 	// -- Widths
 	printf("Gamma_h:     %.3e\n", Gamma_h);             
@@ -567,7 +498,7 @@ int main(int argc, char* argv[])
 	//////////////////
 
 	printf("                                ");
-	printf("Moving to output variables now!!");
+	printf("Moving to output variables now");
 	printf("                                ");
 	
 	double br_H_sum =	br_H_tt    
@@ -594,157 +525,116 @@ int main(int argc, char* argv[])
 	+ br_A_ZH     
 	+ br_A_gaga   ;
 
-	// --Setting up individual output filename
-        std::string str("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz");
+	std::cout
 
-        std::random_device rd;
-        std::mt19937 generator(rd());
-
-        std::shuffle(str.begin(), str.end(), generator);
-        string outputloc = str.substr(0, 6);
-	printf("outputloc has been generated as:  ");
-	printf(outputloc.c_str());
-	printf("\n\n");
-
-	string slash = "/";
-	string file_type = ".txt"; 
-	string outputfile = cwdr + slash + outputloc + file_type;
-	printf("outputfile is set to:  ");
-	printf(outputfile.c_str());
-	printf("\n\n");
-
-	ofstream MyFile;
-	MyFile.open(outputfile);
-        FILE *file;
-    
-
-	// -- Input Variables
-	MyFile << Z7_in  << " " ;                   // 1
-	MyFile << mH_in  << " " ;                   // 2
-	MyFile << mHc_in << " " ;                   // 3
-	MyFile << mA_in  << " " ;                   // 4
-	MyFile << cba_in << " " ;                   // 5
-	MyFile << tb_in  << " " ;                   // 6
+	// -- Input
+	<< Z7_in  << " "                    // 1
+	<< mH_in  << " "                    // 2
+	<< mHc_in << " "                    // 3
+	<< mA_in  << " "                    // 4
+	<< cba_in << " "                    // 5
+	<< tb_in  << " "                    // 6
 	
 	// -- Auxiliary
-	MyFile << sinba << " " ;                     // 7
-	MyFile << Z4_c << " "  ;                     // 8
-	MyFile << Z5_c << " "  ;                     // 9
-	MyFile << m12_2 << " " ;                     // 10
+	<< sinba << " "                     // 7
+	<< Z4_c << " "                      // 8
+	<< Z5_c << " "                      // 9
+	<< m12_2 << " "                     // 10
 	
 	// -- lambdas
-	MyFile << l1 << " " ;                       // 11
-	MyFile << l2 << " " ;                       // 12
-	MyFile << l3 << " " ;                       // 13
-	MyFile << l4 << " " ;                       // 14
-	MyFile << l5 << " " ;                       // 15
-	MyFile << l6 << " " ;                       // 16
-	MyFile << l7 << " " ;                       // 17
+	<< l1 << " "                        // 11
+	<< l2 << " "                        // 12
+	<< l3 << " "                        // 13
+	<< l4 << " "                        // 14
+	<< l5 << " "                        // 15
+	<< l6 << " "                        // 16
+	<< l7 << " "                        // 17
 
 	// -- Coupling
-	MyFile << g_HpHmh << " " ;                  // 18
+	<< g_HpHmh << " "                   // 18
 	
 	// -- Widths
-	MyFile << Gamma_h  << " " ;                 // 19
-	MyFile << Gamma_H  << " " ;                 // 20
-	MyFile << Gamma_Hc << " " ;                 // 21
-	MyFile << Gamma_A  << " " ;                 // 22
+	<< Gamma_h  << " "                  // 19
+	<< Gamma_H  << " "                  // 20
+	<< Gamma_Hc << " "                  // 21
+	<< Gamma_A  << " "                  // 22
 
-	MyFile << br_h_bb     << " " ;              // 23
-        MyFile << br_h_tautau << " " ;              // 24
-        MyFile << br_h_gg     << " " ;              // 25
-        MyFile << br_h_WW     << " " ;              // 26
-        MyFile << br_h_ZZ     << " " ;              // 27
-        MyFile << br_h_gaga   << " " ;              // 28
+	<< br_h_bb     << " "               // 23
+        << br_h_tautau << " "               // 24
+        << br_h_gg     << " "               // 25
+        << br_h_WW     << " "               // 26
+        << br_h_ZZ     << " "               // 27
+        << br_h_gaga   << " "               // 28
 	
    // -- BR(A -> XX)
-	MyFile << br_A_tt     << " " ;              // 29
-	MyFile << br_A_bb     << " " ;              // 30
-	MyFile << br_A_gg     << " " ;              // 31
-	MyFile << br_A_mumu   << " " ;              // 32
-	MyFile << br_A_tautau << " " ;              // 33
-	MyFile << br_A_Zga    << " " ;              // 34
-	MyFile << br_A_Zh     << " " ;              // 35
-	MyFile << br_A_ZH     << " " ;              // 36
-	MyFile << br_A_gaga   << " " ;              // 37
+	<< br_A_tt     << " "               // 29
+	<< br_A_bb     << " "               // 30
+	<< br_A_gg     << " "               // 31
+	<< br_A_mumu   << " "               // 32
+	<< br_A_tautau << " "               // 33
+	<< br_A_Zga    << " "               // 34
+	<< br_A_Zh     << " "               // 35
+	<< br_A_ZH     << " "               // 36
+	<< br_A_gaga   << " "               // 37
            
    // -- BR(H -> XX)
-	MyFile << br_H_tt       << " " ;            // 38
-	MyFile << br_H_bb       << " " ;            // 39
-	MyFile << br_H_gg       << " " ;            // 40
-	MyFile << br_H_mumu     << " " ;            // 41
-	MyFile << br_H_tautau   << " " ;            // 42
-	MyFile << br_H_Zga      << " " ;            // 43
-	MyFile << br_H_Zh       << " " ;            // 44
-	MyFile << br_H_WW       << " " ;            // 45
-	MyFile << br_H_ZZ       << " " ;            // 46
-	MyFile << br_H_ZA       << " " ;            // 47
-	MyFile << br_H_AA       << " " ;            // 48
-	MyFile << br_H_hh       << " " ;            // 49
-	MyFile << br_H_gaga     << " " ;            // 50
+	<< br_H_tt       << " "             // 38
+	<< br_H_bb       << " "             // 39
+	<< br_H_gg       << " "             // 40
+	<< br_H_mumu     << " "             // 41
+	<< br_H_tautau   << " "             // 42
+	<< br_H_Zga      << " "             // 43
+	<< br_H_Zh       << " "             // 44
+	<< br_H_WW       << " "             // 45
+	<< br_H_ZZ       << " "             // 46
+	<< br_H_ZA       << " "             // 47
+	<< br_H_AA       << " "             // 48
+	<< br_H_hh       << " "             // 49
+	<< br_H_gaga     << " "             // 50
            
    // -- BR(H+ -> XX)
-	MyFile << br_Hp_tb     << " " ;             // 51
-	MyFile << br_Hp_taunu  << " " ;             // 52
-	MyFile << br_Hp_Wh     << " " ;             // 53
-	MyFile << br_Hp_WH     << " " ;             // 54
-	MyFile << br_Hp_WA     << " " ;             // 55
+	<< br_Hp_tb     << " "              // 51
+	<< br_Hp_taunu  << " "              // 52
+	<< br_Hp_Wh     << " "              // 53
+	<< br_Hp_WH     << " "              // 54
+	<< br_Hp_WA     << " "              // 55
 	
 	// -- Theory
-	MyFile << sta     << " " ;                  // 56
-	MyFile << uni     << " " ;                  // 57
-	MyFile << per_4pi << " " ;                  // 58
-	MyFile << per_8pi << " " ;                  // 59
+	<< sta     << " "                   // 56
+	<< uni     << " "                   // 57
+	<< per_4pi << " "                   // 58
+	<< per_8pi << " "                   // 59
 
 	// -- EWPO
-	MyFile << S << " " ;                        // 60
-	MyFile << T << " " ;                        // 61
-	MyFile << U << " " ;                        // 62
-	MyFile << V << " " ;                        // 63
-	MyFile << W << " " ;                        // 64
-	MyFile << X << " " ;                        // 65
-	MyFile << delta_rho << " " ;                // 66
+	<< S << " "                         // 60
+	<< T << " "                         // 61
+	<< U << " "                         // 62
+	<< V << " "                         // 63
+	<< W << " "                         // 64
+	<< X << " "                         // 65
+	<< delta_rho << " "                 // 66
 	
 	// -- (g-2)
-	MyFile << delta_amu << " " ;                // 67
+	<< delta_amu << " "                 // 67
 	
 	// -- HiggsBounds
-	MyFile << tot_hbobs << " " ;                // 68
-	MyFile << sens_ch   << " " ;                // 69
+	<< tot_hbobs << " "                 // 68
+	<< sens_ch   << " "                 // 69
 
 	// -- HiggsSignals
-	MyFile << chi2_HS << " " ;                  // 70
+	<< chi2_HS << " "                   // 70
 
-	MyFile << chi2_ST_hepfit  << " " ;          // 71
-	MyFile << chi2_ST_gfitter << " " ;          // 72
+	<< chi2_ST_hepfit  << " "           // 71
+	<< chi2_ST_gfitter << " "           // 72
 
-	MyFile << chi2_Tot_hepfit  << " " ;         // 73
-	MyFile << chi2_Tot_gfitter << " " ;         // 74
+	<< chi2_Tot_hepfit  << " "          // 73
+	<< chi2_Tot_gfitter << " "          // 74
 
-	MyFile << k_huu  << " " ;                   // 75
-	MyFile << k_hdd << std::endl;                           // 76
+	<< k_huu  << " "                    // 75
+	<< k_hdd  <<                        // 76
 
-//	<< br_H_sum  << " "                 // tmp
-//	<< br_A_sum  <<                     // tmp
-
-	MyFile.close();
-
-        if (file = fopen("outputfile", "r"))
-         {
-          printf("file exists\n");
-         }
-         else
-         {
-           printf("file doesn't exist\n");
-         }
-
-
-	printf("\n\n");
-	printf("Finished passing variables over!");
-	printf("\n\n");
+	std::endl;
 	
-	cout << outputfile;
-
 	return 0;
 
 }

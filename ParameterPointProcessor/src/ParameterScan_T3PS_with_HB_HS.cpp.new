@@ -8,13 +8,30 @@
 #include <fstream>
 #include <cmath>
 #include "EWPO.h"
+#include <filesystem>
+#include <unistd.h>
+#include <random>
+#include <algorithm>
 
 #define VERBOSE
 
 using namespace std;
 
+using std::cout; using std::cin;
+using std::endl; using std::string;
+using std::filesystem::current_path;
+
+//extern "C" string return_string(char* output_loc);
+
 int main(int argc, char* argv[])
 {
+
+	//char *cwd = get_current_dir_name();
+	string cwdr = "/scratch/cb27g11";
+	//getcwd(tmp, 256);
+	//const char tempstr = tmp.c_str()
+	//printf("current directory is:   ");
+	//printf(cwd);
 
 	/////////////////
 	//             //
@@ -22,13 +39,14 @@ int main(int argc, char* argv[])
 	//             //
 	/////////////////
 
-	int       yt_in;  // - Type
-	double    Z7_in;  // - Z7
-	double    mH_in;  // - mH
-	double   mHc_in;  // - mHc
-	double    mA_in;  // - mA
-	double   cba_in;  // - cos(b-a)
-	double    tb_in;  // - tan(b)
+	int        yt_in;  // - Type
+	double     Z7_in;  // - Z7
+	double     mH_in;  // - mH
+	double    mHc_in;  // - mHc
+	double     mA_in;  // - mA
+	double    cba_in;  // - cos(b-a)
+	double     tb_in;  // - tan(b)
+        char* output_loc;  // - Identifier for output file
 	
 	if     ( argc == 2 )   // - filename as input
 	{
@@ -53,7 +71,8 @@ int main(int argc, char* argv[])
 	 	 mA_in      = (double)atof(argv[5]);
 	 	 cba_in     = (double)atof(argv[6]);
 	 	 tb_in      = (double)atof(argv[7]);
-	}
+	         //output_loc = (char*)argv[8];
+        }
 
 	else
 	{
@@ -148,27 +167,27 @@ int main(int argc, char* argv[])
 	 printf("chi2_HS has a value of :\n" );
 	 std::cout << chi2_HS;
 	 printf("                             \n");
-	 printf(" THIS SPOT IS WHERE YOU SHOULD SEE CHI2_HS PRINTED OUT!");
+	 printf(" THIS SPOT IS WHERE YOU SHOULD SEE CHI2_HS PRINTED OUT!\n");
  
          // - S,T,U fit
          double chi2_ST_hepfit, chi2_ST_gfitter;
 	 printf("chi2_ST_hepfit and chi2_ST_gfitter have values of: \n");
          get_chi2_ST(S,T, chi2_ST_hepfit, chi2_ST_gfitter);
 	 std::cout << chi2_ST_hepfit ;
-	 printf("                                   ");
+	 printf("                                  \n ");
 	 std::cout << chi2_ST_gfitter ;
-	 printf("                                   ");
-
-         # ifdef FAST
-         if ( !(chi2_ST_hepfit < 40.0 || chi2_ST_gfitter < 40.0) )
-         {
-                 exit( -1 );
-         }
-         # endif
+	 printf("                                   \n");
 
          double chi2_Tot_hepfit, chi2_Tot_gfitter;
          chi2_Tot_gfitter = chi2_HS + chi2_ST_gfitter;
          chi2_Tot_hepfit = chi2_HS + chi2_ST_hepfit;
+
+         //# ifdef FAST
+         //if ( !(chi2_ST_hepfit < 40.0 || chi2_ST_gfitter < 40.0) )
+         //{
+         //        exit( -1 );
+         //}
+        // # endif
 
 	 printf("chi2_Tot_gfitter has a value of: ");
 	 std::cout << chi2_Tot_gfitter ;
@@ -177,13 +196,13 @@ int main(int argc, char* argv[])
 	 std::cout << chi2_Tot_hepfit ;
 	 printf("                                   ");
 
-         # ifdef FAST
-         if ( chi2_HS > 300.0 )
-         {
-         std::cerr << "chi_HS over 300!" << std::endl;
-              exit( -1 );
-         }
-         # endif
+         //# ifdef FAST
+         //if ( chi2_HS > 300.0 )
+         //{
+         //std::cerr << "chi_HS over 300!" << std::endl;
+         //     exit( -1 );
+         //}
+         //# endif
             
   	 hbhs_result.hb.print();
  	 hbhs_result.hs.print();
@@ -246,13 +265,13 @@ int main(int argc, char* argv[])
 	//run_HiggsSignals_full(&csqmu, &csqmh_ref, &chi2_HS, &nobs, &pval);
 
 
-  	# ifdef FAST
-  	if ( chi2_HS > 300.0 )
-  	{
-  	   std::cerr << "chi_HS over 300!" << std::endl;
-  		exit( -1 );
- 	}
-  	# endif
+  	//# ifdef FAST
+  	//if ( chi2_HS > 300.0 )
+  	//{
+  	//   std::cerr << "chi_HS over 300!" << std::endl;
+  	//	exit( -1 );
+ 	//}
+  	//# endif
 	
 //	std::complex <double> cs;
 //	std::complex <double> cp;
@@ -575,123 +594,145 @@ int main(int argc, char* argv[])
 	+ br_A_ZH     
 	+ br_A_gaga   ;
 
-	std::cout
+	// --Setting up individual output filename
+        std::string str("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz");
 
-	// -- Input
-	<< Z7_in  << " "                    // 1
-	<< mH_in  << " "                   // 2
-	<< mHc_in << " "                    // 3
-	<< mA_in  << " "                    // 4
-	<< cba_in << " "                    // 5
-	<< tb_in  << " "                    // 6
+        std::random_device rd;
+        std::mt19937 generator(rd());
+
+        std::shuffle(str.begin(), str.end(), generator);
+        string outputloc = str.substr(0, 6);
+	printf("outputloc has been generated as:  ");
+	printf(outputloc.c_str());
+	printf("\n\n");
+
+	string slash = "/";
+	string file_type = ".txt"; 
+	string outputfile = cwdr + slash + outputloc + file_type;
+	printf("outputfile is set to:  ");
+	printf(outputfile.c_str());
+	printf("\n\n");
+
+	ofstream MyFile;
+	MyFile.open(outputfile);
+        FILE *file;
+    
+
+	// -- Input Variables
+	MyFile << Z7_in  << " " ;                   // 1
+	MyFile << mH_in  << " " ;                   // 2
+	MyFile << mHc_in << " " ;                   // 3
+	MyFile << mA_in  << " " ;                   // 4
+	MyFile << cba_in << " " ;                   // 5
+	MyFile << tb_in  << " " ;                   // 6
 	
 	// -- Auxiliary
-	<< sinba << " "                     // 7
-	<< Z4_c << " "                      // 8
-	<< Z5_c << " "                      // 9
-	<< m12_2 << " "                     // 10
+	MyFile << sinba << " " ;                     // 7
+	MyFile << Z4_c << " "  ;                     // 8
+	MyFile << Z5_c << " "  ;                     // 9
+	MyFile << m12_2 << " " ;                     // 10
 	
 	// -- lambdas
-	<< l1 << " "                        // 11
-	<< l2 << " "                        // 12
-	<< l3 << " "                        // 13
-	<< l4 << " "                        // 14
-	<< l5 << " "                        // 15
-	<< l6 << " "                        // 16
-	<< l7 << " "                        // 17
+	MyFile << l1 << " " ;                       // 11
+	MyFile << l2 << " " ;                       // 12
+	MyFile << l3 << " " ;                       // 13
+	MyFile << l4 << " " ;                       // 14
+	MyFile << l5 << " " ;                       // 15
+	MyFile << l6 << " " ;                       // 16
+	MyFile << l7 << " " ;                       // 17
 
 	// -- Coupling
-	<< g_HpHmh << " "                   // 18
+	MyFile << g_HpHmh << " " ;                  // 18
 	
 	// -- Widths
-	<< Gamma_h  << " "                  // 19
-	<< Gamma_H  << " "                  // 20
-	<< Gamma_Hc << " "                  // 21
-	<< Gamma_A  << " "                  // 22
+	MyFile << Gamma_h  << " " ;                 // 19
+	MyFile << Gamma_H  << " " ;                 // 20
+	MyFile << Gamma_Hc << " " ;                 // 21
+	MyFile << Gamma_A  << " " ;                 // 22
 
-	<< br_h_bb     << " "               // 23
-        << br_h_tautau << " "               // 24
-        << br_h_gg     << " "               // 25
-        << br_h_WW     << " "               // 26
-        << br_h_ZZ     << " "               // 27
-        << br_h_gaga   << " "               // 28
+	MyFile << br_h_bb     << " " ;              // 23
+        MyFile << br_h_tautau << " " ;              // 24
+        MyFile << br_h_gg     << " " ;              // 25
+        MyFile << br_h_WW     << " " ;              // 26
+        MyFile << br_h_ZZ     << " " ;              // 27
+        MyFile << br_h_gaga   << " " ;              // 28
 	
    // -- BR(A -> XX)
-	<< br_A_tt     << " "               // 29
-	<< br_A_bb     << " "               // 30
-	<< br_A_gg     << " "               // 31
-	<< br_A_mumu   << " "               // 32
-	<< br_A_tautau << " "               // 33
-	<< br_A_Zga    << " "               // 34
-	<< br_A_Zh     << " "               // 35
-	<< br_A_ZH     << " "               // 36
-	<< br_A_gaga   << " "               // 37
+	MyFile << br_A_tt     << " " ;              // 29
+	MyFile << br_A_bb     << " " ;              // 30
+	MyFile << br_A_gg     << " " ;              // 31
+	MyFile << br_A_mumu   << " " ;              // 32
+	MyFile << br_A_tautau << " " ;              // 33
+	MyFile << br_A_Zga    << " " ;              // 34
+	MyFile << br_A_Zh     << " " ;              // 35
+	MyFile << br_A_ZH     << " " ;              // 36
+	MyFile << br_A_gaga   << " " ;              // 37
            
    // -- BR(H -> XX)
-	<< br_H_tt       << " "             // 38
-	<< br_H_bb       << " "             // 39
-	<< br_H_gg       << " "             // 40
-	<< br_H_mumu     << " "             // 41
-	<< br_H_tautau   << " "             // 42
-	<< br_H_Zga      << " "             // 43
-	<< br_H_Zh       << " "             // 44
-	<< br_H_WW       << " "             // 45
-	<< br_H_ZZ       << " "             // 46
-	<< br_H_ZA       << " "             // 47
-	<< br_H_AA       << " "             // 48
-	<< br_H_hh       << " "             // 49
-	<< br_H_gaga     << " "             // 50
+	MyFile << br_H_tt       << " " ;            // 38
+	MyFile << br_H_bb       << " " ;            // 39
+	MyFile << br_H_gg       << " " ;            // 40
+	MyFile << br_H_mumu     << " " ;            // 41
+	MyFile << br_H_tautau   << " " ;            // 42
+	MyFile << br_H_Zga      << " " ;            // 43
+	MyFile << br_H_Zh       << " " ;            // 44
+	MyFile << br_H_WW       << " " ;            // 45
+	MyFile << br_H_ZZ       << " " ;            // 46
+	MyFile << br_H_ZA       << " " ;            // 47
+	MyFile << br_H_AA       << " " ;            // 48
+	MyFile << br_H_hh       << " " ;            // 49
+	MyFile << br_H_gaga     << " " ;            // 50
            
    // -- BR(H+ -> XX)
-	<< br_Hp_tb     << " "              // 51
-	<< br_Hp_taunu  << " "              // 52
-	<< br_Hp_Wh     << " "              // 53
-	<< br_Hp_WH     << " "              // 54
-	<< br_Hp_WA     << " "              // 55
+	MyFile << br_Hp_tb     << " " ;             // 51
+	MyFile << br_Hp_taunu  << " " ;             // 52
+	MyFile << br_Hp_Wh     << " " ;             // 53
+	MyFile << br_Hp_WH     << " " ;             // 54
+	MyFile << br_Hp_WA     << " " ;             // 55
 	
 	// -- Theory
-	<< sta     << " "                   // 56
-	<< uni     << " "                   // 57
-	<< per_4pi << " "                   // 58
-	<< per_8pi << " "                   // 59
+	MyFile << sta     << " " ;                  // 56
+	MyFile << uni     << " " ;                  // 57
+	MyFile << per_4pi << " " ;                  // 58
+	MyFile << per_8pi << " " ;                  // 59
 
 	// -- EWPO
-	<< S << " "                         // 60
-	<< T << " "                         // 61
-	<< U << " "                         // 62
-	<< V << " "                         // 63
-	<< W << " "                         // 64
-	<< X << " "                         // 65
-	<< delta_rho << " "                 // 66
+	MyFile << S << " " ;                        // 60
+	MyFile << T << " " ;                        // 61
+	MyFile << U << " " ;                        // 62
+	MyFile << V << " " ;                        // 63
+	MyFile << W << " " ;                        // 64
+	MyFile << X << " " ;                        // 65
+	MyFile << delta_rho << " " ;                // 66
 	
 	// -- (g-2)
-	<< delta_amu << " "                 // 67
+	MyFile << delta_amu << " " ;                // 67
 	
 	// -- HiggsBounds
-	<< tot_hbobs << " "                 // 68
-	<< sens_ch   << " "                 // 69
+	MyFile << tot_hbobs << " " ;                // 68
+	MyFile << sens_ch   << " " ;                // 69
 
 	// -- HiggsSignals
-	<< chi2_HS << " "                   // 70
+	MyFile << chi2_HS << " " ;                  // 70
 
-	<< chi2_ST_hepfit  << " "           // 71
-	<< chi2_ST_gfitter << " "           // 72
+	MyFile << chi2_ST_hepfit  << " " ;          // 71
+	MyFile << chi2_ST_gfitter << " " ;          // 72
 
-	<< chi2_Tot_hepfit  << " "          // 73
-	<< chi2_Tot_gfitter << " "          // 74
+	MyFile << chi2_Tot_hepfit  << " " ;         // 73
+	MyFile << chi2_Tot_gfitter << " " ;         // 74
 
-	<< k_huu  << " "                    // 75
-	<< k_hdd  <<                        // 76
+	MyFile << k_huu  << " " ;                   // 75
+	MyFile << k_hdd << std::endl;                           // 76
 
-//	<< br_H_sum  << " "                 // tmp
-//	<< br_A_sum  <<                     // tmp
+	MyFile.close();
 
-	std::endl;
 
 	printf("\n\n");
 	printf("Finished passing variables over!");
 	printf("\n\n");
 	
+	cout << outputfile;
+
 	return 0;
 
 }

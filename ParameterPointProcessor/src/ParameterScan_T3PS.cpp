@@ -12,6 +12,9 @@
 using namespace std;
 
 int main(int argc, char* argv[]) {
+  
+  printf("Sucessfully started C++ program");
+
 
   int yt;
   double Z7_in;
@@ -34,6 +37,7 @@ int main(int argc, char* argv[]) {
   	file >> cba_in;
   	file >> tb_in;
   	file.close();
+        printf("argc == 2");
 
   }
   else if ( argc == 8)
@@ -45,7 +49,9 @@ int main(int argc, char* argv[]) {
  		 mA_in      = (double)atof(argv[5]);
  		 cba_in     = (double)atof(argv[6]);
  		 tb_in    = (double)atof(argv[7]);
+                 printf("argc == 8");  
   }
+
   else
   {
 	 printf("ParameterScan_T3PS usage:\n");

@@ -1,17 +1,19 @@
 #!/bin/bash
 
 
-OUTPUT_MERGED_FILE=./jobs/${TAG}/${TAG}_all_data_merged.dat
-OUTPUT_MERGED_CLEANED_FILE=./jobs/${TAG}/${TAG}_all_data_merged_and_cleaned.dat
-OUTPUT_FINAL_FILE=./jobs/${TAG}/${TAG}_all_data_final.dat
-OUTPUT_HDF_FILE=./jobs/${TAG}/${TAG}_allowed_only_merged.h5f
+OUTPUT_MERGED_FILE=./jobs/${NAME}/${NAME}_all_data_merged.dat
+OUTPUT_MERGED_CLEANED_FILE=./jobs/${NAME}/${NAME}_all_data_merged_and_cleaned.dat
+OUTPUT_FINAL_FILE=./jobs/${NAME}/${NAME}_all_data_final.dat
+OUTPUT_HDF_FILE=./jobs/${NAME}/${NAME}_allowed_only_merged.h5f
+
+echo "output file is called: ${OUTPUT_MERGED_FILE}"
 
 if [ ${CONVERT_ONLY} == "no" ]; then
 
-	 echo "TAG: ${TAG}"
+	 echo "NAME: ${NAME}"
 	 echo "Merging data..."
 	 
-	 tail -n 1000 --quiet $(find ./jobs/${TAG} -name "*.chain.*") > ${OUTPUT_MERGED_FILE}
+	 tail -n 1000 --quiet $(find ./jobs/${NAME} -name "*.chain.*") > ${OUTPUT_MERGED_FILE}
 	 
 	 echo -e "Removing duplicate spaces/tabs..."
 	 sed -i "s/[[:space:]]\+/ /g" ${OUTPUT_MERGED_FILE}

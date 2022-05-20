@@ -84,11 +84,11 @@ def init(config_dir, config, module):
         compile(data_fields_code, repr(data_fields_code), "eval")
         print("# Data values after checking for errors:", data_fields_code)
         print "                          "
-      #  print("#repr(data_fields_code", repr(data_fields_code))
-     #   print("                                  ")
+        print("#repr(data_fields_code", repr(data_fields_code))
+        print("                                  ")
     else:
         data_fields_code = None
-  #      print "# Data values: <all>"
+        print "# Data values: <all>"
 
 
 def is_listlike(x):
@@ -104,18 +104,16 @@ def main(template_file, pars, vars):
 
 #-- Below was previously commented out - presumably by David
     print 'arguments', arguments
-   # print 'timeout', timeout
-   # print 'timelimit', timelimit
+    print 'timeout', timeout
+    print 'timelimit', timelimit
     print 'formula_eval', formula_eval
     print'data_fields_code', data_fields_code
     print 'template_file', template_file
 #--------------------------------------------------------
 
 #    with open(os.devnull) as devnull, timelimit(timeout):
-    cwd = os.getcwd()
-    print "current working dir is: " + str(cwd)
     output = subprocess.check_output(
-            arguments + [template_file])
+            arguments + [template_file] if template_file else [])
     
     result = output
     print result
@@ -123,14 +121,6 @@ def main(template_file, pars, vars):
     print "The above is output from check_output"
     print "                      "
     print( "result type is: ", type(result))
-
-#-- Below was previously commented out - presumably by David
-#    print('vars', vars)
-#    print('pars', pars)
-   # print('all_numbers', str(len(all_numbers)))
-#-----------------------------------------------------------------
-    print "Current dir is: " + str(os.getcwd())
-    CDir = str(os.getcwd())
     path_to_file = str(output)
     print "the output file is: " + str(path_to_file)
 
@@ -161,12 +151,6 @@ def main(template_file, pars, vars):
     #Return the list of floats that defines the parameter point properties to T3PS
     return temp_line_holder
     
-    # - This gets called when running test bin
-#-- Below was previously commented out - presumably by David
-#    if not data_fields_code:
-#        return all_numbers
-#----------------------------------------------------------------
-
 
 if __name__ == "__main__":
     print "I have entered into the section '__main__' "

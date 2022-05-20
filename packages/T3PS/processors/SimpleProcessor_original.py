@@ -54,15 +54,23 @@ def init(config_dir, config, module):
     it found.
     """
 
+    print "----------Now starting 'init' within processor_module----------"
+
     global arguments, timeout, timelimit, data_fields_code, formula_eval
     timelimit = module.TimeLimit
     formula_eval = module.formula_eval
 
+    print "timelimit", timelimit
+    print "timeout", timeout
+    print "data_fields_code", data_fields_code
+    print "formula_eval", formula_eval
 
     arguments = shlex.split(config.get("SimpleProcessor", "program"))
+    print "arguments", arguments
     original = arguments[0]
     arguments[0] = module.find_binary_file(arguments[0], config_dir)
     if not os.path.isfile(arguments[0]):
+        print arguments[0], " does not exist"
         module.exit_program('Error: no such file found: ' + original)
         
     print "# Running", subprocess.list2cmdline(arguments)
@@ -90,6 +98,8 @@ def is_listlike(x):
 
 def main(template_file, pars, vars):
     """Run requested command and return list of result values."""
+
+    print "------------Inside 'main' in processor_module---------------------"
 
     global arguments, timeout, timelimit, formula_eval, data_fields_code
 

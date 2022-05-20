@@ -63,7 +63,15 @@ def init(config_dir, config, module):
 
 
     arguments = shlex.split(config.get("SimpleProcessor", "program"))
+    print "              "
+    print "variable 'arguments' is :"
+    print "               "
+  
     original = arguments[0]
+    print "variable 'original' is : "
+    print original
+    print "                "    
+
     arguments[0] = module.find_binary_file(arguments[0], config_dir)
     if not os.path.isfile(arguments[0]):
         module.exit_program('Error: no such file found: ' + original)
@@ -78,7 +86,6 @@ def init(config_dir, config, module):
 
     if config.has_option("SimpleProcessor", "data_values"):
         data_fields_code = config.get("SimpleProcessor", "data_values")
-        print "data_values according to processor ", data_value
         # check for syntax errors
         compile(data_fields_code, repr(data_fields_code), "eval")
         print "# Data values:", data_fields_code
@@ -94,7 +101,7 @@ def is_listlike(x):
 
 def main(template_file, pars, vars):
     """Run requested command and return list of result values."""
-    print('### --- Inside SimpleProcessor.main --- ')
+#    print('### --- Inside SimpleProcessor.main --- ')
 
     global arguments, timeout, timelimit, formula_eval, data_fields_code
 
@@ -114,16 +121,17 @@ def main(template_file, pars, vars):
 #
   #  print('command output: ', commands.getstatusoutput('{} {}'.format(arguments[0], template_file)) )
 
-    with open(os.devnull) as devnull, timelimit(timeout):
+    with open(subprocess.DEVNULL) as devnull, timelimit(timeout):
         output = subprocess.check_output(
             arguments + ([template_file] if template_file else []),
             stdin=devnull,
             stderr=subprocess.STDOUT,
         )
 
-    print "STDOUT is ", output
-    print "stderr is ", output.stderr
-
+        print " output = subprocess.check_output gives the following: "
+        print "                                "
+        print output
+        print "                                "
 
 #    with open( template_file, 'r' ) as f:
 #        content = f.read()
@@ -135,7 +143,7 @@ def main(template_file, pars, vars):
 #    output = subprocess.Popen( command )
 #    output.communicate()
 #
-#    print('### --- End of SimpleProcessor.main --- ')
+    print('### --- End of SimpleProcessor.main --- ')
 	
 #    def handler(signum,frame):
 #        print "Error Occured",signum
@@ -155,10 +163,9 @@ def main(template_file, pars, vars):
 
 #    print('vars', vars)
 #    print('pars', pars)
+#    print('all_numbers', all_numbers)
 
     return all_numbers
-    
-
 
     # - This gets called when running test bin
     #if not data_fields_code:
