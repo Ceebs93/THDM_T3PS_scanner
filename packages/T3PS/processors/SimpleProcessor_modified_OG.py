@@ -35,9 +35,11 @@ from collections import Sequence
 import subprocess
 import signal
 import os.path
+import random
 import re
 import shlex
 import commands
+import sys
 arguments = []
 timeout = 10
 timelimit = None
@@ -121,8 +123,11 @@ def main(template_file, pars, vars):
             stderr=subprocess.STDOUT,
         )
 
+    #status, result = commands.getstatusoutput(arguments + ([template_file] if template_file else[])
+    #print "status", status
+    #print "result", result
+
     print "STDOUT is ", output
-    print "stderr is ", output.stderr
 
 
 #    with open( template_file, 'r' ) as f:
@@ -151,10 +156,16 @@ def main(template_file, pars, vars):
 
     # group 0 is the full number match
     # make sure it stays that way when changing number_pattern!
+   
     all_numbers = [float(x[0]) for x in re.findall(number_pattern, output)]
-
+    print "all_numbers is  ", all_numbers
 #    print('vars', vars)
 #    print('pars', pars)
+
+    all_numbers = []
+    for i in range(0,76):
+        n = random.random()
+        all_numbers.append(n)
 
     return all_numbers
     

@@ -1633,6 +1633,12 @@ def scatter_iterator(count, par_ranges):
 
 def make_random_point(par_ranges):
     """Return random point with the distribution of the parameter ranges."""
+
+    # If we need to generate a random string to use to indentify datafiles for the C++
+    # code to output to this may be a good place to do so. It could be added to the
+    # "point" and then just directly read in by both the python processor and the C++
+    # file - Ciara
+
     print "Generating a random point now..."
     point = []
     # increase speed by minimizing the amount of look-ups
@@ -1897,6 +1903,7 @@ def make_chain(data):
                 x1 = process_item(x1)
                 print("x1 is: ", x1 )
                 if isinstance(x1, Exception):
+                    print Exception
                     reasons["errors"] += 1
                     staycount += 1
                     raise ProbabilityError("point excluded by processor error")
@@ -4359,8 +4366,10 @@ elif mode == MODE_MCMC:
         #   data should never happen and is an error)
         try:
             with open(base_name + ".chain.%i" % i) as f:
+                print " base_name is  ", base_name
                 last_line = ""
                 for line in f:
+                    #print "line is  ", line
                     length += 1
                     iteration += int(line.split("\t")[-1])
                     # last column is always stay count
@@ -4469,7 +4478,8 @@ elif mode == MODE_MCMC:
 
     wait_for_user("start")
     chain_seeds = [random.random() for i in range(chain_count)]
-
+    print "chain_seeds are: ", chain_seeds
+    
     with TemporaryDirectory() as chain_status_dir, ConfirmedExitOnInterrupt():
         # MCMC mode does not use process_batch but rather its pool directly
         #   calling map_async instead of calculate_items or process_batch or
