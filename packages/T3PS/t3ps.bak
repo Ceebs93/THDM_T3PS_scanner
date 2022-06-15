@@ -1518,11 +1518,15 @@ def formula_eval(function,
                  pars=None, vars=None,
                  data=None, file=None,
                  **kwargs):
-    """Compile and evaluate user supplied Python expression formulas. Must be called as formula_eval(None, par_names, var_names, data_names, file_column_names) to set
-    names  """
-    
+    """Compile and evaluate user supplied Python expression formulas."""
     print "Inside formula_eval!"
-    print "evaluating " + str(function)   
+    print "function  ", function
+
+    print "evaluating " + str(function)
+    # Has to be called as in
+    #   formula_eval(None, par_names, var_names, data_names,
+    #       file_column_names)
+    #   to set names   
 
     if not hasattr(formula_eval, "cache"):
         print "formula_eval does not contain 'cache'"
@@ -1532,11 +1536,11 @@ def formula_eval(function,
     if function is None:
         print "function is None "
         # cache[None] is used to store the namedtuple converter
-        # arguments, now specify the names for the different values
+        # arguments now specify the names for the different values
         # NOTE: names have to be valid identifiers:
         #   letters, digits, and underscores
         #   not starting with underscore
-        #   not Python keywords
+        #   no Python keyword
         cache[None] = (
             namedtuple("par_record", pars),
             namedtuple("var_record", vars),
@@ -1549,14 +1553,19 @@ def formula_eval(function,
         print cache
         print "cache[None][2](data)  ", cache[None][2](data)
         print "flexible_record(data)  ", flexible_record(data).__names__
+        print "cache[None][3]  ", cache[None][3]
 
 
         # namedtuple will raise ValueError's if one of the names is not valid
-        #   should never happen due to check_names being called before this
+        #   should never happen due to check_names called before this
 
         return
 
     par_record, var_record, data_record, file_record = cache[None]
+    print "par_record   ", par_record
+    print "var_record   ", var_record
+    print "data_record   ", data_record
+    print "file_record   ", file_record
 
     # key is code + used keyword args, such that the compiled code is uniquely
     #   determined by the call
@@ -1565,6 +1574,7 @@ def formula_eval(function,
 
     if key in cache:
         cached_function = cache[key]
+        print "cached_function  ", cached_function
     else:
         # replace new line chars, so the return is definitely the only
         #   executed statement
@@ -1579,6 +1589,7 @@ def formula_eval(function,
 
         exec code in namespace
         cached_function = cache[key] = namespace["function"]
+        print "cached_function  ", cached_function
 
     try:
         # only pars, vars, data and file items have names everything else is
@@ -1592,7 +1603,7 @@ def formula_eval(function,
             **kwargs
         ) 
         print " data['chi2_Tot_gfitter'] ", data[73] 
-        #print "data.chi2_Tot_gfitter ", data.chi2_Tot_gfitter
+        print "data.chi2_Tot_gfitter ", data.chi2_Tot_gfitter
     
         return cached_function(
             pars=par_record(*pars) if pars else None,
@@ -1663,7 +1674,7 @@ def scatter_iterator(count, par_ranges):
 
 
 def make_random_point(par_ranges):
-    """Return random point within the distribution of the parameter ranges."""
+    """Return random point with the distribution of the parameter ranges."""
 
     # If we need to generate a random string to use to indentify datafiles for the C++
     # code to output to this may be a good place to do so. It could be added to the
@@ -1680,7 +1691,6 @@ def make_random_point(par_ranges):
 
     for r in par_ranges:
         values = r.values
-        print "values ", values
         # if parameter range is continuous, return new point with appropriate
         #   distribution
         if not r.is_finite:
@@ -1809,14 +1819,12 @@ def mcmc_step(theta0, par_ranges):
             # q *= 1
             # q0 *= 1
             if r.is_finite:
-                print " r is finite "
                 # if there are infinite indices, q(i1,i0) is symmetric
                 i0 = r.index(theta0[i])
                 i1 = int(round(
                     randomnormalvariate(i0, r.options["mcmc_stepsize"])
                 ))
-                print "i0 is  ", i0
-                print "i1 is  ", i1
+
                 # however, if we go out of bounds on the new index, the
                 #   implicit prior on the interval [0, len(r.values)] takes
                 #   effect and rules out the point
@@ -1911,7 +1919,7 @@ def make_chain(data):
             print "                                                  "
     else:
         heating_function = None
-# here is where you should look at adding some sort of probability that carries through
+
     L0 = likelihood(x0) * prior_likelihood(x0[0], par_ranges)
     print likelihood(x0), "*", prior_likelihood(x0[0], par_ranges)
     print "L0 -> likelihood(x0) * prior(x0, par_ranges)"
@@ -1964,10 +1972,7 @@ def make_chain(data):
 
                 L1 = likelihood(x1) * prior_likelihood(x1[0], par_ranges)
                 print("L1", L1)
-                #Added edit to algorithmn here
-               # if L1 <= 0:
-                if L1 <= math.exp(-25): 
-                    print "L1 is very small"
+                if L1 <= 0:
                     reasons["likelihood"] += 1
                     staycount += 1
                     raise ProbabilityError("point excluded by likelihood = 0")
@@ -2233,7 +2238,8 @@ def process_item(point, test_mode=False, print_error_trace=False):
     # we get an already initialized point_processor from the main process
     #   through os.fork()
     global point_processor
-
+    print "point_processor is "
+    print point_processor
     # everything else is transferred via attributes of process_item
 
     (
@@ -2263,7 +2269,6 @@ def process_item(point, test_mode=False, print_error_trace=False):
 
                 processed_template_file = None
                 if process_item.template:
-                    print "Inside if statement 1 of process_point "
                     processed_template_file = os.path.join(tmpdir, "template")
                     with open(processed_template_file, "w") as \
                             processed_template:
@@ -2283,22 +2288,18 @@ def process_item(point, test_mode=False, print_error_trace=False):
                 #   expects pars and vars as namedtuples
                 if point_processor and \
                    point_processor.main.func_code.co_argcount == 1:
-                    
                     processed_point = point_processor.main(
                         processed_template_file
                     )
                 elif point_processor:
-                    print "Inside elif statement 1 of process_point "
                     processed_point = point_processor.main(
                         processed_template_file,
                         dressed_pars,
                         dressed_vars
                     )
                 else:
-                    print "Inside else statement of process_point "
                     processed_point = []
 
-                print "About to check bounds "
                 check_bounds(
                     process_item.bounds,
                     point, point_vars, processed_point
@@ -2359,7 +2360,6 @@ def process_batch(batch):
     # if batch has structure [(Sequence, something), ...], each list item
     #   must have form (parameter_values, annotation)
     if isinstance(batch[0][0], Sequence):
-        print "batch[0][0] is a Sequence"
         result = process_batch.pool.imap(
             process_annotated_item, batch
         )
@@ -2462,8 +2462,6 @@ def init_processing(
     print data_names
     print "                               "
     for module in helper_modules:
-        print " helper_modules are "
-        print helper_modules
         try:
             module_path = find_file(module, config_dir)
             if os.path.isfile(module_path):
@@ -2502,6 +2500,7 @@ def init_processing(
     )
     process_item.var_formulas = var_formulas
     process_item.bounds = bounds
+   # print "pars.chi2_Tot_gfitter  ", pars_with_names.chi2_Tot_gfitter
 
     try:
         # initialize template function
@@ -3221,7 +3220,7 @@ if mode in [MODE_MCMC, MODE_EXPLORER, MODE_OPTIMIZE] or \
 
     def likelihood(data, code=likelihood_code):
         """Return likelihood of given parameter point data triple."""
-        print "likelihood of a given parameter point data[0], data[1] and data[2] to be calculated "
+        print "likelihood of a given parameter point data[0], data[1] and data[2] is "
         print data[0], data[1], data[2]
         #print "formula_eval of this is ", formula_eval(code, pars=data[0], vars=data[1], data=data[2])
         return formula_eval(
@@ -3720,7 +3719,6 @@ elif mode == MODE_EXPLORER:
     if projection_count:
         print "#    Extrapolated projections:", extrapolated_projections
 elif mode == MODE_MCMC:
-    print "Mode is MCMC "
     if heating_function_code:
         print "# Algorithm specific options:"
         print "#    Heating function:", heating_function_code
@@ -3733,7 +3731,6 @@ elif mode == MODE_MCMC:
 #   available workers/process and returns iterator (or iterable object) over
 #   the results
 if worker_addresses is None:
-    print " No worker_addresses "
     # Run calculation only locally.
     calculate_items = process_batch
 else:
@@ -3802,9 +3799,7 @@ else:
 
     def calculate_items(items, workers=workers):
         """Distribute calculation over more than one scanner process pool."""
-        print "Inside calculate items "
         if not items:
-            print "no items given "
             raise StopIteration()
 
         concurrencies = [worker.concurrency for worker in workers]
@@ -3846,12 +3841,10 @@ else:
         connections = []
         for worker, batch in zip(workers, batches):
             if not batch:
-                print "not batch "
                 pool_iters.append(None)
                 continue
 
             if worker.addr is None:
-                print "worker.addr is None "
                 pool_iters.append(process_batch(batch))
             else:
                 connection = BaseManager(address=worker.addr, authkey=authkey)
@@ -4432,9 +4425,6 @@ elif mode == MODE_MCMC:
 
     print " Correctly entering into MCMC mode "
     print "                                   "
-    
-    # Creating full length changes with "None" and 0 as entries, ready for 
-    # values to be inserted.
     chain_count = processing_concurrency()
     points_with_data = [None for i in range(chain_count)]
     lengths = [0 for i in range(chain_count)]
@@ -4443,21 +4433,17 @@ elif mode == MODE_MCMC:
 
     # find suitable starting points for all chains
     for i in range(chain_count):
-        print "Inside for loop for starting points "
         length = 0
         iteration = 0
         # first try to get some from previous calculations
         # (note that finding an invalid(or likelihood=0) point in the valid
         #   data should never happen and is an error)
-        print "base_name is ", base_name
         try:
-            print "base_name is ", base_name
-            print "Inside try statement for starting points "
             with open(base_name + ".chain.%i" % i) as f:
                 print " base_name is  ", base_name
                 last_line = ""
                 for line in f:
-                    print "line is  ", line
+                    #print "line is  ", line
                     length += 1
                     iteration += int(line.split("\t")[-1])
                     # last column is always stay count
@@ -4467,10 +4453,8 @@ elif mode == MODE_MCMC:
                     continue
 
                 full_data = map(float, last_line.split("\t"))
-                print "full_data is currently  ", full_data
                 if full_data[0] == ERROR_MARKER:
                     raise ValueError("invalid points in chain file")
-               
                 # inf == infinity will cause all columns after the first two
                 #   groups to be put into group 3
                 # thus we have to first manually drop the last two columns
@@ -4515,16 +4499,15 @@ elif mode == MODE_MCMC:
             candidates = [
                 make_random_point(par_ranges) for i in range(missing)
             ]
-            print "candidates for starting points are being generated. Current candidates are as follows : "
+            print " t3ps line 4361, candidates for starting points are being generated. Current candidates are as follows : "
             print candidates
             print "                                           "
             # ... and pass them to the process pool
             for point in calculate_items(candidates):
-                print " point selected from calculate_items(candidates) is: "
+                print " point selected is: "
                 print point
                 print "                         "
                 if not isinstance(point, Exception):
-                    print " There are no exceptions so we keep the point"
                     L = likelihood(point)
                     print "below is point likelihood :   "
                     print L
@@ -6507,5 +6490,5 @@ elif mode == MODE_WORKER:
             last_length = len(cells)
             time.sleep(0.5)
 
-    #if this exits, the serve_forever thread will also be terminated since
+    # if this exits, the serve_forever thread will also be terminated since
     #   it's a daemon

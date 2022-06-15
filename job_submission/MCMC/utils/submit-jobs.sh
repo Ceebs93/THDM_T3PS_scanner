@@ -24,7 +24,7 @@ while read -r DIR; do
 
 	 echo "command being run is: sbatch ${NODES} ${PPN} ${TIME} --export=DIR=${DIR},THDM_T3PS_SCANNER_DIR=${THDM_T3PS_SCANNER_DIR} ${ROOT_DIR}/${TASK}"
 
-	 sbatch -p scavenger ${NODES} ${PPN} ${TIME} --export=DIR=${DIR},THDM_T3PS_SCANNER_DIR=${THDM_T3PS_SCANNER_DIR}, ${ROOT_DIR}/${TASK}
+	 sbatch ${NODES} ${PPN} ${TIME} --export=DIR=${DIR},THDM_T3PS_SCANNER_DIR=${THDM_T3PS_SCANNER_DIR}, ${ROOT_DIR}/${TASK}
 done < ${LIST}
 
 echo -e "\nJobs should be submitted now."

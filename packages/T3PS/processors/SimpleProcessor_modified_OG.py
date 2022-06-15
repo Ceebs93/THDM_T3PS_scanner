@@ -107,15 +107,6 @@ def main(template_file, pars, vars):
 #    print('data_fields_code', data_fields_code)
 #    print('template_file', template_file)
 
-#    with open(os.devnull) as devnull, timelimit(timeout):
-#        output = subprocess.check_output(
-#            arguments + ([template_file] if template_file else []),
-#            stdin=devnull,
-#            stderr=subprocess.STDOUT
-#        )
-#
-  #  print('command output: ', commands.getstatusoutput('{} {}'.format(arguments[0], template_file)) )
-
     with open(os.devnull) as devnull, timelimit(timeout):
         output = subprocess.check_output(
             arguments + ([template_file] if template_file else []),
@@ -129,47 +120,30 @@ def main(template_file, pars, vars):
 
     print "STDOUT is ", output
 
-
-#    with open( template_file, 'r' ) as f:
-#        content = f.read()
-#        print('content: ', content)
-#
-#    command = arguments + [template_file]
-#    print('command', command)
-#    print('template_file 3', template_file)
-#    output = subprocess.Popen( command )
-#    output.communicate()
-#
-#    print('### --- End of SimpleProcessor.main --- ')
-	
-#    def handler(signum,frame):
-#        print "Error Occured",signum
-#        raise IOError("Segmentation Fault Occured.")
-#    
-#    try:
-#        signal.signal(signal.SIGSEGV,handler)  
-#    except IOError as e:
-#        print e
-
-
-#    output = subprocess.call(arguments + [template_file])
-
     # group 0 is the full number match
     # make sure it stays that way when changing number_pattern!
-   
+  
+    #clipped_output = output[output.find("Marker"):]
+    #print "clipped_output[0:10]  ", clipped_output[0:10]
+ 
     all_numbers = [float(x[0]) for x in re.findall(number_pattern, output)]
     print "all_numbers is  ", all_numbers
+    print "length  ", len(all_numbers)
+    while len(all_numbers) > 76:
+        all_numbers = all_numbers[1:]
+    #all_numbers = all_numbers[344:]
+    print "all_numbers is now  ", all_numbers
+    print "length   ", len(all_numbers)
 #    print('vars', vars)
 #    print('pars', pars)
 
-    all_numbers = []
-    for i in range(0,76):
-        n = random.random()
-        all_numbers.append(n)
+   # all_numbers = []
+    #for i in range(0,76 - len(all_numbers)):
+     #   n = random.random()
+      #  all_numbers.append(n)
 
     return all_numbers
     
-
 
     # - This gets called when running test bin
     #if not data_fields_code:

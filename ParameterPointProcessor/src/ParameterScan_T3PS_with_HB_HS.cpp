@@ -131,9 +131,6 @@ int main(int argc, char* argv[])
           {
                   exit( -1 );
           }
-// Error is triggered now, but the likelihood value is still changing each turn indicating that the error isn't actually the issue. Values are just being generated randomly in the python processor so it must be that the values that are being passed back from this file aren't formatted correctly or are  not varying each loop for some reason. The former makes more sense than the latter as input is changing so why would the output not be changing? Plus it seems to be impossible to avoid the output to the console from 2HDMC so this is inevitably going through the stream. Propose adding a marker variable that python can search for and parse from. This should allow for filtering out this extra output consistently and finding the needed values in consistent positions. If this is unsuccessful then perhaps a return to the idea of having an output file and reading that in, but unlike in previous attempts we use the same method to run this file from the python code but we do nothing with the output python reads back from it. This is not ideal, however as adding a unique identifier is problematic due to the way data is currently handed over to this file. We would perhaps need to add a new variable much higher up the flow diagram of this software, which might mean large changes for the structure - problematic.	
-	  printf("Chi2 has a value of     ");
-	  std::cout << chi2_HS << endl;
 
 	  double chi2_Tot_hepfit, chi2_Tot_gfitter;
           chi2_Tot_gfitter = chi2_HS + chi2_ST_gfitter;
@@ -146,6 +143,10 @@ int main(int argc, char* argv[])
                 exit( -1 );
            }
           # endif
+
+          printf("chi2_Tot_gfitter has a value of     ");
+          std::cout << chi2_Tot_gfitter << endl;
+
 
 	  hbhsres_ptr = &hbhs_result;
 
@@ -162,6 +163,10 @@ int main(int argc, char* argv[])
           {
 		printf("sens_ch_%d: %f \n", i, hbchan[i]), "\n";
           }
+
+         hbhs_result.hb.print();                                
+        // hbhs_result.hs.print();                                                                   
+        // hbhsres_ptr = &hbhs_result;  
 
 	  double delta_rho = constr.delta_rho(mh_ref);
 	  double delta_amu = constr.delta_amu();	
@@ -240,6 +245,10 @@ int main(int argc, char* argv[])
 	  model.get_param_gen(l1,l2,l3,l4,l5,l6,l7,m12_2,tb);
 	  model.get_param_phys(mh,mH,mA,mHc,sinba,l6,l7,m12_2,tb);
 
+	  //printf("m12_2 has a value of     ");
+          //std::cout << m12_2 << endl;
+
+
 	  // Please note that here sin(b-a) comes from the physical basis 
 	  // so it can be negative too!
 
@@ -249,9 +258,9 @@ int main(int argc, char* argv[])
 
 	# endif
 
-	printf("                             ");
-	printf("I'm printing out the stuff in the DEBUG section now!");
-	printf("                              ");
+	//printf("                             ");
+	//printf("I'm printing out the stuff in the DEBUG section now!");
+	//printf("                              ");
 	double mh_hybrid,mH_hybrid,cba_hybrid, Z4_hybrid, Z5_hybrid, Z7_hybrid, tb_hybrid;
 	double mh_phys,mH_phys,mA_phys,mHc_phys,sba_phys,l6_phys,l7_phys,m12_2_phys,tb_phys;
 	double l1_gen,l2_gen,l3_gen,l4_gen,l5_gen,l6_gen,l7_gen,m12_2_gen,tb_gen;
@@ -260,8 +269,8 @@ int main(int argc, char* argv[])
 	model.get_param_hybrid(mh_hybrid, mH_hybrid, cba_hybrid, Z4_hybrid, Z5_hybrid, Z7_hybrid, tb_hybrid);
 	model.get_param_gen(l1_gen,l2_gen,l3_gen,l4_gen,l5_gen,l6_gen,l7_gen,m12_2_gen,tb_gen);
 	
-	printf("Inside ParameterScan_T3PS.cpp\n");
-	printf("yt_in: %d\n", yt_in );
+	//printf("Inside ParameterScan_T3PS.cpp\n");
+	//printf("yt_in: %d\n", yt_in );
 	
 	printf("\nComparison of variables\n");
 	printf("|-------------------------------------------------------------------------\n" );
@@ -289,14 +298,14 @@ int main(int argc, char* argv[])
 	printf(" Tree-level unitarity: %s\n", 
 	  (constr.check_unitarity() ? "OK" : "Not OK"));
 	printf("       Perturbativity: %s\n", 
-	  (constr.check_perturbativity() ? "OK" : "Not OK")); 
+	  (constr.check_perturbativity() ? "OK" : "Not OK"));
 
      // #if defined HiggsBounds
 //	HBHS hbhs{};
       #endif
 
-	std:cout
-
+	std::cout
+//	<< "Marker" << " "
 	<< Z7_in << " "			//1
 	<< mH_in  << " "                // 2
 	<< mHc_in << " "                // 3
@@ -304,7 +313,105 @@ int main(int argc, char* argv[])
 	<< cba_in << " "                // 5
 	<< tb_in  << " "                // 6
 
-	<< std::endl;
+// -- Auxiliary
+ 	<< sinba << " "                     // 7
+ 	<< Z4_c << " "                      // 8
+ 	<< Z5_c << " "                      // 9
+ 	<< m12_2 << " "                     // 10
+ 					
+ 	// -- lambdas
+ 	<< l1 << " "                        // 11
+	<< l2 << " "                        // 12
+	<< l3 << " "                        // 13
+ 	<< l4 << " "                        // 14
+	<< l5 << " "                        // 15
+ 	<< l6 << " "                        // 16
+	<< l7 << " "                        // 17
+ 	
+	// -- Coupling
+ 	<< g_HpHmh << " "                   // 18
+	
+	// -- Widths
+	<< Gamma_h  << " "                  // 19
+ 	<< Gamma_H  << " "                  // 20
+	<< Gamma_Hc << " "                  // 21		
+	<< Gamma_A  << " "                  // 22
+
+ 	<< br_h_bb     << " "               // 23
+	<< br_h_tautau << " "               // 24
+	<< br_h_gg     << " "               // 25
+	<< br_h_WW     << " "               // 26
+	<< br_h_ZZ     << " "               // 27
+	<< br_h_gaga   << " "               // 28 						   	   
+	// -- BR(A -> XX)
+	<< br_A_tt     << " "               //29
+	<< br_A_bb     << " "               // 30
+	<< br_A_gg     << " "               // 31
+	<< br_A_mumu   << " "               // 32
+	<< br_A_tautau << " "               // 33
+	<< br_A_Zga    << " "               // 34
+	<< br_A_Zh     << " "               // 35
+	<< br_A_ZH     << " "               // 36
+	<< br_A_gaga   << " "               // 37
+
+   	// -- BR(H -> XX)
+	<< br_H_tt       << " "             // 38
+	<< br_H_bb       << " "             // 39
+	<< br_H_gg       << " "             // 40
+	<< br_H_mumu     << " "             // 41
+	<< br_H_tautau   << " "             // 42
+	<< br_H_Zga      << " "             // 43
+	<< br_H_Zh       << " "             // 44
+	<< br_H_WW       << " "             // 45
+	<< br_H_ZZ       << " "             // 46
+	<< br_H_ZA       << " "             // 47
+	<< br_H_AA       << " "             // 48
+	<< br_H_hh       << " "             // 49
+	<< br_H_gaga     << " "             // 50
+
+   	// -- BR(H+ -> XX)     
+	<< br_Hp_tb     << " "              // 51
+	<< br_Hp_taunu  << " "              // 52
+	<< br_Hp_Wh     << " "              // 53
+	<< br_Hp_WH     << " "              // 54
+	<< br_Hp_WA     << " "              // 55
+
+	// -- Theory
+	<< sta     << " "                   // 56
+	<< uni     << " "                   // 57
+	<< per_4pi << " "                   // 58
+	<< per_8pi << " "                   // 59
+
+	// -- EWPO
+	<< S << " "                         // 60
+	<< T << " "                         // 61
+	<< U << " "                         // 62
+	<< V << " "                         // 63
+	<< W << " "                         // 64
+	<< X << " "                         // 65
+	<< delta_rho << " "                 // 66
+
+	// -- (g-2)
+	<< delta_amu << " "                 // 67
+
+	// -- HiggsBounds
+	<< tot_hbobs << " "                 // 68
+	<< sens_ch   << " "                 // 69
+
+	// -- HiggsSignals
+	<< chi2_HS << " "                   // 70
+
+	<< chi2_ST_hepfit  << " "           // 71
+	<< chi2_ST_gfitter << " "           // 72
+
+	<< chi2_Tot_hepfit  << " "          // 73
+	<< chi2_Tot_gfitter << " "          // 74
+
+	<< k_huu  << " "                    // 75
+	<< k_hdd  <<                        // 76
+
+
+	std::endl;
 
 	return 0;
 

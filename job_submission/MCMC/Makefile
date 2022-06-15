@@ -4,7 +4,7 @@
 
 # - Specify the following settings for preparing the jobs
 
-CREATE_JOB_NAME         = "test1_2605"
+CREATE_JOB_NAME         = "1506_test02"
 CREATE_JOB_CONFIG       = "config/mcmc_scan_default.conf"
 CREATE_JOB_nCores       = 1
 CREATE_JOB_program      = ${THDM_T3PS_SCANNER_DIR}/ParameterPointProcessor/bin/ParameterScan_T3PS_with_HB_HS_FAST
@@ -19,10 +19,10 @@ CREATE_JOB_TEMPLATE     = "template/mcmc_scan.func"
 # - Specify the following settings for submitting the jobs
 
 SUBMIT_JOB_LIST       = "all.jobs"
-SUBMIT_JOB_NAME       = "test1_2605"
+SUBMIT_JOB_NAME       = "1506_test02"
 SUBMIT_JOB_NODES      = "--nodes=1"
 SUBMIT_JOB_PPN        = "--ntasks-per-node=1"
-SUBMIT_JOB_TIME       = "--time=00:03:00"
+SUBMIT_JOB_TIME       = "--time=00:05:00"
 SUBMIT_JOB_TASK       = "job_task/job.sh"
 
 ########################
@@ -31,7 +31,7 @@ SUBMIT_JOB_TASK       = "job_task/job.sh"
 
 # - Specify the following settings for merging the jobs
 
-MERGE_JOB_NAME         = "test_1805"
+MERGE_JOB_NAME         = "1506_test01"
 MERGE_JOB_HEADER       = "header/default.header"
 MERGE_JOB_DATASET_NAME = ${MERGE_JOB_NAME}
 MERGE_JOB_CONVERT      = "no"
