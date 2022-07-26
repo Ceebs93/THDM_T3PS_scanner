@@ -1,9 +1,9 @@
 # Tasks for Magellan 
 
-- [ ] Confirm upgrade of 2HDMC/HB/HS has been successful
+- [X] Confirm upgrade of 2HDMC/HB/HS has been successful
 - [ ] Create job running interface for local jobs
 - [ ] Create job running interface for Torque jobs
-- [ ] Install LHAPDF successfully
+- [X] Install LHAPDF successfully
 - [ ] Ensure LHAPDF is integrated into 2HDMC etc
 - [ ] Install SuShi and test running of pipeline including SuSHi
 - [ ] Update auto-install file to reflect the package upgrades
