@@ -1,6 +1,5 @@
 #!/bin/sh
 
-
 JOB_DIR=${THDM_T3PS_SCANNER_DIR}/job_submission/SusHi/tests/local_test
 CONFIG_TEMPLATE_FILE="${THDM_T3PS_SCANNER_DIR}/job_submission/SusHi/config/default.conf"
 FUNCTION_TEMPLATE="${THDM_T3PS_SCANNER_DIR}/job_submission/SusHi/template/SusHi_2HDMC_hybrid_cba_template_A_and_H.slha"

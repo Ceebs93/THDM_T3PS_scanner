@@ -3,7 +3,7 @@
 # - Display information
 echo -e "./utils/create-jobs.sh called\n"
 echo -e "####################"
-echo -e "TAG:        ${TAG}"
+echo -e "NAME:        ${NAME}"
 echo -e "INPUT_DATA: ${INPUT_DATA}"
 echo -e "CONFIG:     ${CONFIG}"
 echo -e "nJobs:      ${nJobs}"
@@ -11,8 +11,8 @@ echo -e "TEMPLATE:   ${TEMPLATE}"
 echo -e "ROOT_DIR:   ${ROOT_DIR}"
 echo -e "####################"
 
-JOB_PROJECT_DIR=${ROOT_DIR}/jobs/${TAG}
-JOB_PROJECT_DIR=${ROOT_DIR}/jobs/${TAG}
+JOB_PROJECT_DIR=${ROOT_DIR}/jobs/${NAME}
+JOB_PROJECT_DIR=${ROOT_DIR}/jobs/${NAME}
 
 
 # - Create job project directory
@@ -35,7 +35,7 @@ for ((i=0;i<${nJobs};i++));
 do
 
 	id=$(printf "%03d" ${i})
-	JOB_DIR=${ROOT_DIR}/jobs/${TAG}/job_${id}
+	JOB_DIR=${ROOT_DIR}/jobs/${NAME}/job_${id}
 
 	mkdir -p ${JOB_DIR}
 	cp ${ROOT_DIR}/${CONFIG} ${JOB_DIR}/t3ps.conf
@@ -45,6 +45,6 @@ do
 #	cp ${ROOT_DIR}/${TASK}     ${JOB_DIR}/job.sh
 	mv ${JOB_PROJECT_DIR}/split_${id} ${JOB_DIR}/to_be_processed.dat
 
-	echo "${JOB_DIR}" >> ${ROOT_DIR}/jobs/${TAG}/all.jobs
+	echo "${JOB_DIR}" >> ${ROOT_DIR}/jobs/${NAME}/all.jobs
 
 done

@@ -1,14 +1,20 @@
 #!/bin/bash
 
+
+cd /scratch/cb27g11/THDM_T3PS_scanner
+
+source /scratch/cb27g11/THDM_T3PS_scanner/env.sh
+echo "job_task/job.sh thinks scanner dir is: ${THDM_T3PS_SCANNER_DIR}"
+
 PROGRAM=${THDM_T3PS_SCANNER_DIR}/packages/T3PS/t3ps
 
-
-# - Local setup
-module load gsl
-module load gcc/6.1.0
-source /home/de3u14/lib/build/miniconda3/bin/activate py27
-
 ############################################
+echo "Program: ${PROGRAM}"
 
 cd ${DIR}
-echo -ne '\n\n' | ${PROGRAM} -o ./ t3ps.conf
+
+CWD=$(pwd)
+echo "Current dir: ${CWD}"
+
+echo "Job starting.."
+echo -ne '\n\n' | ${PROGRAM} -o ./ t3ps.conf 
