@@ -1,4 +1,0 @@
-#Relevant compilers/libraries for SusHi:
-F77 = gfortran
-F77FLAGS = 
-LDFLAGS =  -L/home/local/software/gcc/6.1.0/bin/../lib/gcc/x86_64-pc-linux-gnu/6.1.0 -L/home/local/software/gcc/6.1.0/bin/../lib/gcc -L/home/local/software/gcc/6.1.0/bin/../lib/gcc/x86_64-pc-linux-gnu/6.1.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/local/software/intel/2013_sp1.0.080/composer_xe_2013_sp1.0.080/mkl/lib/intel64 -L/home/local/software/gcc/6.1.0/bin/../lib/gcc/x86_64-pc-linux-gnu/6.1.0/../../.. -lgfortran -lm -lquadmath

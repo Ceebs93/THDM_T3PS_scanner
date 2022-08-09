@@ -1,4 +1,5 @@
 *.pyc
+packages/MG5_aMC_v3_1_0/*
 job_submission/MCMC/jobs/*
 job_submission/SusHi/jobs/*
 *.o
