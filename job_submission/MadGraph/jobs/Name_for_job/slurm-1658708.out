@@ -1,0 +1,35 @@
+Running SLURM prolog script on gold53.cluster.local
+===============================================================================
+Job started on Thu Aug 11 17:43:59 BST 2022
+Job ID          : 1658708
+Job name        : slurm_submission.sh
+WorkDir         : /mainfs/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/Name_for_job
+Command         : /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/Name_for_job/job_001/slurm_submission.sh
+Partition       : serial
+Num hosts       : 1
+Num cores       : 8
+Num of tasks    : 8
+Hosts allocated : gold53
+Job Output Follows ...
+===============================================================================
+/tmp/slurmd/job1658708/slurm_script: line 3: /scratch/cb27g11/THDM_T3PS_scanner/job_submission/SusHi/MG_utils/MGSource.sh: No such file or directory
+==============================================================================
+Running epilogue script on gold53.
+
+Submit time  : 2022-08-11T17:43:24
+Start time   : 2022-08-11T17:43:50
+End time     : 2022-08-11T17:43:59
+Elapsed time : 00:00:09 (Timelimit=00:05:00)
+
+Job ID: 1658708
+Cluster: i5
+User/Group: cb27g11/wf
+State: FAILED (exit code 1)
+Nodes: 1
+Cores per node: 8
+CPU Utilized: 00:00:00
+CPU Efficiency: 0.00% of 00:01:12 core-walltime
+Job Wall-clock time: 00:00:09
+Memory Utilized: 2.57 MB
+Memory Efficiency: 0.00% of 184.57 GB
+

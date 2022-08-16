@@ -10,11 +10,8 @@ import pandas as pd
 # different name for the variable.
 
 Process = str(sys.argv[1]) #Name of results folder
-print("Process ", Process)
-uncomp_dir = "JOB_DIR_/" + str(Process ) #Folder containing all the runs data
-print("uncomp_dir ", uncomp_dir)
-output_dir ="RESULTS_/"
-print("output_dir ", output_dir)
+uncomp_dir = WORK_DIR_ + "/Data_Storage/" + str(Process) #Folder containing all the run data
+output_dir = WORK_DIR_ + "Data_Files"
 
 ######################################################################################################
 def get_uncomp_file(Uncomp_dir):
@@ -28,7 +25,7 @@ def get_uncomp_file(Uncomp_dir):
 
     if os.path.exists(path_to_file) and os.path.exists(path_to_lhe) :
         print("Banner-path found")
-        file_storage = "JOB_DIR_" + "/Processed_results/" + str(Process) # name of new folder for storing
+        file_storage = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/Name_for_job/job_002" + "/Processed_results/" + str(Process) # name of new folder for storing
         # storing the data for later use
         if not os.path.exists(file_storage):
             os.makedirs(file_storage)

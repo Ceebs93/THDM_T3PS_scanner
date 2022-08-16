@@ -31,10 +31,10 @@ SUBMIT_JOB_TASK       = "job_task/job.sh"
 
 # - Specify the following settings for merging the jobs
 
-MERGE_JOB_NAME         = "1506_test01"
+MERGE_JOB_NAME         = "1507_mixtan"
 MERGE_JOB_HEADER       = "header/default.header"
 MERGE_JOB_DATASET_NAME = ${MERGE_JOB_NAME}
-MERGE_JOB_CONVERT      = "no"
+MERGE_JOB_CONVERT      = "yes"
 MERGE_JOB_CONVERT_ONLY = "no"
 MERGE_JOB_FORMAT       = "table"
 MERGE_JOB_COMPRESSION  = "blosc"

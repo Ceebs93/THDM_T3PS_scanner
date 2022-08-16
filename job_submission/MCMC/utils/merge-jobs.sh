@@ -27,10 +27,18 @@ if [ ${CONVERT_ONLY} == "no" ]; then
 	 echo -e "Removing leading whitespace"
 	 sed -i "s/^[ \t]*//" ${OUTPUT_FINAL_FILE}
 
-#	 echo -e "Replacing spaces with tabs"
-#	 sed -i "s/^//" ${OUTPUT_FINAL_FILE}
 
 fi
+
+if [ ${MAKE_CSV} == "yes" ]; then
+
+	echo "NAME: ${NAME}"
+	echo "Running data_to_csv.py"
+
+	python utils/data_to_csv.py ${OUTPUT_FINAL_FILE}
+
+fi
+
 
 # - Convert ASCII to HDF5
 echo -e "Convering ASCII to HDF"
