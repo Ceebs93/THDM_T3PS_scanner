@@ -4,11 +4,12 @@
 
 # - Specify the following settings for preparing the jobs
 
-CREATE_JOB_NAME         = "1506_test02"
+CREATE_JOB_NAME         = "2308_scan01"
 CREATE_JOB_CONFIG       = "config/mcmc_scan_default.conf"
+CREATE_JOB_CLUSTER      = "No"
 CREATE_JOB_nCores       = 1
 CREATE_JOB_program      = ${THDM_T3PS_SCANNER_DIR}/ParameterPointProcessor/bin/ParameterScan_T3PS_with_HB_HS_FAST
-CREATE_JOB_nJobs        = 1
+CREATE_JOB_nJobs        = 4
 CREATE_JOB_chain_length = 9999999
 CREATE_JOB_TEMPLATE     = "template/mcmc_scan.func"
 
@@ -19,10 +20,10 @@ CREATE_JOB_TEMPLATE     = "template/mcmc_scan.func"
 # - Specify the following settings for submitting the jobs
 
 SUBMIT_JOB_LIST       = "all.jobs"
-SUBMIT_JOB_NAME       = "1506_test02"
+SUBMIT_JOB_NAME       = "2308_scan01"
 SUBMIT_JOB_NODES      = "--nodes=1"
 SUBMIT_JOB_PPN        = "--ntasks-per-node=1"
-SUBMIT_JOB_TIME       = "--time=00:05:00"
+SUBMIT_JOB_TIME       = "--time=40:00:00"
 SUBMIT_JOB_TASK       = "job_task/job.sh"
 
 ########################

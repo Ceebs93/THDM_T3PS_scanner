@@ -33,3 +33,11 @@ do
 	echo "${JOB_DIR}" >> ${ROOT_DIR}/jobs/${NAME}/all.jobs
 
 done
+
+#if [ ${CLUSTER} == "no" ]; then
+	
+#	echo "Running job/s..."
+
+#	for ((i=0;i<${nJobs};i++));
+#	do
+#		bash 

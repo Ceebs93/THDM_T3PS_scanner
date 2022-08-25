@@ -1,7 +1,7 @@
 
 # Load Python environment
 #conda deactivate
-module unload --all
+module purge
 module load conda
 #conda activate THDM
 source activate THDM

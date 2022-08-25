@@ -22,7 +22,6 @@ export PATH
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/local/software/gsl/2.6/include/gsl
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/local/software/gcc/11.1.0/bin/gcc
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/local/software/conda/anaconda2/bin/f2py
 
 
 module load null
