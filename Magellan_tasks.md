@@ -1,7 +1,8 @@
 # Tasks for Magellan 
 
 - [X] Confirm upgrade of 2HDMC/HB/HS has been successful
-- [X] Create job running interface for local jobs
+- [X] Create job running interface for local MCMC jobs
+- [ ] Create job running interface for local madgraph jobs
 - [ ] Create job running interface for Torque jobs
 - [X] Install LHAPDF successfully
 - [ ] ~~Ensure LHAPDF is integrated into 2HDMC etc~~
@@ -16,7 +17,7 @@
 - [X] LHAPDF needs to be edited so that the config file will find the correct parts of python in conda - Ended up using the LHAPDF installation in MadGraph instead. Should still be reachable by 2HDMC
 - [X] Create job running interfaces for the ~~SusHi~~ Madgraph pipeline
 - [ ] Work on installation guide for main directory
-- [ ] Create docker and install ubuntu 20, Make 3.82, GCC 11.1.0, GSL 2.6, python2.7
+- [ ] Create docker and install ubuntu 20, Make 3.22, GCC 11.1.0, GSL 2.6, python2.7
 - [ ] Install necessecary python modules to docker, pandas, numpy, scipy, hd5f etc
 - [ ] Install Magellan to the docker
 - [ ] Test Magellan in docker works
