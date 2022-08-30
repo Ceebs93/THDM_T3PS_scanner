@@ -3,7 +3,7 @@
 - [X] Confirm upgrade of 2HDMC/HB/HS has been successful
 - [X] Create job running interface for local MCMC jobs
 - [ ] Create job running interface for local madgraph jobs
-- [ ] Create job running interface for Torque jobs
+- [X] Create job running interface for Torque jobs
 - [X] Install LHAPDF successfully
 - [ ] ~~Ensure LHAPDF is integrated into 2HDMC etc~~
 - [ ] Upload conversion tools for dat to csv files from MCMC output and edit appropriately
