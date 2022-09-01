@@ -40,3 +40,4 @@
 - [ ] Look into uncoupling 2HDMC from parameter-processor in order to allow for people to use other models. This will require editing the config file for MCMC runs
 - [ ] Add future plans for Magellan to manual
 - [ ] Create some example config files
+- [ ] Add the option for the Madgraph section to keep additional files, i.e. those that would be needed for madevent etc.
