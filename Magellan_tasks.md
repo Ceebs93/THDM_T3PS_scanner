@@ -4,6 +4,7 @@
 - [X] Create job running interface for local MCMC jobs
 - [X] Create job running interface for local madgraph jobs
 - [X] Create job running interface for Torque jobs
+- [X] Replace python script for splitting csves with a faster script i.e. Bash or C++
 - [X] Install LHAPDF successfully
 - [ ] ~~Ensure LHAPDF is integrated into 2HDMC etc~~
 - [X] Upload conversion tools for dat to csv files from MCMC output and edit appropriately
