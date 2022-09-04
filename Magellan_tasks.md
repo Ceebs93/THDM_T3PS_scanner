@@ -6,7 +6,7 @@
 - [X] Create job running interface for Torque jobs
 - [X] Install LHAPDF successfully
 - [ ] ~~Ensure LHAPDF is integrated into 2HDMC etc~~
-- [ ] Upload conversion tools for dat to csv files from MCMC output and edit appropriately
+- [X] Upload conversion tools for dat to csv files from MCMC output and edit appropriately
 - [ ] Edit merge-jobs for MadGraph to ensure it is functional for csves
 - [X] Rename SusHi directory to MadGraph
 - [X] Install MadGraph and test running of pipeline including MadGraph
