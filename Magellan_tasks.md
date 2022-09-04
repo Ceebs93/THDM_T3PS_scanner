@@ -8,6 +8,7 @@
 - [ ] ~~Ensure LHAPDF is integrated into 2HDMC etc~~
 - [X] Upload conversion tools for dat to csv files from MCMC output and edit appropriately
 - [ ] Edit merge-jobs for MadGraph to ensure it is functional for csves
+- [ ] Add section to create-jobs for MadGraph to work with h5f files if that is what the user chooses
 - [X] Rename SusHi directory to MadGraph
 - [X] Install MadGraph and test running of pipeline including MadGraph
 - [ ] Update auto-install file to reflect the package upgrades
