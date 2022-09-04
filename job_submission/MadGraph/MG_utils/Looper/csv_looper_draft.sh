@@ -20,7 +20,7 @@ extractions=0
 		COUNT=$(( $COUNT + 1 ))
 		echo "Line number is: " ${COUNT}
 
-                python CARD_EDITOR_ $mH $mHc $mA "BASECARD_" "RUNCARD_" $tb $sinba "PROCESS_" "RESULTS_" # Here we run, and pass variables to, the inputcard editor. This edits the inputcard for MadGraph
+                python CARD_EDITOR_ $mH $mHc $mA "BASECARD_" "RUNCARD_" $tb $sinba "PROCESS_" "JOB_DIR_/" # Here we run, and pass variables to, the inputcard editor. This edits the inputcard for MadGraph
 
                 python SCANNER_DIR_MG5_aMC_v3_1_0/bin/mg5_aMC RUNCARD_ # Here we run MG with the edited inputcard
 
@@ -29,7 +29,7 @@ extractions=0
 		#Had to do this in two steps or bash added erroneous spaces
 
 		echo "Move directory is: ${mov_dirs}"
-		mv JOB_PROJECT_DIR_/"$mov_dirs" JOB_DIR_
+		mv JOB_DIR_/"$mov_dirs" JOB_DIR_/
 
 		echo "About to use 'Data_Ripper_iridis.py'"
                 python DATA_RIPPER_VERSION_ $mov_dirs $Higgs # Here the needed data is extracted from the output
@@ -37,14 +37,14 @@ extractions=0
 		extractions=$(( $extractions + 1 ))
 		echo "Data_Ripper_iridis.py used ${extractions} time/s"
                 
-		cd RESULTS_
+		cd JOB_DIR_
 	        rm -r "$mov_dirs"
 		echo "Removed ${mov_dirs}"
 
 	done
  
 	echo "data_coallator starting..."
-	python JOB_DIR_/Data_coallator.py RESULTS_results PROCESS_
+	python JOB_DIR_/Data_coallator.py "JOB_DIR_/Data_Files/" "PROCESS_"
 echo
 #Here -d allows us to specify our delimiter, then -f indicates we want to cut by field as opposed to bytes. The numbers indicate which column from the csv we want, and these are named above in the line 'while IFS="," read -r etc
 

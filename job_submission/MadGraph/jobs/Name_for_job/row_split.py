@@ -54,7 +54,7 @@ def csv_splitter(filepath, x, newnametag):
 		old_df.to_csv(str(newnametag) + "_" + str(i) + ".csv", index=False)
 
 
-csv_splitter("/scratch/cb27g11/Looping_Bash/missing.csv", 3, "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/Name_for_job/split_csv_name")
+csv_splitter("/scratch/cb27g11/Looping_Bash/missing.csv", 2, "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/Name_for_job/split_csv_name")
 
 
 

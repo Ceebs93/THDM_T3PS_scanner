@@ -10,8 +10,10 @@ import pandas as pd
 # different name for the variable.
 
 Process = str(sys.argv[1]) #Name of results folder
-uncomp_dir = WORK_DIR_ + "/Data_Storage/" + str(Process) #Folder containing all the run data
-output_dir = WORK_DIR_ + "Data_Files"
+uncomp_dir = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/Name_for_job/job_001/" + str(Process) #Folder containing all the run data
+output_dir = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/Name_for_job/job_001" + "/Data_Files"
+if not os.path.exists(output_dir):
+    os.makedirs(output_dir)
 
 ######################################################################################################
 def get_uncomp_file(Uncomp_dir):
@@ -99,11 +101,12 @@ print("Data_Ripper will look for sin and tan values in: " + str(uncomp_dir))
 print("                                     ")
 Tb_list, Sbma_list = variable_values(File_List)
 X_sections = Xsection_values(File_List)
+print("X_sections", X_sections)
 
 data = [Tb_list, Sbma_list, [X_sections[0]]]
 col_names = ["Tb", "Sbma", "X_section"]
 
 nw_df = pd.DataFrame({'Tb':Tb_list, 'Sbma':Sbma_list, 'X_sections':X_sections})
-nw_df.to_csv(str(output_dir) + str(Process) + ".csv", index=False)
+nw_df.to_csv(str(output_dir) + "/" + str(Process) + ".csv", index=False)
 
 print(len(Sbma_list), len(Tb_list), len(X_sections))

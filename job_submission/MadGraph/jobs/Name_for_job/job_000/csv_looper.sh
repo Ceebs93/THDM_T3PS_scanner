@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#I inherit the following variables from create-jobs.sh: /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/Name_for_job/split_csv_name_1 bq_tqh1 /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/Name_for_job/job_000/basecard_type1.txt /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/Name_for_job/job_000/runcard.txt /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/Name_for_job/job_000/inputcard_editor1.py  /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/ /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/Name_for_job /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/Name_for_job/job_000 /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/Name_for_job/job_000/Data_Ripper.py /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/Name_for_job/job_000/
+#I inherit the following variables from create-jobs.sh: /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/Name_for_job/split_csv_name_1 bq_tqh1 /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/Name_for_job/job_000/basecard_type1.txt /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/Name_for_job/job_000/runcard.txt /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/Name_for_job/job_000/inputcard_editor1.py  /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/ /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/Name_for_job /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/Name_for_job/job_000 /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/Name_for_job/job_000/Data_Ripper.py RESULTS_
 
 #Higgs = "h1"
 
@@ -29,7 +29,7 @@ extractions=0
 		#Had to do this in two steps or bash added erroneous spaces
 
 		echo "Move directory is: ${mov_dirs}"
-		mv /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/Name_for_job/"$mov_dirs" /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/Name_for_job/job_000
+		mv /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/Name_for_job/job_000/"$mov_dirs" /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/Name_for_job/job_000/
 
 		echo "About to use 'Data_Ripper_iridis.py'"
                 python /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/Name_for_job/job_000/Data_Ripper.py $mov_dirs $Higgs # Here the needed data is extracted from the output
@@ -37,14 +37,14 @@ extractions=0
 		extractions=$(( $extractions + 1 ))
 		echo "Data_Ripper_iridis.py used ${extractions} time/s"
                 
-		cd /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/Name_for_job/job_000/
+		cd /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/Name_for_job/job_000
 	        rm -r "$mov_dirs"
 		echo "Removed ${mov_dirs}"
 
 	done
  
 	echo "data_coallator starting..."
-	python /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/Name_for_job/job_000/Data_coallator.py /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/Name_for_job/job_000/results bq_tqh1
+	python /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/Name_for_job/job_000/Data_coallator.py "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/Name_for_job/job_000/Data_Files/" "bq_tqh1"
 echo
 #Here -d allows us to specify our delimiter, then -f indicates we want to cut by field as opposed to bytes. The numbers indicate which column from the csv we want, and these are named above in the line 'while IFS="," read -r etc
 

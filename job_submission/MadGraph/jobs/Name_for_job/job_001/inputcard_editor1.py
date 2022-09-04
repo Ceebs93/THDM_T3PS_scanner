@@ -13,7 +13,6 @@ Hm = float(sys.argv[1]) #CP even higgs mass
 Hcm = float(sys.argv[2]) #Charged higgs mass
 Am = float(sys.argv[3]) #CP odd higs mass
 basecardpath = str(sys.argv[4]) #path to 'basic' runcard to edit and create final
-# runcard
 runcardpath = str(sys.argv[5]) #path to 'final' runcard madgraph will use
 Tb = sys.argv[6] #Current tan value
 Sbma = sys.argv[7] #Current sin value
@@ -22,17 +21,50 @@ results_folder = str(sys.argv[9])
 print(Process)
 
 def the_main_event():
-	print('inputcard_editor running...')
-	with open(basecardpath,'r') as old_card:
-                #stores string of old_card ready for editing
-		text = old_card.read()
-		make_input(Tb, Sbma, Hcm, text, Process)
-                print('about to run madgraph ' + str(Tb) + ' ' + str(Sbma))
+    """
+    Uses 'make_input' and global arguments to read the basecard in and edit 
+    the text from it to create the runcard that will be used by MadGraph.
+
+    Parameters
+    ---------
+    None : 'the_main_event' uses global arguments only. These are 'basecardpath
+        ', 'Tb', 'Sbma', 'Hcm', 'old_card' and 'Process'
+
+    Returns
+    -------
+    None : creates and writes the runcard
+    """
+    
+    print('inputcard_editor running...')
+    with open(basecardpath,'r') as old_card:
+        #stores string of old_card ready for editing
+        text = old_card.read()
+        make_input(Tb, Sbma, Hcm, text, Process)
+        print('about to run madgraph ' + str(Tb) + ' ' + str(Sbma))
 
 def make_input(Tanb, Sinbma, Hcpm, datatext, procname):
-""" inputs are the value of tan_beta, the value of sin(beta-alpha) values, 
-    the desired mass for the charged higgses and a string of text. """
+    """
+    Creates the "runcard" for MadGraph. Takes inputs, tan_beta, sin(beta-alpha), 
+    the desired mass for the charged higgses and a string of text to name the new 
+    runcard with.
 
+    Parameters
+    ----------
+    Tanb : float
+    tan(beta) value of point
+    Sinbma : float
+        sin(beta-alpha) value of point
+    Hcpm : mass of the charged Higgs
+    datatext : string
+        contents of basecard in string form
+    procname : string
+        name of the process to be run
+    
+    Returns
+    -------
+    N/A : writes the newly created file to be used as the 'runcard'
+    """
+    
     with open(runcardpath, 'w') as new_card:
         #simulation card, the .txt file that gets fed to madgraph
         print(runcardpath)

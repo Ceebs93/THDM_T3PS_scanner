@@ -14,9 +14,11 @@ from scipy import stats
 
 ################################################################################
 def tan_trnsfm(dataf):
-    """"calculates beta values and converts them to the lowest equivalent value.
-This ensures we don't accidentally get any massively inflated cross-sections
-back from MadGraph."""
+    """"
+    calculates beta values and converts them to the lowest equivalent value. 
+    This ensures we don't accidentally get any massively inflated cross-sections
+    back from MadGraph.
+    """
 
     #Extracts tanbeta values and puts them in a list
     tanbeta = dataf['tb'].tolist()
@@ -44,8 +46,9 @@ back from MadGraph."""
 
 ################################################################################
 def dat_to_DF(Filename, Csvname):
-    """Reads in the dat file from the t3ps scanner and converts it to a csv
-    file"""
+    """
+    Reads in the dat file from the t3ps scanner and converts it to a csv file
+    """
 
     file1 = open(Filename, 'r')
     Lines = file1.readlines()
@@ -71,13 +74,31 @@ def dat_to_DF(Filename, Csvname):
 
 
 ################################################################################
-def make_useful(Filename, inc_Hc, THDMC_output=False):
-    """Takes data file, Filename, reads data into a pandas dataframe then 
-    extracts columns mH, mHc, mA, cba, tb, sinba, m12_2, k_huu, and k_hdd; and 
-    creates a new dataframe (new_df) from these. This is then sorted and values
-    are set to be floats. THDMC_output indicates if the data in question is
-    output from 2HDMC or not, if not, it is assumed to come from Magellan's 
-    scanner. It will be treated as having one of these two formats.
+def make_useful(Filename, inc_Hc, col_names=names):
+    """
+    Takes data file, Filename, reads data into a pandas dataframe then extracts
+     columns mH, mHc, mA, cba, tb, sinba, m12_2, k_huu, and k_hdd; and creates 
+    a new dataframe (new_df) from these based on filtering out points which are
+    improbable or violate EWPO constraints. The user can find the arxiv numbers
+    of the papers from which these constraints are taken within the function 
+    itself as well as the manual. This is then sorted and values are set to be 
+    floats. Function assumes that the input file is in the form of a .dat
+    file and that it has the same number of columns as the global variable, 
+    "names", by default; however the user may set this to any list that suits
+    their data better.
+
+    Parameters
+    ----------
+    Filename : string
+        the name of the .dat file the user wishes to filter and transform into 
+        a .csv file.
+    inc_Hc : boolean
+        if False the function will remove all points where the mass of the 
+        charged Higgs is below a certain value.
+        
+    Returns
+    -------
+    A new pandas dataframe of the filtered data from the input file.
     """
 
     print("Starting make_useful ...")
@@ -85,19 +106,7 @@ def make_useful(Filename, inc_Hc, THDMC_output=False):
     # Reads in data from Filename
 
     df = pd.read_csv(Filename, sep=",", names= ['Z7', 'mH', 'mHc', 'mA', 'cba', 
-         'tb', 'sinba', 'Z4', 'Z5', 'm12_2', 'l1', 'l2', 'l3', 'l4', 'l5',
-         'l6', 'l7', 'g_HpHmh', 'Gamma_h', 'Gamma_H', 'Gamma_Hc', 'Gamma_A', 
-         'br_h_bb', 'br_h_tautau', 'br_h_gg', 'br_h_WW', 'br_h_ZZ', 
-         'br_h_gaga', 'br_A_tt', 'br_A_bb', 'br_A_gg', 'br_A_mumu', 
-         'br_A_tautau', 'br_A_Zga', 'br_A_Zh', 'br_A_ZH', 'br_A_gaga', 
-         'br_H_tt', 'br_H_bb', 'br_H_gg', 'br_H_mumu', 'br_H_tautau', 
-         'br_H_Zga', 'br_H_Zh', 'br_H_WW', 'br_H_ZZ', 'br_H_ZA', 'br_H_hh', 
-         'br_H_AA', 'br_H_gaga', 'br_Hp_tb', 'br_Hp_taunu', 'br_Hp_Wh', 
-         'br_Hp_WH', 'br_Hp_WA', 'sta', 'uni', 'per_4pi', 'per_8pi', 'S', 'T', 
-         'U', 'V', 'W', 'X', 'delta_rho', 'delta_amu', 'tot_hbobs', 'sens_ch', 
-         'chi2_HS', 'chi2_ST_hepfit', 'chi2_ST_gfitter', 'chi2_Tot_hepfit',
-         'chi2_Tot_gfitter', 'k_huu', 'k_hdd', 'likelihood', 'stay_count', 
-         'ratio'], skiprows=[0])
+         skiprows=[0])
 
     temp_df = df.astype(float)
 
@@ -105,7 +114,7 @@ def make_useful(Filename, inc_Hc, THDMC_output=False):
     print("Inital dataframe created")
 
     # Below we apply limits to our csv, done in two seperate chunks, the 
-#positive and negative values of sinba. These are then recombined.
+    # positive and negative values of sinba. These are then recombined.
     upper_df = temp_df[temp_df['sinba'] >= 0.88]
     upper_df = upper_df[upper_df['sinba'] <= 1.2]
 
@@ -120,8 +129,8 @@ def make_useful(Filename, inc_Hc, THDMC_output=False):
 
     df = tan_trnsfm(temp_df)
 
-    print("About to drop rows containing NaNs (the only reason for a NaN is 
-error so we disregard such points)...")
+    print("About to drop rows containing NaNs as the only reason for a NaN is"\
+        " error so we disregard such points...")
     df.dropna(inplace=True)
 
     # When excluding the charged higgs we require masses to be above 580GeV
@@ -129,7 +138,7 @@ error so we disregard such points)...")
         temp_df = df.drop(df[df.mHc < 580].index)
 
     print("Filtering points...")
-   
+  
     ### - Filtering
     
     sig1 = 0.6827
@@ -157,9 +166,9 @@ error so we disregard such points)...")
     
     chi2_Tot_gfitter_upper_bound = 120.0
     
-    mask_chi2_Tot = (temp_df["chi2_Tot_gfitter"] < chi2_Tot_gfitter_upper_bound)
-    print("mask_chi2_Tot")
-    print mask_chi2_Tot.head(10)
+    chi2_Tot_mask = (temp_df["chi2_Tot_gfitter"] < chi2_Tot_gfitter_upper_bound)
+    print("chi2_Tot_mask")
+    print chi2_Tot_mask.head(10)
 
 
     # Using EWPO to check if points are allowed and discarding any that are not
@@ -171,19 +180,17 @@ error so we disregard such points)...")
     theory_mask = (temp_df["per_8pi"] == per_4pi) & (temp_df["sta"] == sta) & (temp_df["uni"] == uni)
         
     mask = theory_mask & chi2_Tot_mask
-    print(temp_df.head(10)) 
+    print("temp_df", temp_df.head(10)) 
     
     allowed_pts_df = temp_df[mask]
-    print(allowed_pts_df.head(10))
+    print("allowed_pts", allowed_pts_df.head(10))
 
     allowed_pts_df.reset_index(drop=True, inplace=True)    
-    df_list.append(allowed_pts_df)
-    reduced = pd.concat(df_list)
     
-    print("Number of data points in the reduced DataFrame: {}".format(len(reduced)) )
+    print("Number of data points in the reduced DataFrame: {}".format(len(allowed_pts_df)) )
 
     #ensures values are floats and resets index
-    new_df = df.astype(float)
+    new_df = allowed_pts_df.astype(float)
     new_df = new_df.reset_index(drop = True)
 
     return new_df
@@ -192,8 +199,10 @@ error so we disregard such points)...")
 
 ################################################################################
 def combiner(df_list):
-    """ Takes a list of pandas dataframes, combines them and removes any duplicate
-    rows"""
+    """
+    Takes a list of pandas dataframes, combines them and removes any duplicate
+    rows
+    """
 
 
     combi_df = pd.concat(df_list, ignore_index = True)
@@ -208,12 +217,14 @@ def combiner(df_list):
 
 ################################################################################
 def alpha_beta(tanbeta, cosba):
-    """Takes lists of tan(beta) and cos(beta-alpha) values and uses them to
-    calculate the values of alpha and beta then return them as lists"""
+    """
+    Takes lists of tan(beta) and cos(beta-alpha) values and uses them to
+    calculate the values of alpha and beta then return them as lists
+    """
 
     if len(tanbeta) != len(cosba):
-        raise Exception("Lists are not the same length, there are missing 
-values!")
+        raise Exception("Lists are not the same length, there are missing\
+ values!")
 
     for i in range(0, len(tanbeta)):
         print("Calculating beta values")
@@ -232,39 +243,41 @@ values!")
 
 ###############################################################################
 def user_interface():
-""" Runs a basic interface to prompt the user for input about which functions
-they wish to run and on what files they wish to run them on."""
+    """
+    Runs a basic interface to prompt the user for input about which functions
+    they wish to run and on what files they wish to run them on.
+    """
 
 
     try:
-        option = input(" Enter 1 to convert a dat file to csv or enter 2 to 
-combine multiple csves.")
+        option = input(" Enter 1 to convert a dat file to csv or enter 2 to \
+ combine multiple csves.")
     
         if option == 1:
-            print("What is the path to, and name of the file for conversion?")
-            file_name = input("You do not need to add .dat/.csv, this will be 
-added automatically: ")
+            print("What is the path to, and name of the file (in the form of a\
+ string), for conversion?")
+            file_name = input("You do not need to add .dat/.csv, this will be\
+ added automatically: ")
         
             nther_file = file_name + ".dat"
             dat_to_DF(nther_file, file_name + '.csv')
 
-            tn_fxd = make_useful(file_name + '.csv', inc_Hc=False,
-                                 THDMC_output=False)
+            tn_fxd = make_useful(file_name + '.csv', inc_Hc=False)
             print(file_name + ".dat has been converted to " + file_name + 
-".csv"
+".csv")
                 
             print("Please enter name for final csv ")
-            nw_name = input("You do not need to add .csv, this will be added 
-automatically ")
+            nw_name = input("You do not need to add .csv, this will be added\
+ automatically ")
 
             tn_fxd.to_csv(nw_name +'.csv', index=False) 
 
         elif option == 2:
-            print("Please enter a list, separated by spaces only, of csvs to 
-combine")
+            print("Please enter a list, separated by spaces only, of csvs to\
+ combine: ")
 
-            list_input = input("You do not need to add .csv to the end of 
-files, this will be added automatically")
+            list_input = input("You do not need to add .csv to the end of\
+ files, this will be added automatically")
 
             # creates list of csv names from user input
             csv_list = list_input.split()
@@ -283,13 +296,28 @@ files, this will be added automatically")
             combined_csv = tan_trnsfm(frame)
 
             print("Please enter name for combined csv ")
-            nw_name = input("You do not need to add .csv, this will be added 
-automatically")
+            nw_name = input("You do not need to add .csv, this will be added\
+ automatically")
             combined_csv.to_csv(str(nw_name) + ".csv", index=False)
-        else:
-            Exception("Error! Please enter 1 or 2 only.")
+    except ValueError as e:
+        print("Error! Please enter 1 or 2 only.")
 
 ###############################################################################
+
+names= ['Z7', 'mH', 'mHc', 'mA', 'cba',
+         'tb', 'sinba', 'Z4', 'Z5', 'm12_2', 'l1', 'l2', 'l3', 'l4', 'l5',
+         'l6', 'l7', 'g_HpHmh', 'Gamma_h', 'Gamma_H', 'Gamma_Hc', 'Gamma_A',
+         'br_h_bb', 'br_h_tautau', 'br_h_gg', 'br_h_WW', 'br_h_ZZ',
+         'br_h_gaga', 'br_A_tt', 'br_A_bb', 'br_A_gg', 'br_A_mumu',
+         'br_A_tautau', 'br_A_Zga', 'br_A_Zh', 'br_A_ZH', 'br_A_gaga',
+         'br_H_tt', 'br_H_bb', 'br_H_gg', 'br_H_mumu', 'br_H_tautau',
+         'br_H_Zga', 'br_H_Zh', 'br_H_WW', 'br_H_ZZ', 'br_H_ZA', 'br_H_hh',
+         'br_H_AA', 'br_H_gaga', 'br_Hp_tb', 'br_Hp_taunu', 'br_Hp_Wh',
+         'br_Hp_WH', 'br_Hp_WA', 'sta', 'uni', 'per_4pi', 'per_8pi', 'S', 'T',
+         'U', 'V', 'W', 'X', 'delta_rho', 'delta_amu', 'tot_hbobs', 'sens_ch',
+         'chi2_HS', 'chi2_ST_hepfit', 'chi2_ST_gfitter', 'chi2_Tot_hepfit',
+         'chi2_Tot_gfitter', 'k_huu', 'k_hdd', 'likelihood', 'stay_count',
+         'ratio'],
 
 user_interface()
 

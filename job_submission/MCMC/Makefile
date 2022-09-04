@@ -4,9 +4,9 @@
 
 # - Specify the following settings for preparing the jobs
 
-CREATE_JOB_NAME         = "2308_scan01"
+CREATE_JOB_NAME         = "0309_lowtan"
 CREATE_JOB_CONFIG       = "config/mcmc_scan_default.conf"
-CREATE_JOB_CLUSTER      = "No"
+CREATE_JOB_CLUSTER      = "yes"
 CREATE_JOB_nCores       = 1
 CREATE_JOB_program      = ${THDM_T3PS_SCANNER_DIR}/ParameterPointProcessor/bin/ParameterScan_T3PS_with_HB_HS_FAST
 CREATE_JOB_nJobs        = 4
@@ -19,12 +19,21 @@ CREATE_JOB_TEMPLATE     = "template/mcmc_scan.func"
 
 # - Specify the following settings for submitting the jobs
 
-SUBMIT_JOB_LIST       = "all.jobs"
-SUBMIT_JOB_NAME       = "2308_scan01"
-SUBMIT_JOB_NODES      = "--nodes=1"
-SUBMIT_JOB_PPN        = "--ntasks-per-node=1"
-SUBMIT_JOB_TIME       = "--time=40:00:00"
-SUBMIT_JOB_TASK       = "job_task/job.sh"
+#For Local and Slurm jobs
+SUBMIT_JOB_LIST        = "all.jobs"
+SUBMIT_JOB_NAME        = "0309_lowtan"
+SUBMIT_JOB_NODES       = "--nodes=1"
+SUBMIT_JOB_PPN         = "--ntasks-per-node=1"
+SUBMIT_JOB_TIME        = "--time=60:00:00"
+SUBMIT_JOB_TASK        = "job_task/job_slurm.sh"
+SUBMIT_JOB_CLUSTERTYPE = "SLURM"
+
+#For Torque jobs
+#SUBMIT_JOB_LIST        = "all.jobs"
+#SUBMIT_JOB_TAG         = "job_batch1"
+#SUBMIT_JOB_RESOURCES   = "nodes=1:ppn=8,walltime=00:30:00"
+#SUBMIT_JOB_TASK        = "job_task/job.sh"
+#SUBMIT_JOB_CLUSTERTYPE = "SLURM"
 
 ########################
 ### --- Merge jobs - ###
@@ -32,11 +41,12 @@ SUBMIT_JOB_TASK       = "job_task/job.sh"
 
 # - Specify the following settings for merging the jobs
 
-MERGE_JOB_NAME         = "1507_mixtan"
+MERGE_JOB_NAME         = "1707_allnarrow"
 MERGE_JOB_HEADER       = "header/default.header"
 MERGE_JOB_DATASET_NAME = ${MERGE_JOB_NAME}
-MERGE_JOB_CONVERT      = "yes"
+MERGE_JOB_CONVERT      = "no"
 MERGE_JOB_CONVERT_ONLY = "no"
+MERGE_JOB_MAKE_CSV     = "yes"
 MERGE_JOB_FORMAT       = "table"
 MERGE_JOB_COMPRESSION  = "blosc"
 
