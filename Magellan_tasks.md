@@ -35,6 +35,7 @@
 - [ ] Add explanation of config file for MCMC runs and how to change it to manual
 - [ ] Add current python processing modules into main part of Magellan, get working in python2.7
 - [ ] Add usage of processing modules to get csv or hd5f output.
+- [ ] Tidy up print statements in python files so that only essential information is printed out. Perhaps simply commenting out some of the other statements as suggested debugging ones (mention this in manual if you do so)
 
 # Stretch Tasks for Magellan
 
