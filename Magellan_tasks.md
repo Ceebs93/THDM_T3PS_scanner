@@ -46,3 +46,4 @@
 - [ ] Create some example config files
 - [ ] Add the option for the Madgraph section to keep additional files, i.e. those that would be needed for madevent etc.
 - [ ] Edit T3PS files to give functions appropriate docstrings
+- [ ] Make it so that the process to be run in madgraph is edited by the Makefile instead of the user having to go down into the templates
