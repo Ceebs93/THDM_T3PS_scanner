@@ -266,7 +266,7 @@ def alpha_beta(tanbeta, cosba):
 ###############################################################################
 def user_interface():
 
-    print("Do you wish to: 1) Process a file  or  2) Combine csvs?")
+    print("Do you wish to: 1) Process a file a MadGraph CSV  or  2) Combine csvs?")
     option = int(input("Processing includes: conversion to csv, fixing tanbeta
                         applying limits on variables and adding MG5 results
                          onto CSVs. "))

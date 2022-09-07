@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#I inherit the following variables from create-jobs.sh: split_ab bq_tqh1 /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/test_job/job_001/basecard_type1.txt /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/test_job/job_001/runcard.txt /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/test_job/job_001/inputcard_editor1.py  /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/ /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/test_job /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/test_job/job_001 /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/test_job/job_001/Data_Ripper.py RESULTS_
+#I inherit the following variables from create-jobs.sh: split_ab bq_tqh2 /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/test_job/job_001/basecard_type1.txt /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/test_job/job_001/runcard.txt /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/test_job/job_001/inputcard_editor1.py  /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/ /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/test_job /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/test_job/job_001 /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/test_job/job_001/Data_Ripper.py RESULTS_
 
 #Higgs = "h1"
 
@@ -20,11 +20,11 @@ extractions=0
 		COUNT=$(( $COUNT + 1 ))
 		echo "Line number is: " ${COUNT}
 
-                python /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/test_job/job_001/inputcard_editor1.py  $mH $mHc $mA "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/test_job/job_001/basecard_type1.txt" "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/test_job/job_001/runcard.txt" $tb $sinba "bq_tqh1" "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/test_job/job_001/" # Here we run, and pass variables to, the inputcard editor. This edits the inputcard for MadGraph
+                python /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/test_job/job_001/inputcard_editor1.py  $mH $mHc $mA "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/test_job/job_001/basecard_type1.txt" "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/test_job/job_001/runcard.txt" $tb $sinba "bq_tqh2" "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/test_job/job_001/" # Here we run, and pass variables to, the inputcard editor. This edits the inputcard for MadGraph
 
                 python /scratch/cb27g11/THDM_T3PS_scanner/packages/MG5_aMC_v3_1_0/bin/mg5_aMC /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/test_job/job_001/runcard.txt # Here we run MG with the edited inputcard
 
-		mov_d=$(echo bq_tqh1_${tb})
+		mov_d=$(echo bq_tqh2_${tb})
 		mov_dirs=$(echo ${mov_d}_${sinba})
 		#Had to do this in two steps or bash added erroneous spaces
 
@@ -44,7 +44,7 @@ extractions=0
 	done
  
 	echo "data_coallator starting..."
-	python /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/test_job/job_001/Data_coallator.py "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/test_job/job_001/Data_Files/" "bq_tqh1"
+	python /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/test_job/job_001/Data_coallator.py "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/test_job/job_001/Data_Files/" "bq_tqh2"
 echo
 #Here -d allows us to specify our delimiter, then -f indicates we want to cut by field as opposed to bytes. The numbers indicate which column from the csv we want, and these are named above in the line 'while IFS="," read -r etc
 

@@ -1966,7 +1966,7 @@ def make_chain(data):
                 print("L1", L1)
                 #Added edit to algorithmn here
                # if L1 <= 0:
-                if L1 <= math.exp(-25): 
+                if L1 <= math.exp(-50): 
                     print "L1 is very small"
                     reasons["likelihood"] += 1
                     staycount += 1

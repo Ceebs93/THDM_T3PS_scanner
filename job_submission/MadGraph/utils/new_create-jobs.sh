@@ -8,7 +8,6 @@ echo -e "INPUT_DATA:  ${INPUT_DATA}"
 echo -e "LOCAL:       ${LOCAL}"
 echo -e "SPLIT_NAME:  ${SPLIT_NAME}"
 echo -e "PROCESS:     ${PROCESS}"
-#echo -e "CONFIG:     ${CONFIG}"
 echo -e "nJobs:       ${nJobs}"
 echo -e "ROOT_DIR:    ${ROOT_DIR}"
 echo -e "LOOPER:      ${LOOPER}"
@@ -113,7 +112,8 @@ else
 #	python ${JOB_PROJECT_DIR}/row_split.py
 
 
-	# - Job creation loop
+	# - Job creation loop need to edit this so that it checks if there are already job_XXX folders or not and starts from the appropriate i value. Also something to avoid over-writing previously split
+        # csves, and to avoid repeating an unnessecary split when we want the same parameters for a new process.
 	for ((i=0;i<${nJobs};i++));
 	do
 
@@ -121,8 +121,6 @@ else
 		JOB_DIR=${ROOT_DIR}jobs/${NAME}/job_${id}
 		mkdir -p ${JOB_DIR}
 	
-	#	csv_id=$((id + 1))
-	#	CSV_NAME="${JOB_PROJECT_DIR}/${SPLIT_NAME}_${csv_id}"
 		CSV_NAME="${csv_array[${id}]}"
 		echo ${CSV_NAME}
 
@@ -168,7 +166,7 @@ else
 		cp ${ROOT_DIR}MG_utils/submission_script/${TEMPLATE} ${JOB_DIR}/${TEMPLATE}
    	   sed -i "s;LOOPER_;${LOOPERPATH};g" ${JOB_DIR}/${TEMPLATE}
 
-		echo "${JOB_DIR}" >> ${ROOT_DIR}/jobs/${NAME}/all.jobs
+		echo "${JOB_DIR}" >> ${ROOT_DIR}/jobs/${NAME}/${LIST}
 
 done
 fi
