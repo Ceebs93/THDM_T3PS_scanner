@@ -2,19 +2,20 @@
 ### --- Create jobs  --- ###
 ############################
 
-CREATE_JOB_NAME        = "test_job"
-CREATE_JOB_INPUT_DATA  = "/scratch/cb27g11/Looping_Bash/missing.csv"
-CREATE_JOB_LOCAL       = "no"
-CREATE_JOB_SPLIT_NAME  = "split_csv_name"
-CREATE_JOB_PROCESS     = "bq_tqh2"
-CREATE_JOB_nCores      = 1
-CREATE_JOB_nJobs       = 2
-CREATE_JOB_LOOPER      = "csv_looper_draft.sh"
-CREATE_JOB_Card_Editor = "inputcard_editor1.py" 
-CREATE_JOB_BASECARD    = "basecard_type1.txt"
-CREATE_JOB_TEMPLATE    = "slurm_submission.sh"
-CREATE_JOB_RIPPER      = "Data_Ripper_typeI_template.py"
-CREATE_JOB_LIST        = "all.jobs"
+CREATE_JOB_NAME         = "test_job"
+CREATE_JOB_INPUT_DATA   = "/scratch/cb27g11/Looping_Bash/missing.h5"
+#CREATE_JOB_CONVERT_DATA = "yes"
+CREATE_JOB_LOCAL        = "no"
+CREATE_JOB_SPLIT_NAME   = "split_csv_name"
+CREATE_JOB_PROCESS      = "bq_tqh2"
+CREATE_JOB_nCores       = 1
+CREATE_JOB_nJobs        = 2
+CREATE_JOB_LOOPER       = "csv_looper.sh"
+CREATE_JOB_Card_Editor  = "inputcard_editor1.py" 
+CREATE_JOB_BASECARD     = "basecard_type1.txt"
+CREATE_JOB_TEMPLATE     = "slurm_submission.sh"
+CREATE_JOB_RIPPER       = "Data_Ripper_typeI_template.py"
+CREATE_JOB_LIST         = "all2.jobs"
 
 
 ##############################
@@ -56,10 +57,10 @@ EXPORT_MERGE_JOB = $(foreach v,$(VAR_MERGE_JOB),$(v)="$(MERGE_JOB_$(v))") $(DECL
 #########################################################
 
 create-jobs:
-	 @$(EXPORT_CREATE_JOB) ./utils/new_create-jobs.sh
+	 @$(EXPORT_CREATE_JOB) ./utils/create-jobs.sh
 
 submit-jobs:
-	 @$(EXPORT_SUBMIT_JOB) ./utils/new_submit-jobs.sh
+	 @$(EXPORT_SUBMIT_JOB) ./utils/submit-jobs.sh
 
 merge-jobs:
 	 @$(EXPORT_MERGE_JOB) ./utils/merge-jobs.sh

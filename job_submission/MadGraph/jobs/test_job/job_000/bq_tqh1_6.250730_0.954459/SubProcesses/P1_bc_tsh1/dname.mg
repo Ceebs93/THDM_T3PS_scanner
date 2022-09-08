@@ -1,0 +1,1 @@
+DIRNAME=P1_bc_tsh1

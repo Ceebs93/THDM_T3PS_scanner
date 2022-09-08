@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+@author: cb27g11
+"""
 # Data Ripper
 import os
 import shutil
@@ -9,6 +14,12 @@ import pandas as pd
 # by scanning for\'# tb' in the .lhe file. This is the setup for the type-I 
 # model in use, it will NOT work for type-II as this uses a different name for
 # the variable.
+
+#I inherit the following variables from merge-jobs.sh:
+# JOB_DIR_
+
+# This file will inherit values via 'sys.argv' from the corresponding
+# looper.sh file
 
 Process = str(sys.argv[1]) #Name of results folder
 uncomp_dir = "JOB_DIR_/" + str(Process) #Folder containing all the run data

@@ -8,8 +8,14 @@ Created on Sat Nov  7 13:20:37 2020
 import numpy as np
 
 def transfmkappa(tanb, sinba, kappas, xsection, higgs):
-    """Designed for 2HDMs. Takes an array of data points that are in terms of tan(beta)/sin(beta-alpha) and transforms it into terms of a given kappa. i.e. kappatt, the coupling of the SM
-    higgs to a kappa term"""
+    """
+    Designed for 2HDMs. Takes an array of data points that are in terms of
+    tan(beta)/sin(beta-alpha) and transforms it into terms of a given kappa.
+    i.e. kappatt, the coupling of the SM higgs to a kappa term.
+
+    Parameters
+   
+    """
 
     rdcd_xsects = []
     cos_vals = []

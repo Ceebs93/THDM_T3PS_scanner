@@ -1,37 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-if [ $# -eq 0 ]; then
-    echo "No input provided from control file, running with nwmag_looper values"
-
-    csv_name="Type1_reruns"
-
-    Process="bq_tqhi_type1_again"
-    Higgs="tot"
-    basefilepath="/scratch/cb27g11/mg_run_basic/nw_mg_runT1.txt"
-    testfilepath="/scratch/cb27g11/mg_run_iridis/nwmag_runcard.txt"
-
-elif [ $# -eq 5 ]; then
-    echo "Input provided from control file, running with these values"
-
-    csv_name=$1
-    
-    Process=$2
-    Higgs=$3
-    basefilepath=$4
-    testfilepath=$5
-
-else
-  echo "Please provide exactly 5 inputs, csv_name, process name, higgs combination, filepath to basic MG runcard and filepath to functional MG runcard; or run directly from nwmag_looper.sh"
-  exit
-fi
+#I inherit the following variables from create-jobs.sh: CSV_NAME_ PROCESS_ BASECARD_ RUNCARD_ CARD_EDITOR_ ROOT_DIR_ JOB_PROJECT_DIR_ JOB_DIR_ DATA_RIPPER_VERSION_ RESULTS_
 
 COUNT=0
-ripruns=0
+extractions=0
 
-#python /scratch/cb27g11/dat_to_DF.py $file1 $file2 $csv_name
-{	#Double read means we skip the header line
+{	#Double read to skip the header line of data csv
 	read
-	#IFS=internal field separator
+	#IFS=internal field separator. Variables being run on are read in from the data csv. Note that the position of these variables is given at the end of this file.
 	while IFS="," read -r mH mA mHc Isinba Itb
 	do
 		echo ${Isinba} ${Itb}
@@ -41,37 +17,34 @@ ripruns=0
 
 		COUNT=$(( $COUNT + 1 ))
 		echo "Line number is: " ${COUNT}
-                 python /scratch/cb27g11/inputcard_editor/nwinputcard_editor.py $mH $mHc $mA $testfilepath $tb $sinba $Process $basefilepath # Here we run, and pass variables to, inputcard_editor. This edits the inputcard for MG
 
-                python /scratch/cb27g11/MG5_aMC_v3_1_0/bin/mg5_aMC /scratch/cb27g11/mg_run_iridis/nwmag_runcard.txt # Here we run MG with the edited inputcard
+                python CARD_EDITOR_ $mH $mHc $mA "BASECARD_" "RUNCARD_" $tb $sinba "PROCESS_" "JOB_DIR_/" # Here we run, and pass variables to, the inputcard editor. This edits the inputcard for MadGraph
 
-		mov_d=$(echo ${Process}_${tb})
+                python SCANNER_DIR_MG5_aMC_v3_1_0/bin/mg5_aMC RUNCARD_ # Here we run MG with the edited inputcard
+
+		mov_d=$(echo PROCESS__${tb})
 		mov_dirs=$(echo ${mov_d}_${sinba})
 		#Had to do this in two steps or bash added erroneous spaces
 
 		echo "Move directory is: ${mov_dirs}"
-		mv /scratch/cb27g11/"$mov_dirs" /scratch/cb27g11/Data_Storage
+		mv JOB_DIR_/"$mov_dirs" JOB_DIR_/
 
-              # mv /scratch/cb27g11/"$Process"* /scratch/cb27g11/Data_Storage # Here we move the output folder into Data_Storage
 		echo "About to use 'Data_Ripper_iridis.py'"
-                python /scratch/cb27g11/Data_Ripper_iridis/Data_Ripper_iridis.py $mov_dirs $Higgs # Here the needed data is extracted from the output
+                python DATA_RIPPER_VERSION_ $mov_dirs $Higgs # Here the needed data is extracted from the output
 		
-		ripruns=$(( $ripruns + 1 ))
-		echo "Data_Ripper_iridis.py used ${ripruns} time/s"
+		extractions=$(( $extractions + 1 ))
+		echo "Data_Ripper_iridis.py used ${extractions} time/s"
                 
-		cd RESULTS_
+		cd JOB_DIR_
 	        rm -r "$mov_dirs"
 		echo "Removed ${mov_dirs}"
-               #rm -r "$Process"*
-               #bash /scratch/cb27g11/Data_Storage/Compressor.sh # Original output is compressed to save storage space
-               # cd ~/
+
 	done
-
-	results="/scratch/cb27g11/Data_Ripper_files/" 
+ 
 	echo "data_coallator starting..."
-	python /scratch/cb27g11/Data_Ripper_iridis/Data_coallator.py $results/results $Process
+	python JOB_DIR_/Data_coallator.py "JOB_DIR_/Data_Files/" "PROCESS_"
 echo
-#Here -d allows us to specify our delimiter, then -f indicates we want to cut by field as opposed to bytes etc
+#Here -d allows us to specify our delimiter, then -f indicates we want to cut by field as opposed to bytes. The numbers indicate which column from the csv we want, and these are named above in the line 'while IFS="," read -r etc
 
-} < <(cut -d "," -f1,2,3,4,6 /scratch/cb27g11/Looping_Bash/${csv_name}.csv)
+} < <(cut -d "," -f1,2,3,4,6 CSV_NAME_.csv)
 

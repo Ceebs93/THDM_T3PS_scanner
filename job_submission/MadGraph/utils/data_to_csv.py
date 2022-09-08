@@ -16,9 +16,24 @@ process = str(sys.argv[1])
 
 ################################################################################
 def tan_trnsfm(dataf):
-    """"calculates beta values and converts them to the lowest equivalent value.
+    """
+    Calculates beta values and converts them to the lowest equivalent value.
 This ensures we don't accidentally get any massively inflated cross-sections
-back from MadGraph."""
+back from MadGraph.
+    
+    Parameters
+    ----------
+    dataf : pandas dataframe
+        a dataframe containing a column of 'tanbeta' values to be transformed
+
+    Returns
+    -------
+    dataf : pandas dataframe
+        the given dataframe but with the 'tanbeta' values transformed to the 
+        lowest valid values. i.e. we wish for the values for the 'betas' to
+        be < 2*pi 
+    
+    """
 
     #Extracts tanbeta values and puts them in a list
     tanbeta = dataf['tb'].tolist()
@@ -28,7 +43,7 @@ back from MadGraph."""
         # Beta values are calculated
         beta_val = np.arctan(tanbeta[i])
         # Checks if beta_val is too high, if it is then 2pi is subtracted until
-        # it is no longer too high, this value is added to a "beta_list"
+        # this is no longer the case, this value is added to a "beta_list"
         if beta_val > 2*np.pi:
             while beta_val > 2*np.pi:
                 beta_val = beta_val - 2*np.pi
@@ -46,8 +61,24 @@ back from MadGraph."""
 
 ################################################################################
 def dat_to_DF(Filename, Csvname):
-    """Reads in the dat file from the t3ps scanner and converts it to a csv
-    file"""
+    """
+    Reads in the dat file from the t3ps scanner and converts it to a csv
+    file
+
+    Parameters
+    ----------
+    Filename : string
+        This is the name (and path to) a .dat file the user wishes to read into
+        a csv file.
+
+    Csvname : string
+        This is the name (and path for) the output csv the user wishes to use.
+
+    Returns
+    -------
+    None : writes the new csv file to the given path.
+
+    """
     file1 = open(Filename, 'r')
     Lines = file1.readlines()
     lens = []
@@ -71,9 +102,35 @@ def dat_to_DF(Filename, Csvname):
 
 ################################################################################
 def add_xsect(Filename, Chkdfile, proc):
-    """"Takes the name of an output CSV from the MG5 looper and the name of the
+    """
+    Takes the name of an output CSV from the MG5 looper and the name of the
     file that was originally given to this and combines them to create a CSV
-    with the original data as well as the MG5 calculated cross section"""
+    with the original data as well as the MG5 calculated cross section
+
+    Parameters
+    ----------
+    Filename : string
+        This is the name (and path to) a csv file from running Madgraph. Note
+        that one should not add '.csv' to the end of this as it is added by 
+        the function.
+
+    Chkdfile : string
+        This is the name (and path to) the original csv file that was fed to
+        MadGraph (prior to any splitting being done in setting up a MadGraph
+        job). It should contain the same sin(beta-alpha), tan(beta) points as
+        'Filename' so that they can be combined.
+
+    proc : string
+        This is used to name the final output csv, it is intended to be the 
+        process that was fed to MadGraph to produce 'Filename' i.e.
+        bq_tqh1 to indicate the process b q > t q h1 .
+
+    Returns
+    -------
+    Chkd_df : pandas dataframe
+        Combination of the Filename and Chkdfile dataframes.
+
+    """
 
     #Adding .csv to end of filenames
     Filename = Filename + ".csv"

@@ -1,57 +1,109 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Sep  8 16:27:12 2022
+
+@author: cb27g11
+"""
+
 import pandas as pd
 import math
 
+#I inherit the following variables from merge-jobs.sh:
+# INPUT_DATA_, nJobs_, datafile_
+
+###############################################################################
 def row_dropper(filepath, x, newfile):
-	"""reads in a csv and drops x rows from the top"""
-	old_df = pd.read_csv(filepath)
-	print(old_df.tail(5))
-	to_drop = list(range(0, x))
-	new_df = old_df.drop(old_df.index[to_drop])
-	print(new_df.head(5))
+    """
+    Reads in a csv files and drops x rows from the top.
+    
+    Parameters
+    ----------
+    filepath : string
+        the name and path to the csv file the user wishes to use.
 
-	new_df.to_csv(newfile, index=False)
+    x : int
+        the number of rows to be removed from the top of the csv file
 
-#example of use of row_dropper
-#row_dropper('/scratch/cb27g11/iridis_script/magellan01.csv', 11742, '/scratch/cb27g11/iridis_script/bq_mag_dropd.csv')
+    newfile : string
+        the name and path the user wishes to save the new csv file to
 
+    Returns
+    -------
+    None : saves new csv to 'newfile' but does not return anything.
+    """
+
+    old_df = pd.read_csv(filepath)
+    print(old_df.tail(5))
+    to_drop = list(range(0, x))
+    new_df = old_df.drop(old_df.index[to_drop])
+    print(new_df.head(5))
+
+    new_df.to_csv(newfile, index=False)
+###############################################################################
+
+##############################################################################
 def csv_splitter(filepath, x, newnametag):
-	"""reads in a csv located at 'filepath', splits this into 'x' csves with sizes as close to even as is possible. Names are assigned as 'newnametag'_00, 'newnametag'_01 and so on."""
-	old_df = pd.read_csv(filepath)
-	csv_len = float(len(old_df))
-	x = float(x)
-	print(csv_len/x)
-	print(5.0/3.0)
-	csv_size = int(math.ceil(csv_len/x))
+    """
+    Reads in a csv located at 'filepath', splits this into 'x' csves with sizes
+    as close to even as is possible. Names are assigned as 'newnametag'_00,
+    'newnametag'_01 and so on.
+    
+    Parameters
+    ----------
+    filepath : string
+        the name and path to the csv file the user wishes to split.
 
-	print("csv_size", csv_size)
+    x : int
+        the number of files to split the initial csv file into.
 
-	print("x", x)
+    newnametag : string
+        the base name to give to each of the newly created csv files. These
+        will have the form 'newnametag'_** where the asterisks are unique
+        numbers.
 
-	i = 1	
+    Returns
+    -------
+    None : function creates and saves multiple new csv files but does not 
+        directly return these.
 
-	while i !=x:
-		print("Loop number: " + str(i))
-		if i != x:
-			
-			print(" creating csv number: " + str(i))
-			selected_rows = list(range(0, csv_size))
-			print("Selected rows: " + str(selected_rows))
-			
-			new_df = old_df.iloc[selected_rows]
-			print("new_df", new_df)
-			
-			print("Saving new_df...")
-			new_df.to_csv(str(newnametag) + "_" + str(i) + ".csv", index=False)
+    """
+    old_df = pd.read_csv(filepath)
+    csv_len = float(len(old_df))
+    x = float(x)
+    print(csv_len/x)
+    print(5.0/3.0)
+    csv_size = int(math.ceil(csv_len/x))
 
-			print("dropping saved rows from old_df. Before:  ")
-			print(old_df)
-			old_df = old_df.drop(old_df.index[selected_rows])
-			print("old_df", old_df)
+    print("csv_size", csv_size)
 
-			i += 1
+    print("x", x)
 
-	if i == x:
-		old_df.to_csv(str(newnametag) + "_" + str(i) + ".csv", index=False)
+    i = 1
+
+    while i !=x:
+        print("Loop number: " + str(i))
+        if i != x:
+
+            print(" creating csv number: " + str(i))
+            selected_rows = list(range(0, csv_size))
+            print("Selected rows: " + str(selected_rows))
+            
+            new_df = old_df.iloc[selected_rows]
+            print("new_df", new_df)
+            
+            print("Saving new_df...")
+            new_df.to_csv(str(newnametag) + "_" + str(i) + ".csv", index=False)
+            
+            print("dropping saved rows from old_df. Before:  ")
+            print(old_df)
+            old_df = old_df.drop(old_df.index[selected_rows])
+            print("old_df", old_df)
+
+            i += 1
+
+    if i == x:
+        old_df.to_csv(str(newnametag) + "_" + str(i) + ".csv", index=False)
 
 
 csv_splitter("INPUT_DATA_", nJobs_, "datafile_")

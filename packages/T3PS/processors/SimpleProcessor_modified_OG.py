@@ -56,6 +56,10 @@ def init(config_dir, config, module):
 
     Find the absolute path of the requested callable file and prints out what
     it found.
+
+    Parameters
+    ----------
+    config_dir : string
     """
     print('### --- Inside SimpleProcessor.init --- ')
 
@@ -90,12 +94,16 @@ def init(config_dir, config, module):
 
 
 def is_listlike(x):
-    """Return True if x is a sequence but not a string."""
+    """
+    Return True if x is a sequence but not a string.
+    """
     return isinstance(x, Sequence) and not isinstance(x, basestring)
 
 
 def main(template_file, pars, vars):
-    """Run requested command and return list of result values."""
+    """
+    Run requested command and return list of result values.
+    """
     print('### --- Inside SimpleProcessor.main --- ')
 
     global arguments, timeout, timelimit, formula_eval, data_fields_code
@@ -114,18 +122,12 @@ def main(template_file, pars, vars):
             stderr=subprocess.STDOUT,
         )
 
-    #status, result = commands.getstatusoutput(arguments + ([template_file] if template_file else[])
-    #print "status", status
-    #print "result", result
 
     print "STDOUT is ", output
 
     # group 0 is the full number match
     # make sure it stays that way when changing number_pattern!
   
-    #clipped_output = output[output.find("Marker"):]
-    #print "clipped_output[0:10]  ", clipped_output[0:10]
- 
     all_numbers = [float(x[0]) for x in re.findall(number_pattern, output)]
     print "all_numbers is  ", all_numbers
     print "length  ", len(all_numbers)
