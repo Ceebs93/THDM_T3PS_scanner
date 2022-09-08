@@ -5,7 +5,7 @@
 #	 - HiggsSignals
 #	 - 2HDMC
 #	 - LHAPDF
-#	 - SusHi
+#	 - MG5
 
 # - Exit if any error is found
 set -e
@@ -15,6 +15,10 @@ if [ -z "${THDM_T3PS_SCANNER_DIR}" ]; then
     echo "Please source setup.sh first in the root directory of the package."
 	 exit 1
 fi
+
+# Want to set up compilers explicitly and export them to ensure that compliations are using the correct ones
+
+
 
 ###########################
 ### --- HiggsBounds --- ###
@@ -28,13 +32,15 @@ echo "### --- Attempting to install ${HiggsBounds_folder_name} --- ####"
 echo "############################################################"
 echo ""
 echo "cd ${HiggsBounds_pkg_path}"
-echo "./configure"
+echo "mkdir build && cd build"
+echo "cmake .."
 echo "make"
 echo ""
 
 cd ${HiggsBounds_pkg_path}
 make clean
-./configure
+mkdir build && cd build
+cmake ..
 make
 
 
@@ -42,7 +48,7 @@ make
 ### --- HiggsSignals --- ###
 ############################
 
-HiggsSignals_folder_name=HiggsSignals-2.2.3beta
+HiggsSignals_folder_name=HiggsSignals-2.6.2
 HiggsSignals_pkg_path=${THDM_T3PS_SCANNER_DIR}/packages/${HiggsSignals_folder_name}
 
 echo -e "\n\n\n"
@@ -51,13 +57,15 @@ echo "### --- Attempting to install ${HiggsSignals_folder_name} --- ####"
 echo "############################################################"
 echo ""
 echo "cd ${HiggsSignals_pkg_path}"
-echo "./configure"
+echo "mkdir build && cd build"
+echo "cmake .."
 echo "make"
 echo ""
 
 cd ${HiggsSignals_pkg_path}
 make clean
-./configure
+mkdir build && cd  build
+cmake ..
 make
 
 
@@ -65,7 +73,7 @@ make
 ### --- 2HDMC --- ###
 #####################
 
-THDMC_folder_name=2HDMC-1.7.0
+THDMC_folder_name=2HDMC-1.8.0
 THDMC_pkg_path=${THDM_T3PS_SCANNER_DIR}/packages/${THDMC_folder_name}
 
 
@@ -112,28 +120,32 @@ make
 make install
 
 
-#####################
-### --- SusHi --- ###
-#####################
+########################
+### --- MadGraph --- ###
+########################
 
-SusHi_folder_name=SusHi-1.6.1
-SusHi_pkg_path=${THDM_T3PS_SCANNER_DIR}/packages/${SusHi_folder_name}
+MG5_dir=MG5_aMC_3_1_0
 
 echo -e "\n\n\n"
-echo "############################################################"
-echo "### --- Attempting to install ${SusHi_folder_name} --- ####"
-echo "############################################################"
-echo ""
-echo "cd ${SusHi_pkg_path}"
-echo "./configure"
-echo "make"
-echo ""
+echo "######################################################"
+echo "### --- Downloading and setting up ${MG5_dir} --- ####"
+echo "######################################################"
 
-cd ${SusHi_pkg_path}
-make clean
-./configure 
-make predef=2HDMC
+echo "cd ${THDM_T3PS_SCANNER_DIR}/packages"
+echo "wget https://launchpad.net/mg5amcnlo/3.0/3.1.x/+download/MG5_aMC_v3.1.0.tar.gz"
+echo "tar -zxf MG5_v3.1.0.tar.gz"
+echo "cd ${MG5_dir}"
+echo "mv ../THDM_type1_UFO ./models"
+echo "mv ../2HDMtII_NLO ./models"
 
+cd ${THDM_T3PS_SCANNER_DIR}/packages
+wget https://launchpad.net/mg5amcnlo/3.0/3.1.x/+download/MG5_aMC_v3.1.0.tar.gz
+tar -zxf MG5_v3.1.0.tar.gz
+cd ${MG5_dir}
+mv ../THDM_type1_UFO ./models
+mv ../2HDMtII_NLO ./models
+
+echo "You should now run MadGraph in order to install LHAPDF and other software you may wish to use within it."
 
 echo -e "install.sh script has finished."
 echo -e "All packages should be installed."

@@ -79,6 +79,7 @@ def dat_to_DF(Filename, Csvname):
     None : writes the new csv file to the given path.
 
     """
+    
     file1 = open(Filename, 'r')
     Lines = file1.readlines()
     lens = []
@@ -91,6 +92,7 @@ def dat_to_DF(Filename, Csvname):
 
     file1.close()
     df = pd.read_csv(Filename, skiprows= lens, sep="\s+")
+
     print("Dataframe columns will be: " + str(df.columns.tolist()))
     df.dropna(inplace=True)
 

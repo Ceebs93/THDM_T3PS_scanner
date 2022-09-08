@@ -8,16 +8,30 @@ Created on Tue Feb  9 19:34:32 2021
 
 import numpy as np
 import pandas as pd
+import sys
 
 from scipy import stats
 
 
 ################################################################################
 def tan_trnsfm(dataf):
-    """"
-    calculates beta values and converts them to the lowest equivalent value. 
-    This ensures we don't accidentally get any massively inflated cross-sections
-    back from MadGraph.
+    """
+    Calculates beta values and converts them to the lowest equivalent value.
+This ensures we don't accidentally get any massively inflated cross-sections
+back from MadGraph.
+    
+    Parameters
+    ----------
+    dataf : pandas dataframe
+        a dataframe containing a column of 'tanbeta' values to be transformed
+
+    Returns
+    -------
+    dataf : pandas dataframe
+        the given dataframe but with the 'tanbeta' values transformed to the 
+        lowest valid values. i.e. we wish for the values for the 'betas' to
+        be < 2*pi 
+    
     """
 
     #Extracts tanbeta values and puts them in a list
@@ -47,13 +61,27 @@ def tan_trnsfm(dataf):
 ################################################################################
 def dat_to_DF(Filename, Csvname):
     """
-    Reads in the dat file from the t3ps scanner and converts it to a csv file
+    Reads in the dat file from the t3ps scanner and converts it to a csv
+    file
+
+    Parameters
+    ----------
+    Filename : string
+        This is the name (and path to) a .dat file the user wishes to read into
+        a csv file.
+
+    Csvname : string
+        This is the name (and path for) the output csv the user wishes to use.
+
+    Returns
+    -------
+    None : writes the new csv file to the given path.
+
     """
 
     file1 = open(Filename, 'r')
     Lines = file1.readlines()
     lens = []
-    print(len(Lines))
 
     for i in range(0, len(Lines)):
         if len(Lines[i]) <= 700 :
@@ -61,7 +89,6 @@ def dat_to_DF(Filename, Csvname):
             print(len(Lines[i]))
             lens.append(i)
     file1.close()
-    print(len(lens))
     df = pd.read_csv(Filename, skiprows= lens, sep="\s+")
 
     print("Dataframe columns will be: " + str(df.columns.tolist()))
@@ -92,29 +119,34 @@ def make_useful(Filename, inc_Hc, col_names=names):
     Filename : string
         the name of the .dat file the user wishes to filter and transform into 
         a .csv file.
+
     inc_Hc : boolean
         if False the function will remove all points where the mass of the 
         charged Higgs is below a certain value.
+
+    col_names : list
+        a list of column names to be given to the created dataframe. By default
+        this will be set to the global variable "names".
         
     Returns
     -------
-    A new pandas dataframe of the filtered data from the input file.
+    new_df : pandas dataframe
+        This is a new pandas dataframe containing the filtered data from the
+        input file.
     """
 
     print("Starting make_useful ...")
 
     # Reads in data from Filename
-
-    df = pd.read_csv(Filename, sep=",", names= ['Z7', 'mH', 'mHc', 'mA', 'cba', 
-         skiprows=[0])
+    df = pd.read_csv(Filename, sep=",", names=col_names, skiprows=[0])
 
     temp_df = df.astype(float)
 
     print("Columns in dataframe will be: " + str(temp_df.columns.tolist()))
-    print("Inital dataframe created")
 
     # Below we apply limits to our csv, done in two seperate chunks, the 
     # positive and negative values of sinba. These are then recombined.
+    # values used as limits here come from REFERENCE FOR LIMITS SHOULD BE HERE
     upper_df = temp_df[temp_df['sinba'] >= 0.88]
     upper_df = upper_df[upper_df['sinba'] <= 1.2]
 
@@ -129,11 +161,10 @@ def make_useful(Filename, inc_Hc, col_names=names):
 
     df = tan_trnsfm(temp_df)
 
-    print("About to drop rows containing NaNs as the only reason for a NaN is"\
-        " error so we disregard such points...")
     df.dropna(inplace=True)
 
     # When excluding the charged higgs we require masses to be above 580GeV
+    # REFERENCE FOR THIS LIMIT HERE
     if inc_Hc == False:
         temp_df = df.drop(df[df.mHc < 580].index)
 
@@ -201,7 +232,19 @@ def make_useful(Filename, inc_Hc, col_names=names):
 def combiner(df_list):
     """
     Takes a list of pandas dataframes, combines them and removes any duplicate
-    rows
+    rows.
+
+    Parameters
+    ----------
+    df_list : list
+        This is a list of pandas dataframes that has already been read in from 
+        a csv or other file type.
+
+    Returns
+    -------
+    final_df : pandas dataframe
+        Output pandas dataframe which will be the result of concatenating and
+        'tidying' input dataframes.
     """
 
 
@@ -220,7 +263,24 @@ def alpha_beta(tanbeta, cosba):
     """
     Takes lists of tan(beta) and cos(beta-alpha) values and uses them to
     calculate the values of alpha and beta then return them as lists
-    """
+
+    Parameters
+    ----------
+    tanbeta : list of floats
+        the values for tan(beta) as decimals
+
+    cosba : list of floats
+        the values for cos(beta-alpha) as decimals
+
+    Returns
+    -------
+    alpha_val : list of floats
+        the corresponding alpha values for the input data
+   
+    beta_val : list of floats
+        the corresponding beta values for the input data
+
+ """
 
     if len(tanbeta) != len(cosba):
         raise Exception("Lists are not the same length, there are missing\
@@ -245,7 +305,9 @@ def alpha_beta(tanbeta, cosba):
 def user_interface():
     """
     Runs a basic interface to prompt the user for input about which functions
-    they wish to run and on what files they wish to run them on.
+    they wish to run and on what files they wish to run them on. Can convert
+    .dat files to csv files and combine csv files. Will run filtering on data
+    to ensure it complies with current constraints.
     """
 
 
