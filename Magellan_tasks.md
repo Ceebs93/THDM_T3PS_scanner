@@ -35,7 +35,6 @@
 - [ ] Add performance to manual
 - [ ] Add explanation of config file for MCMC runs and how to change it to manual
 - [ ] Add current python processing modules into main part of Magellan, get working in python2.7
-- [ ] Add usage of processing modules to get csv or hd5f output.
 - [ ] Tidy up print statements in python files so that only essential information is printed out. Perhaps simply commenting out some of the other statements as suggested debugging ones (mention this in manual if you do so)
 
 # Stretch Tasks for Magellan
@@ -47,3 +46,4 @@
 - [ ] Edit T3PS files to give functions appropriate docstrings
 - [ ] Make it so that the process to be run in madgraph is edited by the Makefile instead of the user having to go down into the templates
 - [ ] Add section to create-jobs for MadGraph to work with h5f files if that is what the user chooses
+- [ ] Add usage of processing modules to get csv or hd5f output.
