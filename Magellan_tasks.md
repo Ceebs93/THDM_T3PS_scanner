@@ -17,7 +17,7 @@
 - [ ] Create a "normal-start-up.sh" to be run at the begining of each use, use code from source env.sh so that it will set $THDM_T3PS_scanner and look for an env_local.sh to source
 - [X] LHAPDF needs to be edited so that the config file will find the correct parts of python in conda - Ended up using the LHAPDF installation in MadGraph instead. Should still be reachable by 2HDMC
 - [X] Create job running interfaces for the ~~SusHi~~ Madgraph pipeline
-- [ ] Edit all non T3PS python files so that functions have appropriate docstrings
+- [X] Edit all non T3PS python files so that functions have appropriate docstrings
 - [ ] Work on installation guide for main directory
 - [ ] ~Create docker and install ubuntu 20, Make 3.22, GCC 11.1.0, GSL 2.6, python2.7~
 - [ ] ~Install necessecary python modules to docker, pandas, numpy, scipy, hd5f etc~
