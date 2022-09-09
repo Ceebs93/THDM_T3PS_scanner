@@ -8,7 +8,7 @@ CREATE_JOB_NAME         = "0609_lowtan"
 CREATE_JOB_CONFIG       = "config/mcmc_scan_default.conf"
 CREATE_JOB_CLUSTER      = "yes"
 CREATE_JOB_nCores       = 1
-CREATE_JOB_program      = ${THDM_T3PS_SCANNER_DIR}/ParameterPointProcessor/bin/ParameterScan_T3PS_with_HB_HS_FAST
+CREATE_JOB_program      = top_dir_/ParameterPointProcessor/bin/ParameterScan_T3PS_with_HB_HS_FAST
 CREATE_JOB_nJobs        = 8
 CREATE_JOB_chain_length = 9999999
 CREATE_JOB_TEMPLATE     = "template/mcmc_scan.func"
@@ -33,7 +33,7 @@ SUBMIT_JOB_CLUSTERTYPE = "SLURM"
 #SUBMIT_JOB_TAG         = "job_batch1"
 #SUBMIT_JOB_RESOURCES   = "nodes=1:ppn=8,walltime=00:30:00"
 #SUBMIT_JOB_TASK        = "job_task/job.sh"
-#SUBMIT_JOB_CLUSTERTYPE = "SLURM"
+#SUBMIT_JOB_CLUSTERTYPE = "TORQUE"
 
 ########################
 ### --- Merge jobs - ###
@@ -52,7 +52,7 @@ MERGE_JOB_COMPRESSION  = "blosc"
 
 #######################
 
-DECLARE_ROOT_DIR = ROOT_DIR="${THDM_T3PS_SCANNER_DIR}/job_submission/MCMC"
+DECLARE_ROOT_DIR = ROOT_DIR="top_dir_/job_submission/MCMC"
 
 VAR_CREATE_JOB    = $(shell echo '$(.VARIABLES)' |  awk -v RS=' ' '/CREATE_JOB_/' | sed 's/CREATE_JOB_//g' )
 EXPORT_CREATE_JOB = $(foreach v,$(VAR_CREATE_JOB),$(v)="$(CREATE_JOB_$(v))") $(DECLARE_ROOT_DIR)

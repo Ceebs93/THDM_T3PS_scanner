@@ -4,7 +4,7 @@ CWD=$(pwd)
 
 export PATH=${CWD}/packages/T3PS:$PATH
 
-export THDM_T3PS_SCANNER_DIR=${CWD}
+export THDM_T3PS_SCANNER_DIR=top_dir_
 echo ${THDM_T3PS_SCANNER_DIR}
 
 if [ -f env_local.sh ]; then

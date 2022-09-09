@@ -108,10 +108,6 @@ else
 
 	echo ${csv_array[@]}
 
-	# - Running python to perform the splitting
-#	python ${JOB_PROJECT_DIR}/row_split.py
-
-
 	# - Job creation loop need to edit this so that it checks if there are already job_XXX folders or not and starts from the appropriate i value. Also something to avoid over-writing previously split
         # csves, and to avoid repeating an unnessecary split when we want the same parameters for a new process.
 	for ((i=0;i<${nJobs};i++));

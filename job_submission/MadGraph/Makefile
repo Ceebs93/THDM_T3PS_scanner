@@ -2,12 +2,12 @@
 ### --- Create jobs  --- ###
 ############################
 
-CREATE_JOB_NAME         = "test_job"
-CREATE_JOB_INPUT_DATA   = "/scratch/cb27g11/Looping_Bash/missing.h5"
+CREATE_JOB_NAME         = "setup_test"
+CREATE_JOB_INPUT_DATA   = "/scratch/cb27g11/Looping_Bash/missing.csv"
 #CREATE_JOB_CONVERT_DATA = "yes"
 CREATE_JOB_LOCAL        = "no"
 CREATE_JOB_SPLIT_NAME   = "split_csv_name"
-CREATE_JOB_PROCESS      = "bq_tqh2"
+CREATE_JOB_PROCESS      = "bq_tqh1"
 CREATE_JOB_nCores       = 1
 CREATE_JOB_nJobs        = 2
 CREATE_JOB_LOOPER       = "csv_looper.sh"
@@ -15,19 +15,29 @@ CREATE_JOB_Card_Editor  = "inputcard_editor1.py"
 CREATE_JOB_BASECARD     = "basecard_type1.txt"
 CREATE_JOB_TEMPLATE     = "slurm_submission.sh"
 CREATE_JOB_RIPPER       = "Data_Ripper_typeI_template.py"
-CREATE_JOB_LIST         = "all2.jobs"
+CREATE_JOB_LIST         = "all.jobs"
 
 
 ##############################
 ### --- Job Submission --- ###
 ##############################
 
-SUBMIT_JOB_NAME       = "test_job"
-SUBMIT_JOB_LIST       = "all2.jobs"
+SUBMIT_JOB_NAME       = "setup_test"
+SUBMIT_JOB_LOCAL      = "no" 
+SUBMIT_JOB_LIST       = "all.jobs"
 SUBMIT_JOB_NODES      = "--nodes=1"
 SUBMIT_JOB_PPN        = "--ntasks-per-node=8"
 SUBMIT_JOB_TIME       = "--time=00:05:00"
 SUBMIT_JOB_SCRIPT     = "slurm_submission.sh"
+SUBMIT_JOB_SCRIPT     = "SLURM"
+
+
+#For Torque jobs
+#SUBMIT_JOB_LIST        = "all.jobs"
+#SUBMIT_JOB_TAG         = "job_batch1"
+#SUBMIT_JOB_RESOURCES   = "nodes=1:ppn=8,walltime=00:30:00"
+#SUBMIT_JOB_TASK        = "job_task/job.sh"
+#SUBMIT_JOB_CLUSTERTYPE = "TORQUE"
 
 
 ########################
@@ -43,7 +53,7 @@ MERGE_JOB_INPUT_DATA  = "/scratch/cb27g11/Looping_Bash/missing.csv"
 #######################
 
 
-DECLARE_ROOT_DIR = ROOT_DIR="${THDM_T3PS_SCANNER_DIR}/job_submission/MadGraph/"
+DECLARE_ROOT_DIR = ROOT_DIR="top_dir_/job_submission/MadGraph/"
 
 VAR_CREATE_JOB    = $(shell echo '$(.VARIABLES)' |  awk -v RS=' ' '/CREATE_JOB_/' | sed 's/CREATE_JOB_//g' )
 EXPORT_CREATE_JOB = $(foreach v,$(VAR_CREATE_JOB),$(v)="$(CREATE_JOB_$(v))") $(DECLARE_ROOT_DIR)
