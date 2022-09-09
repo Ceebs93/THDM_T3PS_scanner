@@ -19,10 +19,10 @@
 - [X] Create job running interfaces for the ~~SusHi~~ Madgraph pipeline
 - [ ] Edit all non T3PS python files so that functions have appropriate docstrings
 - [ ] Work on installation guide for main directory
-- [ ] Create docker and install ubuntu 20, Make 3.22, GCC 11.1.0, GSL 2.6, python2.7
-- [ ] Install necessecary python modules to docker, pandas, numpy, scipy, hd5f etc
-- [ ] Install Magellan to the docker
-- [ ] Test Magellan in docker works
+- [ ] ~Create docker and install ubuntu 20, Make 3.22, GCC 11.1.0, GSL 2.6, python2.7~
+- [ ] ~Install necessecary python modules to docker, pandas, numpy, scipy, hd5f etc~
+- [ ] ~Install Magellan to the docker~
+- [ ] ~Test Magellan in docker works~
 - [ ] Add MCMC theory to manual
 - [ ] Add description of T3PS to manual
 - [ ] Add 2HDM theory to manual
@@ -47,3 +47,7 @@
 - [ ] Make it so that the process to be run in madgraph is edited by the Makefile instead of the user having to go down into the templates
 - [ ] Add section to create-jobs for MadGraph to work with h5f files if that is what the user chooses
 - [ ] Add usage of processing modules to get csv or hd5f output.
+- [ ] Create singularity and install ubuntu 20, Make 3.22, GCC 11.1.0, GSL 2.6, python2.7
+- [ ] Install necessecary python modules to singularity, pandas, numpy, scipy, hd5f etc
+- [ ] Install Magellan to the singularity
+- [ ] Test Magellan in singularity works
