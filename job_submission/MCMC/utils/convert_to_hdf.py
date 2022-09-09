@@ -2,14 +2,12 @@
 
 import tables
 import pandas as pd
-import dask.dataframe as dd
 import sys
 import time
 import os
 from tqdm import tqdm
 from scipy import stats
 from glob import glob
-
 
 
 headers = {
@@ -36,26 +34,45 @@ headers = {
 
 
 def ASCII_to_pd_h5f( input, output, out_ds_name, form, compr ):
+    """
+    Takes a datafile and converts it to a h5df file according to given
+    parameters.    
+
+    Parameters
+    ---------
+    input : string
+        path to and name of the datafile to convert to h5df
+
+    output : string
+        path to and name for the output h5df file
+
+    out_ds_name : string
+        name of the job the data has been taken from
+
+    form : string
+        indicates the format for the h5df file
+
+    compr : string
+        indicates the compression to be used in creating the h5df file
+
+    Returns
+    -------
+    None : converts datafile to h5df form and writes to desired path
+
+    """
+
 
     start = time.time()
     all_files = glob( input )
     print('Input:\n', all_files)
     
     print('Reading in file(s) {}...'.format(input) )
-#   df_from_each_file = (pd.read_csv(f, sep="\s+|\t+|\s+\t+|\t+\s+") for f in all_files)
-#   df_from_each_file = (pd.read_csv(f, delim_whitespace=True) for f in all_files)
-    
-#   print( 'Concatenating...' )
-#   df = pd.concat(df_from_each_file, ignore_index=True)
- 
-    #df = pd.read_table(input, index_col=None,  delim_whitespace=True,  error_bad_lines=False)
     df_list = []
 
     chunksize = 100000
 
     for df_chunk in tqdm(pd.read_csv(input, index_col=None,  delim_whitespace=True,  error_bad_lines=False, chunksize=chunksize)):
 
-#        df_list.append(df_chunk)
 
         ### - Filtering
     
@@ -93,10 +110,6 @@ def ASCII_to_pd_h5f( input, output, out_ds_name, form, compr ):
     
         mask_theory = (df_chunk["per_8pi"] == per_4pi) & (df_chunk["sta"] == sta) & (df_chunk["uni"] == uni)
     
-    #    allowed_df_chunk = df_chunk_excl_bad.query('chi2_Tot_gfitter < {} & tot_hbobs < 1.0'.format(  chi2_Tot_sig3_lim ) )
-    #    allowed_df_chunk = df_chunk_excl_bad.query('chi2_Tot_gfitter < {}'.format(  chi2_Tot_sig3_lim ) )
-    #
-        mask = mask_theory & mask_chi2_Tot
    	print(df_chunk.head(10)) 
         allowed_df_chunk = df_chunk[mask]
     	print(allowed_df_chunk.head(10))
