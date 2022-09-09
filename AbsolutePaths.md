@@ -10,7 +10,6 @@
 - [X] /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/local_test.sh
 - [X] /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/Makefile
 - [X] /scratch/cb27g11/THDM_T3PS_scanner/setup_auto.sh
-- [ ] /scratch/cb27g11/THDM_T3PS_scanner/setup_links.sh
 - [ ] /scratch/cb27g11/THDM_T3PS_scanner/packages/install.sh
 - [ ] /scratch/cb27g11/THDM_T3PS_scanner/packages/2HDMC-1.8.0/Makefile
 - [ ] /scratch/cb27g11/THDM_T3PS_scanner/packages/2HDMC-1.8.0/src/HBHS.cpp
