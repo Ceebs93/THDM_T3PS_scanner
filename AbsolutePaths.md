@@ -8,9 +8,6 @@
 - [X] /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MCMC/Makefile
 - [X] /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/Makefile
 - [X] /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/local_test.sh
-- [ ] /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/job_task/job_torque.sh
-- [ ] /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/job_task/job_slurm.sh
-- [ ] /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/job_task/job_local.sh
 - [ ] /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/config/default.conf
 - [ ] /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/Makefile
 - [ ] /scratch/cb27g11/THDM_T3PS_scanner/setup_auto.sh
