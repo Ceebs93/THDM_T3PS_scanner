@@ -1,8 +1,11 @@
 #!/usr/bin/env/bash
 
 echo -e "Defining THDM_T3PS_SCANNER_DIR variable and exporting through scanner"
-export THDM_T3PS_SCANNER_DIR=${CWD}
+export THDM_T3PS_SCANNER_DIR=${PWD}
+
 echo ${THDM_T3PS_SCANNER_DIR}
+#export ${THDM_T3PS_SCANNER_DIR}
+
 bash define_home_dir.sh
 
 #echo -e "Loading modules needed for compilation"
