@@ -10,3 +10,4 @@
 - [X] /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MCMC/job_task/job_slurm.sh
 - [X] /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MCMC/job_task/job_torque.pbs
 - [X] /scratch/cb27g11/THDM_T3PS_scanner/packages/2HDMC-1.8.0/src/HBHS.cpp
+- [X] /scratch/cb27g11/THDM_T3PS_scanner/env.sh
