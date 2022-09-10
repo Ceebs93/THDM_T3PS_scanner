@@ -8,3 +8,5 @@
 
 
 If you use this package [please cite its dependencies!](./docs/to_cite.md)
+
+Note: for first time start up one should execute "bash setup_auto.sh" This will propagate the path to your top directory (i.e. THDM_T3PS_scanner) throughout the toolbox. If you decide to move the toolbox at any point  you *must* repeat this process, or else manually alter absolute paths in various files (see absolutepaths.md for a list of these)
