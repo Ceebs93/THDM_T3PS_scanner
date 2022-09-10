@@ -1,9 +1,9 @@
 #!/bin/sh
 
-JOB_DIR=top_dir_/job_submission/MCMC/tests/local_test
-program=top_dir_/ParameterPointProcessor/bin/ParameterScan_T3PS_with_HB_HS_FAST
+JOB_DIR=/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MCMC/tests/local_test
+program=/scratch/cb27g11/THDM_T3PS_scanner/ParameterPointProcessor/bin/ParameterScan_T3PS_with_HB_HS_FAST
 MCMC_CONFIG_TEMPLATE_FILE="/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MCMC/config/mcmc_scan_default.conf"
-FUNCTION_TEMPLATE="top_dir_/job_submission/MCMC/template/mcmc_scan.func"
+FUNCTION_TEMPLATE="/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MCMC/template/mcmc_scan.func"
 nCores=8
 chain_length=99
 

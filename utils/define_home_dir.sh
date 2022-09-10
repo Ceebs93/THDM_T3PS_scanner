@@ -4,6 +4,11 @@ echo ${THDM_T3PS_SCANNER_DIR}
 
 # Replacing placeholder "top_dir_" in key files with the path ${THDM_T3PS_SCANNER_DIR}. This avoids a requirement to source the env.sh from the top directory every time the user wishes to use the scanner. Running this means that all the files that need to know the top directory will have that saved to them.
 
+echo -e "setting up env.sh"
+cp ${THDM_T3PS_SCANNER_DIR}/utils/I_env.sh ${THDM_T3PS_SCANNER_DIR}/env.sh
+sed -i "s;top_dir_;${THDM_T3PS_SCANNER_DIR};g" ${THDM_T3PS_SCANNER_DIR}/env.sh
+
+echo -e "setting up Madgraph files"
 MadGraph_dir=${THDM_T3PS_SCANNER_DIR}/job_submission/MadGraph/
 MG_sub_dir=${MadGraph_dir}MG_utils/submission_script/
 cp ${MG_sub_dir}I_slurm_submission.sh ${MG_sub_dir}slurm_submission.sh
@@ -12,6 +17,7 @@ sed -i "s;top_dir_;${THDM_T3PS_SCANNER_DIR};g" ${MadGraph_dir}Makefile
 sed -i "s;top_dir_;${THDM_T3PS_SCANNER_DIR};g" ${MG_sub_dir}slurm_submission.sh
 sed -i "s;top_dir_;${THDM_T3PS_SCANNER_DIR};g" ${MG_sub_dir}torque_submission.pbs
 
+echo -e "setting up MCMC files"
 MCMC_dir=${THDM_T3PS_SCANNER_DIR}/job_submission/MCMC/
 cp ${MCMC_dir}I_local_test.sh ${MCMC_dir}local_test.sh
 cp ${MCMC_dir}I_job.sh ${MCMC_dir}job.sh

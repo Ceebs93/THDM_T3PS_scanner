@@ -53,7 +53,7 @@ MERGE_JOB_INPUT_DATA  = "/scratch/cb27g11/Looping_Bash/missing.csv"
 #######################
 
 
-DECLARE_ROOT_DIR = ROOT_DIR="top_dir_/job_submission/MadGraph/"
+DECLARE_ROOT_DIR = ROOT_DIR="/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/"
 
 VAR_CREATE_JOB    = $(shell echo '$(.VARIABLES)' |  awk -v RS=' ' '/CREATE_JOB_/' | sed 's/CREATE_JOB_//g' )
 EXPORT_CREATE_JOB = $(foreach v,$(VAR_CREATE_JOB),$(v)="$(CREATE_JOB_$(v))") $(DECLARE_ROOT_DIR)
