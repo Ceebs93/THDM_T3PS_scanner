@@ -37,6 +37,10 @@
 - [ ] Add current python processing modules into main part of Magellan, get working in python2.7
 - [ ] Tidy up print statements in python files so that only essential information is printed out. Perhaps simply commenting out some of the other statements as suggested debugging ones (mention this in manual if you do so)
 - [ ] Remove unnessecary parts of T3PS (though mention their existence in the original software should users wish to add it back)
+- [ ] Add templates for different bases (i.e. hybrid, mass etc)
+- [ ] Add config examples for at least two bases
+- [ ] Add method for changing the basis being used in Parameterprocessor from MCMC folder with Makefile
+- [ ] Add method for changing the model type in both the template file and the parameterprocessor file from MCMC
 
 # Stretch Tasks for Magellan
 
