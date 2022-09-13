@@ -12,7 +12,7 @@
 - [X] Rename SusHi directory to MadGraph
 - [X] Install MadGraph and test running of pipeline including MadGraph
 - [X] Update auto-install file to reflect the package upgrades
-- [ ] Create a "initial-start-up.sh" to identify the top directory of installation and set this equal to $THDM_T3PS_scanner and write this directory to normal-start-up so that we can source it from any dir and still have the correct path, to identify current environment variables such as compilers, should set variables equal to these so that in auto_install.sh we can ask the user if they are happy to use these
+- [X] Create a "initial-start-up.sh" to identify the top directory of installation and set this equal to $THDM_T3PS_scanner and write this directory to normal-start-up so that we can source it from any dir and still have the correct path, to identify current environment variables such as compilers, should set variables equal to these so that in auto_install.sh we can ask the user if they are happy to use these
 - [ ] Edit auto-install file to run intial-start-up.sh and request user confirmation/input for compilers and environments
 - [ ] Create a "normal-start-up.sh" to be run at the begining of each use, use code from source env.sh so that it will set $THDM_T3PS_scanner and look for an env_local.sh to source
 - [X] LHAPDF needs to be edited so that the config file will find the correct parts of python in conda - Ended up using the LHAPDF installation in MadGraph instead. Should still be reachable by 2HDMC
@@ -36,6 +36,7 @@
 - [ ] Add explanation of config file for MCMC runs and how to change it to manual
 - [ ] Add current python processing modules into main part of Magellan, get working in python2.7
 - [ ] Tidy up print statements in python files so that only essential information is printed out. Perhaps simply commenting out some of the other statements as suggested debugging ones (mention this in manual if you do so)
+- [ ] Remove unnessecary parts of T3PS (though mention their existence in the original software should users wish to add it back)
 
 # Stretch Tasks for Magellan
 
