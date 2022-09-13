@@ -2628,7 +2628,9 @@ if no_config:
         exit_program("Error: " + str(e))
 
 config_dir = os.path.abspath(os.path.dirname(chosen_scan_setup))
+print('config_dir is: ', config_dir)
 base_name = os.path.basename(chosen_scan_setup)
+print('base_name is: ', base_name)
 draw_progress.scan_file = os.path.abspath(chosen_scan_setup)
 
 if cli_arguments.output_dir:
@@ -2637,11 +2639,12 @@ if cli_arguments.output_dir:
             os.makedirs(
                 os.path.abspath(cli_arguments.output_dir)
             )
+            print('os.path.abspath(cli_arguments.output_dir: ', os.path.abspath(cli_arguments.output_dir))
     except Exception as e:
         exit_program("Error: %s" % e)
 
     base_name = os.path.join(cli_arguments.output_dir, base_name)
-
+    print("base_name is: ", base_name)
 warn.log_file = base_name + ".log"
 warn("# Starting at", time.strftime("%d.%m.%Y %H:%M"))
 atexit.register(
@@ -4147,6 +4150,13 @@ elif mode == MODE_SCAN:
                             f.write("\t".join(row))
                             f.write("\n")
 
+#Added by Ciara
+                    with open("/scratch/cb27g11/saveplz.data", "a") as f:
+                        for row in data_rows:
+                            f.write("\t".join(row))
+                            f.write("\n")
+
+
                     # Warning/WARNING/warning
                     # - Commented out not to have huge excluded data files
 
@@ -4214,6 +4224,9 @@ elif mode == MODE_MCMC:
 
     chain_count = processing_concurrency()
     points_with_data = [None for i in range(chain_count)]
+# Added by Ciara
+    print('points_wit_data', points_with_data)
+
     lengths = [0 for i in range(chain_count)]
     iterations = [0 for i in range(chain_count)]
     warn("# Finding starting points")
@@ -4225,8 +4238,8 @@ elif mode == MODE_MCMC:
         # first try to get some from previous calculations
         # (note that finding an invalid(or likelihood=0) point in the valid
         #   data should never happen and is an error)
-        try:
-            with open(base_name + ".chain.%i" % i) as f:
+        try:#Change by Ciara
+            with open(base_name + ".chain.%i" % i) as f and open("/scratch/cb27g11/plzsave.chain.%i" i):
                 last_line = ""
                 for line in f:
                     length += 1
@@ -4238,6 +4251,8 @@ elif mode == MODE_MCMC:
                     continue
 
                 full_data = map(float, last_line.split("\t"))
+#Added by Ciara 
+                print("full_data", full_data)
                 if full_data[0] == ERROR_MARKER:
                     raise ValueError("invalid points in chain file")
                 # inf == infinity will cause all columns after the first two
@@ -4248,6 +4263,8 @@ elif mode == MODE_MCMC:
                     full_data[0:-2],
                     [par_count, var_count, float('inf')]
                 )
+#Added by Ciara
+                print("point_with_data ", point_with_data)
                 lengths[i] = length
                 iterations[i] = iteration
 
@@ -4320,8 +4337,9 @@ elif mode == MODE_MCMC:
 
     wait_for_user("start")
     chain_seeds = [random.random() for i in range(chain_count)]
-
-    with TemporaryDirectory() as chain_status_dir, ConfirmedExitOnInterrupt():
+#Ciara changed here:
+    #with TemporaryDirectory() as chain_status_dir, ConfirmedExitOnInterrupt():
+    with /scratch/cb27g11/chain_status_dir as chain_status_dir, ConfirmedExitOnInterrupt():
         # MCMC mode does not use process_batch but rather its pool directly
         #   calling map_async instead of calculate_items or process_batch or
         #   process_item

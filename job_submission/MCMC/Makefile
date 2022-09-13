@@ -11,7 +11,7 @@ CREATE_JOB_nCores       = 1
 CREATE_JOB_program      = /scratch/cb27g11/THDM_T3PS_scanner/ParameterPointProcessor/bin/ParameterScan_T3PS_with_HB_HS_FAST
 CREATE_JOB_nJobs        = 8
 CREATE_JOB_chain_length = 9999999
-CREATE_JOB_TEMPLATE     = "template/mcmc_scan.func"
+CREATE_JOB_TEMPLATE     = "template/hybrid_scan.func"
 
 ##############################
 ### --- Job Submission --- ###

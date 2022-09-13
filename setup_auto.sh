@@ -6,7 +6,7 @@ export THDM_T3PS_SCANNER_DIR=${PWD}
 echo ${THDM_T3PS_SCANNER_DIR}
 #export ${THDM_T3PS_SCANNER_DIR}
 
-bash utils/define_home_dir.sh
+bash utils/set_home_dir.sh
 
 echo -e "Loading modules needed for compilation"
 echo -e "module load gcc/11.1.0"

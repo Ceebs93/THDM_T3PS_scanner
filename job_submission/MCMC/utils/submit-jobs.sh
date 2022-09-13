@@ -7,6 +7,9 @@ echo "ROOT_DIR/TASK IS ${ROOT_DIR/${TASK}}"
 
 cd ${JOB_PROJECT_DIR}
 cp ${ROOT_DIR}/${TASK} ./
+echo "ROOT_DIR is : ${ROOT_DIR}"
+echo "TASK is : ${TASK}"
+
 
 echo 
 echo "#####################"
@@ -22,6 +25,7 @@ echo "#####################"
 echo 
 
 if [ -f "${LIST}" ]; then
+	echo "I have actually entered the correct bit"
 	if [ ${CLUSTERTYPE} == "SLURM" ]; then
 		while read -r DIR; do
 			 echo "DIR: ${DIR}"
