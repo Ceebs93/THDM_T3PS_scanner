@@ -39,7 +39,7 @@
 - [ ] Remove unnessecary parts of T3PS (though mention their existence in the original software should users wish to add it back)
 - [X] Add templates for different bases (i.e. hybrid, mass etc)
 - [X] Add config examples for at least two bases
-- [ ] Add method for changing the basis being used in Parameterprocessor from MCMC folder with Makefile
+- [X] Add method for changing the basis being used in Parameterprocessor from MCMC folder with Makefile
 - [ ] Add method for changing the model type in both the template file and the parameterprocessor file from MCMC
 
 # Stretch Tasks for Magellan
