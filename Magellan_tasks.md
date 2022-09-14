@@ -28,6 +28,7 @@
 - [ ] Add 2HDM theory to manual
 - [ ] Add usage of parameter-point generation pipeline, on cluster and locally to manual
 - [ ] Add usage of full MadGraph pipline, on cluster and locally to manual
+- [ ] Find a way to highlight points with kappas that are the same in different models with high cross-sections
 - [ ] Add description of parameterprocessor set up and compilation to manual
 - [ ] Add description of how to change model type
 - [ ] Add brief description of Madgraph usage
