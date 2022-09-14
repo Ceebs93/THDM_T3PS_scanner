@@ -59,3 +59,4 @@
 - [ ] Install Magellan to the singularity
 - [ ] Test Magellan in singularity works
 - [ ] Create new template file for runs not using 2HDMC
+- [ ] Generalise Data_Ripper.py for different variables
