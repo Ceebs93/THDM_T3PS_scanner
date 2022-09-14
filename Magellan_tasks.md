@@ -41,6 +41,8 @@
 - [X] Add config examples for at least two bases
 - [X] Add method for changing the basis being used in Parameterprocessor from MCMC folder with Makefile
 - [ ] Add method for changing the model type in both the template file and the parameterprocessor file from MCMC
+- [ ] Create new parameterprocessors to correspond to different higgs bases
+- [ ] Create workflow diagram for MCMC pipeline 
 
 # Stretch Tasks for Magellan
 
@@ -56,3 +58,4 @@
 - [ ] Install necessecary python modules to singularity, pandas, numpy, scipy, hd5f etc
 - [ ] Install Magellan to the singularity
 - [ ] Test Magellan in singularity works
+- [ ] Create new template file for runs not using 2HDMC
