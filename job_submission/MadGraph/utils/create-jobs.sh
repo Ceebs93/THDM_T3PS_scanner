@@ -130,7 +130,7 @@ else
 		cp ${ROOT_DIR}MG_utils/inputcard_editor/${Card_Editor} ${JOB_DIR}/${Card_Editor}
    	   sed -i "s;CARD_EDITOR_;${ROOT_DIR};g" ${JOB_DIR}/${Card_Editor}
    	   sed -i "s;JOB_PROJECT_DIR;${JOB_PROJECT_DIR};g" ${JOB_DIR}/${Card_Editor}
-	   sed -i "s;RESULTS_;${RESULTS_};g" ${JOB_DIR}/${Card_Editor}
+	   sed -i "s;RESULTS_;${RESULTS};g" ${JOB_DIR}/${Card_Editor}
 
 		# - Creating 'Data_coallator' for job.
 		cp ${ROOT_DIR}MG_utils/Data_Ripper/Data_coallator.py ${JOB_DIR}/Data_coallator.py 
@@ -146,8 +146,8 @@ else
 		cp ${ROOT_DIR}MG_utils/mg_runcards/basecards/${BASECARD} ${JOB_DIR}/${BASECARD}
 		BASECARDPATH=${JOB_DIR}/${BASECARD}
    	   sed -i "s;SCANNER_DIR_;${THDM_T3PS_SCANNER_DIR}/packages/;g" ${BASECARDPATH}
-	   sed -i "s;proc_in_;${PROC_IN_};g" ${BASECARDPATH}
-	   sed -i "s;proc_out_;${PROC_OUT_};g" ${BASECARDPATH}
+	   sed -i "s;proc_in_;${PROC_IN};g" ${BASECARDPATH}
+	   sed -i "s;proc_out_;${PROC_OUT};g" ${BASECARDPATH}
 
 		# - Creating and editing the 'looper' file which will control the reading and feeding of a data csv to Madgraph
 		cp ${ROOT_DIR}MG_utils/Looper/${LOOPER} ${JOB_DIR}/csv_looper.sh
@@ -164,6 +164,7 @@ else
    	   sed -i "s;ROOT_DIR_;${ROOT_DIR};g" ${LOOPERPATH}
    	   sed -i "s;RUNCARD_;${JOB_DIR}/runcard.txt;g" ${LOOPERPATH}
    	   sed -i "s;DATA_RIPPER_VERSION_;${JOB_DIR}/Data_Ripper.py;g" ${LOOPERPATH}
+	   sed -i "s;RESULTS_;${RESULTS};g" ${LOOPERPATH}
 
 	# - Creating and editing the submission script 
 		cp ${ROOT_DIR}MG_utils/submission_script/${TEMPLATE} ${JOB_DIR}/${TEMPLATE}

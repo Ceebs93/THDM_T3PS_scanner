@@ -11,7 +11,7 @@ import pandas as pd
 
 Process = str(sys.argv[1]) #Name of results folder
 uncomp_dir = "RESULTS_" + str(Process ) #Folder containing all the runs data
-output_dir = JOB_DIR_ + "/Data_Files"
+output_dir = "JOB_DIR_/Data_Files"
 
 
 ######################################################################################################
@@ -26,7 +26,7 @@ def get_uncomp_file(Uncomp_dir):
 
     if os.path.exists(path_to_file) and os.path.exists(path_to_lhe) :
         print("Banner-path found")
-        file_storage = WORK_DIR_ + "/Data_Files/" + str(Process) # name of new folder for storing
+        file_storage = JOB_DIR_ + "/Data_Files/" + str(Process) # name of new folder for storing
         # storing the data for later use
         if not os.path.exists(file_storage):
             os.makedirs(file_storage)

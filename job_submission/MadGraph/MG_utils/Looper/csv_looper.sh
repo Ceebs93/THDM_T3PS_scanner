@@ -22,7 +22,7 @@ extractions=0
 
                 python CARD_EDITOR_ $mH $mHc $mA "BASECARD_" "RUNCARD_" $tb $sinba "PROCESS_" "RESULTS_" # Here we run, and pass variables to, the inputcard editor. This edits the inputcard for MadGraph
 
-                python SCANNER_DIR_MG5_aMC_v3_1_0/bin/mg5_aMC RUNCARD_ # Here we run MG with the edited inputcard
+                python ${THDM_T3PS_SCANNER_DIR}/MG5_aMC_v3_1_0/bin/mg5_aMC RUNCARD_ # Here we run MG with the edited inputcard
 
 		mov_d=$(echo PROCESS__${tb})
 		mov_dirs=$(echo ${mov_d}_${sinba})
@@ -44,7 +44,7 @@ extractions=0
 	done
  
 	echo "data_coallator starting..."
-	python JOB_DIR_/Data_coallator.py RESULTS_results PROCESS_
+	python JOB_DIR_/Data_coallator.py RESULTS_ PROCESS_
 echo
 #Here -d allows us to specify our delimiter, then -f indicates we want to cut by field as opposed to bytes. The numbers indicate which column from the csv we want, and these are named above in the line 'while IFS="," read -r etc
 
