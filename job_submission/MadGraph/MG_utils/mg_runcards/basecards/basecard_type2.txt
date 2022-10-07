@@ -37,13 +37,13 @@ define l+ = e+ mu+
 define l- = e- mu-
 define vl = ve vm vt
 define vl~ = ve~ vm~ vt~
-import model /scratch/cb27g11/MG5_aMC_v3_1_0/models/2HDMtII_NLO
+import model /scratch/cb27g11/THDM_T3PS_scanner/packages/MG5_aMC_v3_1_0/models/2HDMtII_NLO
 define ql = u u~ d d~ s s~ c c~
 define h_i = h1 h2 h3
 define Bs = b b~
 define Ts = t t~
 define Ws = w+ w-
-generate Bs ql > Ts ql h1 /z QCD=1
+generate proc_in_ > proc_out_
 output NAME
 launch NAME
     3	

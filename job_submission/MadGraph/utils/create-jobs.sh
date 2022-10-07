@@ -7,7 +7,9 @@ echo -e "NAME:        ${NAME}"
 echo -e "INPUT_DATA:  ${INPUT_DATA}"
 echo -e "LOCAL:       ${LOCAL}"
 echo -e "SPLIT_NAME:  ${SPLIT_NAME}"
-echo -e "PROCESS:     ${PROCESS}"
+echo -e "PROCESS_NAME: ${PROCESS_NAME}"
+echo -e "PROC_IN:      ${PROC_IN}"
+echo -e "PROC_OUT:    ${PROC_OUT}"
 echo -e "nJobs:       ${nJobs}"
 echo -e "ROOT_DIR:    ${ROOT_DIR}"
 echo -e "LOOPER:      ${LOOPER}"
@@ -39,6 +41,7 @@ if [ ${LOCAL} == "yes" ]; then
 	cp ${ROOT_DIR}MG_utils/inputcard_editor/${Card_Editor} ${JOB_DIR}/${Card_Editor}
    sed -i "s;CARD_EDITOR_;${ROOT_DIR};g" ${JOB_DIR}/${Card_Editor}
    sed -i "s;JOB_PROJECT_DIR;${JOB_PROJECT_DIR};g" ${JOB_DIR}/${Card_Editor}
+   sed -i "s;RESULTS_;${RESULTS};g" ${JOB_DIR}/${Card_Editor}
 
 	# - Creating 'Data_coallator' for job.
 	cp ${ROOT_DIR}MG_utils/Data_Ripper/Data_coallator.py ${JOB_DIR}/Data_coallator.py 
@@ -53,13 +56,13 @@ if [ ${LOCAL} == "yes" ]; then
 	cp ${ROOT_DIR}MG_utils/mg_runcards/basecards/${BASECARD} ${JOB_DIR}/${BASECARD}
 	BASECARDPATH=${JOB_DIR}/${BASECARD}
    sed -i "s;SCANNER_DIR_;${THDM_T3PS_SCANNER_DIR}/packages/;g" ${BASECARDPATH}
-
+   sed -i "s;proc_in_;${PROC_IN};g" ${BASECARDPATH}
 
 	# - Creating and editing the 'looper' file which will control the reading and feeding of a data csv to Madgraph
 	cp ${ROOT_DIR}MG_utils/Looper/${LOOPER} ${JOB_DIR}/csv_looper.sh
 	LOOPERPATH=${JOB_DIR}/csv_looper.sh
 
-   sed -i "s;PROCESS_;${PROCESS};g" ${LOOPERPATH}
+   sed -i "s;PROCESS_;${PROCESS_NAME};g" ${LOOPERPATH}
    sed -i "s;SCANNER_DIR_;${THDM_T3PS_SCANNER_DIR}/packages/;g" ${LOOPERPATH}
    sed -i "s;CSV_NAME_;${CSV_NAME};g" ${LOOPERPATH}
    sed -i "s;BASECARD_;${BASECARDPATH};g" ${LOOPERPATH}
@@ -69,7 +72,7 @@ if [ ${LOCAL} == "yes" ]; then
    sed -i "s;ROOT_DIR_;${ROOT_DIR};g" ${LOOPERPATH}
    sed -i "s;RUNCARD_;${JOB_DIR}/runcard.txt;g" ${LOOPERPATH}
    sed -i "s;DATA_RIPPER_VERSION_;${JOB_DIR}/Data_Ripper.py;g" ${LOOPERPATH}
-
+   sed -i "s;RESULTS_;${RESULTS};g" ${LOOPERPATH}
 
 else
 
@@ -127,6 +130,7 @@ else
 		cp ${ROOT_DIR}MG_utils/inputcard_editor/${Card_Editor} ${JOB_DIR}/${Card_Editor}
    	   sed -i "s;CARD_EDITOR_;${ROOT_DIR};g" ${JOB_DIR}/${Card_Editor}
    	   sed -i "s;JOB_PROJECT_DIR;${JOB_PROJECT_DIR};g" ${JOB_DIR}/${Card_Editor}
+	   sed -i "s;RESULTS_;${RESULTS_};g" ${JOB_DIR}/${Card_Editor}
 
 		# - Creating 'Data_coallator' for job.
 		cp ${ROOT_DIR}MG_utils/Data_Ripper/Data_coallator.py ${JOB_DIR}/Data_coallator.py 
@@ -142,13 +146,14 @@ else
 		cp ${ROOT_DIR}MG_utils/mg_runcards/basecards/${BASECARD} ${JOB_DIR}/${BASECARD}
 		BASECARDPATH=${JOB_DIR}/${BASECARD}
    	   sed -i "s;SCANNER_DIR_;${THDM_T3PS_SCANNER_DIR}/packages/;g" ${BASECARDPATH}
-
+	   sed -i "s;proc_in_;${PROC_IN_};g" ${BASECARDPATH}
+	   sed -i "s;proc_out_;${PROC_OUT_};g" ${BASECARDPATH}
 
 		# - Creating and editing the 'looper' file which will control the reading and feeding of a data csv to Madgraph
 		cp ${ROOT_DIR}MG_utils/Looper/${LOOPER} ${JOB_DIR}/csv_looper.sh
 		LOOPERPATH=${JOB_DIR}/csv_looper.sh
 
-   	   sed -i "s;PROCESS_;${PROCESS};g" ${LOOPERPATH}
+   	   sed -i "s;PROCESS_;${PROCESS_NAME};g" ${LOOPERPATH}
    	   sed -i "s;SCANNER_DIR_;${THDM_T3PS_SCANNER_DIR}/packages/;g" ${LOOPERPATH}
    	   sed -i "s;CSV_NAME_;${CSV_NAME};g" ${LOOPERPATH}
   # sed -i "s;higgs_;${HIGGS};g" ${LOOPERPATH}

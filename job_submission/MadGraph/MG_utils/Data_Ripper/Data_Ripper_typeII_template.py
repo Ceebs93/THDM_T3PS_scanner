@@ -10,8 +10,8 @@ import pandas as pd
 # uses a different name for the variable.
 
 Process = str(sys.argv[1]) #Name of results folder
-uncomp_dir = WORK_DIR_ + "/Data_Storage/" + str(Process ) #Folder containing all the runs data
-output_dir = WORK_DIR_ + "/Data_Files"
+uncomp_dir = "RESULTS_" + str(Process ) #Folder containing all the runs data
+output_dir = JOB_DIR_ + "/Data_Files"
 
 
 ######################################################################################################
