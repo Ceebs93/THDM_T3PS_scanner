@@ -101,7 +101,7 @@ def make_input(Tanb, Sinbma, Hcpm, datatext, procname):
         sim_card = sim_card.replace('HCMV', str(Hcm))
         sim_card = sim_card.replace('NAME', results_folder + str(procname) + 
                                     '_' + str(Tanb) + '_' + str(Sinbma))
-        print(results_folder+str(procname)+'_'+str(Tanb)+'_'+str(Sinbma))
+        print(results_folder+'/'+str(procname)+'_'+str(Tanb)+'_'+str(Sinbma))
         # saves new txt file for madgraph
         new_card.write(sim_card) 
 ###############################################################################

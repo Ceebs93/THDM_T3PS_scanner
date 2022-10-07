@@ -37,7 +37,7 @@ define l+ = e+ mu+
 define l- = e- mu-
 define vl = ve vm vt
 define vl~ = ve~ vm~ vt~
-import model /scratch/cb27g11/MG5_aMC_v3_1_0/models/2HDMtII_NLO
+import model top_dir_/MG5_aMC_v3_1_0/models/2HDMtII_NLO
 define ql = u u~ d d~ s s~ c c~
 define h_i = h1 h2 h3
 define Bs = b b~

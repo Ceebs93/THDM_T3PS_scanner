@@ -29,7 +29,8 @@ if [ ${LOCAL} == "yes" ]; then
 	mkdir -p ${JOB_DIR}
 	
 	CSV_NAME="${JOB_PROJECT_DIR}/${SPLIT_NAME}"
-	
+	RESULTS=${JOB_DIR}/results/
+	mkdir -p ${RESULTS}	
 	cp ${INPUT_DATA} ${CSV_NAME}.csv	
 
 	echo -e ${CSV_NAME}
@@ -47,7 +48,6 @@ if [ ${LOCAL} == "yes" ]; then
 	cp ${ROOT_DIR}/MG_utils/Data_Ripper/${RIPPER} ${JOB_DIR}/Data_Ripper.py
    sed -i "s;JOB_DIR_;${JOB_DIR};g" ${JOB_DIR}/Data_Ripper.py
    sed -i "s;RESULTS_;${RESULTS};g" ${JOB_DIR}/Data_Ripper.py
-
 
 	# - Creating and editing 'basecard' for MadGraph runs
 	cp ${ROOT_DIR}MG_utils/mg_runcards/basecards/${BASECARD} ${JOB_DIR}/${BASECARD}
@@ -85,10 +85,10 @@ else
 
 
 	# - Creating and editing python file to break csv into multiple parts for required number of jobs.
-		cp ${ROOT_DIR}MG_utils/row_split.py ${JOB_PROJECT_DIR}/row_split.py
-	   sed -i "s;INPUT_DATA_;${INPUT_DATA};g" ${JOB_PROJECT_DIR}/row_split.py
-	   sed -i "s;nJobs_;${nJobs};g" ${JOB_PROJECT_DIR}/row_split.py
-	   sed -i "s;datafile_;${JOB_PROJECT_DIR}/${SPLIT_NAME};g" ${JOB_PROJECT_DIR}/row_split.py
+	cp ${ROOT_DIR}MG_utils/row_split.py ${JOB_PROJECT_DIR}/row_split.py
+	sed -i "s;INPUT_DATA_;${INPUT_DATA};g" ${JOB_PROJECT_DIR}/row_split.py
+	sed -i "s;nJobs_;${nJobs};g" ${JOB_PROJECT_DIR}/row_split.py
+	sed -i "s;datafile_;${JOB_PROJECT_DIR}/${SPLIT_NAME};g" ${JOB_PROJECT_DIR}/row_split.py
 
 	split_no=$((nJobs - 1))
 	echo ${split_no}
@@ -117,6 +117,8 @@ else
 		JOB_DIR=${ROOT_DIR}jobs/${NAME}/job_${id}
 		mkdir -p ${JOB_DIR}
 	
+		RESULTS=${JOB_DIR}/results/	
+		mkdir -p ${RESULTS}
 		CSV_NAME="${csv_array[${id}]}"
 		echo ${CSV_NAME}
 
