@@ -2,19 +2,19 @@
 ### --- Create jobs  --- ###
 ############################
 
-CREATE_JOB_NAME         = "setup_test"
-CREATE_JOB_INPUT_DATA   = "/scratch/cb27g11/Looping_Bash/missing.csv"
+CREATE_JOB_NAME         = "new_constraints"
+CREATE_JOB_INPUT_DATA   = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/new_constraints.csv"
 #CREATE_JOB_CONVERT_DATA = "yes"
 CREATE_JOB_LOCAL        = "no"
 CREATE_JOB_SPLIT_NAME   = "split_csv_name"
-CREATE_JOB_PROCESS      = "bq_tqh1"
+CREATE_JOB_PROCESS      = "bg_twh1"
 CREATE_JOB_nCores       = 1
-CREATE_JOB_nJobs        = 2
+CREATE_JOB_nJobs        = 6
 CREATE_JOB_LOOPER       = "csv_looper.sh"
-CREATE_JOB_Card_Editor  = "inputcard_editor1.py" 
-CREATE_JOB_BASECARD     = "basecard_type1.txt"
+CREATE_JOB_Card_Editor  = "inputcard_editor2.py" 
+CREATE_JOB_BASECARD     = "basecard_type2.txt"
 CREATE_JOB_TEMPLATE     = "slurm_submission.sh"
-CREATE_JOB_RIPPER       = "Data_Ripper_typeI_template.py"
+CREATE_JOB_RIPPER       = "Data_Ripper_typeII_template.py"
 CREATE_JOB_LIST         = "all.jobs"
 
 
@@ -22,14 +22,14 @@ CREATE_JOB_LIST         = "all.jobs"
 ### --- Job Submission --- ###
 ##############################
 
-SUBMIT_JOB_NAME       = "setup_test"
+SUBMIT_JOB_NAME       = "new_constraints"
 SUBMIT_JOB_LOCAL      = "no" 
 SUBMIT_JOB_LIST       = "all.jobs"
 SUBMIT_JOB_NODES      = "--nodes=1"
 SUBMIT_JOB_PPN        = "--ntasks-per-node=8"
-SUBMIT_JOB_TIME       = "--time=00:05:00"
+SUBMIT_JOB_TIME       = "--time=40:00:00"
 SUBMIT_JOB_SCRIPT     = "slurm_submission.sh"
-SUBMIT_JOB_SCRIPT     = "SLURM"
+SUBMIT_JOB_CLUSTERTYPE     = "SLURM"
 
 
 #For Torque jobs

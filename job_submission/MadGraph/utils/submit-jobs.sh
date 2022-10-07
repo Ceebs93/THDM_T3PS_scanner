@@ -24,7 +24,7 @@ if [ ${LOCAL} == "yes" ]; then
 
 
 else
-	if [ ${CLUSTERTYPE} == "SLURM" ]; then
+	if [ ${CLUSTERTYPE}=="SLURM" ]; then
 		while read -r DIR; do
 	
 			# Uncomment below for debugging
@@ -32,23 +32,22 @@ else
 		
 			 sbatch ${NODES} ${PPN} ${TIME} --mail-type=None --mail-user=${USER_EMAIL} --export=DIR=${DIR} --export=THDM_T3PS_SCANNER_DIR=${THDM_T3PS_SCANNER_DIR} ${DIR}/${SCRIPT}
 
+		done < ${LIST}
 		echo -e "\nJobs should be submitted now."
 		echo -e "Please check the output of the squeue command below.\n"
 		squeue --me
 
 
 
-	elif [ ${CLUSTERTYPE} == "TORQUE" ]; then
+	elif [ ${CLUSTERTYPE}=="TORQUE" ]; then
 		while read -r DIR; do
 
 		#	 echo "command being run is: qsub -l ${RESOURCES} -v "DIR=${DIR},THDM_T3PS_SCANNER_DIR=${THDM_T3PS_SCANNER_DIR}" ${ROOT_DIR}/${TASK}"
-			 qsub -l ${RESOURCES} -v "DIR=${DIR},THDM_T3PS_SCANNER_DIR=${THDM_T3PS_SCANNER_DIR}" ${ROOT_DIR}/${TASK}
+			qsub -l ${RESOURCES} -v "DIR=${DIR},THDM_T3PS_SCANNER_DIR=${THDM_T3PS_SCANNER_DIR}" ${ROOT_DIR}/${TASK}
 
 		done < ${LIST}
 		echo -e "\nJobs should be submitted now."
 		echo -e "Please check the output of qstat command below.\n"
 		qstat
-
-		done < ${LIST}
 	fi
 fi

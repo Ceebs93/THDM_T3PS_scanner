@@ -1,7 +1,6 @@
 #!/bin/bash
 
-
-source ${THDM_T3PS_SCANNER_DIR}/env.sh
+source top_dir_/env.sh
 
 cd $PBS_0_WORKDIR
 
