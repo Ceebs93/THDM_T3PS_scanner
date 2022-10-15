@@ -1,6 +1,5 @@
 *.pyc
 packages/MG5_aMC_v3_1_0/*
-
 packages/MG5_aMC_v3_1_0/HELAS/*
 packages/MG5_aMC_v3_1_0/HEPTOOLS/*
 packages/MG5_aMC_v3_1_0/MadSpin/*
@@ -17,6 +16,7 @@ packages/MG5_aMC_v3_1_0/vendor/*
 packages/MG5_aMC_v3_1_0/proc_card.dat
 job_submission/MCMC/jobs/*
 job_submission/MadGraph/jobs/*
+job_submission/MadGraph/sucessful/*
 *.o
 *.a
 *.exe

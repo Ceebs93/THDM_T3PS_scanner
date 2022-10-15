@@ -8,7 +8,7 @@ extractions=0
 {	#Double read to skip the header line of data csv
 	read
 	#IFS=internal field separator. Variables being run on are read in from the data csv. Note that the position of these variables is given at the end of this file.
-	while IFS="," read -r mH mHc mA Itb Isinba
+	while IFS="," read -r mH mA mHc Isinba Itb
 	do
 		echo ${Isinba} ${Itb}
 		printf -v sinba "%.6f \n" $Isinba
@@ -46,5 +46,5 @@ extractions=0
 echo
 #Here -d allows us to specify our delimiter, then -f indicates we want to cut by field as opposed to bytes. The numbers indicate which column from the csv we want, and these are named above in the line 'while IFS="," read -r etc
 
-} < <(cut -d "," -f2,3,4,6,7 CSV_NAME_.csv)
+} < <(cut -d "," -f1,2,3,4,6 CSV_NAME_.csv)
 

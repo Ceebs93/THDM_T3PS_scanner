@@ -1,1 +1,0 @@
-DIRNAME=P1_bdx_tuxh1
