@@ -2,14 +2,14 @@
 ### --- Create jobs  --- ###
 ############################
 
-CREATE_JOB_NAME         = "reruns_qqh1"
+CREATE_JOB_NAME         = "reruns_qqh3"
 CREATE_JOB_INPUT_DATA   = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/Reruns.csv"
 #CREATE_JOB_CONVERT_DATA = "yes"
 CREATE_JOB_LOCAL        = "no"
 CREATE_JOB_SPLIT_NAME   = "split_csv_name"
-CREATE_JOB_PROCESS_NAME = "qq_tbhi"
+CREATE_JOB_PROCESS_NAME = "qq_tbh3"
 CREATE_JOB_PROC_IN      = "ql\ ql"
-CREATE_JOB_PROC_OUT     = "Ts\ Bs\ h1"
+CREATE_JOB_PROC_OUT     = "Ts\ Bs\ h3"
 CREATE_JOB_nCores       = 1
 CREATE_JOB_nJobs        = 8
 CREATE_JOB_LOOPER       = "csv_looper_rerun.sh"
@@ -24,7 +24,7 @@ CREATE_JOB_LIST         = "all.jobs"
 ### --- Job Submission --- ###
 ##############################
 
-SUBMIT_JOB_NAME       = "reruns_qqh1"
+SUBMIT_JOB_NAME       = "reruns_qqh3"
 SUBMIT_JOB_LOCAL      = "no" 
 SUBMIT_JOB_LIST       = "all.jobs"
 SUBMIT_JOB_NODES      = "--nodes=1"
@@ -47,9 +47,9 @@ SUBMIT_JOB_CLUSTERTYPE = "SLURM"
 ########################
 
 # - 2019_04_03_Diadem - #
-MERGE_JOB_NAME        = "reruns_bghi"
-MERGE_JOB_PROCESS     = "bg_twhi"
-MERGE_JOB_INPUT_DATA  = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/reruns_bgh1_bqh1i.csv"
+MERGE_JOB_NAME        = "reruns_qqhi"
+MERGE_JOB_PROCESS     = "qq_tbhi"
+MERGE_JOB_INPUT_DATA  = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/reruns_qqh1_bgbqh1i.csv"
 MERGE_JOB_MG_SIN      = "Smba"
 MERGE_JOB_OG_SIN      = "sinba"
 #######################

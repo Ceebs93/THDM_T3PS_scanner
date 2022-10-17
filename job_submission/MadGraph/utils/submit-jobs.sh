@@ -7,12 +7,12 @@ cd ${JOB_PROJECT_DIR}
 echo 
 echo "##################"
 echo "JOB_PROJECT_DIR: ${JOB_PROJECT_DIR}"
-echo "NODES:      ${NODES}"
-echo "PPN:        ${PPN}"
-echo "TIME:       ${TIME}"
-echo "SCRIPT: ${SCRIPT}"
-echo "USER_EMAIL: ${USER_EMAIL}"
-echo "CLUSTERTYPE: ${CLUSTERTYPE}"
+echo "NODES:           ${NODES}"
+echo "PPN:             ${PPN}"
+echo "TIME:            ${TIME}"
+echo "SCRIPT:          ${SCRIPT}"
+echo "USER_EMAIL:      ${USER_EMAIL}"
+echo "CLUSTERTYPE:     ${CLUSTERTYPE}"
 echo "##################"
 echo 
 
