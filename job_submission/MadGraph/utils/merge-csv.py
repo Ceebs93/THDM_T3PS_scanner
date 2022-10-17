@@ -23,10 +23,12 @@ from scipy import stats
 madgraph_out = str(sys.argv[1])
 #location of the original csv file prior to splitting
 OG_csv = str(sys.argv[2])
-FINAL_CSV = str(sys.argv[3])
+FINAL_CSV = str(sys.argv[3]) + ".csv"
+input_sin = str(sys.argv[4])
+OG_sin = str(sys.argv[5])
 
 ##############################################################################
-def add_xsect(Filename, Chkdfile):
+def add_xsect(Filename, Chkdfile, sin_in, sin_OG):
     """
     Takes the name of an output CSV from the MG5 looper and the name of the
     file that was originally given to this and combines them to create a CSV
@@ -45,10 +47,13 @@ def add_xsect(Filename, Chkdfile):
         job). It should contain the same sin(beta-alpha), tan(beta) points as
         'Filename' so that they can be combined.
 
-    proc : string
-        This is used to name the final output csv, it is intended to be the 
-        process that was fed to MadGraph to produce 'Filename' i.e.
-        bq_tqh1 to indicate the process b q > t q h1 .
+    sin_in : string
+        This is the column label for the sin(beta-alpha) value for the Madgraph
+        output that is being merged onto the pre-existing csv.
+
+    sin_OG : string
+        This is the column label for the sin(beta-alpha) value for the pre-exi-
+        sting csv file onto which the cross-section values are being added.
 
     Returns
     -------
@@ -59,11 +64,13 @@ def add_xsect(Filename, Chkdfile):
 
     # Reading in the two csv files
     MG_df = pd.read_csv(Filename)
+    print('MG_DF', MG_df.columns.tolist())
     Chkd_df = pd.read_csv(Chkdfile)
+    print('Chkd_df', Chkd_df.columns.tolist())
 
     # Checking that the dataframes have the same number of rows before adding
     # cross-section column onto Chkd_df
-    if len(MG_df['Sbma']) == len(Chkd_df.sinba):
+    if len(MG_df.Sbma) == len(Chkd_df.Sinba):
         if 'X_sections' in MG_df.columns:
             
             X_SECT_COL_ = MG_df['X_sections']
@@ -79,7 +86,7 @@ def add_xsect(Filename, Chkdfile):
 ################################################################################
 
 
-combi_df = add_xsect(madgraph_out, OG_csv)
+combi_df = add_xsect(madgraph_out, OG_csv, input_sin, OG_sin)
 
 # These lines remove duplicates and any rows with missing entries
 combi_df.dropna()
@@ -88,4 +95,4 @@ combi_df.info()
 final_df = final_df.astype(float)
 
 # Saving the final output as a csv to FINAL_CSV
-final_df.to_csv(FINAL_CSV)
+final_df.to_csv(FINAL_CSV, index=False)

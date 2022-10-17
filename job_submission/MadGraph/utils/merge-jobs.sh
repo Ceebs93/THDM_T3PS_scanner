@@ -38,4 +38,4 @@ cat combined.csv >> ${PROJECT_DIR}${PROCESS}_combined.csv
 
 rm ${ROOT_DIR}/combined*
 	
-python2 ${PROJECT_DIR}merge-csv.py "${PROJECT_DIR}${PROCESS}_combined.csv" "${INPUT_DATA}" "${PROCESS}" "${PROJECT_DIR}${NAME}_final.csv"
+python2 ${PROJECT_DIR}merge-csv.py "${PROJECT_DIR}${PROCESS}_combined.csv" "${INPUT_DATA}" "${PROCESS}" "${PROJECT_DIR}${NAME}_final.csv" "${MG_sin}" "${OG_sin}"

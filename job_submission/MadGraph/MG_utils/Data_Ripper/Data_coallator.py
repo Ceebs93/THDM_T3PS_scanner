@@ -17,7 +17,7 @@ store_path = str(sys.argv[1]) #Folder containing all the runs data
 print("store_path ", store_path)
 process = str(sys.argv[2])
 print("process ", process)
-print("search term for file_paths", str(store_path) + str(process + "*.csv*"))
+print("search term for file_paths", str(store_path) + "/" + str(process + "*.csv*"))
 file_paths = glob.glob(str(store_path) + "/" + str(process) + "*.csv") # Creates list of all the MadGraph runs to use
 print("file_paths", file_paths)
 csv_path = str(store_path)+ "/" + str(process) + ".csv" #path for csv file to be created
