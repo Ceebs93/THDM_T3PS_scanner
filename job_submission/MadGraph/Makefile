@@ -2,17 +2,17 @@
 ### --- Create jobs  --- ###
 ############################
 
-CREATE_JOB_NAME         = "reruns_qqh3"
-CREATE_JOB_INPUT_DATA   = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/Reruns.csv"
+CREATE_JOB_NAME         = "NC_bgh1"
+CREATE_JOB_INPUT_DATA   = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/new_constraints_og.csv"
 #CREATE_JOB_CONVERT_DATA = "yes"
 CREATE_JOB_LOCAL        = "no"
 CREATE_JOB_SPLIT_NAME   = "split_csv_name"
-CREATE_JOB_PROCESS_NAME = "qq_tbh3"
-CREATE_JOB_PROC_IN      = "ql\ ql"
-CREATE_JOB_PROC_OUT     = "Ts\ Bs\ h3"
+CREATE_JOB_PROCESS_NAME = "bg_twh1"
+CREATE_JOB_PROC_IN      = "Bs\ g"
+CREATE_JOB_PROC_OUT     = "Ts\ Ws\ h1"
 CREATE_JOB_nCores       = 1
 CREATE_JOB_nJobs        = 8
-CREATE_JOB_LOOPER       = "csv_looper_rerun.sh"
+CREATE_JOB_LOOPER       = "csv_looper_NC.sh"
 CREATE_JOB_Card_Editor  = "inputcard_editor2.py" 
 CREATE_JOB_BASECARD     = "basecard_type2.txt"
 CREATE_JOB_TEMPLATE     = "slurm_submission.sh"
@@ -24,12 +24,12 @@ CREATE_JOB_LIST         = "all.jobs"
 ### --- Job Submission --- ###
 ##############################
 
-SUBMIT_JOB_NAME       = "reruns_qqh3"
+SUBMIT_JOB_NAME       = "NC_bgh1"
 SUBMIT_JOB_LOCAL      = "no" 
 SUBMIT_JOB_LIST       = "all.jobs"
 SUBMIT_JOB_NODES      = "--nodes=1"
 SUBMIT_JOB_PPN        = "--ntasks-per-node=8"
-SUBMIT_JOB_TIME       = "--time=05:00:00"
+SUBMIT_JOB_TIME       = "--time=10:00:00"
 SUBMIT_JOB_SCRIPT     = "slurm_submission.sh"
 SUBMIT_JOB_CLUSTERTYPE = "SLURM"
 
@@ -47,9 +47,9 @@ SUBMIT_JOB_CLUSTERTYPE = "SLURM"
 ########################
 
 # - 2019_04_03_Diadem - #
-MERGE_JOB_NAME        = "reruns_qqhi"
-MERGE_JOB_PROCESS     = "qq_tbhi"
-MERGE_JOB_INPUT_DATA  = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/reruns_qqh1_bgbqh1i.csv"
+MERGE_JOB_NAME        = "new_constraints_cont3"
+MERGE_JOB_PROCESS     = "bg_twh1"
+MERGE_JOB_INPUT_DATA  = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/new_constraints3.csv"
 MERGE_JOB_MG_SIN      = "Smba"
 MERGE_JOB_OG_SIN      = "sinba"
 #######################

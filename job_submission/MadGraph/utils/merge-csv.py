@@ -70,7 +70,7 @@ def add_xsect(Filename, Chkdfile, sin_in, sin_OG):
 
     # Checking that the dataframes have the same number of rows before adding
     # cross-section column onto Chkd_df
-    if len(MG_df.Sbma) == len(Chkd_df.Sinba):
+    if len(MG_df.Sbma) == len(Chkd_df.sinba):
         if 'X_sections' in MG_df.columns:
             
             X_SECT_COL_ = MG_df['X_sections']
