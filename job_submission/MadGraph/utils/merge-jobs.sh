@@ -13,6 +13,8 @@ PROJECT_DIR=${ROOT_DIR}jobs/${NAME}/
 #are being added to the same file
 cp ${ROOT_DIR}utils/merge-csv.py ${PROJECT_DIR}merge-csv.py
    sed -i "s;X_SECT_COL_;${PROCESS}_X_sects;g" ${PROJECT_DIR}merge-csv.py
+   sed -i "s;MG_SIN_LABEL_;${MGSIN_LABEL};g" ${PROJECT_DIR}merge-csv.py
+   sed -i "s;OG_SIN_LABEL_;${OGSIN_LABEL};g" ${PROJECT_DIR}merge-csv.py
 
 # Looping over all jobs for a given joblot, sending the header to "combined.out" and the data to "combined.csv" 
 for ((i=0; i<${#array[*]}; i++)); do
@@ -40,4 +42,4 @@ cat combined.csv >> ${PROJECT_DIR}${PROCESS}_combined.csv
 
 rm ${ROOT_DIR}/combined*
 	
-python2 ${PROJECT_DIR}merge-csv.py "${PROJECT_DIR}${PROCESS}_combined.csv" "${INPUT_DATA}" "${PROCESS}" "${PROJECT_DIR}${NAME}_final.csv" "${MG_sin}" "${OG_sin}"
+python2 ${PROJECT_DIR}merge-csv.py "${PROJECT_DIR}${PROCESS}_combined.csv" "${INPUT_DATA}" "${PROCESS}" "${PROJECT_DIR}${NAME}_final.csv"

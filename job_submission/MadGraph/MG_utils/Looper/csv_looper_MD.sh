@@ -35,14 +35,14 @@ extractions=0
 		extractions=$(( $extractions + 1 ))
 		echo "Data_Ripper_iridis.py used ${extractions} time/s"
                 
-		cd RESULTS_
+		cd JOB_DIR_
 	        rm -r "$mov_dirs"
 		echo "Removed ${mov_dirs}"
 
 	done
  
 	echo "data_coallator starting..."
-	python JOB_DIR_/Data_coallator.py "JOB_DIR_" "PROCESS_"
+	python JOB_DIR_/Data_coallator.py "JOB_DIR_/Data_Files" "PROCESS_"
 echo
 #Here -d allows us to specify our delimiter, then -f indicates we want to cut by field as opposed to bytes. The numbers indicate which column from the csv we want, and these are named above in the line 'while IFS="," read -r etc
 

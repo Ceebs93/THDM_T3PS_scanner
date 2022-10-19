@@ -57,7 +57,7 @@ def add_xsect(Filename, Chkdfile, sin_in, sin_OG):
 
     Returns
     -------
-    Chkd_df : pandas dataframe
+    OG_csv_df : pandas dataframe
         Combination of the Filename and Chkdfile dataframes.
 
     """
@@ -65,24 +65,24 @@ def add_xsect(Filename, Chkdfile, sin_in, sin_OG):
     # Reading in the two csv files
     MG_df = pd.read_csv(Filename)
     print('MG_DF', MG_df.columns.tolist())
-    Chkd_df = pd.read_csv(Chkdfile)
-    print('Chkd_df', Chkd_df.columns.tolist())
+    OG_csv_df = pd.read_csv(Chkdfile)
+    print('OG_csv_df', OG_csv_df.columns.tolist())
 
     # Checking that the dataframes have the same number of rows before adding
-    # cross-section column onto Chkd_df
-    if len(MG_df.Sbma) == len(Chkd_df.sinba):
+    # cross-section column onto OG_csv_df
+    if len(MG_df.MG_SIN_LABEL_) == len(OG_csv_df.OG_SIN_LABEL_):
         if 'X_sections' in MG_df.columns:
             
             X_SECT_COL_ = MG_df['X_sections']
 
 
-            Chkd_df['X_SECT_COL_'] = X_SECT_COL_
+            OG_csv_df['X_SECT_COL_'] = X_SECT_COL_
         else:
             print("Could not find a column 'X_sections' in provided file")
     else:
         print("Row lengths of CSVes do not match. Check for correct files")
 
-    return Chkd_df
+    return OG_csv_df
 ################################################################################
 
 

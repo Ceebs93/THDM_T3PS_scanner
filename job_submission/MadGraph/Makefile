@@ -1,6 +1,6 @@
-############################
-### --- Create jobs  --- ###
-############################
+##################################
+###### --- Create jobs  --- ######
+##################################
 
 CREATE_JOB_NAME         = "NC_bgh1"
 CREATE_JOB_INPUT_DATA   = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/new_constraints_og.csv"
@@ -20,16 +20,16 @@ CREATE_JOB_RIPPER       = "Data_Ripper_typeII_template.py"
 CREATE_JOB_LIST         = "all.jobs"
 
 
-##############################
-### --- Job Submission --- ###
-##############################
+##################################
+##### --- Job Submission --- #####
+##################################
 
 SUBMIT_JOB_NAME       = "NC_bgh1"
 SUBMIT_JOB_LOCAL      = "no" 
 SUBMIT_JOB_LIST       = "all.jobs"
 SUBMIT_JOB_NODES      = "--nodes=1"
 SUBMIT_JOB_PPN        = "--ntasks-per-node=8"
-SUBMIT_JOB_TIME       = "--time=10:00:00"
+SUBMIT_JOB_TIME       = "--time=30:00:00"
 SUBMIT_JOB_SCRIPT     = "slurm_submission.sh"
 SUBMIT_JOB_CLUSTERTYPE = "SLURM"
 
@@ -42,17 +42,17 @@ SUBMIT_JOB_CLUSTERTYPE = "SLURM"
 #SUBMIT_JOB_CLUSTERTYPE = "TORQUE"
 
 
-########################
-### --- Merge jobs - ###
-########################
+#########################################
+########### --- Merge jobs - ############
+#########################################
 
 # - 2019_04_03_Diadem - #
-MERGE_JOB_NAME        = "new_constraints_cont3"
-MERGE_JOB_PROCESS     = "bg_twh1"
-MERGE_JOB_INPUT_DATA  = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/new_constraints3.csv"
-MERGE_JOB_MG_SIN      = "Smba"
-MERGE_JOB_OG_SIN      = "sinba"
-#######################
+MERGE_JOB_NAME             = "new_constraints_cont3"
+MERGE_JOB_PROCESS          = "bg_twh1"
+MERGE_JOB_INPUT_DATA       = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/new_constraints3.csv"
+MERGE_JOB_MGSIN_LABEL      = "Smba"
+MERGE_JOB_OGSIN_LABEL      = "sinba"
+#########################################
 
 
 DECLARE_ROOT_DIR = ROOT_DIR="/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/"

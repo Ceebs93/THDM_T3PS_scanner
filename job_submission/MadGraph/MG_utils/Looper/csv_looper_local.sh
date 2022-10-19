@@ -37,7 +37,7 @@ extractions=0
 		extractions=$(( $extractions + 1 ))
 		echo "Data_Ripper_iridis.py used ${extractions} time/s"
                 
-		cd RESULTS_
+		cd JOB_DIR_
 	        rm -r "$mov_dirs"
 		echo "Removed ${mov_dirs}"
 
