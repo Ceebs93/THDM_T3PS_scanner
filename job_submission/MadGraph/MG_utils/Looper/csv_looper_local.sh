@@ -2,8 +2,6 @@
 
 #I inherit the following variables from create-jobs.sh: CSV_NAME_ PROCESS_ BASECARD_ RUNCARD_ CARD_EDITOR_ ROOT_DIR_ JOB_PROJECT_DIR_ JOB_DIR_ DATA_RIPPER_VERSION_ RESULTS_
 
-#Higgs = "h1"
-
 COUNT=0
 extractions=0
 
@@ -22,7 +20,7 @@ extractions=0
 
                 python CARD_EDITOR_ $mH $mHc $mA "BASECARD_" "RUNCARD_" $tb $sinba "PROCESS_" "RESULTS_" # Here we run, and pass variables to, the inputcard editor. This edits the inputcard for MadGraph
 
-                python SCANNER_DIR_MG5_aMC_v3_1_0/bin/mg5_aMC RUNCARD_ # Here we run MG with the edited inputcard
+                python ${THDM_T3PS_SCANNER_DIR}/packages/MG5_aMC_v3_1_0/bin/mg5_aMC RUNCARD_ # Here we run MG with the edited inputcard
 
 		mov_d=$(echo PROCESS__${tb})
 		mov_dirs=$(echo ${mov_d}_${sinba})

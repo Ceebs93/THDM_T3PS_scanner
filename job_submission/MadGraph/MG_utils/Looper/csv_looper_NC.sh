@@ -42,7 +42,7 @@ extractions=0
 	done
  
 	echo "data_coallator starting..."
-	python JOB_DIR_/Data_coallator.py "JOB_DIR_" "PROCESS_"
+	python JOB_DIR_/Data_coallator.py "JOB_DIR_/Data_Files" "PROCESS_"
 echo
 #Here -d allows us to specify our delimiter, then -f indicates we want to cut by field as opposed to bytes. The numbers indicate which column from the csv we want, and these are named above in the line 'while IFS="," read -r etc
 
