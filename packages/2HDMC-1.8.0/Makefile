@@ -28,7 +28,7 @@ LIB_HBHS=lib2HDMC_HBHS.a
 LDFLAGS+=-L$(LIBDIR) -l2HDMC  -L/local/software/gsl/2.6/lib -lgsl -lgslcblas -lm
 
 LIBS=
-PROG=CalcPhys CalcGen CalcHiggs CalcHybrid CalcHMSSM CalcMSSM CalcInert CalcLH Demo
+PROG=CalcPhys CalcGen CalcHiggs CalcHybrid CalcHMSSM CalcMSSM CalcInert CalcLH Demo check_point
 INCLUDE=
 
 # To use HiggsBounds/HiggsSignals for Higgs constraints, set both of the

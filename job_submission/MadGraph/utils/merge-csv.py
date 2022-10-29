@@ -24,11 +24,11 @@ madgraph_out = str(sys.argv[1])
 #location of the original csv file prior to splitting
 OG_csv = str(sys.argv[2])
 FINAL_CSV = str(sys.argv[3]) + ".csv"
-input_sin = str(sys.argv[4])
-OG_sin = str(sys.argv[5])
+#input_sin = str(sys.argv[4])
+#OG_sin = str(sys.argv[5])
 
 ##############################################################################
-def add_xsect(Filename, Chkdfile, sin_in, sin_OG):
+def add_xsect(Filename, Chkdfile):
     """
     Takes the name of an output CSV from the MG5 looper and the name of the
     file that was originally given to this and combines them to create a CSV
@@ -70,15 +70,24 @@ def add_xsect(Filename, Chkdfile, sin_in, sin_OG):
 
     # Checking that the dataframes have the same number of rows before adding
     # cross-section column onto OG_csv_df
-    if len(MG_df.MG_SIN_LABEL_) == len(OG_csv_df.OG_SIN_LABEL_):
-        if 'X_sections' in MG_df.columns:
+    if len(MG_df['MG_SIN_LABEL_']) == len(OG_csv_df['OG_SIN_LABEL_']):
+        MG_df.sort_values(by=['MG_SIN_LABEL_'], inplace=True)
+        OG_csv_df.sort_values(by=['OG_SIN_LABEL_'], inplace=True)
+
+        MG_sin_list = MG_df['MG_SIN_LABEL_'].to_list()
+        OG_sin_list = OG_csv_df['OG_SIN_LABEL_'].to_list()
+        
+        if round(MG_sin_list[0], 5) == round(OG_sin_list[0], 5) and\
+        round(MG_sin_list[-1], 5) == round(OG_sin_list[-1], 5):
+
+            if 'X_sections' in MG_df.columns:
             
-            X_SECT_COL_ = MG_df['X_sections']
+                X_SECT_COL_ = MG_df['X_sections']
 
 
-            OG_csv_df['X_SECT_COL_'] = X_SECT_COL_
-        else:
-            print("Could not find a column 'X_sections' in provided file")
+                OG_csv_df['X_SECT_COL_'] = X_SECT_COL_
+            else:
+                print("Could not find a column 'X_sections' in provided file")
     else:
         print("Row lengths of CSVes do not match. Check for correct files")
 
@@ -86,7 +95,7 @@ def add_xsect(Filename, Chkdfile, sin_in, sin_OG):
 ################################################################################
 
 
-combi_df = add_xsect(madgraph_out, OG_csv, input_sin, OG_sin)
+combi_df = add_xsect(madgraph_out, OG_csv)
 
 # These lines remove duplicates and any rows with missing entries
 combi_df.dropna()

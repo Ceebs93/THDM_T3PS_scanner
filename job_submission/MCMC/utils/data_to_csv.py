@@ -146,12 +146,12 @@ def make_useful(Filename, inc_Hc, col_names=names):
 
     # Below we apply limits to our csv, done in two seperate chunks, the 
     # positive and negative values of sinba. These are then recombined.
-    # values used as limits here come from REFERENCE FOR LIMITS SHOULD BE HERE
-    upper_df = temp_df[temp_df['sinba'] >= 0.88]
-    upper_df = upper_df[upper_df['sinba'] <= 1.2]
+    # values used as limits here come from arxiv:2011.03652
+    upper_df = temp_df[temp_df['khuu'] >= 0.88]
+    upper_df = upper_df[upper_df['khuu'] <= 1.2]
 
-    lower_df = temp_df[temp_df['sinba']<-0.7]
-    lower_df = lower_df[lower_df['sinba']>=-1.1]
+    lower_df = temp_df[temp_df['khuu']<-0.7]
+    lower_df = lower_df[lower_df['khuu']>=-1.1]
 
     temp_df = combiner([upper_df, lower_df])
 
@@ -164,7 +164,7 @@ def make_useful(Filename, inc_Hc, col_names=names):
     df.dropna(inplace=True)
 
     # When excluding the charged higgs we require masses to be above 580GeV
-    # REFERENCE FOR THIS LIMIT HERE
+    # arxiv:1702.04571 
     if inc_Hc == False:
         temp_df = df.drop(df[df.mHc < 580].index)
 
