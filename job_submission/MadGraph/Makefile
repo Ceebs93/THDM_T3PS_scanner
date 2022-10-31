@@ -2,16 +2,16 @@
 ###### --- Create jobs  --- ######
 ##################################
 
-CREATE_JOB_NAME         = "NC_bgh1_p3"
-CREATE_JOB_INPUT_DATA   = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/NC_p3.csv"
+CREATE_JOB_NAME         = "NC_bqh1"
+CREATE_JOB_INPUT_DATA   = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/new_constraints_og.csv"
 #CREATE_JOB_CONVERT_DATA = "yes"
 CREATE_JOB_LOCAL        = "no"
 CREATE_JOB_SPLIT_NAME   = "split_csv_name"
-CREATE_JOB_PROCESS_NAME = "bg_twh1"
-CREATE_JOB_PROC_IN      = "Bs\ g"
-CREATE_JOB_PROC_OUT     = "Ts\ Ws\ h1"
+CREATE_JOB_PROCESS_NAME = "bq_tqh1"
+CREATE_JOB_PROC_IN      = "Bs\ ql"
+CREATE_JOB_PROC_OUT     = "Ts\ ql\ h1"
 CREATE_JOB_nCores       = 1
-CREATE_JOB_nJobs        = 2
+CREATE_JOB_nJobs        = 8
 CREATE_JOB_LOOPER       = "csv_looper_NC.sh"
 CREATE_JOB_Card_Editor  = "inputcard_editor2.py" 
 CREATE_JOB_BASECARD     = "basecard_type2.txt"
@@ -24,12 +24,12 @@ CREATE_JOB_LIST         = "all.jobs"
 ##### --- Job Submission --- #####
 ##################################
 
-SUBMIT_JOB_NAME       = "NC_bgh1_p3"
+SUBMIT_JOB_NAME       = "NC_bgh1"
 SUBMIT_JOB_LOCAL      = "no" 
 SUBMIT_JOB_LIST       = "all.jobs"
 SUBMIT_JOB_NODES      = "--nodes=1"
-SUBMIT_JOB_PPN        = "--ntasks-per-node=2"
-SUBMIT_JOB_TIME       = "--time=05:00:00"
+SUBMIT_JOB_PPN        = "--ntasks-per-node=8"
+SUBMIT_JOB_TIME       = "--time=60:00:00"
 SUBMIT_JOB_SCRIPT     = "slurm_submission.sh"
 SUBMIT_JOB_CLUSTERTYPE = "SLURM"
 
@@ -47,9 +47,9 @@ SUBMIT_JOB_CLUSTERTYPE = "SLURM"
 #########################################
 
 # - 2019_04_03_Diadem - #
-MERGE_JOB_NAME             = "NC_bgh1_p2"
-MERGE_JOB_PROCESS          = "bg_twh1"
-MERGE_JOB_INPUT_DATA       = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/NC_bgh1_p2/p2_partials.csv"
+MERGE_JOB_NAME             = "NC_bghi"
+MERGE_JOB_PROCESS          = "bg_twhi"
+MERGE_JOB_INPUT_DATA       = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/NC_bghi/jobs_OG.csv"
 MERGE_JOB_MGSIN_LABEL      = "Sbma"
 MERGE_JOB_OGSIN_LABEL      = "sinba"
 #########################################

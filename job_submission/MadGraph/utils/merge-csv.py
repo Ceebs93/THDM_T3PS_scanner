@@ -23,7 +23,8 @@ from scipy import stats
 madgraph_out = str(sys.argv[1])
 #location of the original csv file prior to splitting
 OG_csv = str(sys.argv[2])
-FINAL_CSV = str(sys.argv[3]) + ".csv"
+FINAL_CSV = str(sys.argv[3])
+print('FINAL_CSV', FINAL_CSV)
 #input_sin = str(sys.argv[4])
 #OG_sin = str(sys.argv[5])
 
