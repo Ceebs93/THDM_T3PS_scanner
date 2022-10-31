@@ -1,3 +1,8 @@
+#!/usr/bin/env python2
+# -*- coding: utf-8 -*-
+"""
+@author: cb27g11
+"""
 # Data collator
 
 from __future__ import (absolute_import, division,
@@ -11,20 +16,42 @@ import pandas as pd
 import sys
 import glob
 
-# This file inherits variables from looper.sh file as well as create-jobs.s
+# This file inherits variables from looper.sh file as well as create-jobs.
 
-store_path = str(sys.argv[1]) #Folder containing all the runs data
+
+#Folder containing all the runs data
+store_path = str(sys.argv[1]) 
 print("store_path ", store_path)
 process = str(sys.argv[2])
-print("process ", process)
+
 print("search term for file_paths", str(store_path) + "/" + str(process + "*.csv*"))
-file_paths = glob.glob(str(store_path) + "/" + str(process) + "*.csv") # Creates list of all the MadGraph runs to use
+# Creates list of all the MadGraph runs to use
+file_paths = glob.glob(str(store_path) + "/" + str(process) + "*.csv")
 print("file_paths", file_paths)
-csv_path = str(store_path)+ "/" + str(process) + ".csv" #path for csv file to be created
+#path for csv file to be created
+csv_path = str(store_path)+ "/" + str(process) + ".csv"
 print("csv_path ", csv_path)
-#########################################################################################################
+
+###############################################################################
 def combine_csvs(Scsvpaths, Savepath):
-    """ retrieves all the csv files from file folders and creates a list"""
+    """
+    Retrieves all the csv files from file folders and creates a list.
+
+    Parameters
+    ----------
+    Scsv_paths : list of strings
+        each item in the list is a path to a csv file that will be combined
+        with the rest in the list.
+
+    Savepath : string
+        the path (and name) for the final csv file containing the combined
+        input csvs.
+
+    Returns
+    -------
+    None : Instead function directly writes new csv file to the specified
+        location.
+    """
     
     df_list = []
 
@@ -41,6 +68,6 @@ def combine_csvs(Scsvpaths, Savepath):
 
     final_df.to_csv(str(Savepath), index=False)
                             
-###########################################################################################################
+###############################################################################
 
 combine_csvs(file_paths, csv_path)

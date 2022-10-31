@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 """
 @author: cb27g11
@@ -12,8 +12,8 @@ import pandas as pd
 
 # Note: This version of Data_Ripper_iridis is set to look for tan(beta) values 
 # by scanning for\'# tanbeta' in the .lhe file. THis is the setup for the
-# type-II model in use, it will NOT work for type-II as this uses a different 
-# name for the variable.
+# type-II model in use, it will NOT work for other models as they may use a
+# different name for the variable.
 
 #I inherit the following variables from merge-jobs.sh:
 # JOB_DIR_
@@ -63,12 +63,12 @@ creates a list.
         shutil.copy(path_to_file, file_storage)# copying the file
         shutil.copy(path_to_lhe, file_storage)# moving the lhe file
         txt_stored = str(file_storage) + "/run_01_tag_1_banner.txt"
-        # adding the path to the copied file to our list
+        # adding the path for the copied file to our list
         uncomped_files.append(txt_stored)
     else:
         uncomped_files.append("empty")
     return uncomped_files                
-####################################################################################################    
+###############################################################################    
 
 ###############################################################################
 def variable_values(* args):
@@ -102,13 +102,13 @@ def variable_values(* args):
                             print("Data_Ripper has found tanbeta")
                             # find line with tanbeta and add value to list
                             temp_line_holder = line.split()
-                            print("found tanbeta=" +  str(temp_line_holder[1]))
+                            print("Found tanbeta=" +  str(temp_line_holder[1]))
                             text_tan_data.append(temp_line_holder[1])
                     
                         elif '# sinbma' in line:
                             # works as previous part did but for sin(beta-alpha)
                             temp_line_holder = line.split()
-			    print("found sinbma=" + str(temp_line_holder[1]))
+			    print("Found sinbma=" + str(temp_line_holder[1]))
                             text_sin_data.append(temp_line_holder[1])
                         else:
                             continue
@@ -146,7 +146,7 @@ def Xsection_values(file_set):
                     if '#  Integrated weight (pb)  :' in line:
                         # find line with cross-section and add value to list
                         temp_line_holder = line.split()
-			print("found x_section=" + str(temp_line_holder[5]))
+			print("Found x_section=" + str(temp_line_holder[5]))
                         X_Section.append(temp_line_holder[5])
                     else:
                         continue
@@ -167,4 +167,3 @@ nw_df = pd.DataFrame({'Tb':Tb_list, 'Sbma':Sbma_list, 'X_sections':X_sections})
 nw_df.to_csv(str(output_dir) + "/" + str(Process) + ".csv", index=False)
 
 print(len(Sbma_list), len(Tb_list), len(X_sections))
-

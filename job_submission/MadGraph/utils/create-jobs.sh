@@ -53,7 +53,7 @@ if [ ${LOCAL} == "yes" ]; then
    sed -i "s;RESULTS_;${RESULTS};g" ${JOB_DIR}/Data_Ripper.py
 
 	# - Creating and editing 'basecard' for MadGraph runs
-	cp ${ROOT_DIR}MG_utils/mg_runcards/basecards/${BASECARD} ${JOB_DIR}/${BASECARD}
+	cp ${ROOT_DIR}MG_utils/mg_runcards/${BASECARD} ${JOB_DIR}/${BASECARD}
 	BASECARDPATH=${JOB_DIR}/${BASECARD}
    sed -i "s;SCANNER_DIR_;${THDM_T3PS_SCANNER_DIR}/packages/;g" ${BASECARDPATH}
    sed -i "s;proc_in_;${PROC_IN};g" ${BASECARDPATH}
@@ -143,7 +143,7 @@ else
 
 
 		# - Creating and editing 'basecard' for MadGraph runs
-		cp ${ROOT_DIR}MG_utils/mg_runcards/basecards/${BASECARD} ${JOB_DIR}/${BASECARD}
+		cp ${ROOT_DIR}MG_utils/mg_runcards/${BASECARD} ${JOB_DIR}/${BASECARD}
 		BASECARDPATH=${JOB_DIR}/${BASECARD}
    	   sed -i "s;SCANNER_DIR_;${THDM_T3PS_SCANNER_DIR}/packages/;g" ${BASECARDPATH}
 	   sed -i "s;proc_in_;${PROC_IN};g" ${BASECARDPATH}

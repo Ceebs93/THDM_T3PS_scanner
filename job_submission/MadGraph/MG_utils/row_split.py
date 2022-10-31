@@ -1,11 +1,10 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 """
 Created on Tue Sep  8 16:27:12 2022
 
 @author: cb27g11
 """
-
 import pandas as pd
 import math
 
@@ -35,7 +34,7 @@ def row_dropper(filepath, x, newfile):
 
     old_df = pd.read_csv(filepath)
     print(old_df.tail(5))
-    to_drop = list(range(0, x))
+    to_drop = list(range(0, x-1))
     new_df = old_df.drop(old_df.index[to_drop])
     print(new_df.head(5))
 

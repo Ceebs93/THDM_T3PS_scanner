@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 """
 Created on Tue Sep  6 14:03:32 2022
@@ -25,8 +25,6 @@ madgraph_out = str(sys.argv[1])
 OG_csv = str(sys.argv[2])
 FINAL_CSV = str(sys.argv[3])
 print('FINAL_CSV', FINAL_CSV)
-#input_sin = str(sys.argv[4])
-#OG_sin = str(sys.argv[5])
 
 ##############################################################################
 def add_xsect(Filename, Chkdfile):
@@ -47,14 +45,6 @@ def add_xsect(Filename, Chkdfile):
         MadGraph (prior to any splitting being done in setting up a MadGraph
         job). It should contain the same sin(beta-alpha), tan(beta) points as
         'Filename' so that they can be combined.
-
-    sin_in : string
-        This is the column label for the sin(beta-alpha) value for the Madgraph
-        output that is being merged onto the pre-existing csv.
-
-    sin_OG : string
-        This is the column label for the sin(beta-alpha) value for the pre-exi-
-        sting csv file onto which the cross-section values are being added.
 
     Returns
     -------
@@ -78,17 +68,26 @@ def add_xsect(Filename, Chkdfile):
         MG_sin_list = MG_df['MG_SIN_LABEL_'].to_list()
         OG_sin_list = OG_csv_df['OG_SIN_LABEL_'].to_list()
         
+        # Checking to ensure sin values match up
         if round(MG_sin_list[0], 5) == round(OG_sin_list[0], 5) and\
         round(MG_sin_list[-1], 5) == round(OG_sin_list[-1], 5):
+            MG_tan_list = MG_df['MG_TAN_LABEL_'].to_list()
+            OG_tan_list = OG_df['MG_TAN_LABEL_'].to_list()
 
-            if 'X_sections' in MG_df.columns:
+            midpoint = int(len(MG_tan_list)/2)
+            # Checking to ensure tan values also match up, including at one
+            # different point than used for sin
+            if round(MG_tan_list[0], 5) == round(OG_tan_list[0], 5) and\
+            round(MG_tan_list[midpoint], 5) == round(OG_tan_list[midpoint], 5):
+                if 'X_sections' in MG_df.columns:
             
-                X_SECT_COL_ = MG_df['X_sections']
+                    X_SECT_COL_ = MG_df['X_sections']
 
 
-                OG_csv_df['X_SECT_COL_'] = X_SECT_COL_
-            else:
-                print("Could not find a column 'X_sections' in provided file")
+                    OG_csv_df['X_SECT_COL_'] = X_SECT_COL_
+                else:
+                    print("Could not find a column 'X_sections' in provided \
+                          file")
     else:
         print("Row lengths of CSVes do not match. Check for correct files")
 

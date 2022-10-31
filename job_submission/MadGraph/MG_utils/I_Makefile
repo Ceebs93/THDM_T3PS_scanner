@@ -1,13 +1,15 @@
-############################
-### --- Create jobs  --- ###
-############################
+##################################
+###### --- Create jobs  --- ######
+##################################
 
-CREATE_JOB_NAME         = "new_constraints"
-CREATE_JOB_INPUT_DATA   = "top_dir_/job_submission/MadGraph/new_constraints.csv"
+CREATE_JOB_NAME         = "test_job"
+CREATE_JOB_INPUT_DATA   = "top_dir_/magellan_data.csv"
 #CREATE_JOB_CONVERT_DATA = "yes"
 CREATE_JOB_LOCAL        = "no"
 CREATE_JOB_SPLIT_NAME   = "split_csv_name"
-CREATE_JOB_PROCESS      = "bg_twh1"
+CREATE_JOB_PROCESS_NAME = "bg_twh1"
+CREATE_JOB_PROC_IN      = "Bs\ g"
+CREATE_JOB_PROC_OUT     = "Ts\ ql\ h1"
 CREATE_JOB_nCores       = 1
 CREATE_JOB_nJobs        = 6
 CREATE_JOB_LOOPER       = "csv_looper.sh"
@@ -18,18 +20,18 @@ CREATE_JOB_RIPPER       = "Data_Ripper_typeII_template.py"
 CREATE_JOB_LIST         = "all.jobs"
 
 
-##############################
-### --- Job Submission --- ###
-##############################
+##################################
+##### --- Job Submission --- #####
+##################################
 
-SUBMIT_JOB_NAME       = "new_constraints"
-SUBMIT_JOB_LOCAL      = "no" 
-SUBMIT_JOB_LIST       = "all.jobs"
-SUBMIT_JOB_NODES      = "--nodes=1"
-SUBMIT_JOB_PPN        = "--ntasks-per-node=8"
-SUBMIT_JOB_TIME       = "--time=40:00:00"
-SUBMIT_JOB_SCRIPT     = "slurm_submission.sh"
-SUBMIT_JOB_CLUSTERTYPE     = "SLURM"
+SUBMIT_JOB_NAME          = "test_job"
+SUBMIT_JOB_LOCAL         = "no" 
+SUBMIT_JOB_LIST          = "all.jobs"
+SUBMIT_JOB_NODES         = "--nodes=1"
+SUBMIT_JOB_PPN           = "--ntasks-per-node=8"
+SUBMIT_JOB_TIME          = "--time=40:00:00"
+SUBMIT_JOB_SCRIPT        = "slurm_submission.sh"
+SUBMIT_JOB_CLUSTERTYPE   = "SLURM"
 
 
 #For Torque jobs
@@ -40,17 +42,17 @@ SUBMIT_JOB_CLUSTERTYPE     = "SLURM"
 #SUBMIT_JOB_CLUSTERTYPE = "TORQUE"
 
 
-########################
-### --- Merge jobs - ###
-########################
+#########################################
+########### --- Merge jobs - ############
+#########################################
 
 # - 2019_04_03_Diadem - #
-MERGE_JOB_NAME        = "test_job"
-#MERGE_JOB_LIST        = "all.jobs"
-#MERGE_JOB_HEADER      = "header/default.header"
-MERGE_JOB_PROCESS     = "bq_tqh2"
-MERGE_JOB_INPUT_DATA  = "/scratch/cb27g11/Looping_Bash/missing.csv"
-#######################
+MERGE_JOB_NAME             = "test_job"
+MERGE_JOB_PROCESS          = "bq_tqh2"
+MERGE_JOB_INPUT_DATA       = "magellan_data.csv"
+MERGE_JOB_MGSIN_LABEL      = "Sbma"
+MERGE_JOB_OGSIN_LABEL      = "sinba"
+#########################################
 
 
 DECLARE_ROOT_DIR = ROOT_DIR="top_dir_/job_submission/MadGraph/"

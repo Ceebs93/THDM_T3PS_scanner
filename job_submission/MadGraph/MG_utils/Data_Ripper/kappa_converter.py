@@ -1,8 +1,6 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 """
-Created on Sat Nov  7 13:20:37 2020
-
 @author: cb27g11
 """
 import numpy as np
@@ -11,10 +9,57 @@ def transfmkappa(tanb, sinba, kappas, xsection, higgs):
     """
     Designed for 2HDMs. Takes an array of data points that are in terms of
     tan(beta)/sin(beta-alpha) and transforms it into terms of a given kappa.
-    i.e. kappatt, the coupling of the SM higgs to a kappa term.
+    i.e. kappatt, the coupling of the SM higgs to a kappa term. 
 
     Parameters
-   
+    ----------
+    tanb : list
+        List of floats, the values of tan(beta) for each point.
+
+    sinba : list
+        List of floats, the values of sin(beta-alpha) for each point.
+
+    kappas : list
+        List of strings indicating which kappas the user requires, e.g. 'tt'
+        indicates the kappa for the tt coupling for a specified higgs particle.
+
+    xsection : list
+        List of floats, the values of the cross-section for each point. These
+        values are not used for any calculation in this function but to keep 
+        values of tanb, sinb and xsection linked it is included.
+
+    higgs : list
+        List of strings indicating which higgs particles the user wishes to 
+        find the kappas for. They are assigned as 1-h (SM-like) 2-H (cp-even)
+        3-A (CP odd). The charged Higgs particles are not included.
+
+    Returns
+    -------
+    rdcd_xsects : list
+        List of REDUCED cross-sections. Values have been checked to ensure sin
+        values are sensible and discarded if they are not.
+
+    k_tt : list
+        If the user has entered only one type of higgs then this is a list of
+        float values for kappa_tt for that higgs particle. If they have entered
+        more than one then this will be a list of lists, these will correspond 
+        to a list of kappa values for each higgs entered.
+
+    k_bb : list
+        If the user has entered only one type of higgs then this is a list of
+        float values for kappa_bb for that higgs particle. If they have entered
+        more than one then this will be a list of lists, these will correspond 
+        to a list of kappa values for each higgs entered.
+
+    k_ww : list
+        If the user has entered only one type of higgs then this is a list of
+        float values for kappa_ww for that higgs particle. If they have entered
+        more than one then this will be a list of lists, these will correspond 
+        to a list of kappa values for each higgs entered.
+
+    cos_vals : list
+        List of cos(beta-alpha) values corresponding to the tan(beta) and
+        sin(beta-alpha).   
     """
 
     rdcd_xsects = []

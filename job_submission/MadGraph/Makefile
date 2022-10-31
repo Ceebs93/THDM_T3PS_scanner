@@ -52,6 +52,8 @@ MERGE_JOB_PROCESS          = "bg_twhi"
 MERGE_JOB_INPUT_DATA       = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/NC_bghi/jobs_OG.csv"
 MERGE_JOB_MGSIN_LABEL      = "Sbma"
 MERGE_JOB_OGSIN_LABEL      = "sinba"
+MERGE_JOB_MGSIN_LABEL      = "Tb"
+MERGE_JOB_OGSIN_LABEL      = "tb"
 #########################################
 
 
