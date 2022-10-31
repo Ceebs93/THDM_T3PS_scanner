@@ -17,6 +17,7 @@ packages/MG5_aMC_v3_1_0/proc_card.dat
 job_submission/MCMC/jobs/*
 job_submission/MadGraph/jobs/*
 job_submission/MadGraph/sucessful/*
+job_submission/MadGraph/*.csv
 *.o
 *.a
 *.exe
