@@ -67,23 +67,31 @@ def add_xsect(Filename, Chkdfile):
 
         MG_sin_list = MG_df['MG_SIN_LABEL_'].to_list()
         OG_sin_list = OG_csv_df['OG_SIN_LABEL_'].to_list()
+        print(MG_df['X_sections'])
         
         # Checking to ensure sin values match up
         if round(MG_sin_list[0], 5) == round(OG_sin_list[0], 5) and\
         round(MG_sin_list[-1], 5) == round(OG_sin_list[-1], 5):
-            MG_tan_list = MG_df['MG_TAN_LABEL_'].to_list()
-            OG_tan_list = OG_df['MG_TAN_LABEL_'].to_list()
+            print('sin match confirmed')
+            
+            MG_df.sort_values(by=['MG_TAN_LABEL_'], inplace=True)
+            OG_csv_df.sort_values(by=['OG_TAN_LABEL_'], inplace=True)
 
+            MG_tan_list = MG_df['MG_TAN_LABEL_'].to_list()
+            OG_tan_list = OG_csv_df['OG_TAN_LABEL_'].to_list()
+            
             midpoint = int(len(MG_tan_list)/2)
             # Checking to ensure tan values also match up, including at one
             # different point than used for sin
             if round(MG_tan_list[0], 5) == round(OG_tan_list[0], 5) and\
             round(MG_tan_list[midpoint], 5) == round(OG_tan_list[midpoint], 5):
+
+                print('tan match confirmed')
                 if 'X_sections' in MG_df.columns:
-            
-                    X_SECT_COL_ = MG_df['X_sections']
+                    print('X_sections located')            
+                    X_SECT_COL_ = MG_df['X_sections'].tolist()
 
-
+                    print(X_SECT_COL_[0:5])
                     OG_csv_df['X_SECT_COL_'] = X_SECT_COL_
                 else:
                     print("Could not find a column 'X_sections' in provided \
@@ -92,8 +100,60 @@ def add_xsect(Filename, Chkdfile):
         print("Row lengths of CSVes do not match. Check for correct files")
 
     return OG_csv_df
-################################################################################
+###############################################################################
+###############################################################################
+def round_no(x, sf):
 
+    """Simple function to round a float to a given number of significant figures.
+    Does not work for negative numbers.
+
+    Parameters
+    ----------
+    x : float
+        The float the user wishes to round
+
+    sf : int
+        The number of significant figures the user wishes to round to
+
+    Returns
+    -------
+    rounded : float
+        The rounded input number 
+    """
+    rounded = round(x, -int(floor(log10(abs(x)))))
+
+    return rounded
+###############################################################################
+###############################################################################
+def round_to_sf(num, sf):
+
+    """Simple function to round a float to a given number of significant figures.
+    Does not work for negative numbers.
+
+    Parameters
+    ----------
+    num : float/list of floats
+        The float/s the user wishes to round
+
+    sf : int
+        The number of significant figures the user wishes to round to
+
+    Returns
+    -------
+    rounded_no : float/list of floats
+        The rounded input numbers 
+    """
+
+    if type(num) == float:
+        rounded_no = round_no(num, sf)
+
+    else:
+        rounded_no = []
+        for i in range(0,len(num)):
+            rounded_no.append(round_no(num[i]),sf)
+
+    return rounded_no
+###############################################################################
 
 combi_df = add_xsect(madgraph_out, OG_csv)
 
