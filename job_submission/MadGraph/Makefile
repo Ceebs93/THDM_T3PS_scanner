@@ -2,14 +2,14 @@
 ###### --- Create jobs  --- ######
 ##################################
 
-CREATE_JOB_NAME         = "NC_bqh1"
+CREATE_JOB_NAME         = "NC_bqhi"
 CREATE_JOB_INPUT_DATA   = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/new_constraints_og.csv"
 #CREATE_JOB_CONVERT_DATA = "yes"
 CREATE_JOB_LOCAL        = "no"
 CREATE_JOB_SPLIT_NAME   = "split_csv_name"
-CREATE_JOB_PROCESS_NAME = "bq_tqh1"
+CREATE_JOB_PROCESS_NAME = "bq_tqhi"
 CREATE_JOB_PROC_IN      = "Bs\ ql"
-CREATE_JOB_PROC_OUT     = "Ts\ ql\ h1"
+CREATE_JOB_PROC_OUT     = "Ts\ ql\ h_i"
 CREATE_JOB_nCores       = 1
 CREATE_JOB_nJobs        = 8
 CREATE_JOB_LOOPER       = "csv_looper_NC.sh"
@@ -24,12 +24,12 @@ CREATE_JOB_LIST         = "all.jobs"
 ##### --- Job Submission --- #####
 ##################################
 
-SUBMIT_JOB_NAME       = "NC_bgh1"
+SUBMIT_JOB_NAME       = "NC_bqhi"
 SUBMIT_JOB_LOCAL      = "no" 
 SUBMIT_JOB_LIST       = "all.jobs"
 SUBMIT_JOB_NODES      = "--nodes=1"
 SUBMIT_JOB_PPN        = "--ntasks-per-node=8"
-SUBMIT_JOB_TIME       = "--time=60:00:00"
+SUBMIT_JOB_TIME       = "--time=12:00:00"
 SUBMIT_JOB_SCRIPT     = "slurm_submission.sh"
 SUBMIT_JOB_CLUSTERTYPE = "SLURM"
 
@@ -47,13 +47,13 @@ SUBMIT_JOB_CLUSTERTYPE = "SLURM"
 #########################################
 
 # - 2019_04_03_Diadem - #
-MERGE_JOB_NAME             = "NC_bghi"
-MERGE_JOB_PROCESS          = "bg_twhi"
-MERGE_JOB_INPUT_DATA       = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/NC_bghi/jobs_OG.csv"
+MERGE_JOB_NAME             = "NC_bqh1"
+MERGE_JOB_PROCESS          = "bq_tqh1"
+MERGE_JOB_INPUT_DATA       = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/new_constraints_og.csv"
 MERGE_JOB_MGSIN_LABEL      = "Sbma"
 MERGE_JOB_OGSIN_LABEL      = "sinba"
-MERGE_JOB_MGSIN_LABEL      = "Tb"
-MERGE_JOB_OGSIN_LABEL      = "tb"
+MERGE_JOB_MGTAN_LABEL      = "Tb"
+MERGE_JOB_OGTAN_LABEL      = "tb"
 #########################################
 
 
