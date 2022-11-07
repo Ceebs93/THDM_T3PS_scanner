@@ -3,8 +3,6 @@
 #include "2HDMC/HBHS.h"
 #include "2HDMC/Constraints.h"
 #include "2HDMC/DecayTable.h"
-//#include "/scratch/cb27g11/THDM_T3PS_scanner/packages/HiggsBounds-5.10.1/include/HiggsBounds.h"
-//#include "/scratch/cb27g11/THDM_T3PS_scanner/packages/HiggsSignals-2.6.2/include/HiggsSignals.h"
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -108,18 +106,11 @@ int main(int argc, char* argv[])
 	model.set_yukawas_type( yt_in );
 	
 	///////////////////////////
-	/// 							///
+	/// 			///
 	/// --- CONSTRAINTS --- ///
-	/// 							///
+	/// 			///
 	///////////////////////////
 	
-	// -   !!! Important note !!!   - //
-	// You need to call HB&HS initialization before constr(mode)!
-	
-//	~/scratch/cb27g11/THDM_T3PS_scanner/packages/HiggsBounds/build/initialize_HiggsBounds(nHzero, nHplus, whichanalyses)
-	//HS_init();
-
-
 	// -- Prepare to calculate observables
 	Constraints constr(model);
 	
@@ -144,7 +135,7 @@ int main(int argc, char* argv[])
  	 hbhsres_ptr = &hbhs_result;
       
 	//Write LesHouches-style output
- 	model.write_LesHouches("/scratch/cb27g11/Ciara_tst.lha", true, true, true, hbhsres_ptr);
+ 	model.write_LesHouches("test.lha", true, true, true, hbhsres_ptr);
 
 	// - S,T,U fit
  	double chi2_ST_hepfit, chi2_ST_gfitter;
@@ -168,23 +159,11 @@ int main(int argc, char* argv[])
 	// -- See HiggsSignals manual for more information
 	
 	int mass_pdf = 2;
-//	HS_set_pdf(mass_pdf);
-//	HS_setup_assignment_range_massobservables(2.);
-//	HS_set_output_level(0);
-
-
-	// -- Share couplings of 2HDM model with HiggsBounds/HiggsSignals
-//	HB_set_input_effC(model);
-
 	
 	int    hbres[6];
 	int    hbchan[6];
 	double hbobs[6];
 	int    hbcomb[6];  
-	
-	// -- Run HiggsBounds 'full', i.e. with each Higgs result separately  
-//	HB_run_full(hbres, hbchan, hbobs, hbcomb);
-
 	
 	double tot_hbobs = hbobs[0];
 	double sens_ch  = hbchan[0];
@@ -192,11 +171,6 @@ int main(int argc, char* argv[])
    printf("sens_ch: %f \n", sens_ch);
 
 
-//	for(int i=0; i<6; i++)
-//   {
-//		  printf("sens_ch_%d: %f \n", i, hbchan[i]);
-//   }
-	
 	double csqmu;
 	double csqmh_ref;
 	double chi2_HS;
@@ -206,12 +180,6 @@ int main(int argc, char* argv[])
 	double dMh[3]={0., 0., 0.,};
 	//HS_set_mass_uncertainties(dMh);
 	
-	
-	//run_HiggsSignals_full(&csqmu, &csqmh_ref, &chi2_HS, &nobs, &pval);
-
-
-
-
   	# ifdef FAST
   	if ( chi2_HS > 300.0 )
   	{
@@ -224,14 +192,6 @@ int main(int argc, char* argv[])
 	chi2_Tot_gfitter = chi2_HS + chi2_ST_gfitter;
 	chi2_Tot_hepfit = chi2_HS + chi2_ST_hepfit;
 
-	
-	// std::complex <double> cs;
-	// std::complex <double> cp;
-	// model.get_coupling_vvh(2,2,1,coupling);
-	// model.get_coupling_hdd(1,3,3,cs,cp);
-	
-	// Warning: Beware with these ones as they seem to destroy some HB/HS
-	// functionality!!!
 	double delta_rho = constr.delta_rho(mh_ref);
 	double delta_amu = constr.delta_amu();
 
@@ -251,61 +211,7 @@ int main(int argc, char* argv[])
 	// -- Prepare to calculate decay widths
 	DecayTable table(model);
 	
-	// const char *dnames[4] = {" ","d ", "s ", "b "};
-	// const char *unames[4] = {" ","u ", "c ", "t "};
-	// const char *lnames[4] = {" ","e ", "mu", "ta"};
-   // const char *nnames[4] = {" ","ve", "vm", "vt"};
-	// const char *hnames[6] = {" ","h ", "H ", "A ", "H+", "H-"};
-	// const char *vnames[5] = {" ","ga", "Z ", "W+", "W-"};
-	// param h Index of Higgs boson (1,2,3,4 = h,H,A,H+)
-	
-	// -- Branching fractions
-//	struct BR BRfrac_h, BRfrac_H, BRfrac_A, BRfrac_Hp;
-
-//	table.geth_BR( 1, BRfrac_h);
-//	table.geth_BR( 2, BRfrac_H );
-//	table.geth_BR( 3, BRfrac_A );
-//	table.geth_BR( 4, BRfrac_Hp);
-	
-//	double br_h_bb     = BRfrac_h.brdd[3][3];
-//	double br_h_tautau = BRfrac_h.brll[3][3];
-//	double br_h_gg     = BRfrac_h.brhgg;
-//	double br_h_WW     = BRfrac_h.brvv[3];
-//	double br_h_ZZ     = BRfrac_h.brvv[2];
-//	double br_h_gaga   = BRfrac_h.brvv[1];
-
-//	double br_H_tt     = BRfrac_H.bruu[3][3];
-//	double br_H_bb     = BRfrac_H.brdd[3][3];
-//	double br_H_gg     = BRfrac_H.brhgg;
-//	double br_H_mumu   = BRfrac_H.brll[3][3];
-//	double br_H_tautau = BRfrac_H.brll[3][3];
-//	double br_H_Zga    = BRfrac_H.brhZga;
-//	double br_H_Zh     = BRfrac_H.brvh[2][1];
-//	double br_H_WW     = BRfrac_H.brvv[3];
-//	double br_H_ZZ     = BRfrac_H.brvv[2];
-//	double br_H_ZA     = BRfrac_H.brvh[2][3];
-//	double br_H_AA     = BRfrac_H.brhh[3];
-//	double br_H_hh     = BRfrac_H.brhh[1];
-//	double br_H_gaga   = BRfrac_H.brvv[1];
-
-//	double br_A_tt     = BRfrac_A.bruu[3][3];
-//	double br_A_bb     = BRfrac_A.brdd[3][3];
-//	double br_A_gg     = BRfrac_A.brhgg;
-//	double br_A_mumu   = BRfrac_A.brll[2][2];
-//	double br_A_tautau = BRfrac_A.brll[3][3];
-//	double br_A_Zga    = BRfrac_A.brhZga;
-//	double br_A_Zh     = BRfrac_A.brvh[2][1];
-//	double br_A_ZH     = BRfrac_A.brvh[2][2];
-//	double br_A_gaga   = BRfrac_A.brvv[1];
-
-//	double br_Hp_Wh    = BRfrac_Hp.brvh[3][1];
-//	double br_Hp_WH    = BRfrac_Hp.brvh[3][2];
-//	double br_Hp_WA    = BRfrac_Hp.brvh[3][3];
-//	double br_Hp_tb    = BRfrac_Hp.brdu[3][3];
-//	double br_Hp_taunu = BRfrac_Hp.brln[3][3];
-	
 	// -- From 2HDMC:
-	// const char *hnames[6] = {" ","h ", "H ", "A ", "H+", "H-"};
 	double Gamma_h  = table.get_gammatot_h(1);
 	double Gamma_H  = table.get_gammatot_h(2);
 	double Gamma_A  = table.get_gammatot_h(3);
@@ -371,43 +277,8 @@ int main(int argc, char* argv[])
 	printf("       Perturbativity: %s\n", 
 	  (constr.check_perturbativity() ? "OK" : "Not OK"));
 
-	// Print the parameters in different parametrizations to stdout
-	//model.print_param_phys();
-	//model.print_param_gen();
-	//model.print_param_higgs();
-	//model.print_param_hybrid();
-	
-	//printf("\nHiggsSignals results:\n");
-	//printf(" Chi^2 from rates: %16.8E\n", csqmu);
-	//printf("  Chi^2 from mass: %16.8E\n", csqmh_ref);
-	//printf("      Total chi^2: %16.8E\n", csqtot);
-	//printf("    # observables: %16d\n\n", nobs);
-	
-	//printf("\nHiggsBounds results (full):\n");
-	//printf("  Higgs  res  chan       ratio        ncomb\n");
-	//for (int i=1;i<=4;i++)
-	//{
-	//  printf("%5d %5d %6d %16.8E %5d   %s\n", i, hbres[i],hbchan[i],hbobs[i],hbcomb[i],hbobs[i]<1 ? "Allowed" : "Excluded");
-	//}
-	//printf("------------------------------------------------------------\n");
-	//printf("  TOT %5d %6d %16.8E %5d   %s\n", hbres[0],hbchan[0],hbobs[0],hbcomb[0],hbobs[0]<1 ? "ALLOWED" : "EXCLUDED");
-
 	constr.print_all(mh_ref);
 
-	//printf("br tt:      %.3e\n", br_A_tt    );
-	//printf("br bb:      %.3e\n", br_A_bb    );
-	//printf("br gg:      %.3e\n", br_A_gg    );
-	//printf("br tau tau: %.3e\n", br_A_tautau);
-	//printf("br zh:      %.3e\n", br_A_Zh    );
-	//
-	//You can cross-check the branching fractions here with the full table
-//	printf("br tt:      %.3e\n", BRfrac_A.bruu[3][3]);
-//	printf("br bb:      %.3e\n", BRfrac_A.brdd[3][3]);
-//	printf("br gg:      %.3e\n", BRfrac_A.brhgg);
-//	printf("br tau tau: %.3e\n", BRfrac_A.brll[3][3]);
-//	printf("br zh:      %.3e\n", BRfrac_A.brvh[2][1]);
-	//table.print_decays(3);
-	//
 	table.print_decays(1);
 	table.print_decays(2);
 	table.print_decays(3);
@@ -435,52 +306,6 @@ int main(int argc, char* argv[])
 	printf("l6:          %.3e\n", l6);                         
 	printf("l7:          %.3e\n", l7);                         
 
-	// -- Couplings
-	//printf("g_HpHmh.r:   %.3e\n", g_HpHmh.real());             
-	//printf("g_HpHmh.i:   %.3e\n", g_HpHmh.imag());             
-
-	// -- Widths
-//	printf("Gamma_h:     %.3e\n", Gamma_h);             
-//	printf("Gamma_H:     %.3e\n", Gamma_H);             
-//	printf("Gamma_Hc:    %.3e\n", Gamma_Hc);             
-//	printf("Gamma_A:     %.3e\n", Gamma_A);             
-
-	// -- BR(h->XX)
-//	printf("br_h_bb:     %.3e\n", br_h_bb);      
-//	printf("br_h_gg:     %.3e\n", br_h_gg);      
-//	printf("br_h_gaga:   %.3e\n", br_h_gaga);      
-//	printf("br_h_tautau: %.3e\n", br_h_tautau);      
-//      printf("br_h_WW:     %.3e\n", br_h_WW);      
-//	printf("br_h_ZZ:     %.3e\n", br_h_ZZ);
-
-	
-   // -- BR(A->XX)
-//	printf("br_A_tt:     %.3e\n", br_A_tt);      
-//	printf("br_A_bb:     %.3e\n", br_A_bb);      
-//	printf("br_A_gg:     %.3e\n", br_A_gg);      
-//	printf("br_A_gaga:   %.3e\n", br_A_gaga);      
-//	printf("br_A_tautau: %.3e\n", br_A_tautau);      
-//	printf("br_A_Zh:     %.3e\n", br_A_Zh);      
-
-	// -- BR(H->XX)
-//	printf("br_H_tt:     %.3e\n", br_H_tt);      
-//	printf("br_H_bb:     %.3e\n", br_H_bb);      
-//	printf("br_H_gg:     %.3e\n", br_H_gg);      
-//	printf("br_H_gaga:   %.3e\n", br_H_gaga);      
-//	printf("br_H_tautau: %.3e\n", br_H_tautau);      
-//	printf("br_H_Zh:     %.3e\n", br_H_Zh);      
-//	printf("br_H_ZA:     %.3e\n", br_H_ZA);      
-//	printf("br_H_AA:     %.3e\n", br_H_AA);      
-//	printf("br_H_WW:     %.3e\n", br_H_WW);      
-//	printf("br_H_ZZ:     %.3e\n", br_H_ZZ);
-
-	// -- BR(H+->XX)
-//	printf("br_Hp_Wh:     %.3e\n", br_Hp_Wh);
-//	printf("br_Hp_WA:     %.3e\n", br_Hp_WA);      
-//	printf("br_Hp_tb:     %.3e\n", br_Hp_tb);
-//	printf("br_Hp_taunu:  %.3e\n", br_Hp_taunu);
-
-
 	// -- Theory
 	printf("sta:         %d\n", sta);                       
 	printf("uni:         %d\n", uni);                       
@@ -504,8 +329,6 @@ int main(int argc, char* argv[])
 	printf("sens_ch:     %f\n", sens_ch);           
 	printf("chi2_HS:     %.3e\n", chi2_HS);           
 
-
-
 	# endif
 	
 	//////////////////
@@ -514,30 +337,6 @@ int main(int argc, char* argv[])
 	//              //
 	//////////////////
 	
-//	double br_H_sum =	br_H_tt    
-//	+ br_H_bb    
-//	+ br_H_gg    
-//	+ br_H_mumu  
-//	+ br_H_tautau
-//	+ br_H_Zga   
-//	+ br_H_Zh    
-//	+ br_H_WW    
-//	+ br_H_ZZ    
-//	+ br_H_ZA    
-//	+ br_H_AA    
-//	+ br_H_hh
-//	+ br_H_gaga;
-
-//	double br_A_sum = 	br_A_tt     
-//	+ br_A_bb     
-//	+ br_A_gg     
-//	+ br_A_mumu   
-//	+ br_A_tautau 
-//	+ br_A_Zga    
-//	+ br_A_Zh     
-//	+ br_A_ZH     
-//	+ br_A_gaga   ;
-
 	std::cout                                    
 	
 	// -- Input
@@ -646,12 +445,7 @@ int main(int argc, char* argv[])
 	<< k_huu  << " "                    // 75
 	<< k_hdd  <<                        // 76
 
-//	<< br_H_sum  << " "                 // tmp
-//	<< br_A_sum  <<                     // tmp
-
 	std::endl;
-	
-	//~HBHS();
 	
 	return 0;
 

@@ -65,8 +65,6 @@ int main(int argc, char* argv[])
 	/////////////////
 	// -- 2HDMC -- //
 	/////////////////
-	
-
 
 	const HBHSResult *hbhsres_ptr = nullptr;
 
@@ -103,8 +101,6 @@ int main(int argc, char* argv[])
 
  	  // Set Yukawa couplings
 	  model.set_yukawas_type(yt_in);
-
-	  Constraints check(model);
 
 	  // -- Prepare to calculate observables
 	  Constraints constr(model);
@@ -241,12 +237,11 @@ int main(int argc, char* argv[])
 
 	  double mh,mH,mA,mHc,sinba,m12_2,tb;
 	  double l1,l2,l3,l4,l5,l6,l7;
+	  double cba, Z4, Z5, Z7;
 
 	  model.get_param_gen(l1,l2,l3,l4,l5,l6,l7,m12_2,tb);
 	  model.get_param_phys(mh,mH,mA,mHc,sinba,l6,l7,m12_2,tb);
-
-	  //printf("m12_2 has a value of     ");
-          //std::cout << m12_2 << endl;
+	  model.get_param_hybrid(mh, mH, cba, Z4, Z5, Z7, tb);
 
 
 	  // Please note that here sin(b-a) comes from the physical basis 
@@ -258,9 +253,7 @@ int main(int argc, char* argv[])
 
 	# endif
 
-	//printf("                             ");
-	//printf("I'm printing out the stuff in the DEBUG section now!");
-	//printf("                              ");
+	# ifdef VERBOSE
 	double mh_hybrid,mH_hybrid,cba_hybrid, Z4_hybrid, Z5_hybrid, Z7_hybrid, tb_hybrid;
 	double mh_phys,mH_phys,mA_phys,mHc_phys,sba_phys,l6_phys,l7_phys,m12_2_phys,tb_phys;
 	double l1_gen,l2_gen,l3_gen,l4_gen,l5_gen,l6_gen,l7_gen,m12_2_gen,tb_gen;
@@ -269,8 +262,8 @@ int main(int argc, char* argv[])
 	model.get_param_hybrid(mh_hybrid, mH_hybrid, cba_hybrid, Z4_hybrid, Z5_hybrid, Z7_hybrid, tb_hybrid);
 	model.get_param_gen(l1_gen,l2_gen,l3_gen,l4_gen,l5_gen,l6_gen,l7_gen,m12_2_gen,tb_gen);
 	
-	//printf("Inside ParameterScan_T3PS.cpp\n");
-	//printf("yt_in: %d\n", yt_in );
+	printf("Inside ParameterScan_T3PS.cpp\n");
+	printf("yt_in: %d\n", yt_in );
 	
 	printf("\nComparison of variables\n");
 	printf("|-------------------------------------------------------------------------\n" );
@@ -300,115 +293,118 @@ int main(int argc, char* argv[])
 	printf("       Perturbativity: %s\n", 
 	  (constr.check_perturbativity() ? "OK" : "Not OK"));
 
-     // #if defined HiggsBounds
-//	HBHS hbhs{};
       #endif
 
+	//////////////////
+	//              //
+	// -- OUTPUT -- //
+	//              //
+	//////////////////
+	
 	std::cout
-//	<< "Marker" << " "
-	<< Z7_in << " "			//1
+
+	<< Z7_in << " "			// 1
 	<< mH_in  << " "                // 2
 	<< mHc_in << " "                // 3
 	<< mA_in  << " "                // 4
 	<< cba_in << " "                // 5
 	<< tb_in  << " "                // 6
 
-// -- Auxiliary
- 	<< sinba << " "                     // 7
- 	<< Z4_c << " "                      // 8
- 	<< Z5_c << " "                      // 9
- 	<< m12_2 << " "                     // 10
+ 	<< sinba << " "                 // 7
+ 	<< Z4_c << " "                  // 8
+ 	<< Z5_c << " "                  // 9
+ 	<< m12_2 << " "                 // 10
  					
  	// -- lambdas
- 	<< l1 << " "                        // 11
-	<< l2 << " "                        // 12
-	<< l3 << " "                        // 13
- 	<< l4 << " "                        // 14
-	<< l5 << " "                        // 15
- 	<< l6 << " "                        // 16
-	<< l7 << " "                        // 17
+ 	<< l1 << " "                    // 11
+	<< l2 << " "                    // 12
+	<< l3 << " "                    // 13
+ 	<< l4 << " "                    // 14
+	<< l5 << " "                    // 15
+ 	<< l6 << " "                    // 16
+	<< l7 << " "                    // 17
  	
 	// -- Coupling
- 	<< g_HpHmh << " "                   // 18
+ 	<< g_HpHmh << " "               // 18
 	
 	// -- Widths
-	<< Gamma_h  << " "                  // 19
- 	<< Gamma_H  << " "                  // 20
-	<< Gamma_Hc << " "                  // 21		
-	<< Gamma_A  << " "                  // 22
+	<< Gamma_h  << " "              // 19
+ 	<< Gamma_H  << " "              // 20
+	<< Gamma_Hc << " "              // 21		
+	<< Gamma_A  << " "              // 22
 
- 	<< br_h_bb     << " "               // 23
-	<< br_h_tautau << " "               // 24
-	<< br_h_gg     << " "               // 25
-	<< br_h_WW     << " "               // 26
-	<< br_h_ZZ     << " "               // 27
-	<< br_h_gaga   << " "               // 28 						   	   
+ 	<< br_h_bb     << " "           // 23
+	<< br_h_tautau << " "           // 24
+	<< br_h_gg     << " "           // 25
+	<< br_h_WW     << " "           // 26
+	<< br_h_ZZ     << " "           // 27
+	<< br_h_gaga   << " "           // 28 						   	   
 	// -- BR(A -> XX)
-	<< br_A_tt     << " "               //29
-	<< br_A_bb     << " "               // 30
-	<< br_A_gg     << " "               // 31
-	<< br_A_mumu   << " "               // 32
-	<< br_A_tautau << " "               // 33
-	<< br_A_Zga    << " "               // 34
-	<< br_A_Zh     << " "               // 35
-	<< br_A_ZH     << " "               // 36
-	<< br_A_gaga   << " "               // 37
+	<< br_A_tt     << " "           //29
+	<< br_A_bb     << " "           // 30
+	<< br_A_gg     << " "           // 31
+	<< br_A_mumu   << " "           // 32
+	<< br_A_tautau << " "           // 33
+	<< br_A_Zga    << " "           // 34
+	<< br_A_Zh     << " "           // 35
+	<< br_A_ZH     << " "           // 36
+	<< br_A_gaga   << " "           // 37
 
    	// -- BR(H -> XX)
-	<< br_H_tt       << " "             // 38
-	<< br_H_bb       << " "             // 39
-	<< br_H_gg       << " "             // 40
-	<< br_H_mumu     << " "             // 41
-	<< br_H_tautau   << " "             // 42
-	<< br_H_Zga      << " "             // 43
-	<< br_H_Zh       << " "             // 44
-	<< br_H_WW       << " "             // 45
-	<< br_H_ZZ       << " "             // 46
-	<< br_H_ZA       << " "             // 47
-	<< br_H_AA       << " "             // 48
-	<< br_H_hh       << " "             // 49
-	<< br_H_gaga     << " "             // 50
+	<< br_H_tt       << " "         // 38
+	<< br_H_bb       << " "         // 39
+	<< br_H_gg       << " "         // 40
+	<< br_H_mumu     << " "         // 41
+	<< br_H_tautau   << " "         // 42
+	<< br_H_Zga      << " "         // 43
+	<< br_H_Zh       << " "         // 44
+	<< br_H_WW       << " "         // 45
+	<< br_H_ZZ       << " "         // 46
+	<< br_H_ZA       << " "         // 47
+	<< br_H_AA       << " "         // 48
+	<< br_H_hh       << " "         // 49
+	<< br_H_gaga     << " "         // 50
 
    	// -- BR(H+ -> XX)     
-	<< br_Hp_tb     << " "              // 51
-	<< br_Hp_taunu  << " "              // 52
-	<< br_Hp_Wh     << " "              // 53
-	<< br_Hp_WH     << " "              // 54
-	<< br_Hp_WA     << " "              // 55
+	<< br_Hp_tb     << " "          // 51
+	<< br_Hp_taunu  << " "          // 52
+	<< br_Hp_Wh     << " "          // 53
+	<< br_Hp_WH     << " "          // 54
+	<< br_Hp_WA     << " "          // 55
 
 	// -- Theory
-	<< sta     << " "                   // 56
-	<< uni     << " "                   // 57
-	<< per_4pi << " "                   // 58
-	<< per_8pi << " "                   // 59
+	<< sta     << " "                 // 56
+	<< uni     << " "                 // 57
+	<< per_4pi << " "                 // 58
+	<< per_8pi << " "                 // 59
 
 	// -- EWPO
-	<< S << " "                         // 60
-	<< T << " "                         // 61
-	<< U << " "                         // 62
-	<< V << " "                         // 63
-	<< W << " "                         // 64
-	<< X << " "                         // 65
-	<< delta_rho << " "                 // 66
+	<< S << " "                       // 60
+	<< T << " "                       // 61
+	<< U << " "                       // 62
+	<< V << " "                       // 63
+	<< W << " "                       // 64
+	<< X << " "                       // 65
+	<< delta_rho << " "               // 66
 
 	// -- (g-2)
-	<< delta_amu << " "                 // 67
+	<< delta_amu << " "               // 67
 
 	// -- HiggsBounds
-	<< tot_hbobs << " "                 // 68
-	<< sens_ch   << " "                 // 69
+	<< tot_hbobs << " "               // 68
+	<< sens_ch   << " "               // 69
 
 	// -- HiggsSignals
-	<< chi2_HS << " "                   // 70
+	<< chi2_HS << " "                 // 70
 
-	<< chi2_ST_hepfit  << " "           // 71
-	<< chi2_ST_gfitter << " "           // 72
+	<< chi2_ST_hepfit  << " "         // 71
+	<< chi2_ST_gfitter << " "         // 72
 
-	<< chi2_Tot_hepfit  << " "          // 73
-	<< chi2_Tot_gfitter << " "          // 74
+	<< chi2_Tot_hepfit  << " "        // 73
+	<< chi2_Tot_gfitter << " "        // 74
 
-	<< k_huu  << " "                    // 75
-	<< k_hdd  <<                        // 76
+	<< k_huu  << " "                  // 75
+	<< k_hdd  <<                      // 76
 
 
 	std::endl;

@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 """
 Created on Tue Feb  9 19:34:32 2021
@@ -12,51 +12,41 @@ import sys
 
 from scipy import stats
 
+# This is a default header for the dataframes in "make_useful"
+#names= ['Z7', 'mH', 'mHc', 'mA', 'cba',
+#         'tb', 'sinba', 'Z4', 'Z5', 'm12_2', 'l1', 'l2', 'l3', 'l4', 'l5',
+#         'l6', 'l7', 'g_HpHmh', 'Gamma_h', 'Gamma_H', 'Gamma_Hc', 'Gamma_A',
+#         'br_h_bb', 'br_h_tautau', 'br_h_gg', 'br_h_WW', 'br_h_ZZ',
+#         'br_h_gaga', 'br_A_tt', 'br_A_bb', 'br_A_gg', 'br_A_mumu',
+#         'br_A_tautau', 'br_A_Zga', 'br_A_Zh', 'br_A_ZH', 'br_A_gaga',
+#         'br_H_tt', 'br_H_bb', 'br_H_gg', 'br_H_mumu', 'br_H_tautau',
+#         'br_H_Zga', 'br_H_Zh', 'br_H_WW', 'br_H_ZZ', 'br_H_ZA', 'br_H_hh',
+#         'br_H_AA', 'br_H_gaga', 'br_Hp_tb', 'br_Hp_taunu', 'br_Hp_Wh',
+#         'br_Hp_WH', 'br_Hp_WA', 'sta', 'uni', 'per_4pi', 'per_8pi', 'S', 'T',
+#         'U', 'V', 'W', 'X', 'delta_rho', 'delta_amu', 'tot_hbobs', 'sens_ch',
+#         'chi2_HS', 'chi2_ST_hepfit', 'chi2_ST_gfitter', 'chi2_Tot_hepfit',
+#         'chi2_Tot_gfitter', 'k_huu', 'k_hdd', 'likelihood', 'stay_count',
+#         'ratio'],
 
-################################################################################
-def tan_trnsfm(dataf):
-    """
-    Calculates beta values and converts them to the lowest equivalent value.
-This ensures we don't accidentally get any massively inflated cross-sections
-back from MadGraph.
-    
-    Parameters
-    ----------
-    dataf : pandas dataframe
-        a dataframe containing a column of 'tanbeta' values to be transformed
 
-    Returns
-    -------
-    dataf : pandas dataframe
-        the given dataframe but with the 'tanbeta' values transformed to the 
-        lowest valid values. i.e. we wish for the values for the 'betas' to
-        be < 2*pi 
-    
-    """
-
-    #Extracts tanbeta values and puts them in a list
-    tanbeta = dataf['tb'].tolist()
-    beta_list = []
-    print("Starting beta transformations")
-    for i in range(0, len(tanbeta)):
-        # Beta values are calculated
-        beta_val = np.arctan(tanbeta[i])
-        # Checks if beta_val is too high, if it is then 2pi is subtracted until
-        # it is no longer too high, this value is added to a "beta_list"
-        if beta_val > 2*np.pi:
-            while beta_val > 2*np.pi:
-                beta_val = beta_val - 2*np.pi
-        beta_list.append(beta_val)
-
-    # List of converted tanbetas is created
-    nw_tans = np.tan(np.array(beta_list))
-    print("Completed tan transformations")
-
-    dataf["tb"]=nw_tans
-    print("tan values added to df")
-    return dataf
-################################################################################
-
+headers = {
+            "default" : ['Z7_mcmc', 'mH_mcmc', 'mHc_mcmc', 'mA_mcmc', 'cba_mcmc',
+                'tb_mcmc', 'Z7_2HDMC', 'mH_2HDMC', 'mHc_2HDMC', 'mA_2HDMC',
+                'cba_2HDMC', 'tb_2HDMC', 'sinba', 'Z4_c', 'Z5_c', 'm12_2','l1',
+                'l2', 'l3', 'l4', 'l5', 'l6', 'l7', 'g_HpHmh', 'Gamma_h',
+                'Gamma_H', 'Gamma_Hc', 'Gamma_A', 'br_h_bb', 'br_h_tautau',
+                'br_h_gg', 'br_h_WW', 'br_h_ZZ', 'br_h_gaga', 'br_A_tt',
+                'br_A_bb', 'br_A_gg', 'br_A_mumu', 'br_A_tautau', 'br_A_Zga',
+                'br_A_Zh', 'br_A_ZH', 'br_A_gaga', 'br_H_tt', 'br_H_bb',
+                'br_H_gg', 'br_H_mumu', 'br_H_tautau', 'br_H_Zga', 'br_H_Zh',
+                'br_H_WW', 'br_H_ZZ', 'br_H_ZA', 'br_H_hh', 'br_H_AA',
+                'br_H_gaga', 'br_Hp_tb', 'br_Hp_taunu', 'br_Hp_Wh', 'br_Hp_WH',
+                'br_Hp_WA', 'sta', 'uni', 'per_4pi', 'per_8pi', 'S', 'T', 'U',
+                'V', 'W', 'X', 'delta_rho', 'delta_amu', 'tot_hbobs', 
+                'sens_ch', 'chi2_HS', 'chi2_ST_hepfit', 'chi2_ST_gfitter',
+                'chi2_Tot_hepfit', 'chi2_Tot_gfitter', 'k_huu', 'k_hdd',
+                'likelihood', 'stay_count']
+          }
 
 ################################################################################
 def dat_to_DF(Filename, Csvname):
@@ -101,7 +91,7 @@ def dat_to_DF(Filename, Csvname):
 
 
 ################################################################################
-def make_useful(Filename, inc_Hc, col_names=names):
+def make_useful(Filename, inc_Hc, col_names=names, nestdict_ent):
     """
     Takes data file, Filename, reads data into a pandas dataframe then extracts
      columns mH, mHc, mA, cba, tb, sinba, m12_2, k_huu, and k_hdd; and creates 
@@ -150,6 +140,33 @@ def make_useful(Filename, inc_Hc, col_names=names):
     upper_df = temp_df[temp_df['khuu'] >= 0.88]
     upper_df = upper_df[upper_df['khuu'] <= 1.2]
 
+    for key in nestdict_ent:
+        list_len = len(nestdict_ent[key])
+        current = nestdict_ent[key]
+
+        if list_len == 2:
+            if current[1] == str:
+                lower = ('l', 'L')
+                upper = ('u', 'U')
+                if current[1] in lower:
+                    temp_df = temp_df[temp_df[key]>=current[0]]
+                elif current[1] in upper:
+                    temp_df = temp_df[temp_df[key]<=current[0]]
+
+            elif current[1] == float or current[1] == int:
+                temp_df = temp_df[temp_df[key]<= current[1]]
+                temp_df = temp_df[temp_df[key]>= current[0]]
+
+        elif list_len%2 ==0:
+            names = temp_df.columns.values.tolist()
+            new_df = pd.DataFrame(names)
+            for i in range(0,list_len, 2):
+                  temp_df = temp_df[temp_df[key]>=current[i]
+                  temp_df = temp_df[temp_df[key]<=current[i+1]
+                  new_df = pd.concat(new_df, temp_df)
+            temp_df = new_df
+             
+
     lower_df = temp_df[temp_df['khuu']<-0.7]
     lower_df = lower_df[lower_df['khuu']>=-1.1]
 
@@ -158,8 +175,6 @@ def make_useful(Filename, inc_Hc, col_names=names):
     temp_df = temp_df[temp_df['mH'] < 1000]
     temp_df = temp_df[temp_df['mA'] < 1000]
     temp_df.reindex()
-
-    df = tan_trnsfm(temp_df)
 
     df.dropna(inplace=True)
 
@@ -218,6 +233,7 @@ def make_useful(Filename, inc_Hc, col_names=names):
 
     allowed_pts_df.reset_index(drop=True, inplace=True)    
     
+
     print("Number of data points in the reduced DataFrame: {}".format(len(allowed_pts_df)) )
 
     #ensures values are floats and resets index
@@ -354,8 +370,7 @@ def user_interface():
                 loaded_lists.append(df)
 
             #combining dataframes
-            frame = pd.concat(loaded_lists, axis=0, ignore_index=True)
-            combined_csv = tan_trnsfm(frame)
+            combined_csv = pd.concat(loaded_lists, axis=0, ignore_index=True)
 
             print("Please enter name for combined csv ")
             nw_name = input("You do not need to add .csv, this will be added\
@@ -364,22 +379,9 @@ def user_interface():
     except ValueError as e:
         print("Error! Please enter 1 or 2 only.")
 
+
 ###############################################################################
 
-names= ['Z7', 'mH', 'mHc', 'mA', 'cba',
-         'tb', 'sinba', 'Z4', 'Z5', 'm12_2', 'l1', 'l2', 'l3', 'l4', 'l5',
-         'l6', 'l7', 'g_HpHmh', 'Gamma_h', 'Gamma_H', 'Gamma_Hc', 'Gamma_A',
-         'br_h_bb', 'br_h_tautau', 'br_h_gg', 'br_h_WW', 'br_h_ZZ',
-         'br_h_gaga', 'br_A_tt', 'br_A_bb', 'br_A_gg', 'br_A_mumu',
-         'br_A_tautau', 'br_A_Zga', 'br_A_Zh', 'br_A_ZH', 'br_A_gaga',
-         'br_H_tt', 'br_H_bb', 'br_H_gg', 'br_H_mumu', 'br_H_tautau',
-         'br_H_Zga', 'br_H_Zh', 'br_H_WW', 'br_H_ZZ', 'br_H_ZA', 'br_H_hh',
-         'br_H_AA', 'br_H_gaga', 'br_Hp_tb', 'br_Hp_taunu', 'br_Hp_Wh',
-         'br_Hp_WH', 'br_Hp_WA', 'sta', 'uni', 'per_4pi', 'per_8pi', 'S', 'T',
-         'U', 'V', 'W', 'X', 'delta_rho', 'delta_amu', 'tot_hbobs', 'sens_ch',
-         'chi2_HS', 'chi2_ST_hepfit', 'chi2_ST_gfitter', 'chi2_Tot_hepfit',
-         'chi2_Tot_gfitter', 'k_huu', 'k_hdd', 'likelihood', 'stay_count',
-         'ratio'],
 
 user_interface()
 

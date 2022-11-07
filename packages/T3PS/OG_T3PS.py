@@ -1,7 +1,8 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 # coding=utf-8
 #
 # Copyright 2014-2016 Vinzenz Maurer
+# Edited by David Englert and Ciara Byers
 #
 # This file is part of T3PS.
 #
@@ -24,7 +25,7 @@ Run this file the command line argument `--help' for details on its usage or
 consult the manual.
 """
 
-# make division of two integers return a float, i.e. 1/2 -> 0.5
+# Ensuring division of two integers returns a float, i.e. 1/2 -> 0.5
 from __future__ import division
 
 __program_name__ = "T3PS"
@@ -41,7 +42,7 @@ if sys.platform == 'win32':
     #   times or have to save their own derived config in picklable form
     sys.exit("Operating system not supported")
 
-# turn off output buffering
+# turning off output buffering
 # (important for progress bars and general responsiveness)
 sys.stdout = os.fdopen(sys.stdout.fileno(), 'w', 0)
 
@@ -86,47 +87,48 @@ sys.stdout = os.fdopen(sys.stdout.fileno(), 'w', 0)
 # | [A] Imports | #
 # --------------- #
 
-import ConfigParser
-import os.path
-import time
-import gc
-import imp
-from tempfile import mkdtemp
-import shutil
+import array
+import argparse
 import atexit
-import warnings
-from glob import glob
-from collections import namedtuple, Sequence, deque
+import ConfigParser
+import cPickle as pickle
 
-# parameter ranges use Decimal instead of float to minimize floating point
-#   weirdness on sums
+# Parameter ranges will use Decimals instead of floats to minimize floating
+# point misbehaviour in sums
 #   e.g. 1.3 + 0.1 == 1.4000000000000001, 0.7 + 0.1 == 0.7999999999999999
 import decimal
-from decimal import Decimal
-
-import signal
-import multiprocessing
-from multiprocessing.managers import BaseManager
+import gc
+import imp
+import hashlib
 import itertools
-import traceback
-import random
+import keyword
 import math
 import mmap
-import hashlib
-from contextlib import contextmanager
-import string
-import array
-import textwrap
-import cPickle as pickle
-import StringIO  # cannot use cStringIO, since we change attributes on it
+import multiprocessing
+import os.path
+import random
 import re
-import keyword
-import argparse
+import shutil
+import signal
+import string
+import StringIO  # cannot use cStringIO, as we change attributes in it later
+import textwrap
+import time
+import traceback
+import warnings
 
 # for determining terminal size
 import fcntl
-import termios
 import struct
+import termios
+
+from collections import namedtuple, Sequence, deque
+from contextlib import contextmanager
+from decimal import Decimal
+from glob import glob
+from multiprocessing.managers import BaseManager
+from tempfile import mkdtemp
+
 
 # ----------------- #
 # | [B] Constants | #
@@ -160,7 +162,7 @@ parspace_mode_names = {
 }
 
 
-# first column containing this character marks invalid lines
+# If the first column contains this character it is an invalid line
 ERROR_MARKER = "E"
 
 # ------------------------------ #
@@ -222,6 +224,7 @@ parser.add_argument(
     '--randomseed', type=int, action='store',
     help=argparse.SUPPRESS
 )
+
 # Considerations on determinism and randomness
 # The aim of this tool is that given a specific random seed, the exact same
 # behavior should be exhibited.
@@ -251,7 +254,19 @@ print "#", __program_name__, "v%s" % __version__
 
 @contextmanager
 def pushd(newdir):
-    """Context for temporarily changing to another directory."""
+    """
+    Context that causes temporary change to another directory.
+    
+    Parameters
+    ----------
+    newdir : string
+        Path to a directory we wish to change to temporarily
+
+    Returns
+    -------
+    None
+    """
+
     currentdir = os.getcwd()
     os.chdir(newdir)
     try:
@@ -262,11 +277,20 @@ def pushd(newdir):
 
 @contextmanager
 def TemporaryDirectory(keep_dir=False):
-    """Context for making a temporary directory during alive block execution.
-
-    keep_dir: do not delete directory immediately after leaving block,
-                but only at the end of the program's execution
     """
+    Context that creates a temporary directory during live block execution.
+
+    Parameters
+    ----------
+    keep_dir: Boolean 
+        Indicates whether or not to delete temp directory immediately after
+        leaving block, occurs only at the end of function's execution
+
+    Returns
+    -------
+    None
+    """
+
     tmpdir = mkdtemp()
     if keep_dir:
         atexit.register(shutil.rmtree, tmpdir)
@@ -279,8 +303,21 @@ def TemporaryDirectory(keep_dir=False):
 
 @contextmanager
 def ConfirmedExitOnInterrupt():
-    """Context that makes a block need two SIGINTs within 5 seconds to stop."""
+    """
+    Context that makes a block require two SIGINTs within 5 seconds to stop.
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    None
+
+    """
+
     received_signals = []
+    # Setting default functionality of signal.get
     old_handler = signal.getsignal(signal.SIGINT)
     if old_handler == signal.SIG_DFL:
         old_handler = signal.default_int_handler
@@ -363,7 +400,19 @@ def TimeLimit(seconds):
 # ------------------- #
 
 def prod(iterable):
-    """Analogue to sum function but for multiplication."""
+    """Calculates the Product of a number, i.e. the analogue of the sum
+    function but for multiplication.
+    
+    Parameters 
+    ----------
+    iterable : some iterable object such as a list or array containing numbers
+
+    Returns
+    -------
+    r : float/integer
+        returns the product of the input which will have the same typing as the
+        values in the input iterable object.
+    """
     r = 1
     for x in iterable:
         r *= x
@@ -371,19 +420,49 @@ def prod(iterable):
 
 
 def list_sum(lists):
-    """Concatenate lists together, similar to sum function."""
+    """
+    Concatenate lists together, similar to sum function.
+    
+    Parameters
+    ----------
+    lists : a list/array of lists
+        each element should be a list that the user wishes to concatenate onto
+        the end of the previous element.
+"""
     # For reference (cannot use named argument):
     #   sum(items, start_value)
     return sum(lists, [])
 
 
 def inverseerf(x, sqrt=math.sqrt, pi=math.pi, log=math.log, a=0.147):
-    """Inverse erf function.
+    """
+    Inverse erf function.
 
     Approximation taken from Winitzki, Sergei (6 February 2008)
     "A handy approximation for the error function and its inverse" (PDF).
     http://sites.google.com/site/winitzki/sergei-winitzkis-files/erf-approx.pdf
     This has relative precision better than 2e-3 for x in (-1, 1).
+
+    Parameters
+    ----------
+    x : float
+
+    sqrt : func
+        default = math.sqrt, can provide alternate function for sqrt if desired
+
+    pi : float
+        default = math.pi, can provide alternative value for pi if desired
+
+    log : func
+        default = math.log, can provide alternative function for log if desired
+
+    a : float
+        default = 0.147, can provide alternative value if desired
+
+    Returns
+    -------
+    math.copysign(..) : float
+        value of sqrt action performed with the same sign as x assigned to it
     """
     return math.copysign(
         sqrt(
@@ -396,7 +475,8 @@ def inverseerf(x, sqrt=math.sqrt, pi=math.pi, log=math.log, a=0.147):
 
 # thus this has accuracy 0.3%
 def inversenormalcdf(p, sqrt=math.sqrt):
-    """Inverse cumulative distribution function for std. normal distribution.
+    """
+    Inverse cumulative distribution function for std. normal distribution.
 
     Has about the same level of accuracy as the InverseCDF function in
     Wolfram Mathematica
@@ -684,7 +764,7 @@ def progress_forecast(current, full, rate):
 
 
 def abbreviate(s, width=30):
-    """Abbreviate too long strings by replacing middle part with '...'."""
+    """Abbreviate long strings by replacing middle section with '...'."""
     if len(s) <= n:
         return s
     if n < 3:
@@ -1825,6 +1905,7 @@ def make_chain(data):
                 #        p(theta)  q(theta0, theta)
                 # min(1, -------------------------- )
                 #        p(theta0) q(theta, theta0)
+           
                 alpha = min(
                     1,
                     (
@@ -1838,7 +1919,10 @@ def make_chain(data):
                     ) * q0 / q1
                 )
 
-            if random.random() < alpha:
+# Edit added by Ciara - missing step where all points for which L1>=1 should 
+# be immiediately accepted, added 'or' statement to fix this
+            
+            if random.random() < alpha or L1 >= 1:
                 with open(output_file, "a") as f:
                     f.write(
                         "\t".join(

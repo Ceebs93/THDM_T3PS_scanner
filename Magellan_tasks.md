@@ -19,11 +19,13 @@
 - [X] Create job running interfaces for the ~~SusHi~~ Madgraph pipeline
 - [X] Edit all non T3PS python files so that functions have appropriate docstrings
 - [ ] Edit "Data_coallator.py"/"merge-csv.py" so that the sin column will end up being renamed at the end of merging diff job "chains" to match the name looked for by "merge-csv.py" in the 'OG_csv' (specifically so that for proc-A we run, and use the true original csv for this as OG-csv, then for proc B we can use the output from the merge on proc-A, thus building up a single csv.
-- [ ] Work on installation guide for main directory
-- [ ] ~Create docker and install ubuntu 20, Make 3.22, GCC 11.1.0, GSL 2.6, python2.7~
-- [ ] ~Install necessecary python modules to docker, pandas, numpy, scipy, hd5f etc~
-- [ ] ~Install Magellan to the docker~
-- [ ] ~Test Magellan in docker works~
+- [X] Work on installation guide for main directory
+- [ ] Create docker and install ubuntu 20, Make 3.22, GCC 11.1.0, GSL 2.6, python2.7
+- [ ] Install necessecary python modules to docker, pandas, numpy, scipy, hd5f etc
+- [ ] Install Magellan to the docker
+- [ ] Test Magellan in docker works
+- [ ] Convert Docker container to singularity
+- [ ] Test Magellan in singularity
 - [ ] Add MCMC theory to manual
 - [ ] Add description of T3PS to manual
 - [ ] Add 2HDM theory to manual
