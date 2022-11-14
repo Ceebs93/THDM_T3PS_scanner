@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 """
 Created on Tue Feb  9 19:34:32 2021
@@ -12,7 +12,8 @@ import sys
 
 from scipy import stats
 
-names= ['Z7', 'mH', 'mHc', 'mA', 'cba',
+# This is a default header for the dataframes in "make_useful"
+headers= ['Z7', 'mH', 'mHc', 'mA', 'cba',
          'tb', 'sinba', 'Z4', 'Z5', 'm12_2', 'l1', 'l2', 'l3', 'l4', 'l5',
          'l6', 'l7', 'g_HpHmh', 'Gamma_h', 'Gamma_H', 'Gamma_Hc', 'Gamma_A',
          'br_h_bb', 'br_h_tautau', 'br_h_gg', 'br_h_WW', 'br_h_ZZ',
@@ -25,11 +26,33 @@ names= ['Z7', 'mH', 'mHc', 'mA', 'cba',
          'U', 'V', 'W', 'X', 'delta_rho', 'delta_amu', 'tot_hbobs', 'sens_ch',
          'chi2_HS', 'chi2_ST_hepfit', 'chi2_ST_gfitter', 'chi2_Tot_hepfit',
          'chi2_Tot_gfitter', 'k_huu', 'k_hdd', 'likelihood', 'stay_count',
-         'ratio']
+         'ratio'],
 
+
+limits = { 'k_huu': [-1.1, -0.7, 0.88, 1.2]}
+
+
+#headers = {
+#            "default" : ['Z7_mcmc', 'mH_mcmc', 'mHc_mcmc', 'mA_mcmc', 'cba_mcmc',
+#                'tb_mcmc', 'Z7_2HDMC', 'mH_2HDMC', 'mHc_2HDMC', 'mA_2HDMC',
+#                'cba_2HDMC', 'tb_2HDMC', 'sinba', 'Z4_c', 'Z5_c', 'm12_2','l1',
+#                'l2', 'l3', 'l4', 'l5', 'l6', 'l7', 'g_HpHmh', 'Gamma_h',
+#                'Gamma_H', 'Gamma_Hc', 'Gamma_A', 'br_h_bb', 'br_h_tautau',
+#                'br_h_gg', 'br_h_WW', 'br_h_ZZ', 'br_h_gaga', 'br_A_tt',
+#                'br_A_bb', 'br_A_gg', 'br_A_mumu', 'br_A_tautau', 'br_A_Zga',
+#                'br_A_Zh', 'br_A_ZH', 'br_A_gaga', 'br_H_tt', 'br_H_bb',
+#                'br_H_gg', 'br_H_mumu', 'br_H_tautau', 'br_H_Zga', 'br_H_Zh',
+#                'br_H_WW', 'br_H_ZZ', 'br_H_ZA', 'br_H_hh', 'br_H_AA',
+#                'br_H_gaga', 'br_Hp_tb', 'br_Hp_taunu', 'br_Hp_Wh', 'br_Hp_WH',
+#                'br_Hp_WA', 'sta', 'uni', 'per_4pi', 'per_8pi', 'S', 'T', 'U',
+#                'V', 'W', 'X', 'delta_rho', 'delta_amu', 'tot_hbobs', 
+#                'sens_ch', 'chi2_HS', 'chi2_ST_hepfit', 'chi2_ST_gfitter',
+#                'chi2_Tot_hepfit', 'chi2_Tot_gfitter', 'k_huu', 'k_hdd',
+#                'likelihood', 'stay_count']
+#          }
 
 ################################################################################
-def dat_to_DF(Filename, Csvname):
+def dat_to_DF(Filename, Csvname, cols):
     """
     Reads in the dat file from the t3ps scanner and converts it to a csv
     file
@@ -59,7 +82,7 @@ def dat_to_DF(Filename, Csvname):
             print(len(Lines[i]))
             lens.append(i)
     file1.close()
-    df = pd.read_csv(Filename, skiprows= lens, sep="\s*")
+    df = pd.read_csv(Filename, skiprows= lens, sep="\s+", names=cols)
 
     print("Dataframe columns will be: " + str(df.columns.tolist()))
     df.dropna(inplace=True)
@@ -71,7 +94,7 @@ def dat_to_DF(Filename, Csvname):
 
 
 ################################################################################
-def make_useful(Filename, inc_Hc, col_names=names):
+def make_useful(Filename, nestdict_ent, col_names=headers):
     """
     Takes data file, Filename, reads data into a pandas dataframe then extracts
      columns mH, mHc, mA, cba, tb, sinba, m12_2, k_huu, and k_hdd; and creates 
@@ -89,10 +112,6 @@ def make_useful(Filename, inc_Hc, col_names=names):
     Filename : string
         the name of the .dat file the user wishes to filter and transform into 
         a .csv file.
-
-    inc_Hc : boolean
-        if False the function will remove all points where the mass of the 
-        charged Higgs is below a certain value.
 
     col_names : list
         a list of column names to be given to the created dataframe. By default
@@ -117,24 +136,51 @@ def make_useful(Filename, inc_Hc, col_names=names):
     # Below we apply limits to our csv, done in two seperate chunks, the 
     # positive and negative values of sinba. These are then recombined.
     # values used as limits here come from arxiv:2011.03652
-   # upper_df = temp_df[temp_df['k_huu'] >= 0.88]
-   # upper_df = upper_df[upper_df['k_huu'] <= 1.2]
+ #   upper_df = temp_df[temp_df['k_huu'] >= 0.88]
+ #   upper_df = upper_df[upper_df['k_huu'] <= 1.2]
 
-    #lower_df = temp_df[temp_df['k_huu']<-0.7]
-    #lower_df = lower_df[lower_df['k_huu']>=-1.1]
 
-    #temp_df = combiner([upper_df, lower_df])
+    for key in nestdict_ent:
+        list_len = len(nestdict_ent[key])
+        current = nestdict_ent[key]
+
+        if list_len == 2:
+            if current[1] == str:
+                lower = ('l', 'L')
+                upper = ('u', 'U')
+                if current[1] in lower:
+                    temp_df = temp_df[temp_df[key]>=current[0]]
+                elif current[1] in upper:
+                    temp_df = temp_df[temp_df[key]<=current[0]]
+
+            elif current[1] == float or current[1] == int:
+                temp_df = temp_df[temp_df[key]<= current[1]]
+                temp_df = temp_df[temp_df[key]>= current[0]]
+
+        elif list_len%2 ==0:
+            names = temp_df.columns.values.tolist()
+            new_df = pd.DataFrame(names)
+            for i in range(0,list_len, 2):
+                  temp_df = temp_df[temp_df[key]>=current[i]]
+                  temp_df = temp_df[temp_df[key]<=current[i+1]]
+                  new_df = pd.concat([new_df, temp_df])
+            temp_df = new_df
+             
+
+#    lower_df = temp_df[temp_df['k_huu']<-0.7]
+#    lower_df = lower_df[lower_df['k_huu']>=-1.1]
+
+    temp_df = combiner([upper_df, lower_df])
 
     temp_df = temp_df[temp_df['mH'] < 1000]
     temp_df = temp_df[temp_df['mA'] < 1000]
     temp_df.reindex()
 
-    temp_df.dropna(inplace=True)
+    df.dropna(inplace=True)
 
     # When excluding the charged higgs we require masses to be above 580GeV
-    # arxiv:1702.04571 
-    if inc_Hc == False:
-        temp_df = temp_df.drop(df[df.mHc < 580].index)
+    # arxiv:1702.04571  
+    temp_df = df.drop(df[df.mHc < 580].index)
 
     print("Filtering points...")
   
@@ -171,12 +217,12 @@ def make_useful(Filename, inc_Hc, col_names=names):
 
 
     # Using EWPO to check if points are allowed and discarding any that are not
-    per_8pi = 1.0
+    per_4pi = 1.0
     sta     = 1.0
     uni     = 1.0
         
     # Setting up pandas 'mask' to apply to data    
-    theory_mask = (temp_df["per_8pi"] == per_8pi) & (temp_df["sta"] == sta) & (temp_df["uni"] == uni)
+    theory_mask = (temp_df["per_8pi"] == per_4pi) & (temp_df["sta"] == sta) & (temp_df["uni"] == uni)
         
     mask = theory_mask & chi2_Tot_mask
     print("temp_df", temp_df.head(10)) 
@@ -186,6 +232,7 @@ def make_useful(Filename, inc_Hc, col_names=names):
 
     allowed_pts_df.reset_index(drop=True, inplace=True)    
     
+
     print("Number of data points in the reduced DataFrame: {}".format(len(allowed_pts_df)) )
 
     #ensures values are floats and resets index
@@ -290,9 +337,9 @@ def user_interface():
  added automatically: ")
         
             nther_file = file_name + ".dat"
-            dat_to_DF(nther_file, file_name + '.csv')
+            dat_to_DF(nther_file, file_name + '.csv', headers)
 
-            tn_fxd = make_useful(file_name + '.csv', inc_Hc=False)
+            tn_fxd = make_useful(file_name + '.csv', limits, headers)
             print(file_name + ".dat has been converted to " + file_name + 
 ".csv")
                 
@@ -322,8 +369,7 @@ def user_interface():
                 loaded_lists.append(df)
 
             #combining dataframes
-            frame = pd.concat(loaded_lists, axis=0, ignore_index=True)
-            combined_csv = tan_trnsfm(frame)
+            combined_csv = pd.concat(loaded_lists, axis=0, ignore_index=True)
 
             print("Please enter name for combined csv ")
             nw_name = input("You do not need to add .csv, this will be added\
@@ -331,6 +377,7 @@ def user_interface():
             combined_csv.to_csv(str(nw_name) + ".csv", index=False)
     except ValueError as e:
         print("Error! Please enter 1 or 2 only.")
+
 
 ###############################################################################
 

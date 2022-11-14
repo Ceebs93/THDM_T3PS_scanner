@@ -4,7 +4,7 @@
 
 # - Specify the following settings for preparing the jobs
 
-CREATE_JOB_NAME         = "0711_test"
+CREATE_JOB_NAME         = "1011_test"
 CREATE_JOB_CONFIG       = "config/hybrid_scan.conf"
 CREATE_JOB_CLUSTER      = "yes"
 CREATE_JOB_nCores       = 1
@@ -21,10 +21,10 @@ CREATE_JOB_TEMPLATE     = "template/hybrid_basis_scan.func"
 
 #For Local and Slurm jobs
 SUBMIT_JOB_LIST        = "all.jobs"
-SUBMIT_JOB_NAME        = "0711_test"
+SUBMIT_JOB_NAME        = "1011_test"
 SUBMIT_JOB_NODES       = "--nodes=1"
 SUBMIT_JOB_PPN         = "--ntasks-per-node=1"
-SUBMIT_JOB_TIME        = "--time=10:00:00"
+SUBMIT_JOB_TIME        = "--time=1:00:00"
 SUBMIT_JOB_TASK        = "job_task/job_slurm.sh"
 SUBMIT_JOB_CLUSTERTYPE = "SLURM"
 
@@ -41,7 +41,7 @@ SUBMIT_JOB_CLUSTERTYPE = "SLURM"
 
 # - Specify the following settings for merging the jobs
 
-MERGE_JOB_NAME         = "1707_allnarrow"
+MERGE_JOB_NAME         = "0711_test"
 MERGE_JOB_HEADER       = "header/default.header"
 MERGE_JOB_DATASET_NAME = ${MERGE_JOB_NAME}
 MERGE_JOB_CONVERT      = "no"

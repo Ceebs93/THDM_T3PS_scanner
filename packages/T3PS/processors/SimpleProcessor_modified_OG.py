@@ -54,19 +54,14 @@ number_pattern = re.compile(
 def init(config_dir, config, module):
     """Initialize simple processor.
 
-    Find the absolute path of the requested callable file and prints out what
+    Finds the absolute path of the requested callable file and prints out what
     it found.
-
-    Parameters
-    ----------
-    config_dir : string
     """
     print('### --- Inside SimpleProcessor.init --- ')
 
     global arguments, timeout, timelimit, data_fields_code, formula_eval
     timelimit = module.TimeLimit
     formula_eval = module.formula_eval
-
 
     arguments = shlex.split(config.get("SimpleProcessor", "program"))
     original = arguments[0]
@@ -107,14 +102,8 @@ def main(template_file, pars, vars):
     print('### --- Inside SimpleProcessor.main --- ')
 
     global arguments, timeout, timelimit, formula_eval, data_fields_code
-
-#    print('arguments', arguments)
-#    print('timeout', timeout)
-#    print('timelimit', timelimit)
-#    print('formula_eval', formula_eval)
-#    print('data_fields_code', data_fields_code)
-#    print('template_file', template_file)
-
+    # piping to command line in order to run commands there directly, then
+    # reading the output back into here
     with open(os.devnull) as devnull, timelimit(timeout):
         output = subprocess.check_output(
             arguments + ([template_file] if template_file else []),
@@ -133,25 +122,11 @@ def main(template_file, pars, vars):
     print "length  ", len(all_numbers)
     while len(all_numbers) > 76:
         all_numbers = all_numbers[1:]
-    #all_numbers = all_numbers[344:]
     print "all_numbers is now  ", all_numbers
     print "length   ", len(all_numbers)
-#    print('vars', vars)
-#    print('pars', pars)
-
-   # all_numbers = []
-    #for i in range(0,76 - len(all_numbers)):
-     #   n = random.random()
-      #  all_numbers.append(n)
 
     return all_numbers
     
-
-    # - This gets called when running test bin
-    #if not data_fields_code:
-    #    return all_numbers
-
-
 
 if __name__ == "__main__":
     import sys

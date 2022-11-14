@@ -13,7 +13,6 @@
 - [X] Install MadGraph and test running of pipeline including MadGraph
 - [X] Update auto-install file to reflect the package upgrades
 - [X] Create a "initial-start-up.sh" to identify the top directory of installation and set this equal to $THDM_T3PS_scanner and write this directory to normal-start-up so that we can source it from any dir and still have the correct path, to identify current environment variables such as compilers, should set variables equal to these so that in auto_install.sh we can ask the user if they are happy to use these
-- [ ] Edit auto-install file to run intial-start-up.sh and request user confirmation/input for compilers and environments
 - [X] Create a "normal-start-up.sh" to be run at the begining of each use, use code from source env.sh so that it will set $THDM_T3PS_scanner and look for an env_local.sh to source
 - [X] LHAPDF needs to be edited so that the config file will find the correct parts of python in conda - Ended up using the LHAPDF installation in MadGraph instead. Should still be reachable by 2HDMC
 - [X] Create job running interfaces for the ~~SusHi~~ Madgraph pipeline
@@ -33,6 +32,7 @@
 - [ ] Add usage of full MadGraph pipline, on cluster and locally to manual
 - [ ] Find a way to highlight points with kappas that are the same in different models with high cross-sections
 - [ ] Add description of parameterprocessor set up and compilation to manual
+- [ ] Fix Madgraph create-jobs so that splitting the input csv doesnt lead to duplicates
 - [ ] Add description of how to change model type
 - [ ] Add brief description of Madgraph usage
 - [ ] Perform checks on points produced by final installation
@@ -50,6 +50,7 @@
 
 # Stretch Tasks for Magellan
 
+- [ ] Edit auto-install file to run intial-start-up.sh and request user confirmation/input for compilers and environments
 - [ ] Look into uncoupling 2HDMC from parameter-processor in order to allow for people to use other models. This will require editing the config file for MCMC runs
 - [ ] Add future plans for Magellan to manual
 - [ ] Create some example config files
