@@ -57,8 +57,10 @@ def add_xsect(Filename, Chkdfile):
     MG_df = pd.read_csv(Filename)
     print('MG_DF', MG_df.columns.tolist())
     MG_df = MG_df.drop_duplicates()
+    print(len(MG_df))
     OG_csv_df = pd.read_csv(Chkdfile)
     print('OG_csv_df', OG_csv_df.columns.tolist())
+    OG_csv_df = OG_csv_df.drop_duplicates()
 
     # Checking that the dataframes have the same number of rows before adding
     # cross-section column onto OG_csv_df
