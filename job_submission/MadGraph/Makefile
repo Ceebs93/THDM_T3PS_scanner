@@ -47,9 +47,9 @@ SUBMIT_JOB_CLUSTERTYPE = "SLURM"
 #########################################
 
 # - 2019_04_03_Diadem - #
-MERGE_JOB_NAME             = "NC_qqhi"
-MERGE_JOB_PROCESS          = "qq_tbhi"
-MERGE_JOB_INPUT_DATA       = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/NC_qqh3/NC_qqh3_final.csv"
+MERGE_JOB_NAME             = "NC_bghi"
+MERGE_JOB_PROCESS          = "bg_twhi"
+MERGE_JOB_INPUT_DATA       = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/NC_qqhi/NC_qqhi_final.csv"
 MERGE_JOB_MGSIN_LABEL      = "Sbma"
 MERGE_JOB_OGSIN_LABEL      = "sinba"
 MERGE_JOB_MGTAN_LABEL      = "Tb"

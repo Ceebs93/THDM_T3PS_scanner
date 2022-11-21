@@ -18,7 +18,7 @@ fi
 
 # Want to set up compilers explicitly and export them to ensure that compliations are using the correct ones
 
-
+export FC=gfortran/11.1.0
 
 ###########################
 ### --- HiggsBounds --- ###
