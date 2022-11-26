@@ -2,14 +2,14 @@
 ###### --- Create jobs  --- ######
 ##################################
 
-CREATE_JOB_NAME         = "NC_qqhi"
-CREATE_JOB_INPUT_DATA   = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/new_constraints_og.csv"
+CREATE_JOB_NAME         = "NC_bgh1_m2"
+CREATE_JOB_INPUT_DATA   = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/NCbgh1_partial.csv"
 #CREATE_JOB_CONVERT_DATA = "yes"
 CREATE_JOB_LOCAL        = "no"
 CREATE_JOB_SPLIT_NAME   = "split_csv_name"
-CREATE_JOB_PROCESS_NAME = "qq_tbhi"
-CREATE_JOB_PROC_IN      = "ql\ ql"
-CREATE_JOB_PROC_OUT     = "Ts\ Bs\ h_i"
+CREATE_JOB_PROCESS_NAME = "bg_twhi"
+CREATE_JOB_PROC_IN      = "bs\ g"
+CREATE_JOB_PROC_OUT     = "Ts\ Ws\ h1"
 CREATE_JOB_nCores       = 1
 CREATE_JOB_nJobs        = 8
 CREATE_JOB_LOOPER       = "csv_looper_NC.sh"
@@ -24,12 +24,12 @@ CREATE_JOB_LIST         = "all.jobs"
 ##### --- Job Submission --- #####
 ##################################
 
-SUBMIT_JOB_NAME       = "NC_qqhi"
+SUBMIT_JOB_NAME       = "NC_bgh1_m2"
 SUBMIT_JOB_LOCAL      = "no" 
 SUBMIT_JOB_LIST       = "all.jobs"
 SUBMIT_JOB_NODES      = "--nodes=1"
 SUBMIT_JOB_PPN        = "--ntasks-per-node=8"
-SUBMIT_JOB_TIME       = "--time=30:00:00"
+SUBMIT_JOB_TIME       = "--time=60:00:00"
 SUBMIT_JOB_SCRIPT     = "slurm_submission.sh"
 SUBMIT_JOB_CLUSTERTYPE = "SLURM"
 
