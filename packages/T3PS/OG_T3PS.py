@@ -1922,7 +1922,7 @@ def make_chain(data):
 # Edit added by Ciara - missing step where all points for which L1>=1 should 
 # be immiediately accepted, added 'or' statement to fix this
             
-            if random.random() < alpha or L1 >= 1:
+            if random.random() < alpha:
                 with open(output_file, "a") as f:
                     f.write(
                         "\t".join(

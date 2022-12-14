@@ -2,14 +2,14 @@
 ###### --- Create jobs  --- ######
 ##################################
 
-CREATE_JOB_NAME         = "NC_bgh1_m2"
-CREATE_JOB_INPUT_DATA   = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/NCbgh1_partial.csv"
+CREATE_JOB_NAME         = "NC_qqhi_h3_reruns"
+CREATE_JOB_INPUT_DATA   = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/for_upload/qqhi_qqh3_reruns.csv"
 #CREATE_JOB_CONVERT_DATA = "yes"
 CREATE_JOB_LOCAL        = "no"
 CREATE_JOB_SPLIT_NAME   = "split_csv_name"
-CREATE_JOB_PROCESS_NAME = "bg_twhi"
-CREATE_JOB_PROC_IN      = "bs\ g"
-CREATE_JOB_PROC_OUT     = "Ts\ Ws\ h1"
+CREATE_JOB_PROCESS_NAME = "qq_tbhi"
+CREATE_JOB_PROC_IN      = "ql\ ql"
+CREATE_JOB_PROC_OUT     = "Ts\ Bs\ h_i"
 CREATE_JOB_nCores       = 1
 CREATE_JOB_nJobs        = 8
 CREATE_JOB_LOOPER       = "csv_looper_NC.sh"
@@ -24,12 +24,12 @@ CREATE_JOB_LIST         = "all.jobs"
 ##### --- Job Submission --- #####
 ##################################
 
-SUBMIT_JOB_NAME       = "NC_bgh1_m2"
+SUBMIT_JOB_NAME       = "NC_qqhi_h3_reruns"
 SUBMIT_JOB_LOCAL      = "no" 
 SUBMIT_JOB_LIST       = "all.jobs"
 SUBMIT_JOB_NODES      = "--nodes=1"
 SUBMIT_JOB_PPN        = "--ntasks-per-node=8"
-SUBMIT_JOB_TIME       = "--time=60:00:00"
+SUBMIT_JOB_TIME       = "--time=10:00:00"
 SUBMIT_JOB_SCRIPT     = "slurm_submission.sh"
 SUBMIT_JOB_CLUSTERTYPE = "SLURM"
 
@@ -46,10 +46,9 @@ SUBMIT_JOB_CLUSTERTYPE = "SLURM"
 ########### --- Merge jobs - ############
 #########################################
 
-# - 2019_04_03_Diadem - #
-MERGE_JOB_NAME             = "NC_bghi"
-MERGE_JOB_PROCESS          = "bg_twhi"
-MERGE_JOB_INPUT_DATA       = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/jobs/NC_qqhi/NC_qqhi_final.csv"
+MERGE_JOB_NAME             = "NC_qqh1"
+MERGE_JOB_PROCESS          = "qq_tbh1"
+MERGE_JOB_INPUT_DATA       = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/new_constraints_og.csv"
 MERGE_JOB_MGSIN_LABEL      = "Sbma"
 MERGE_JOB_OGSIN_LABEL      = "sinba"
 MERGE_JOB_MGTAN_LABEL      = "Tb"
