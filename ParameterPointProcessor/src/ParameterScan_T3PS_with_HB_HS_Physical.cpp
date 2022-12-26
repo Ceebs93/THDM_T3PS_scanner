@@ -62,7 +62,7 @@ int main(int argc, char* argv[])
 	
 	// -- Calculating sin(b-a)
 	double sba;  
-	sba = sign(cba_in)*sqrt(1.-cba_in*cba_in);
+	sba = sin(cba_in)*sqrt(1.-cba_in*cba_in);
 	
 	/////////////////
 	// -- 2HDMC -- //
@@ -70,7 +70,6 @@ int main(int argc, char* argv[])
 
 	const HBHSResult *hbhsres_ptr = nullptr;
 
-	#if defined HiggsBounds
 	  HBHS hbhs{};
 
 	  // -- Create SM and set parameters

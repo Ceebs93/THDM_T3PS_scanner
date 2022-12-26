@@ -68,7 +68,6 @@ int main(int argc, char* argv[])
 
 	const HBHSResult *hbhsres_ptr = nullptr;
 
-	#if defined HiggsBounds
 	  HBHS hbhs{};
 
 	  // -- Create SM and set parameters

@@ -10,7 +10,7 @@ sed -i "s;top_dir_;${THDM_T3PS_SCANNER_DIR};g" ${THDM_T3PS_SCANNER_DIR}/env.sh
 
 # This section copies the Madgraph job section template files and replaces the placeholder term with the user path
 echo -e "setting up Madgraph files"
-MadGraph_dir=${THDM_T3PS_SCANNER_DIR}/job_submission/MadGraph/
+MadGraph_dir=${THDM_T3PS_SCANNER_DIR}/job_submission/MadGraph_job/
 MG_sub_dir=${MadGraph_dir}MG_utils/submission_script/
 cp ${MG_sub_dir}I_slurm_submission.sh ${MG_sub_dir}slurm_submission.sh
 cp ${MG_sub_dir}I_torque_submission.pbs ${MG_sub_dir}torque_submission.pbs
