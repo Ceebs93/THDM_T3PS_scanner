@@ -1,11 +1,1 @@
-../lib/ParameterScan_T3PS_with_HB_HS_FAST.cpp.o: \
- ParameterScan_T3PS_with_HB_HS.cpp \
- /home/cb27g11/Development/THDM_T3PS_scanner/links/inc/2HDMC/THDM.h \
- /home/cb27g11/Development/THDM_T3PS_scanner/links/inc/2HDMC/SM.h \
- /home/cb27g11/Development/THDM_T3PS_scanner/links/inc/2HDMC/SM.h \
- /home/cb27g11/Development/THDM_T3PS_scanner/links/inc/2HDMC/HBHS.h \
- /home/cb27g11/Development/THDM_T3PS_scanner/links/inc/2HDMC/DecayTable.h \
- /home/cb27g11/Development/THDM_T3PS_scanner/links/inc/2HDMC/THDM.h \
- /home/cb27g11/Development/THDM_T3PS_scanner/links/inc/2HDMC/Constraints.h \
- /home/cb27g11/Development/THDM_T3PS_scanner/links/inc/2HDMC/DecayTable.h \
- ../inc/EWPO.h
+../lib/EWPO.cpp.o: EWPO.cpp

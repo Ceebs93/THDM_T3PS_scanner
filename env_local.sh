@@ -2,7 +2,7 @@
 
 # Load Python environment
 
-conda activate THDM
+source activate THDM
 
 # Load libraries and compiler
 echo "python version in use is"

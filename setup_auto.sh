@@ -8,16 +8,6 @@ echo ${THDM_T3PS_SCANNER_DIR}
 
 bash utils/set_home_dir.sh
 
-echo -e "Loading modules needed for compilation"
-echo -e "module load gcc/11.1.0"
-echo -e "module load gsl/2.6"
-echo -e "module load cmake/3.22.0"
-echo -e "module load conda"
-module load gcc/11.1.0
-module load gsl/2.6
-module load cmake/3.22.0
-module load conda
-
 echo -e "Sourcing THDM_T3PS environment variables"
 echo -e "source env.sh"
 source env.sh

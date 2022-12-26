@@ -18,7 +18,7 @@ fi
 
 # Want to set up compilers explicitly and export them to ensure that compliations are using the correct ones
 
-export FC=gfortran/11.1.0
+
 
 ###########################
 ### --- HiggsBounds --- ###
@@ -38,7 +38,6 @@ echo "make"
 echo ""
 
 cd ${HiggsBounds_pkg_path}
-make clean
 mkdir build && cd build
 cmake ..
 make
@@ -63,35 +62,9 @@ echo "make"
 echo ""
 
 cd ${HiggsSignals_pkg_path}
-make clean
 mkdir build && cd  build
 cmake ..
 make
-
-
-#####################
-### --- 2HDMC --- ###
-#####################
-
-THDMC_folder_name=2HDMC-1.8.0
-THDMC_pkg_path=${THDM_T3PS_SCANNER_DIR}/packages/${THDMC_folder_name}
-
-
-echo -e "\n\n\n"
-echo "############################################################"
-echo "### --- Attempting to install ${THDMC_folder_name} --- ####"
-echo "############################################################"
-echo ""
-echo "cd ${THDMC_pkg_path}"
-echo "make clean"
-echo "make"
-echo ""
-
-
-cd ${THDMC_pkg_path}
-make clean
-make
-make lib
 
 
 ######################
@@ -108,7 +81,6 @@ echo "### --- Attempting to install ${LHAPDF_folder_name} --- ####"
 echo "############################################################"
 echo ""
 echo "cd ${LHAPDF_pkg_path}"
-echo "make clean"
 echo "./configure --prefix=${LHAPDF_pkg_path}"
 echo "make"
 echo "make install"
@@ -118,6 +90,34 @@ cd ${LHAPDF_pkg_path}
 ./configure --prefix=${LHAPDF_pkg_build_path}
 make
 make install
+
+
+#####################
+### --- 2HDMC --- ###
+#####################
+
+THDMC_folder_name=2HDMC-1.8.0
+THDMC_pkg_path=${THDM_T3PS_SCANNER_DIR}/packages/${THDMC_folder_name}
+
+
+echo -e "\n\n\n"
+echo "############################################################"
+echo "### --- Attempting to install ${THDMC_folder_name} --- ####"
+echo "############################################################"
+echo ""
+echo "cd ${THDMC_pkg_path}"
+echo "cp ../HiggsBounds-5.10.1/build/lib/libHB.a lib/libHB.a"
+echo "cp ../HiggsSignals-2.6.2/build/lib/libHS.a lib/libHS.a"
+echo "make"
+echo ""
+
+
+cd ${THDMC_pkg_path}
+# copying HiggsBounds and HiggsSignals libraries in order to run 2HDMC with them
+cp ../HiggsBounds-5.10.1/build/lib/libHB.a lib/libHB.a
+cp ../HiggsSignals-2.6.2/build/lib/libHS.a lib/libHS.a
+make
+make lib
 
 
 ########################

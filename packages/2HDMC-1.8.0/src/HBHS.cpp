@@ -1,7 +1,7 @@
 #include "HBHS.h"
 #include "DecayTable.h"
-#include "/scratch/cb27g11/THDM_T3PS_scanner/packages/HiggsBounds-5.10.1/include/HiggsBounds.h"
-#include "/scratch/cb27g11/THDM_T3PS_scanner/packages/HiggsSignals-2.6.2/include/HiggsSignals.h"
+#include "/home/cb27g11/Development/THDM_T3PS_scanner/packages/HiggsBounds-5.10.1/include/HiggsBounds.h"
+#include "/home/cb27g11/Development/THDM_T3PS_scanner/packages/HiggsSignals-2.6.2/include/HiggsSignals.h"
 #include "SM.h"
 #include "THDM.h"
 #include <array>

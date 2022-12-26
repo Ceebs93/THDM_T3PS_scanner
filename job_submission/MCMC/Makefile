@@ -4,12 +4,12 @@
 
 # - Specify the following settings for preparing the jobs
 
-CREATE_JOB_NAME         = "1011_test"
+CREATE_JOB_NAME         = "job_name"
 CREATE_JOB_CONFIG       = "config/hybrid_scan.conf"
 CREATE_JOB_CLUSTER      = "yes"
 CREATE_JOB_nCores       = 1
-CREATE_JOB_program      = /scratch/cb27g11/THDM_T3PS_scanner/ParameterPointProcessor/bin/ParameterScan_T3PS_with_HB_HS_FAST
-CREATE_JOB_nJobs        = 2
+CREATE_JOB_program      = /home/cb27g11/Development/THDM_T3PS_scanner/ParameterPointProcessor/bin/ParameterScan_T3PS_with_HB_HS_FAST
+CREATE_JOB_nJobs        = 8
 CREATE_JOB_chain_length = 9999999
 CREATE_JOB_TEMPLATE     = "template/hybrid_basis_scan.func"
 
@@ -21,10 +21,10 @@ CREATE_JOB_TEMPLATE     = "template/hybrid_basis_scan.func"
 
 #For Local and Slurm jobs
 SUBMIT_JOB_LIST        = "all.jobs"
-SUBMIT_JOB_NAME        = "1011_test"
+SUBMIT_JOB_NAME        = "job_name"
 SUBMIT_JOB_NODES       = "--nodes=1"
 SUBMIT_JOB_PPN         = "--ntasks-per-node=1"
-SUBMIT_JOB_TIME        = "--time=1:00:00"
+SUBMIT_JOB_TIME        = "--time=60:00:00"
 SUBMIT_JOB_TASK        = "job_task/job_slurm.sh"
 SUBMIT_JOB_CLUSTERTYPE = "SLURM"
 
@@ -41,7 +41,7 @@ SUBMIT_JOB_CLUSTERTYPE = "SLURM"
 
 # - Specify the following settings for merging the jobs
 
-MERGE_JOB_NAME         = "0711_test"
+MERGE_JOB_NAME         = "job_name"
 MERGE_JOB_HEADER       = "header/default.header"
 MERGE_JOB_DATASET_NAME = ${MERGE_JOB_NAME}
 MERGE_JOB_CONVERT      = "no"
@@ -52,7 +52,7 @@ MERGE_JOB_COMPRESSION  = "blosc"
 
 #######################
 
-DECLARE_ROOT_DIR = ROOT_DIR="/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MCMC"
+DECLARE_ROOT_DIR = ROOT_DIR="/home/cb27g11/Development/THDM_T3PS_scanner/job_submission/MCMC"
 
 VAR_CREATE_JOB    = $(shell echo '$(.VARIABLES)' |  awk -v RS=' ' '/CREATE_JOB_/' | sed 's/CREATE_JOB_//g' )
 EXPORT_CREATE_JOB = $(foreach v,$(VAR_CREATE_JOB),$(v)="$(CREATE_JOB_$(v))") $(DECLARE_ROOT_DIR)
