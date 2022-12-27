@@ -46,5 +46,5 @@ extractions=0
 echo
 #Here -d allows us to specify our delimiter, then -f indicates we want to cut by field as opposed to bytes. The numbers indicate which column from the csv we want, and these are named above in the line 'while IFS="," read -r etc
 
-} < <(cut -d "," -f1,2,3,4,6 CSV_NAME_.csv)
+} < <(cut -d "," -f2,3,4,5,8 CSV_NAME_.csv)
 

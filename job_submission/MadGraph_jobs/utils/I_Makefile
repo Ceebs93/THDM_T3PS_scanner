@@ -1,9 +1,11 @@
+SHELL = /bin/sh
+
 ##################################
 ###### --- Create jobs  --- ######
 ##################################
 
 CREATE_JOB_NAME         = "NC_bqhi"
-CREATE_JOB_INPUT_DATA   = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/new_constraints_og.csv"
+CREATE_JOB_INPUT_DATA   = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph_jobs/new_constraints_og.csv"
 #CREATE_JOB_CONVERT_DATA = "yes"
 CREATE_JOB_LOCAL        = "no"
 CREATE_JOB_SPLIT_NAME   = "split_csv_name"
@@ -24,9 +26,9 @@ CREATE_JOB_LIST         = "all.jobs"
 ##### --- Job Submission --- #####
 ##################################
 
-SUBMIT_JOB_NAME       = "NC_bqhi"
+SUBMIT_JOB_NAME       = ${CREATE_JOB_NAME}
 SUBMIT_JOB_LOCAL      = "no" 
-SUBMIT_JOB_LIST       = "all.jobs"
+SUBMIT_JOB_LIST       = ${CREATE_JOB_NAME}
 SUBMIT_JOB_NODES      = "--nodes=1"
 SUBMIT_JOB_PPN        = "--ntasks-per-node=8"
 SUBMIT_JOB_TIME       = "--time=12:00:00"
@@ -35,7 +37,7 @@ SUBMIT_JOB_CLUSTERTYPE = "SLURM"
 
 
 #For Torque jobs
-#SUBMIT_JOB_LIST        = "all.jobs"
+#SUBMIT_JOB_LIST        = ${CREATE_JOB_NAME}
 #SUBMIT_JOB_TAG         = "job_batch1"
 #SUBMIT_JOB_RESOURCES   = "nodes=1:ppn=8,walltime=00:30:00"
 #SUBMIT_JOB_TASK        = "job_task/job.sh"
@@ -46,10 +48,9 @@ SUBMIT_JOB_CLUSTERTYPE = "SLURM"
 ########### --- Merge jobs - ############
 #########################################
 
-# - 2019_04_03_Diadem - #
 MERGE_JOB_NAME             = "NC_bqh1"
 MERGE_JOB_PROCESS          = "bq_tqh1"
-MERGE_JOB_INPUT_DATA       = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/new_constraints_og.csv"
+MERGE_JOB_INPUT_DATA       = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph_jobs/new_constraints_og.csv"
 MERGE_JOB_MGSIN_LABEL      = "Sbma"
 MERGE_JOB_OGSIN_LABEL      = "sinba"
 MERGE_JOB_MGTAN_LABEL      = "Tb"

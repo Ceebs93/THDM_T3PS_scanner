@@ -1,9 +1,11 @@
+SHELL = /bin/sh
+
 ##################################
 ###### --- Create jobs  --- ######
 ##################################
 
 CREATE_JOB_NAME         = "NC_bghi_h3_reruns"
-CREATE_JOB_INPUT_DATA   = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/for_upload/missing_bg_A.csv"
+CREATE_JOB_INPUT_DATA   = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph_jobs/for_upload/missing_bg_A.csv"
 #CREATE_JOB_CONVERT_DATA = "yes"
 CREATE_JOB_LOCAL        = "no"
 CREATE_JOB_SPLIT_NAME   = "split_csv_name"
@@ -12,7 +14,7 @@ CREATE_JOB_PROC_IN      = "bs\ g"
 CREATE_JOB_PROC_OUT     = "Ts\ ws\ h3"
 CREATE_JOB_nCores       = 1
 CREATE_JOB_nJobs        = 8
-CREATE_JOB_LOOPER       = "csv_looper_NC.sh"
+CREATE_JOB_LOOPER       = "csv_looper_rerun.sh"
 CREATE_JOB_Card_Editor  = "inputcard_editor2.py" 
 CREATE_JOB_BASECARD     = "basecard_type2.txt"
 CREATE_JOB_TEMPLATE     = "slurm_submission.sh"
@@ -35,7 +37,7 @@ SUBMIT_JOB_CLUSTERTYPE = "SLURM"
 
 
 #For Torque jobs
-#SUBMIT_JOB_LIST        = "all.jobs"
+#SUBMIT_JOB_LIST        = ${CREATE_JOB_NAME}
 #SUBMIT_JOB_TAG         = "job_batch1"
 #SUBMIT_JOB_RESOURCES   = "nodes=1:ppn=8,walltime=00:30:00"
 #SUBMIT_JOB_TASK        = "job_task/job.sh"
@@ -48,7 +50,10 @@ SUBMIT_JOB_CLUSTERTYPE = "SLURM"
 
 MERGE_JOB_NAME             = "NC_qqh1"
 MERGE_JOB_PROCESS          = "qq_tbh1"
-MERGE_JOB_INPUT_DATA       = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph/new_constraints_og.csv"
+MERGE_JOB_INPUT_DATA       = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph_jobs/new_constraints_og.csv"
+
+#Here 'OG' means 'original', the from the input csv file, and 'MG' means 'MadGraph', the csv from the MadGraph output
+#Should change sin & tan to var1 and var2
 MERGE_JOB_MGSIN_LABEL      = "Sbma"
 MERGE_JOB_OGSIN_LABEL      = "sinba"
 MERGE_JOB_MGTAN_LABEL      = "Tb"
