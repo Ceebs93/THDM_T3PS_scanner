@@ -27,6 +27,7 @@
 - [ ] Test Magellan in singularity
 - [ ] Add MCMC theory to manual
 - [ ] Add description of T3PS to manual
+- [ ] Create central method for altering the key variables used in Looper script, merging, Data_ripper etc
 - [ ] Add 2HDM theory to manual
 - [ ] Add usage of parameter-point generation pipeline, on cluster and locally to manual
 - [ ] Add usage of full MadGraph pipline, on cluster and locally to manual
