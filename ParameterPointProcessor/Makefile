@@ -38,7 +38,7 @@ test :
 #  ./bin/ParameterScan_T3PS_with_HB_HS $(testfile)
 #	./bin/ParameterScan_T3PS_with_HB_HS_Physical_FAST physical.test
 #	./bin/ParameterScan_T3PS_with_HB_HS_FAST $(testfile)
-	./bin/ParameterScan_T3PS_with_HB_HS_FAST $(testfile)
+	./bin/ParameterScan_T3PS_with_HB_HS_hybrid_FAST $(testfile)
 
 test-strings : .PHONY
 	@echo "This is VAR_RUN:"

@@ -4301,7 +4301,7 @@ elif mode == MODE_MCMC:
         # (note that finding an invalid(or likelihood=0) point in the valid
         #   data should never happen and is an error)
         try:#Change by Ciara
-            with open(base_name + ".chain.%i" % i) as f and open("top_dir_/save.chain.%i" i):
+            with open(base_name + ".chain.%i" % i) as f:
                 last_line = ""
                 for line in f:
                     length += 1

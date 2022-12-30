@@ -10,7 +10,7 @@ sed -i "s;top_dir_;${THDM_T3PS_SCANNER_DIR};g" ${THDM_T3PS_SCANNER_DIR}/env.sh
 
 # This section copies the Madgraph job section template files and replaces the placeholder term with the user path
 echo -e "setting up Madgraph files"
-MadGraph_dir=${THDM_T3PS_SCANNER_DIR}/job_submission/MadGraph_job/
+MadGraph_dir=${THDM_T3PS_SCANNER_DIR}/job_submission/MadGraph_jobs/
 MG_sub_dir=${MadGraph_dir}MG_utils/submission_script/
 cp ${MG_sub_dir}I_slurm_submission.sh ${MG_sub_dir}slurm_submission.sh
 cp ${MG_sub_dir}I_torque_submission.pbs ${MG_sub_dir}torque_submission.pbs
@@ -43,6 +43,10 @@ sed -i "s;top_dir_;${THDM_T3PS_SCANNER_DIR};g" ${MCMC_dir}job_task/job_slurm.sh
 Initial_pkg_dir=${THDM_T3PS_SCANNER_DIR}/packages/startup_versions/
 cp ${Initial_pkg_dir}I_install.sh ${THDM_T3PS_SCANNER_DIR}/packages/install.sh
 cp ${Initial_pkg_dir}I_HBHS.cpp ${THDM_T3PS_SCANNER_DIR}/packages/2HDMC-1.8.0/src/HBHS.cpp
+cp ${Initial_pkg_dir}I_T3PS.py ${THDM_T3PS_SCANNER_DIR}/packages/T3PS/executable_T3PS.py
 sed -i "s;top_dir_;${THDM_T3PS_SCANNER_DIR};g" ${THDM_T3PS_SCANNER_DIR}/packages/install.sh
 sed -i "s;top_dir_;${THDM_T3PS_SCANNER_DIR};g" ${THDM_T3PS_SCANNER_DIR}/packages/2HDMC-1.8.0/src/HBHS.cpp
+sed -i "s;top_dir_;${THDM_T3PS_SCANNER_DIR};g" ${THDM_T3PS_SCANNER_DIR}/packages/T3PS/executable_T3PS.py
 
+# Ensures the python file has the correct permissions to be run on the cluster
+chmod u+x ${THDM_T3PS_SCANNER_DIR}/packages/T3PS/executable_T3PS.py 

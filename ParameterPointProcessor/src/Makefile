@@ -1,12 +1,15 @@
 
-binaries : ../bin/ParameterScan_T3PS_with_HB_HS_FAST 
+binaries : ../bin/ParameterScan_T3PS_with_HB_HS_hybrid_FAST \
+		../bin/ParameterScan_T3PS_with_HB_HS_generic_FAST
 			#  ../bin/test
 
 CMN =  ../lib/EWPO.cpp.o
 
-OBJ_ParameterScan_T3PS_with_HB_HS               = $(CMN) ../lib/ParameterScan_T3PS_with_HB_HS.cpp.o
-OBJ_ParameterScan_T3PS_with_HB_HS_FAST          = $(CMN) ../lib/ParameterScan_T3PS_with_HB_HS_FAST.cpp.o
+OBJ_ParameterScan_T3PS_with_HB_HS_hybrid               = $(CMN) ../lib/ParameterScan_T3PS_with_HB_HS_hybrid.cpp.o
+OBJ_ParameterScan_T3PS_with_HB_HS_hybrid_FAST          = $(CMN) ../lib/ParameterScan_T3PS_with_HB_HS_hybrid_FAST.cpp.o
 #OBJ_ParameterScan_T3PS_with_HB_HS_Physical_FAST = $(CMN) ../lib/ParameterScan_T3PS_with_HB_HS_Physical_FAST.cpp.o
+OBJ_ParameterScan_T3PS_with_HB_HS_generic               = $(CMN) ../lib/ParameterScan_T3PS_with_HB_HS_generic.cpp.o
+OBJ_ParameterScan_T3PS_with_HB_HS_generic_FAST          = $(CMN) ../lib/ParameterScan_T3PS_with_HB_HS_generic_FAST.cpp.o
 OBJ_test = ../lib/test.cpp.o
 
 #######
@@ -15,12 +18,20 @@ LINKER = g++
 
 ####################
 
-# - ParameterScan_T3PS_with_HB_HS
-../bin/ParameterScan_T3PS_with_HB_HS: $(OBJ_ParameterScan_T3PS_with_HB_HS)
+# - ParameterScan_T3PS_with_HB_HS hybrid parameterisation
+../bin/ParameterScan_T3PS_with_HB_HS_hybrid: $(OBJ_ParameterScan_T3PS_with_HB_HS_hybrid)
 	$(CC) $^ $(CLFLAGS_2HDMC_WITH_HB_HS) -o $@
 
-# - ParameterScan_T3PS_with_HB_HS
-../bin/ParameterScan_T3PS_with_HB_HS_FAST: $(OBJ_ParameterScan_T3PS_with_HB_HS_FAST)
+# - ParameterScan_T3PS_with_HB_HS hybrid parameterisation
+../bin/ParameterScan_T3PS_with_HB_HS_hybrid_FAST: $(OBJ_ParameterScan_T3PS_with_HB_HS_hybrid_FAST)
+	$(CC) $^ $(CLFLAGS_2HDMC_WITH_HB_HS) -o $@
+
+# - ParameterScan_T3PS_with_HB_HS generic parameterisation
+../bin/ParameterScan_T3PS_with_HB_HS_generic: $(OBJ_ParameterScan_T3PS_with_HB_HS_generic)
+	$(CC) $^ $(CLFLAGS_2HDMC_WITH_HB_HS) -o $@
+
+# - ParameterScan_T3PS_with_HB_HS generic parameterisation
+../bin/ParameterScan_T3PS_with_HB_HS_generic_FAST: $(OBJ_ParameterScan_T3PS_with_HB_HS_generic_FAST)
 	$(CC) $^ $(CLFLAGS_2HDMC_WITH_HB_HS) -o $@
 
 # - ParameterScan_T3PS_with_HB_HS
@@ -71,7 +82,10 @@ HS_LFLAGS = -L$(LIBDIRLINK) -lHS-2.6.2
 ### - General compilation rule for .cpp sources - ###
 #####################################################
 
-../lib/ParameterScan_T3PS_with_HB_HS_FAST.cpp.o : ParameterScan_T3PS_with_HB_HS.cpp
+../lib/ParameterScan_T3PS_with_HB_HS_hybrid_FAST.cpp.o : ParameterScan_T3PS_with_HB_HS_hybrid.cpp
+	$(CC) $(CCFLAGS) -c $< -DFAST -o $@
+
+../lib/ParameterScan_T3PS_with_HB_HS_generic_FAST.cpp.o : ParameterScan_T3PS_with_HB_HS_generic.cpp
 	$(CC) $(CCFLAGS) -c $< -DFAST -o $@
 
 #../lib/ParameterScan_T3PS_with_HB_HS_Physical_FAST.cpp.o : ParameterScan_T3PS_with_HB_HS_Physical.cpp

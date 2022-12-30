@@ -78,7 +78,6 @@ sys.stdout = os.fdopen(sys.stdout.fileno(), 'w', 0)
 # |  [G.3] MCMC Mode
 # |  [G.4] Optimize Mode
 # |  [G.5] Explorer Mode
-# |  [G.6] Worker Mode
 # --------------------------------------------------------------------- #
 # | All parts can be searched and found by their [label].             | #
 # --------------------------------------------------------------------- #
@@ -138,7 +137,6 @@ MODE_SCAN = 0
 MODE_MCMC = 1
 MODE_OPTIMIZE = 2
 MODE_EXPLORER = 3
-MODE_WORKER = 1000
 MODE_TEST = 1001
 
 PARSPACE_MODE_GRID = 10
@@ -152,7 +150,6 @@ mode_names = {
     "mcmc": MODE_MCMC,
     "test": MODE_TEST,
     "explorer": MODE_EXPLORER,
-    "worker": MODE_WORKER,
     "optimize": MODE_OPTIMIZE
 }
 parspace_mode_names = {
@@ -1922,7 +1919,7 @@ def make_chain(data):
 # Edit added by Ciara - missing step where all points for which L1>=1 should 
 # be immiediately accepted, added 'or' statement to fix this
             
-            if random.random() < alpha:
+            if random.random() < alpha or L1 >= 1:
                 with open(output_file, "a") as f:
                     f.write(
                         "\t".join(
@@ -2214,10 +2211,6 @@ def process_item(point, test_mode=False, print_error_trace=False):
                     process_item.bounds,
                     point, point_vars, processed_point
                 )
-
-#                print('point', point)
-#                print('point_vars', point_vars)
-#                print('processed_point', processed_point)
 
 # - Warning - made a change here
                 return (list(point), list(point_vars), list(processed_point))
@@ -2852,7 +2845,7 @@ if (mode == MODE_SCAN and parspace_mode == PARSPACE_MODE_FILE) or \
 
         parspace_files.append(file_name)
 
-if mode not in [MODE_SCAN, MODE_TEST, MODE_WORKER] and \
+if mode not in [MODE_SCAN, MODE_TEST] and \
    parspace_mode != PARSPACE_MODE_GRID:
     warn(
         "# Warning: this parameter space mode is not supported in this mode: "
@@ -3063,7 +3056,6 @@ default_unit_length = lambda: {
     MODE_SCAN: 100 * concurrent_processors,
     MODE_OPTIMIZE: max(10 * effective_par_count, 1),
     MODE_EXPLORER: max(10 * effective_par_count, 1),
-    MODE_WORKER: 0,
     MODE_TEST: 0,
 }
 unit_length = config_get(
@@ -3419,23 +3411,12 @@ elif mode == MODE_EXPLORER:
     symmetry_count   # (already processed)
     symmetry_trafos  # (already processed)
 
-elif mode == MODE_WORKER:
-    # listen on the specified port
-    if cli_arguments.port:
-        port = cli_arguments.port
-    elif config.has_option("setup", "port"):
-        port = config_get(int, "setup", "port")
-    else:
-        port = DEFAULT_PORT
-
 if config.has_option("setup", "workers") and mode != MODE_MCMC:
     # configuration for manager mode
     authkey = config_get(str, "setup", "authkey")
 
     # disable workers if in worker mode or no workers are specified
     worker_addresses = None
-    if mode != MODE_WORKER:
-        worker_addresses = config_get(str, "setup", "workers")
     if not worker_addresses:
         worker_addresses = None
 else:
@@ -3476,7 +3457,7 @@ indent = "    "
 
 warn("# Mode:", dict(zip(mode_names.values(), mode_names.keys()))[mode])
 warn("# Concurrent processors (locally):", processing_concurrency())
-if mode not in [MODE_WORKER, MODE_TEST]:
+if mode not in [MODE_TEST]:
     warn("# Unit length:", unit_length)
 
 if parspace_files:
@@ -3525,28 +3506,27 @@ if likelihood_code is not None:
     if min_likelihood is not None and mode != MODE_EXPLORER:
         print "min_likelihood =", min_likelihood
 
-if mode != MODE_WORKER:
     print "# Output columns are then (separated by \"\\t\", " \
         "shown as \"index : name\", possibly incomplete):"
 
-    out_columns_for_review = par_names + var_names + data_names
-    if mode == MODE_MCMC:
-        out_columns_for_review += ["likelihood", "staycount"]
-    elif mode in [MODE_OPTIMIZE, MODE_EXPLORER]:
-        out_columns_for_review += ["likelihood"]
-    elif mode in [MODE_SCAN, MODE_TEST]:
-        if out_columns is not None:
-            out_columns_for_review = out_columns
-        else:
-            out_columns_for_review = par_names + var_names + data_names
+out_columns_for_review = par_names + var_names + data_names
+if mode == MODE_MCMC:
+    out_columns_for_review += ["likelihood", "staycount"]
+elif mode in [MODE_OPTIMIZE, MODE_EXPLORER]:
+    out_columns_for_review += ["likelihood"]
+elif mode in [MODE_SCAN, MODE_TEST]:
+    if out_columns is not None:
+        out_columns_for_review = out_columns
     else:
-        # really raise an uncaught exception since this is a coding error
-        raise ValueError("Unknown mode")
+        out_columns_for_review = par_names + var_names + data_names
+else:
+    # really raise an uncaught exception since this is a coding error
+    raise ValueError("Unknown mode")
 
-    print_table(
-        map(str, range(1, len(out_columns_for_review) + 1)),
-        out_columns_for_review
-    )
+print_table(
+    map(str, range(1, len(out_columns_for_review) + 1)),
+    out_columns_for_review
+)
 
 if out_columns is not None and cli_arguments.debug:
     print "# Raw output columns: ", out_columns
@@ -4235,7 +4215,7 @@ elif mode == MODE_SCAN:
                             f.write("\n")
 
 #Added by Ciara
-                    with open("/scratch/cb27g11/saveplz.data", "a") as f:
+                    with open("/scratch/cb27g11/THDM_T3PS_scanner/save.data", "a") as f:
                         for row in data_rows:
                             f.write("\t".join(row))
                             f.write("\n")
@@ -4321,7 +4301,7 @@ elif mode == MODE_MCMC:
         # (note that finding an invalid(or likelihood=0) point in the valid
         #   data should never happen and is an error)
         try:#Change by Ciara
-            with open(base_name + ".chain.%i" % i) as f and open("/scratch/cb27g11/plzsave.chain.%i" i):
+            with open(base_name + ".chain.%i" % i) as f:
                 last_line = ""
                 for line in f:
                     length += 1
@@ -4421,13 +4401,12 @@ elif mode == MODE_MCMC:
     chain_seeds = [random.random() for i in range(chain_count)]
 #Ciara changed here:
     #with TemporaryDirectory() as chain_status_dir, ConfirmedExitOnInterrupt():
-    with /scratch/cb27g11/chain_status_dir as chain_status_dir, ConfirmedExitOnInterrupt():
+    with /scratch/cb27g11/THDM_T3PS_scanner/chain_status_dir as chain_status_dir, ConfirmedExitOnInterrupt():
         # MCMC mode does not use process_batch but rather its pool directly
         #   calling map_async instead of calculate_items or process_batch or
         #   process_item
         # (MCMC does not make use of workers)
         # ParameterRange is picklable, so no problem here
-        # result = map(
         result = process_batch.pool.map_async(
             make_chain,
             [
@@ -6267,88 +6246,3 @@ elif mode == MODE_EXPLORER:
             # in case of errors, abandon all stations and let the user fix it
             exit_program("Error: " + str(e))
 
-elif mode == MODE_WORKER:
-    # --------------------- #
-    # |  [G.6] Worker Mode | #
-    # --------------------- #
-    # setup exposed worker functions
-    BaseManager.register("process_batch", callable=process_batch_as_worker)
-    BaseManager.register("process_item", callable=process_item)
-    BaseManager.register(
-        "processing_concurrency", callable=processing_concurrency
-    )
-    warn("# Serving under localhost:%i with authkey '%s'" % (port, authkey))
-    warn("# Process id: %i" % os.getpid())
-    warn(
-        "# Warning: exiting while calculations are under way may lead",
-        "to corrupted data on the receiving end",
-        log=False
-    )
-    # keep track of how many points this worker is currently processing
-    # hast the structure name -> (current length, full length)
-    process_batch.running_batches = dict()
-    m = BaseManager(address=('', port), authkey=authkey)
-
-    # let the server run in a thread while we wait for user interrupts in
-    #   the main thread
-    import threading
-    try:
-        s = m.get_server()
-        t = threading.Thread(target=s.serve_forever, args=())
-        t.daemon = True
-        t.start()
-    except Exception as e:
-        exit_program("Error: could not start listener thread: %s" % e)
-
-    with ConfirmedExitOnInterrupt():
-        print "(press ctrl+c twice within 5 sec to abort)"
-        print "# Requested batches:"
-        last_length = 0
-        while t.is_alive():
-            cells = [["start time", "full", "current", "%"]]
-            max_cell_lengths = map(len, cells[-1])
-            completes_shown = 0
-
-            # info has format (current, full, start time as string, start
-            #   time since epoch in seconds)
-            infos = sorted(
-                process_batch.running_batches.values(),
-                key=lambda info: info.start_time,
-                reverse=True
-            )
-            for info in infos:
-                # only show the last 10 completed batches
-                if info.current == info.full_length:
-                    completes_shown += 1
-                    if completes_shown > 10:
-                        continue
-
-                cells.append([
-                    info.start_time_str,
-                    repr(info.full_length),
-                    repr(info.current),
-                    "{:>7.2%}".format(info.current / info.full_length)
-                ])
-                cell_lengths = map(len, cells[-1])
-                max_cell_lengths = [
-                    max(pair) for pair in zip(cell_lengths, max_cell_lengths)
-                ]
-
-            if sys.stdout.isatty():
-                for i in range(last_length):
-                    # use this VT100 code to go back to the start of the table
-                    sys.stdout.write("\x1B[1A")
-            else:
-                sys.stdout.seek(0)
-
-            for row in cells:
-                print " | ".join(
-                    cell.rjust(max_cell_lengths[i])
-                    for i, cell in enumerate(row)
-                )
-
-            last_length = len(cells)
-            time.sleep(0.5)
-
-    # if this exits, the serve_forever thread will also be terminated since
-    #   it's a daemon
