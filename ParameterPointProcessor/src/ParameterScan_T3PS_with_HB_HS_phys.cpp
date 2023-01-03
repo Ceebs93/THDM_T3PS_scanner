@@ -15,23 +15,27 @@ using namespace std;
                                                                                                      
 int main(int argc, char* argv[])                                                                   
 {
-	int       yt_in;  // - Type
-	double    Z7_in;  // - Z7
-	double    mH_in;  // - mH
-	double   mHc_in;  // - mHc
-	double    mA_in;  // - mA
-	double   cba_in;  // - cos(b-a)
-	double    tb_in;  // - tan(b)
+	int       yt_in;     // - Type
+	double    mH_in;     // - mH
+	double   mHc_in;     // - mHc
+	double    mA_in;     // - mA
+	double   sba_in;     // - sin(b-a)
+	double    l6_in;     // - lambda6
+	double    l7_in;     // - lambda7
+	double    m12_2_in;  // - m12_2
+	double    tb_in;     // - tan(b)
 	
 	if     ( argc == 2 )   // - filename as input
 	{
 		ifstream file( argv[1]);
 		file >> yt_in;
-		file >> Z7_in;
 		file >> mH_in;
 		file >> mHc_in;
 		file >> mA_in;
-		file >> cba_in;
+		file >> sba_in;
+		file >> l6_in;
+		file >> l7_in;
+		file >> m12_in;
 		file >> tb_in;
 		file.close();
 	}
@@ -39,12 +43,14 @@ int main(int argc, char* argv[])
 	else if ( argc == 8 )   // - parameters as input
 	{
 	  	yt_in      = (int)   atoi(argv[1]);
-		Z7_in      = (double)atof(argv[2]);
-		mH_in      = (double)atof(argv[3]);
-		mHc_in     = (double)atof(argv[4]);
-	  	mA_in      = (double)atof(argv[5]);
-	   	cba_in     = (double)atof(argv[6]);
-		tb_in      = (double)atof(argv[7]);
+		mH_in      = (double)atof(argv[2]);
+		mHc_in     = (double)atof(argv[3]);
+	  	mA_in      = (double)atof(argv[4]);
+	   	sba_in     = (double)atof(argv[5]);
+		l6_in      = (double)atof(argv[6]);
+		l7_in      = (double)atof(argv[7]);
+		m12_2_in   = (double)atof(argv[8]);
+		tb_in      = (double)atof(argv[9]);
 	}
 	
 	else
@@ -91,7 +97,7 @@ int main(int argc, char* argv[])
 	  THDM model;
 	  model.set_SM(sm);
 
-	  bool pset = model.set_param_hybrid(mh_ref,mH_in,cba_in,Z4_c,Z5_c,Z7_in,tb_in);
+	  bool pset = model.set_param_phys(mh_ref,mH_in,mA_in,mHc_in,sba_in,l6_in,l7_in,m12_2,tb_in);
 
  	  if (!pset) {
    	    cerr << "The specified parameters are not valid\n";
@@ -156,7 +162,7 @@ int main(int argc, char* argv[])
 
 	  for(int i=0; i<6; i++)
           {
-		printf("sens_ch_%d: %f \n", i, hbchan[i]), "\n";
+		printf("sens_ch_%d: %f \n", i, static_cast<float>(hbchan[i])), "\n";
           }
 
          hbhs_result.hb.print();                                
@@ -247,8 +253,8 @@ int main(int argc, char* argv[])
 	  // so it can be negative too!
 
 	  double k_huu, k_hdd;
-	  k_huu = abs(sinba) + cba_in/tb;
-	  k_hdd = abs(sinba) - cba_in*tb;
+	  k_huu = abs(sinba) + cba/tb;
+	  k_hdd = abs(sinba) - cba*tb;
 
 	# endif
 
@@ -264,22 +270,26 @@ int main(int argc, char* argv[])
 	printf("Inside ParameterScan_T3PS.cpp\n");
 	printf("yt_in: %d\n", yt_in );
 	
-	printf("\nComparison of variables\n");
+	printf("\nComparison of variables\n");	
 	printf("|-------------------------------------------------------------------------\n" );
-	printf("| Var   | Input      | Gen        |  Phys      | Hybrid     | Calc       |\n" );
+	printf("| Var   | Input   | Gen    |  Phys   | Hybrid | \n" );
 	printf("|-------------------------------------------------------------------------\n" );
-	printf("| Z4    |            |            |            | %+8.3e | %+8.3e |\n", Z4_hybrid, Z4_c );
-	printf("| Z5    |            |            |            | %+8.3e | %+8.3e |\n", Z5_hybrid, Z5_c );
-	printf("| Z7    | %+8.3e |            |            | %+8.3e |            |\n", Z7_in, Z7_hybrid );
-	printf("| mH    | %+8.3e |            | %+8.3e | %+8.3e |            |\n", mH_in, mH_phys, mH_hybrid );
-	printf("| mHc   | %+8.3e |            | %+8.3e |            |            |\n", mHc_in, mHc_phys);
-	printf("| mA    | %+8.3e |            | %+8.3e |            |            |\n", mA_in, mA_phys );
-	printf("| cba   | %+8.3e |            |            | %+8.3e |            |\n", cba_in, cba_hybrid );
-	printf("| sba   |            |            | %+8.3e |            |            |\n", sba_phys);
-	printf("| tb    | %+8.3e | %+8.3e | %+8.3e | %+8.3e |            |\n", tb_in, tb_gen, tb_phys, tb_hybrid );
-	printf("| m12_2 |            | %+8.3e | %+8.3e |            |            |\n", m12_2_gen, m12_2_phys );
+	printf("| l1    |         | %+8.3e |         |        |\n", l1_gen);
+	printf("| l2    |         | %+8.3e |         |        |\n", l2_gen);
+	printf("| l3    |         | %+8.3e |         |        |\n", l3_gen);
+	printf("| l4    |         | %+8.3e |         |        |\n", l4_gen);
+	printf("| l5    |         | %+8.3e |         |        |\n", l5_gen);
+	printf("| l6    | %+8.3e  | %+8.3e | %+8.3e  |        |\n", l6_in, l6_gen, l6_phys);
+	printf("| l7    | %+8.3e  | %+8.3e | %+8.3e  |        |\n", l7_in, l7_gen, l7_phys);
+	printf("| mH    |         |        | %+8.3e  | %+8.3e |\n", mH_phys, mH_hybrid);
+	printf("| mHc   |         |        | %+8.3e  |        |\n", mHc_phys);
+	printf("| mA    |         |        | %+8.3e  |        |\n", mA_phys);
+	printf("| cba   |         |        |         | %+8.3e |\n", cba_hybrid);
+	printf("| sba   |         |        | %+8.3e  |        |\n", sba_phys);
+	printf("| tb    | %+8.3e  | %+8.3e | %+8.3e  | %+8.3e |\n", tb_in, tb_gen, tb_phys, tb_hybrid);
+	printf("| m12_2 | %+8.3e  | %+8.3e |         | %+8.3e |\n", m12_2_in, m12_2_gen, m12_2_phys );
 	printf("|-------------------------------------------------------------------------\n" );
-	
+
 	printf("S:           %8.4f\n", S);
 	printf("T:           %8.4f\n", T);
 	printf("U:           %8.4f\n", U);
@@ -302,14 +312,14 @@ int main(int argc, char* argv[])
 	
 	std::cout
 
-	<< Z7_in << " "			// 1
+	<< Z7 << " "			// 1
 	<< mH_in  << " "                // 2
 	<< mHc_in << " "                // 3
 	<< mA_in  << " "                // 4
-	<< cba_in << " "                // 5
+	<< cba << " "                   // 5
 	<< tb_in  << " "                // 6
 
- 	<< sinba << " "                 // 7
+ 	<< sba << " "                   // 7
  	<< Z4_c << " "                  // 8
  	<< Z5_c << " "                  // 9
  	<< m12_2 << " "                 // 10
@@ -320,8 +330,8 @@ int main(int argc, char* argv[])
 	<< l3 << " "                    // 13
  	<< l4 << " "                    // 14
 	<< l5 << " "                    // 15
- 	<< l6 << " "                    // 16
-	<< l7 << " "                    // 17
+ 	<< l6_in << " "                 // 16
+	<< l7_in << " "                 // 17
  	
 	// -- Coupling
  	<< g_HpHmh << " "               // 18

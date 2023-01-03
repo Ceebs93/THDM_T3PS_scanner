@@ -156,7 +156,7 @@ int main(int argc, char* argv[])
 
 	  for(int i=0; i<6; i++)
           {
-		printf("sens_ch_%d: %f \n", i, hbchan[i]), "\n";
+		printf("sens_ch_%d: %f \n", i, static_cast<float>(hbchan[i])), "\n";
           }
 
          hbhs_result.hb.print();                                
@@ -247,8 +247,8 @@ int main(int argc, char* argv[])
 	  // so it can be negative too!
 
 	  double k_huu, k_hdd;
-	  k_huu = abs(sinba) + cba_in/tb;
-	  k_hdd = abs(sinba) - cba_in*tb;
+	  k_huu = abs(sinba) + cba_in/tb_in;
+	  k_hdd = abs(sinba) - cba_in*tb_in;
 
 	# endif
 

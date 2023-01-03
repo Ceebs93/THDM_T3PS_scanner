@@ -41,7 +41,7 @@ import shlex
 import commands
 import sys
 arguments = []
-timeout = 10
+timeout = 20
 timelimit = None
 formula_eval = None
 data_fields_code = None

@@ -162,7 +162,7 @@ int main(int argc, char* argv[])
 
 	  for(int i=0; i<6; i++)
           {
-		printf("sens_ch_%d: %f \n", i, hbchan[i]), "\n";
+		printf("sens_ch_%d: %f \n", i, static_cast<float>(hbchan[i])), "\n";
           }
 
          hbhs_result.hb.print();                                
