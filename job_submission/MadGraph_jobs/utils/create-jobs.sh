@@ -77,9 +77,11 @@ if [ ${LOCAL} == "yes" ]; then
 else
 
 	# - Calculate number of points per job
-	nPts=$(tail --lines=+2 ${INPUT_DATA} | wc -l)
+	#nPts=$(tail --lines=+2 ${INPUT_DATA} | wc -l)
+	nPts=$(wc -l < ${INPUT_DATA})
+	nPts=$((nPts--))
 	nPtsPerJob=$(( ${nPts} / ${nJobs} ))
-	nPtsPerJob=$(( nPtsPerJob + 1 ))
+	nPtsPerJob=$(( nPtsPerJob ))
 
 
 	# - Display information

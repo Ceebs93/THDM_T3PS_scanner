@@ -4,17 +4,17 @@ SHELL = /bin/sh
 ###### --- Create jobs  --- ######
 ##################################
 
-CREATE_JOB_NAME         = "NC_bqhi"
-CREATE_JOB_INPUT_DATA   = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph_jobs/new_constraints_og.csv"
+CREATE_JOB_NAME         = "qqh3_reruns"
+CREATE_JOB_INPUT_DATA   = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph_jobs/for_upload/qqhi_qqh3_reruns.csv"
 #CREATE_JOB_CONVERT_DATA = "yes"
 CREATE_JOB_LOCAL        = "no"
 CREATE_JOB_SPLIT_NAME   = "split_csv_name"
-CREATE_JOB_PROCESS_NAME = "bq_tqhi"
-CREATE_JOB_PROC_IN      = "Bs\ ql"
-CREATE_JOB_PROC_OUT     = "Ts\ ql\ h_i"
+CREATE_JOB_PROCESS_NAME = "qq_tbh"
+CREATE_JOB_PROC_IN      = "ql\ ql"
+CREATE_JOB_PROC_OUT     = "Ts\ Bs\ h3"
 CREATE_JOB_nCores       = 1
-CREATE_JOB_nJobs        = 8
-CREATE_JOB_LOOPER       = "csv_looper_NC.sh"
+CREATE_JOB_nJobs        = 4
+CREATE_JOB_LOOPER       = "csv_looper_rerun.sh"
 CREATE_JOB_Card_Editor  = "inputcard_editor2.py" 
 CREATE_JOB_BASECARD     = "basecard_type2.txt"
 CREATE_JOB_TEMPLATE     = "slurm_submission.sh"
@@ -28,10 +28,10 @@ CREATE_JOB_LIST         = "all.jobs"
 
 SUBMIT_JOB_NAME       = ${CREATE_JOB_NAME}
 SUBMIT_JOB_LOCAL      = "no" 
-SUBMIT_JOB_LIST       = ${CREATE_JOB_NAME}
+SUBMIT_JOB_LIST       = ${CREATE_JOB_LIST}
 SUBMIT_JOB_NODES      = "--nodes=1"
 SUBMIT_JOB_PPN        = "--ntasks-per-node=8"
-SUBMIT_JOB_TIME       = "--time=12:00:00"
+SUBMIT_JOB_TIME       = "--time=1:00:00"
 SUBMIT_JOB_SCRIPT     = "slurm_submission.sh"
 SUBMIT_JOB_CLUSTERTYPE = "SLURM"
 
@@ -48,9 +48,9 @@ SUBMIT_JOB_CLUSTERTYPE = "SLURM"
 ########### --- Merge jobs - ############
 #########################################
 
-MERGE_JOB_NAME             = "NC_bqh1"
-MERGE_JOB_PROCESS          = "bq_tqh1"
-MERGE_JOB_INPUT_DATA       = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph_jobs/new_constraints_og.csv"
+MERGE_JOB_NAME             = "qqh3_reruns"
+MERGE_JOB_PROCESS          = "qq_tbh3"
+MERGE_JOB_INPUT_DATA       = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph_jobs/for_upload/qqhi_qqh3_reruns.csv"
 MERGE_JOB_MGSIN_LABEL      = "Sbma"
 MERGE_JOB_OGSIN_LABEL      = "sinba"
 MERGE_JOB_MGTAN_LABEL      = "Tb"
@@ -58,7 +58,7 @@ MERGE_JOB_OGTAN_LABEL      = "tb"
 #########################################
 
 
-DECLARE_ROOT_DIR = ROOT_DIR="/scratch/cb27g11/THDM_T3PS_scanner/job_submission//scratch/cb27g11/THDM_T3PS_scanner/"
+DECLARE_ROOT_DIR = ROOT_DIR="/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph_jobs/"
 
 VAR_CREATE_JOB    = $(shell echo '$(.VARIABLES)' |  awk -v RS=' ' '/CREATE_JOB_/' | sed 's/CREATE_JOB_//g' )
 EXPORT_CREATE_JOB = $(foreach v,$(VAR_CREATE_JOB),$(v)="$(CREATE_JOB_$(v))") $(DECLARE_ROOT_DIR)

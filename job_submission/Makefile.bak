@@ -4,63 +4,49 @@
 
 # - Specify the following settings for preparing the jobs
 
-CREATE_JOB_NAME         = "interfacetest"
-CREATE_JOB_CONFIG       = "config/hybrid_scan.conf"
-CREATE_JOB_CLUSTER      = ""
+CREATE_JOB_NAME         = "301_hhg_2"
+CREATE_JOB_CONFIG       = "config/hhg_scan.conf"
+CREATE_JOB_CLUSTER      = "yes"
 CREATE_JOB_nCores       = 1
-CREATE_JOB_program      = /scratch/cb27g11/THDM_T3PS_scanner/ParameterPointProcessor/bin/ParameterScan_T3PS_with_HB_HS_hybrid_FAST
-CREATE_JOB_nJobs        = 
-CREATE_JOB_chain_length = 1
-CREATE_JOB_TEMPLATE     = "template/hybrid_basis_scan.func"
+CREATE_JOB_program      = /scratch/cb27g11/THDM_T3PS_scanner/ParameterPointProcessor/bin/ParameterScan_T3PS_with_HB_HS_hhg_FAST
+CREATE_JOB_nJobs        = 1
+CREATE_JOB_chain_length = 9999999
+CREATE_JOB_TEMPLATE     = "template/hhg_basis_scan.func"
 
 ##############################
 ### --- Job Submission --- ###
 ##############################
 
 # - Specify the following settings for submitting the jobs
-cluster_option = "Cluster_"
 
 #For Local and Slurm jobs
+SUBMIT_JOB_LIST        = "all.jobs"
+SUBMIT_JOB_NAME        = "301_hhg_2"
+SUBMIT_JOB_NODES       = "--nodes=1"
+SUBMIT_JOB_PPN         = "--ntasks-per-node=1"
+SUBMIT_JOB_TIME        = "--time=12:00:00"
+SUBMIT_JOB_TASK        = "job_task/job_slurm.sh"
+SUBMIT_JOB_CLUSTERTYPE = "SLURM"
 
-if [ "${run_choice}" == 'no' ] ; then
-	SUBMIT_JOB_LIST        = "all.jobs"
-	SUBMIT_JOB_NAME        = "interfacetest"
-	SUBMIT_JOB_NODES       = "--nodes=1"
-	SUBMIT_JOB_PPN         = "--ntasks-per-node=1"
-	SUBMIT_JOB_TIME        = "--time=00:30:00"
-	SUBMIT_JOB_TASK        = "job_task/job_slurm.sh"
-	SUBMIT_JOB_CLUSTERTYPE = "SLURM"
-
-elif [ "${cluster_option}" == 's' ] ; then 
-	SUBMIT_JOB_LIST        = "all.jobs"
-	SUBMIT_JOB_NAME        = "interfacetest"
-	SUBMIT_JOB_NODES       = "--nodes=1"
-	SUBMIT_JOB_PPN         = "--ntasks-per-node=1"
-	SUBMIT_JOB_TIME        = "--time=00:30:00"
-	SUBMIT_JOB_TASK        = "job_task/job_slurm.sh"
-	SUBMIT_JOB_CLUSTERTYPE = "SLURM"
-
-elif [ "${cluster_option}" == 't' ] ; then
 #For Torque jobs
-	SUBMIT_JOB_LIST        = "all.jobs"
-	SUBMIT_JOB_TAG         = "job_batch1"
-	SUBMIT_JOB_RESOURCES   = "nodes=1:ppn=8,walltime=00:30:00"
-	SUBMIT_JOB_TASK        = "job_task/job.sh"
-	SUBMIT_JOB_CLUSTERTYPE = "TORQUE"
+#SUBMIT_JOB_LIST        = "all.jobs"
+#SUBMIT_JOB_TAG         = "job_batch1"
+#SUBMIT_JOB_RESOURCES   = "nodes=1:ppn=8,walltime=00:30:00"
+#SUBMIT_JOB_TASK        = "job_task/job.sh"
+#SUBMIT_JOB_CLUSTERTYPE = "TORQUE"
 
-fi
 ########################
 ### --- Merge jobs - ###
 ########################
 
 # - Specify the following settings for merging the jobs
 
-MERGE_JOB_NAME         = "interfacetest"
+MERGE_JOB_NAME         = "job_name"
 MERGE_JOB_HEADER       = "header/default.header"
 MERGE_JOB_DATASET_NAME = ${MERGE_JOB_NAME}
-MERGE_JOB_CONVERT      = "convert_"
-MERGE_JOB_CONVERT_ONLY = "just_convert_"
-MERGE_JOB_MAKE_CSV     = "to_csv_"
+MERGE_JOB_CONVERT      = "no"
+MERGE_JOB_CONVERT_ONLY = "no"
+MERGE_JOB_MAKE_CSV     = "yes"
 MERGE_JOB_FORMAT       = "table"
 MERGE_JOB_COMPRESSION  = "blosc"
 

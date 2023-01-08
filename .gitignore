@@ -18,6 +18,8 @@ job_submission/MCMC/jobs/*
 job_submission/MadGraph_jobs/jobs/*
 job_submission/MadGraph_jobs/sucessful/*
 job_submission/MadGraph_jobs/*.csv
+job_submission/MadGraph_jobs/for_upload*
+
 *.o
 *.a
 *.exe
