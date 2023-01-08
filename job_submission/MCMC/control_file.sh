@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #### --- Default variable values --- ####
-run_choice="${1:-'yes'}"
+run_choice="${run_choice:-'yes'}"
 
 #### --- Gathering basic input from user --- ####
 echo 'Starting setup for MCMC jobs...'
@@ -38,7 +38,7 @@ if [ "${run_type}" == 3 ] ; then
 fi
 
 if [ "${run_type}" == 4 ] ; then
-	echo 'Merge job selected'		
+	echo 'Merge jobs selected'		
 	will_create=false
 	will_submit=false
 	will_merge=true
@@ -57,6 +57,9 @@ if [ ${will_create} == true ] ; then
 	echo 'Enter number of cores to use'
 	read ncores
 
+	echo 'Enter number of jobs to run'
+	read nJobs
+
 	echo 'Enter chain length'
 	read chain_len
 
@@ -67,8 +70,9 @@ if [ ${will_create} == true ] ; then
 	echo "CREATE_JOB_program      = '/scratch/cb27g11/THDM_T3PS_scanner/ParameterPointProcessor/bin/ParameterScan_T3PS_with_HB_HS_${basis}_FAST' " >> utils/settings.mk
 	echo "CREATE_JOB_nJobs        = '${njobs}' " >> utils/settings.mk
 	echo "CREATE_JOB_chain_length = '${chain_len}' " >> utils/settings.mk
-	echo "CREATE_JOB_nJobs        = 'template/${basis}_basis_scan.func' " >> utils/settings.mk
+	echo "CREATE_JOB_TEMPLATE        = 'template/${basis}_basis_scan.func' " >> utils/settings.mk
 
+	make create-jobs
 
 fi
 ######################################
@@ -76,18 +80,17 @@ fi
 #### --- Submit-jobs Section --- ####
 if [ ${will_submit} == true ] ; then
 	echo 'Setting up submit-jobs'
-	echo $run_choice
-#	echo 'Do you want to run a cluster job (enter yes for cluster, no for local)?'
-#	read run_choice
+
+	if [ -z ${var+x} ]; then
+		echo 'About to run a cluster job, is this okay (enter "no" to switch to local, or "yes" to continue)?'
+		read run_choice
+	fi
+
 	if [ "$run_choice" == 'yes' ] ; then
 		echo 'Please choose a cluster job manager option, Slurm or Torque. Enter "s" for Slurm or "t" for Torque'
 		read cluster_choice_
-	fi
-
-	if [ "${run_choice}" == 'yes' ] ; then
-		echo 'Please choose a cluster job manager option, Slurm or Torque. Enter "s" for Slurm or "t" for Torque'
-		read cluster_choice_
 	
+
 		if [ "${cluster_choice_}" == "s" ] ; then	
 
 			echo 'Enter number of nodes'
@@ -99,7 +102,6 @@ if [ ${will_submit} == true ] ; then
 			echo 'Enter run time for job/s (in format of hh:mm:ss)'
 			read run_time
 	
-			echo "CREATE_JOB_chain_length = '${chain_len}' " >> utils/settings.mk
 
 			echo "SUBMIT_JOB_LIST        = "all.jobs"" >> utils/settings.mk
 			echo "SUBMIT_JOB_NAME        = "${job_name}"" >> utils/settings.mk
@@ -146,6 +148,8 @@ if [ ${will_submit} == true ] ; then
 		echo "SUBMIT_JOB_TIME        = "--time=${run_time}"" >> utils/settings.mk
 		echo "SUBMIT_JOB_TASK        = "job.sh"" >> utils/settings.mk
 	fi
+
+	make submit-jobs
 fi
 #####################################
 
@@ -153,13 +157,18 @@ fi
 ##### --- Merge-jobs Section --- #####
 if [ "${will_merge}" == true ] ; then
 
-	echo 'Merge jobs selected'
+	echo 'Setting up Merge-jobs'
 
 	echo 'Do you want to convert your output into hd5f format? Answer "yes" or "no"'
 	read to_convert
 
-	echo 'Do you ONLY want to convert your output into hd5f (i.e. not perform merging of jobs)?Answer "yes" or "no"'
-	read only_convert
+	if [ "${to_convert}" == "no" ] ; then
+		only_convert="no"
+	
+	else
+		echo 'Do you ONLY want to convert your output into hd5f (i.e. not perform merging of jobs)?Answer "yes" or "no"'
+		read only_convert
+	fi
 
 	echo 'Do you want to create a CSV of your merged job output? Answer "yes" or "no"'
 	read make_csv

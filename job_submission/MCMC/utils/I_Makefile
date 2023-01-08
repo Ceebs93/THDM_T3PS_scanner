@@ -1,56 +1,8 @@
-############################
-### --- Create jobs  --- ###
-############################
+include settings.mk
 
-# - Specify the following settings for preparing the jobs
+# This file will only work if 'control_file.sh' has been run to set variables for the user in 'utils/settings.mk'. 'control_file.sh' will overwrite 'settings.mk' on every use.
 
-CREATE_JOB_NAME         = "job_name"
-CREATE_JOB_CONFIG       = "config/hybrid_scan.conf"
-CREATE_JOB_CLUSTER      = "yes"
-CREATE_JOB_nCores       = 1
-CREATE_JOB_program      = top_dir_/ParameterPointProcessor/bin/ParameterScan_T3PS_with_HB_HS_FAST
-CREATE_JOB_nJobs        = 8
-CREATE_JOB_chain_length = 9999999
-CREATE_JOB_TEMPLATE     = "template/hybrid_basis_scan.func"
-
-##############################
-### --- Job Submission --- ###
-##############################
-
-# - Specify the following settings for submitting the jobs
-
-#For Local and Slurm jobs
-SUBMIT_JOB_LIST        = "all.jobs"
-SUBMIT_JOB_NAME        = "job_name"
-SUBMIT_JOB_NODES       = "--nodes=1"
-SUBMIT_JOB_PPN         = "--ntasks-per-node=1"
-SUBMIT_JOB_TIME        = "--time=60:00:00"
-SUBMIT_JOB_TASK        = "job_task/job_slurm.sh"
-SUBMIT_JOB_CLUSTERTYPE = "SLURM"
-
-#For Torque jobs
-#SUBMIT_JOB_LIST        = "all.jobs"
-#SUBMIT_JOB_TAG         = "job_batch1"
-#SUBMIT_JOB_RESOURCES   = "nodes=1:ppn=8,walltime=00:30:00"
-#SUBMIT_JOB_TASK        = "job_task/job.sh"
-#SUBMIT_JOB_CLUSTERTYPE = "TORQUE"
-
-########################
-### --- Merge jobs - ###
-########################
-
-# - Specify the following settings for merging the jobs
-
-MERGE_JOB_NAME         = "job_name"
-MERGE_JOB_HEADER       = "header/default.header"
-MERGE_JOB_DATASET_NAME = ${MERGE_JOB_NAME}
-MERGE_JOB_CONVERT      = "no"
-MERGE_JOB_CONVERT_ONLY = "no"
-MERGE_JOB_MAKE_CSV     = "yes"
-MERGE_JOB_FORMAT       = "table"
-MERGE_JOB_COMPRESSION  = "blosc"
-
-#######################
+################################################################
 
 DECLARE_ROOT_DIR = ROOT_DIR="top_dir_/job_submission/MCMC"
 

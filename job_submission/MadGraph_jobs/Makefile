@@ -4,12 +4,12 @@ SHELL = /bin/sh
 ###### --- Create jobs  --- ######
 ##################################
 
-CREATE_JOB_NAME         = "qqh3_reruns"
-CREATE_JOB_INPUT_DATA   = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph_jobs/for_upload/qqhi_qqh3_reruns.csv"
+CREATE_JOB_NAME         = "qqA_missing"
+CREATE_JOB_INPUT_DATA   = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph_jobs/for_upload/missing_qqA.csv"
 #CREATE_JOB_CONVERT_DATA = "yes"
 CREATE_JOB_LOCAL        = "no"
 CREATE_JOB_SPLIT_NAME   = "split_csv_name"
-CREATE_JOB_PROCESS_NAME = "qq_tbh"
+CREATE_JOB_PROCESS_NAME = "qq_tbh3"
 CREATE_JOB_PROC_IN      = "ql\ ql"
 CREATE_JOB_PROC_OUT     = "Ts\ Bs\ h3"
 CREATE_JOB_nCores       = 1
@@ -31,7 +31,7 @@ SUBMIT_JOB_LOCAL      = "no"
 SUBMIT_JOB_LIST       = ${CREATE_JOB_LIST}
 SUBMIT_JOB_NODES      = "--nodes=1"
 SUBMIT_JOB_PPN        = "--ntasks-per-node=8"
-SUBMIT_JOB_TIME       = "--time=1:00:00"
+SUBMIT_JOB_TIME       = "--time=06:00:00"
 SUBMIT_JOB_SCRIPT     = "slurm_submission.sh"
 SUBMIT_JOB_CLUSTERTYPE = "SLURM"
 
