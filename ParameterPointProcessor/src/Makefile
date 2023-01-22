@@ -4,7 +4,7 @@ binaries : ../bin/ParameterScan_T3PS_with_HB_HS_hybrid_FAST \
 		  ../bin/ParameterScan_T3PS_with_HB_HS_higgs_FAST \
 		    ../bin/ParameterScan_T3PS_with_HB_HS_hhg_FAST \
 		       ../bin/ParameterScan_T3PS_with_HB_HS_phys_FAST \
-			#  ../bin/test
+			  ../bin/test
 
 CMN =  ../lib/EWPO.cpp.o
 
@@ -67,8 +67,8 @@ LINKER = g++
 	$(CC) $^ $(CLFLAGS_2HDMC_WITH_HB_HS) -o $@
 
 # - test
-#../bin/test: $(OBJ_test)
-#	$(CC) $^ $(CLFLAGS_) -o $@
+../bin/test: $(OBJ_test)
+	$(CC) $^ $(CLFLAGS_) -o $@
 
 ####################
 ## -- Linking -- ###

@@ -1,5 +1,5 @@
 ***********         Key to Process Numbers       *************
- This key has been generated with HiggsBounds version 5.9.0 
+ This key has been generated with HiggsBounds version 5.10.1 
  with the setting whichanalyses=LandH
 
 **************************************************************
@@ -1201,1515 +1201,1610 @@ process  405
 process  406
   (p p)->bbh3 ->b b ([hep-ex] 1805.12191 (CMS)) \cite{Sirunyan:2018taj}
 **************************************************************
-      [hep-ex] 1810.11822 (CMS)
+      [hep-ex] 1805.09299 (ATLAS)
 
 process  407
-  (p p)->h1  (CP-even) ->b b ([hep-ex] 1810.11822 (CMS)) \cite{Sirunyan:2018ikr}
+  (p p)->h1 ->b b ([hep-ex] 1805.09299 (ATLAS)) \cite{Aaboud:2018tqo}
 process  408
-  (p p)->h2  (CP-even) ->b b ([hep-ex] 1810.11822 (CMS)) \cite{Sirunyan:2018ikr}
+  (p p)->h2 ->b b ([hep-ex] 1805.09299 (ATLAS)) \cite{Aaboud:2018tqo}
 process  409
-  (p p)->h3  (CP-even) ->b b ([hep-ex] 1810.11822 (CMS)) \cite{Sirunyan:2018ikr}
+  (p p)->h3 ->b b ([hep-ex] 1805.09299 (ATLAS)) \cite{Aaboud:2018tqo}
 **************************************************************
       [hep-ex] 1810.11822 (CMS)
 
 process  410
-  (p p)->h1  (CP-odd) ->b b ([hep-ex] 1810.11822 (CMS)) \cite{Sirunyan:2018ikr}
+  (p p)->h1  (CP-even) ->b b ([hep-ex] 1810.11822 (CMS)) \cite{Sirunyan:2018ikr}
 process  411
-  (p p)->h2  (CP-odd) ->b b ([hep-ex] 1810.11822 (CMS)) \cite{Sirunyan:2018ikr}
+  (p p)->h2  (CP-even) ->b b ([hep-ex] 1810.11822 (CMS)) \cite{Sirunyan:2018ikr}
 process  412
+  (p p)->h3  (CP-even) ->b b ([hep-ex] 1810.11822 (CMS)) \cite{Sirunyan:2018ikr}
+**************************************************************
+      [hep-ex] 1810.11822 (CMS)
+
+process  413
+  (p p)->h1  (CP-odd) ->b b ([hep-ex] 1810.11822 (CMS)) \cite{Sirunyan:2018ikr}
+process  414
+  (p p)->h2  (CP-odd) ->b b ([hep-ex] 1810.11822 (CMS)) \cite{Sirunyan:2018ikr}
+process  415
   (p p)->h3  (CP-odd) ->b b ([hep-ex] 1810.11822 (CMS)) \cite{Sirunyan:2018ikr}
 **************************************************************
       [hep-ex] arXiv:1106.4555 (D0)
 
-process  413
+process  416
   (p p-bar)->h1 ->tau tau   ([hep-ex] arXiv:1106.4555 (D0)) \cite{Abazov:2011jh}
-process  414
+process  417
   (p p-bar)->h2 ->tau tau   ([hep-ex] arXiv:1106.4555 (D0)) \cite{Abazov:2011jh}
-process  415
+process  418
   (p p-bar)->h3 ->tau tau   ([hep-ex] arXiv:1106.4555 (D0)) \cite{Abazov:2011jh}
 **************************************************************
       [hep-ex] arXiv:0906.1014 (CDF)
 
-process  416
+process  419
   (p p-bar)->h1 ->tau tau   ([hep-ex] arXiv:0906.1014 (CDF)) \cite{Aaltonen:2009vf}
-process  417
+process  420
   (p p-bar)->h2 ->tau tau   ([hep-ex] arXiv:0906.1014 (CDF)) \cite{Aaltonen:2009vf}
-process  418
+process  421
   (p p-bar)->h3 ->tau tau   ([hep-ex] arXiv:0906.1014 (CDF)) \cite{Aaltonen:2009vf}
 **************************************************************
       [hep-ex] arXiv:1003.3363 (TEVNPHWG)
 
-process  419
+process  422
   (p p-bar)->h1 ->tau tau   ([hep-ex] arXiv:1003.3363 (TEVNPHWG)) \cite{Benjamin:2010xb}
-process  420
+process  423
   (p p-bar)->h2 ->tau tau   ([hep-ex] arXiv:1003.3363 (TEVNPHWG)) \cite{Benjamin:2010xb}
-process  421
+process  424
   (p p-bar)->h3 ->tau tau   ([hep-ex] arXiv:1003.3363 (TEVNPHWG)) \cite{Benjamin:2010xb}
 **************************************************************
       ATLAS-CONF-2012-160
 
-process  422
+process  425
   (p p)->h1 ->tau tau +... where h1  is SM-like (ATLAS-CONF-2012-160) \cite{ATLAS:2012dsy}
-process  423
+process  426
   (p p)->h2 ->tau tau +... where h2  is SM-like (ATLAS-CONF-2012-160) \cite{ATLAS:2012dsy}
-process  424
+process  427
   (p p)->h3 ->tau tau +... where h3  is SM-like (ATLAS-CONF-2012-160) \cite{ATLAS:2012dsy}
 **************************************************************
       arXiv:1409.6064
 
-process  425
+process  428
   (p p)->bbh1 ->tau tau (arXiv:1409.6064) \cite{Aad:2014vgg}
-process  426
+process  429
   (p p)->bbh2 ->tau tau (arXiv:1409.6064) \cite{Aad:2014vgg}
-process  427
+process  430
   (p p)->bbh3 ->tau tau (arXiv:1409.6064) \cite{Aad:2014vgg}
 **************************************************************
       arXiv:1409.6064
 
-process  428
+process  431
   (p p)->ggh1 ->tau tau (arXiv:1409.6064) \cite{Aad:2014vgg}
-process  429
+process  432
   (p p)->ggh2 ->tau tau (arXiv:1409.6064) \cite{Aad:2014vgg}
-process  430
+process  433
   (p p)->ggh3 ->tau tau (arXiv:1409.6064) \cite{Aad:2014vgg}
 **************************************************************
       CMS-PAS-HIG-12-043
 
-process  431
+process  434
   (p p)->h1 ->tau tau +... where h1  is SM-like (CMS-PAS-HIG-12-043) \cite{CMS:lng}
-process  432
+process  435
   (p p)->h2 ->tau tau +... where h2  is SM-like (CMS-PAS-HIG-12-043) \cite{CMS:lng}
-process  433
+process  436
   (p p)->h3 ->tau tau +... where h3  is SM-like (CMS-PAS-HIG-12-043) \cite{CMS:lng}
 **************************************************************
       arXiv:1504.04710 (CMS)
 
-process  434
+process  437
   (p p) -> h1  -> Z h -> l l b b, where h lies around 125 (+- 10 GeV)    (arXiv:1504.04710 (CMS)) \cite{Khachatryan:2015lba}
-process  435
+process  438
   (p p) -> h2  -> Z h -> l l b b, where h lies around 125 (+- 10 GeV)    (arXiv:1504.04710 (CMS)) \cite{Khachatryan:2015lba}
-process  436
+process  439
   (p p) -> h3  -> Z h -> l l b b, where h lies around 125 (+- 10 GeV)    (arXiv:1504.04710 (CMS)) \cite{Khachatryan:2015lba}
 **************************************************************
       [hep-ex] arXiv:1509.04670 (ATLAS)
 
-process  437
+process  440
   (p p)->h1 ->h(SM,125)h(SM,125)-> bb/tautau/WW/gaga (combination) ([hep-ex] arXiv:1509.04670 (ATLAS)) \cite{Aad:2015xja}
-process  438
+process  441
   (p p)->h2 ->h(SM,125)h(SM,125)-> bb/tautau/WW/gaga (combination) ([hep-ex] arXiv:1509.04670 (ATLAS)) \cite{Aad:2015xja}
-process  439
+process  442
   (p p)->h3 ->h(SM,125)h(SM,125)-> bb/tautau/WW/gaga (combination) ([hep-ex] arXiv:1509.04670 (ATLAS)) \cite{Aad:2015xja}
 **************************************************************
       [hep-ex] arXiv:1509.04670 (ATLAS)
 
-process  440
+process  443
   (p p)->h1 ->h(SM,125)h(SM,125)-> gaga WW ([hep-ex] arXiv:1509.04670 (ATLAS)) \cite{Aad:2015xja}
-process  441
+process  444
   (p p)->h2 ->h(SM,125)h(SM,125)-> gaga WW ([hep-ex] arXiv:1509.04670 (ATLAS)) \cite{Aad:2015xja}
-process  442
+process  445
   (p p)->h3 ->h(SM,125)h(SM,125)-> gaga WW ([hep-ex] arXiv:1509.04670 (ATLAS)) \cite{Aad:2015xja}
 **************************************************************
       [hep-ex] arXiv:1807.08567 (ATLAS)
 
-process  443
+process  446
   (p p)->h1 ->h(SM,125)h(SM,125)-> gaga WW ([hep-ex] arXiv:1807.08567 (ATLAS)) \cite{Aaboud:2018ewm}
-process  444
+process  447
   (p p)->h2 ->h(SM,125)h(SM,125)-> gaga WW ([hep-ex] arXiv:1807.08567 (ATLAS)) \cite{Aaboud:2018ewm}
-process  445
+process  448
   (p p)->h3 ->h(SM,125)h(SM,125)-> gaga WW ([hep-ex] arXiv:1807.08567 (ATLAS)) \cite{Aaboud:2018ewm}
 **************************************************************
       [hep-ex] arXiv:1807.04873 (ATLAS)
 
-process  446
+process  449
   (p p)->h1 ->h(SM,125)h(SM,125)-> gaga bb ([hep-ex] arXiv:1807.04873 (ATLAS)) \cite{Aaboud:2018ewm}
-process  447
+process  450
   (p p)->h2 ->h(SM,125)h(SM,125)-> gaga bb ([hep-ex] arXiv:1807.04873 (ATLAS)) \cite{Aaboud:2018ewm}
-process  448
+process  451
   (p p)->h3 ->h(SM,125)h(SM,125)-> gaga bb ([hep-ex] arXiv:1807.04873 (ATLAS)) \cite{Aaboud:2018ewm}
 **************************************************************
       [hep-ex] arXiv:1509.04670 (ATLAS)
 
-process  449
+process  452
   (p p)->h1 ->h(SM,125)h(SM,125)-> bb tautau ([hep-ex] arXiv:1509.04670 (ATLAS)) \cite{Aad:2015xja}
-process  450
+process  453
   (p p)->h2 ->h(SM,125)h(SM,125)-> bb tautau ([hep-ex] arXiv:1509.04670 (ATLAS)) \cite{Aad:2015xja}
-process  451
+process  454
   (p p)->h3 ->h(SM,125)h(SM,125)-> bb tautau ([hep-ex] arXiv:1509.04670 (ATLAS)) \cite{Aad:2015xja}
 **************************************************************
       [hep-ex] arXiv:1808.00336 (ATLAS)
 
-process  452
+process  455
   (p p)->h1 ->h(SM,125)h(SM,125)-> bb tautau ([hep-ex] arXiv:1808.00336 (ATLAS)) \cite{Aaboud:2018sfw}
-process  453
+process  456
   (p p)->h2 ->h(SM,125)h(SM,125)-> bb tautau ([hep-ex] arXiv:1808.00336 (ATLAS)) \cite{Aaboud:2018sfw}
-process  454
+process  457
   (p p)->h3 ->h(SM,125)h(SM,125)-> bb tautau ([hep-ex] arXiv:1808.00336 (ATLAS)) \cite{Aaboud:2018sfw}
 **************************************************************
       ATLAS-CONF-2016-049
 
-process  455
+process  458
   (p p) -> h1  -> h h -> b b b b, where h lies around 125 (+- 10 GeV)  (ATLAS-CONF-2016-049) \cite{ATLAS:2016ixk}
-process  456
+process  459
   (p p) -> h2  -> h h -> b b b b, where h lies around 125 (+- 10 GeV)  (ATLAS-CONF-2016-049) \cite{ATLAS:2016ixk}
-process  457
+process  460
   (p p) -> h3  -> h h -> b b b b, where h lies around 125 (+- 10 GeV)  (ATLAS-CONF-2016-049) \cite{ATLAS:2016ixk}
 **************************************************************
       [hep-ex] arXiv:1510.01181 (CMS)
 
-process  458
+process  461
   (p p) -> h1  -> h h -> b b tau tau, where h lies around 125 (+- 10 GeV)  ([hep-ex] arXiv:1510.01181 (CMS)) \cite{Khachatryan:2015tha}
-process  459
+process  462
   (p p) -> h2  -> h h -> b b tau tau, where h lies around 125 (+- 10 GeV)  ([hep-ex] arXiv:1510.01181 (CMS)) \cite{Khachatryan:2015tha}
-process  460
+process  463
   (p p) -> h3  -> h h -> b b tau tau, where h lies around 125 (+- 10 GeV)  ([hep-ex] arXiv:1510.01181 (CMS)) \cite{Khachatryan:2015tha}
 **************************************************************
       [hep-ex] arXiv:1701.02032 (CMS)
 
-process  461
+process  464
   (p p)-> H_{SM-like} near 125 GeV -> h1 h1  -> tau tau tau tau ([hep-ex] arXiv:1701.02032 (CMS)) \cite{Khachatryan:2017mnf}
-process  462
+process  465
   (p p)-> H_{SM-like} near 125 GeV -> h2 h2  -> tau tau tau tau ([hep-ex] arXiv:1701.02032 (CMS)) \cite{Khachatryan:2017mnf}
-process  463
+process  466
   (p p)-> H_{SM-like} near 125 GeV -> h3 h3  -> tau tau tau tau ([hep-ex] arXiv:1701.02032 (CMS)) \cite{Khachatryan:2017mnf}
 **************************************************************
       [hep-ex] 1907.07235 (CMS)
 
-process  464
+process  467
   (p p)-> H_{SM-like} near 125 GeV -> h1 h1  -> tau tau tau tau + tau tau mu mu ([hep-ex] 1907.07235 (CMS)) \cite{Sirunyan:2019gou}
-process  465
+process  468
   (p p)-> H_{SM-like} near 125 GeV -> h2 h2  -> tau tau tau tau + tau tau mu mu ([hep-ex] 1907.07235 (CMS)) \cite{Sirunyan:2019gou}
-process  466
+process  469
   (p p)-> H_{SM-like} near 125 GeV -> h3 h3  -> tau tau tau tau + tau tau mu mu ([hep-ex] 1907.07235 (CMS)) \cite{Sirunyan:2019gou}
 **************************************************************
       [hep-ex] arXiv:1806.07355 (ATLAS)
 
-process  467
+process  470
   (p p)-> V H (H near 125 GeV) -> h1 h1  -> b b b b ([hep-ex] arXiv:1806.07355 (ATLAS)) \cite{Aaboud:2018iil}
-process  468
+process  471
   (p p)-> V H (H near 125 GeV) -> h2 h2  -> b b b b ([hep-ex] arXiv:1806.07355 (ATLAS)) \cite{Aaboud:2018iil}
-process  469
+process  472
   (p p)-> V H (H near 125 GeV) -> h3 h3  -> b b b b ([hep-ex] arXiv:1806.07355 (ATLAS)) \cite{Aaboud:2018iil}
 **************************************************************
       [hep-ex] arXiv:1701.02032 (CMS)
 
-process  470
+process  473
   (p p)-> H_{SM-like} near 125 GeV -> h1 h1  -> mu mu b b ([hep-ex] arXiv:1701.02032 (CMS)) \cite{Khachatryan:2017mnf}
-process  471
+process  474
   (p p)-> H_{SM-like} near 125 GeV -> h2 h2  -> mu mu b b ([hep-ex] arXiv:1701.02032 (CMS)) \cite{Khachatryan:2017mnf}
-process  472
+process  475
   (p p)-> H_{SM-like} near 125 GeV -> h3 h3  -> mu mu b b ([hep-ex] arXiv:1701.02032 (CMS)) \cite{Khachatryan:2017mnf}
 **************************************************************
       [hep-ex] arXiv:1807.00539 (ATLAS)
 
-process  473
+process  476
   (p p)-> H_{SM-like} near 125 GeV -> h1 h1  -> mu mu b b ([hep-ex] arXiv:1807.00539 (ATLAS)) \cite{Aaboud:2018esj}
-process  474
+process  477
   (p p)-> H_{SM-like} near 125 GeV -> h2 h2  -> mu mu b b ([hep-ex] arXiv:1807.00539 (ATLAS)) \cite{Aaboud:2018esj}
-process  475
+process  478
   (p p)-> H_{SM-like} near 125 GeV -> h3 h3  -> mu mu b b ([hep-ex] arXiv:1807.00539 (ATLAS)) \cite{Aaboud:2018esj}
 **************************************************************
       [hep-ex] arXiv:1812.06359 (CMS)
 
-process  476
+process  479
   (p p)-> H_{SM-like} near 125 GeV -> h1 h1  -> mu mu b b ([hep-ex] arXiv:1812.06359 (CMS)) \cite{Sirunyan:2018mot}
-process  477
+process  480
   (p p)-> H_{SM-like} near 125 GeV -> h2 h2  -> mu mu b b ([hep-ex] arXiv:1812.06359 (CMS)) \cite{Sirunyan:2018mot}
-process  478
+process  481
   (p p)-> H_{SM-like} near 125 GeV -> h3 h3  -> mu mu b b ([hep-ex] arXiv:1812.06359 (CMS)) \cite{Sirunyan:2018mot}
 **************************************************************
       [hep-ex] arXiv:1701.02032 (CMS)
 
-process  479
+process  482
   (p p)-> H_{SM-like} near 125 GeV -> h1 h1  -> mu mu tau tau ([hep-ex] arXiv:1701.02032 (CMS)) \cite{Khachatryan:2017mnf}
-process  480
+process  483
   (p p)-> H_{SM-like} near 125 GeV -> h2 h2  -> mu mu tau tau ([hep-ex] arXiv:1701.02032 (CMS)) \cite{Khachatryan:2017mnf}
-process  481
+process  484
   (p p)-> H_{SM-like} near 125 GeV -> h3 h3  -> mu mu tau tau ([hep-ex] arXiv:1701.02032 (CMS)) \cite{Khachatryan:2017mnf}
 **************************************************************
       [hep-ex] arXiv:1805.04865 (CMS)
 
-process  482
+process  485
   (p p)-> H_{SM-like} near 125 GeV -> h1 h1  -> mu mu tau tau ([hep-ex] arXiv:1805.04865 (CMS)) \cite{Sirunyan:2018mbx}
-process  483
+process  486
   (p p)-> H_{SM-like} near 125 GeV -> h2 h2  -> mu mu tau tau ([hep-ex] arXiv:1805.04865 (CMS)) \cite{Sirunyan:2018mbx}
-process  484
+process  487
   (p p)-> H_{SM-like} near 125 GeV -> h3 h3  -> mu mu tau tau ([hep-ex] arXiv:1805.04865 (CMS)) \cite{Sirunyan:2018mbx}
 **************************************************************
       [hep-ex] arXiv:1805.10191 (CMS)
 
-process  485
+process  488
   (p p)-> H (near 125 GeV) -> h1 h1  -> b b tau tau ([hep-ex] arXiv:1805.10191 (CMS)) \cite{Sirunyan:2018pzn}
-process  486
+process  489
   (p p)-> H (near 125 GeV) -> h2 h2  -> b b tau tau ([hep-ex] arXiv:1805.10191 (CMS)) \cite{Sirunyan:2018pzn}
-process  487
+process  490
   (p p)-> H (near 125 GeV) -> h3 h3  -> b b tau tau ([hep-ex] arXiv:1805.10191 (CMS)) \cite{Sirunyan:2018pzn}
 **************************************************************
       [hep-ex] arXiv:1509.05051 (ATLAS)
 
-process  488
+process  491
   (p p)-> H_{SM-like} near 125 GeV -> h1 h1  -> gamma gamma gamma gamma ([hep-ex] arXiv:1509.05051 (ATLAS)) \cite{Aad:2015bua}
-process  489
+process  492
   (p p)-> H_{SM-like} near 125 GeV -> h2 h2  -> gamma gamma gamma gamma ([hep-ex] arXiv:1509.05051 (ATLAS)) \cite{Aad:2015bua}
-process  490
+process  493
   (p p)-> H_{SM-like} near 125 GeV -> h3 h3  -> gamma gamma gamma gamma ([hep-ex] arXiv:1509.05051 (ATLAS)) \cite{Aad:2015bua}
 **************************************************************
       [hep-ex] arXiv:1510.06534 (CMS)
 
-process  491
+process  494
   (p p)-> H_{SM-like} near 125 GeV -> h1 h1  -> tau tau tau tau ([hep-ex] arXiv:1510.06534 (CMS)) \cite{Khachatryan:2015nba}
-process  492
+process  495
   (p p)-> H_{SM-like} near 125 GeV -> h2 h2  -> tau tau tau tau ([hep-ex] arXiv:1510.06534 (CMS)) \cite{Khachatryan:2015nba}
-process  493
+process  496
   (p p)-> H_{SM-like} near 125 GeV -> h3 h3  -> tau tau tau tau ([hep-ex] arXiv:1510.06534 (CMS)) \cite{Khachatryan:2015nba}
 **************************************************************
       [hep-ex] 1708.04188 (CMS)
 
-process  494
+process  497
   (p p)->h1 ->h h -> b b l l nu nu, where h lies around 125 (+- 10 GeV) ([hep-ex] 1708.04188 (CMS)) \cite{Sirunyan:2017guj}
-process  495
+process  498
   (p p)->h2 ->h h -> b b l l nu nu, where h lies around 125 (+- 10 GeV) ([hep-ex] 1708.04188 (CMS)) \cite{Sirunyan:2017guj}
-process  496
+process  499
   (p p)->h3 ->h h -> b b l l nu nu, where h lies around 125 (+- 10 GeV) ([hep-ex] 1708.04188 (CMS)) \cite{Sirunyan:2017guj}
 **************************************************************
       [hep-ex] arXiv:1510.01181 (CMS)
 
-process  497
+process  500
   (p p) -> h1  -> Z h -> l l tau tau, where h lies around 125 (+- 10 GeV)    ([hep-ex] arXiv:1510.01181 (CMS)) \cite{Khachatryan:2015tha}
-process  498
+process  501
   (p p) -> h2  -> Z h -> l l tau tau, where h lies around 125 (+- 10 GeV)    ([hep-ex] arXiv:1510.01181 (CMS)) \cite{Khachatryan:2015tha}
-process  499
+process  502
   (p p) -> h3  -> Z h -> l l tau tau, where h lies around 125 (+- 10 GeV)    ([hep-ex] arXiv:1510.01181 (CMS)) \cite{Khachatryan:2015tha}
 **************************************************************
       [hep-ex] arXiv:1502.04478 (ATLAS)
 
-process  500
+process  503
   (p p) -> h1  -> Z h -> l l tau tau, where h lies around 125 (+- 10 GeV)    ([hep-ex] arXiv:1502.04478 (ATLAS)) \cite{Aad:2015wra}
-process  501
+process  504
   (p p) -> h2  -> Z h -> l l tau tau, where h lies around 125 (+- 10 GeV)    ([hep-ex] arXiv:1502.04478 (ATLAS)) \cite{Aad:2015wra}
-process  502
+process  505
   (p p) -> h3  -> Z h -> l l tau tau, where h lies around 125 (+- 10 GeV)    ([hep-ex] arXiv:1502.04478 (ATLAS)) \cite{Aad:2015wra}
 **************************************************************
       [hep-ex] arXiv:1502.04478 (ATLAS)
 
-process  503
+process  506
   (p p) -> h1  -> Z h -> l l b b, where h lies around 125 (+- 10 GeV)    ([hep-ex] arXiv:1502.04478 (ATLAS)) \cite{Aad:2015wra}
-process  504
+process  507
   (p p) -> h2  -> Z h -> l l b b, where h lies around 125 (+- 10 GeV)    ([hep-ex] arXiv:1502.04478 (ATLAS)) \cite{Aad:2015wra}
-process  505
+process  508
   (p p) -> h3  -> Z h -> l l b b, where h lies around 125 (+- 10 GeV)    ([hep-ex] arXiv:1502.04478 (ATLAS)) \cite{Aad:2015wra}
 **************************************************************
       [hep-ex] 1903.00941 (CMS)
 
-process  506
+process  509
   (g g) -> h1  -> Z h -> l l b b, where h lies around 125 (+- 10 GeV)    ([hep-ex] 1903.00941 (CMS)) \cite{Sirunyan:2019xls}
-process  507
+process  510
   (g g) -> h2  -> Z h -> l l b b, where h lies around 125 (+- 10 GeV)    ([hep-ex] 1903.00941 (CMS)) \cite{Sirunyan:2019xls}
-process  508
+process  511
   (g g) -> h3  -> Z h -> l l b b, where h lies around 125 (+- 10 GeV)    ([hep-ex] 1903.00941 (CMS)) \cite{Sirunyan:2019xls}
 **************************************************************
       [hep-ex] 1903.00941 (CMS)
 
-process  509
+process  512
   (b b) -> h1  -> Z h -> l l b b, where h lies around 125 (+- 10 GeV)    ([hep-ex] 1903.00941 (CMS)) \cite{Sirunyan:2019xls}
-process  510
+process  513
   (b b) -> h2  -> Z h -> l l b b, where h lies around 125 (+- 10 GeV)    ([hep-ex] 1903.00941 (CMS)) \cite{Sirunyan:2019xls}
-process  511
+process  514
   (b b) -> h3  -> Z h -> l l b b, where h lies around 125 (+- 10 GeV)    ([hep-ex] 1903.00941 (CMS)) \cite{Sirunyan:2019xls}
+**************************************************************
+      [hep-ex] 1712.06518 (ATLAS)
+
+process  515
+  (g g) -> h1  -> Z h -> l l b b, where h lies around 125 (+- 10 GeV)    ([hep-ex] 1712.06518 (ATLAS)) \cite{Aaboud:2017cxo}
+process  516
+  (g g) -> h2  -> Z h -> l l b b, where h lies around 125 (+- 10 GeV)    ([hep-ex] 1712.06518 (ATLAS)) \cite{Aaboud:2017cxo}
+process  517
+  (g g) -> h3  -> Z h -> l l b b, where h lies around 125 (+- 10 GeV)    ([hep-ex] 1712.06518 (ATLAS)) \cite{Aaboud:2017cxo}
+**************************************************************
+      [hep-ex] 1712.06518 (ATLAS)
+
+process  518
+  (b b) -> h1  -> Z h -> l l b b, where h lies around 125 (+- 10 GeV)    ([hep-ex] 1712.06518 (ATLAS)) \cite{Aaboud:2017cxo}
+process  519
+  (b b) -> h2  -> Z h -> l l b b, where h lies around 125 (+- 10 GeV)    ([hep-ex] 1712.06518 (ATLAS)) \cite{Aaboud:2017cxo}
+process  520
+  (b b) -> h3  -> Z h -> l l b b, where h lies around 125 (+- 10 GeV)    ([hep-ex] 1712.06518 (ATLAS)) \cite{Aaboud:2017cxo}
+**************************************************************
+      ATLAS-CONF-2020-043
+
+process  521
+  (g g) -> h1  -> Z h -> l l b b, where h lies around 125 (+- 10 GeV)    (ATLAS-CONF-2020-043) \cite{ATLAS:2020pgp}
+process  522
+  (g g) -> h2  -> Z h -> l l b b, where h lies around 125 (+- 10 GeV)    (ATLAS-CONF-2020-043) \cite{ATLAS:2020pgp}
+process  523
+  (g g) -> h3  -> Z h -> l l b b, where h lies around 125 (+- 10 GeV)    (ATLAS-CONF-2020-043) \cite{ATLAS:2020pgp}
 **************************************************************
       CMS-PAS-HIG-16-002
 
-process  512
+process  524
   (p p) -> h1  -> h h -> b b b b, where h lies around 125 (+- 10 GeV)  (CMS-PAS-HIG-16-002) \cite{CMS:2016tlj}
-process  513
+process  525
   (p p) -> h2  -> h h -> b b b b, where h lies around 125 (+- 10 GeV)  (CMS-PAS-HIG-16-002) \cite{CMS:2016tlj}
-process  514
+process  526
   (p p) -> h3  -> h h -> b b b b, where h lies around 125 (+- 10 GeV)  (CMS-PAS-HIG-16-002) \cite{CMS:2016tlj}
 **************************************************************
       [hep-ex] 1707.02909 (CMS)
 
-process  515
+process  527
   (p p) -> h1  -> h h -> b b tau tau, where h lies around 125 (+- 10 GeV)  ([hep-ex] 1707.02909 (CMS)) \cite{Sirunyan:2017djm}
-process  516
+process  528
   (p p) -> h2  -> h h -> b b tau tau, where h lies around 125 (+- 10 GeV)  ([hep-ex] 1707.02909 (CMS)) \cite{Sirunyan:2017djm}
-process  517
+process  529
   (p p) -> h3  -> h h -> b b tau tau, where h lies around 125 (+- 10 GeV)  ([hep-ex] 1707.02909 (CMS)) \cite{Sirunyan:2017djm}
 **************************************************************
       arXiv:1503.04114 (CMS)
 
-process  518
+process  530
   (p p) -> h1  -> h h -> b b b b, where h lies around 125 (+- 10 GeV)  (arXiv:1503.04114 (CMS)) \cite{Khachatryan:2015yea}
-process  519
+process  531
   (p p) -> h2  -> h h -> b b b b, where h lies around 125 (+- 10 GeV)  (arXiv:1503.04114 (CMS)) \cite{Khachatryan:2015yea}
-process  520
+process  532
   (p p) -> h3  -> h h -> b b b b, where h lies around 125 (+- 10 GeV)  (arXiv:1503.04114 (CMS)) \cite{Khachatryan:2015yea}
 **************************************************************
       [hep-ex] 1811.09689 (CMS)
 
-process  521
+process  533
   (p p)->h1 ->h(SM,125)h(SM,125)-> bb/tautau/WW/ZZ/gaga (combination) ([hep-ex] 1811.09689 (CMS)) \cite{Sirunyan:2018two}
-process  522
+process  534
   (p p)->h2 ->h(SM,125)h(SM,125)-> bb/tautau/WW/ZZ/gaga (combination) ([hep-ex] 1811.09689 (CMS)) \cite{Sirunyan:2018two}
-process  523
+process  535
   (p p)->h3 ->h(SM,125)h(SM,125)-> bb/tautau/WW/ZZ/gaga (combination) ([hep-ex] 1811.09689 (CMS)) \cite{Sirunyan:2018two}
 **************************************************************
       arXiv:1906.02025 (ATLAS)
 
-process  524
+process  536
   (p p)->h1 ->h(SM,125)h(SM,125)-> bb/tautau/WW/gaga (combination) (arXiv:1906.02025 (ATLAS)) \cite{Aad:2019uzh}
-process  525
+process  537
   (p p)->h2 ->h(SM,125)h(SM,125)-> bb/tautau/WW/gaga (combination) (arXiv:1906.02025 (ATLAS)) \cite{Aad:2019uzh}
-process  526
+process  538
   (p p)->h3 ->h(SM,125)h(SM,125)-> bb/tautau/WW/gaga (combination) (arXiv:1906.02025 (ATLAS)) \cite{Aad:2019uzh}
 **************************************************************
       arXiv:1811.11028 (ATLAS)
 
-process  527
+process  539
   (p p) -> h1  -> h h -> W W W W, where h lies around 125 (+- 10 GeV)  (arXiv:1811.11028 (ATLAS)) \cite{Aaboud:2018ksn}
-process  528
+process  540
   (p p) -> h2  -> h h -> W W W W, where h lies around 125 (+- 10 GeV)  (arXiv:1811.11028 (ATLAS)) \cite{Aaboud:2018ksn}
-process  529
+process  541
   (p p) -> h3  -> h h -> W W W W, where h lies around 125 (+- 10 GeV)  (arXiv:1811.11028 (ATLAS)) \cite{Aaboud:2018ksn}
 **************************************************************
       CMS-PAS-HIG-18-013
 
-process  530
+process  542
   (p p) -> h1  -> h h -> b b Z Z, where h lies around 125 (+- 10 GeV) (CMS-PAS-HIG-18-013) \cite{CMS:2019vgr}
-process  531
+process  543
   (p p) -> h2  -> h h -> b b Z Z, where h lies around 125 (+- 10 GeV) (CMS-PAS-HIG-18-013) \cite{CMS:2019vgr}
-process  532
+process  544
   (p p) -> h3  -> h h -> b b Z Z, where h lies around 125 (+- 10 GeV) (CMS-PAS-HIG-18-013) \cite{CMS:2019vgr}
 **************************************************************
       ATLAS-CONF-2013-010
 
-process  533
+process  545
   (p p)->h1 ->mu mu +... where h1  is SM-like (ATLAS-CONF-2013-010) \cite{ATLAS:2013qma}
-process  534
+process  546
   (p p)->h2 ->mu mu +... where h2  is SM-like (ATLAS-CONF-2013-010) \cite{ATLAS:2013qma}
-process  535
+process  547
   (p p)->h3 ->mu mu +... where h3  is SM-like (ATLAS-CONF-2013-010) \cite{ATLAS:2013qma}
 **************************************************************
       [hep-ex] arXiv:1406.7663 (ATLAS)
 
-process  536
+process  548
   (p p)->h1 ->mu mu +... where h1  is SM-like ([hep-ex] arXiv:1406.7663 (ATLAS)) \cite{Aad:2014xva}
-process  537
+process  549
   (p p)->h2 ->mu mu +... where h2  is SM-like ([hep-ex] arXiv:1406.7663 (ATLAS)) \cite{Aad:2014xva}
-process  538
+process  550
   (p p)->h3 ->mu mu +... where h3  is SM-like ([hep-ex] arXiv:1406.7663 (ATLAS)) \cite{Aad:2014xva}
 **************************************************************
       [hep-ex] arXiv:1907.03152 (CMS)
 
-process  539
+process  551
   (g g)->h1 ->mu mu ([hep-ex] arXiv:1907.03152 (CMS)) \cite{Sirunyan:2019tkw}
-process  540
+process  552
   (g g)->h2 ->mu mu ([hep-ex] arXiv:1907.03152 (CMS)) \cite{Sirunyan:2019tkw}
-process  541
+process  553
   (g g)->h3 ->mu mu ([hep-ex] arXiv:1907.03152 (CMS)) \cite{Sirunyan:2019tkw}
 **************************************************************
       [hep-ex] arXiv:1907.03152 (CMS)
 
-process  542
+process  554
   (b b)->h1 ->mu mu ([hep-ex] arXiv:1907.03152 (CMS)) \cite{Sirunyan:2019tkw}
-process  543
+process  555
   (b b)->h2 ->mu mu ([hep-ex] arXiv:1907.03152 (CMS)) \cite{Sirunyan:2019tkw}
-process  544
+process  556
   (b b)->h3 ->mu mu ([hep-ex] arXiv:1907.03152 (CMS)) \cite{Sirunyan:2019tkw}
 **************************************************************
       [hep-ex] arXiv:1901.08144 (ATLAS)
 
-process  545
+process  557
   (g g)->h1 ->mu mu ([hep-ex] arXiv:1901.08144 (ATLAS)) \cite{Aaboud:2019sgt}
-process  546
+process  558
   (g g)->h2 ->mu mu ([hep-ex] arXiv:1901.08144 (ATLAS)) \cite{Aaboud:2019sgt}
-process  547
+process  559
   (g g)->h3 ->mu mu ([hep-ex] arXiv:1901.08144 (ATLAS)) \cite{Aaboud:2019sgt}
 **************************************************************
       [hep-ex] arXiv:1901.08144 (ATLAS)
 
-process  548
+process  560
   (b b)->h1 ->mu mu ([hep-ex] arXiv:1901.08144 (ATLAS)) \cite{Aaboud:2019sgt}
-process  549
+process  561
   (b b)->h2 ->mu mu ([hep-ex] arXiv:1901.08144 (ATLAS)) \cite{Aaboud:2019sgt}
-process  550
+process  562
   (b b)->h3 ->mu mu ([hep-ex] arXiv:1901.08144 (ATLAS)) \cite{Aaboud:2019sgt}
 **************************************************************
       [hep-ex] 1911.10267 (CMS)
 
-process  551
+process  563
   (g g)->h1 ->mu tau ([hep-ex] 1911.10267 (CMS)) \cite{Sirunyan:2019shc}
-process  552
+process  564
   (g g)->h2 ->mu tau ([hep-ex] 1911.10267 (CMS)) \cite{Sirunyan:2019shc}
-process  553
+process  565
   (g g)->h3 ->mu tau ([hep-ex] 1911.10267 (CMS)) \cite{Sirunyan:2019shc}
 **************************************************************
       [hep-ex] 1907.06131 (ATLAS)
 
-process  554
+process  566
   (g g)->h1 ->mu tau ([hep-ex] 1907.06131 (ATLAS)) \cite{Aad:2019ugc}
-process  555
+process  567
   (g g)->h2 ->mu tau ([hep-ex] 1907.06131 (ATLAS)) \cite{Aad:2019ugc}
-process  556
+process  568
   (g g)->h3 ->mu tau ([hep-ex] 1907.06131 (ATLAS)) \cite{Aad:2019ugc}
 **************************************************************
       [hep-ex] 1807.06573 (ATLAS)
 
-process  557
+process  569
   (p p)->h1 ->mu tau ([hep-ex] 1807.06573 (ATLAS)) \cite{Aaboud:2018jff}
-process  558
+process  570
   (p p)->h2 ->mu tau ([hep-ex] 1807.06573 (ATLAS)) \cite{Aaboud:2018jff}
-process  559
+process  571
   (p p)->h3 ->mu tau ([hep-ex] 1807.06573 (ATLAS)) \cite{Aaboud:2018jff}
 **************************************************************
       [hep-ex] 1911.10267 (CMS)
 
-process  560
+process  572
   (g g)->h1 ->e tau ([hep-ex] 1911.10267 (CMS)) \cite{Sirunyan:2019shc}
-process  561
+process  573
   (g g)->h2 ->e tau ([hep-ex] 1911.10267 (CMS)) \cite{Sirunyan:2019shc}
-process  562
+process  574
   (g g)->h3 ->e tau ([hep-ex] 1911.10267 (CMS)) \cite{Sirunyan:2019shc}
 **************************************************************
       [hep-ex] 1907.06131 (ATLAS)
 
-process  563
+process  575
   (g g)->h1 ->e tau ([hep-ex] 1907.06131 (ATLAS)) \cite{Aad:2019ugc}
-process  564
+process  576
   (g g)->h2 ->e tau ([hep-ex] 1907.06131 (ATLAS)) \cite{Aad:2019ugc}
-process  565
+process  577
   (g g)->h3 ->e tau ([hep-ex] 1907.06131 (ATLAS)) \cite{Aad:2019ugc}
 **************************************************************
       [hep-ex] 1807.06573 (ATLAS)
 
-process  566
+process  578
   (p p)->h1 ->e tau ([hep-ex] 1807.06573 (ATLAS)) \cite{Aaboud:2018jff}
-process  567
+process  579
   (p p)->h2 ->e tau ([hep-ex] 1807.06573 (ATLAS)) \cite{Aaboud:2018jff}
-process  568
+process  580
   (p p)->h3 ->e tau ([hep-ex] 1807.06573 (ATLAS)) \cite{Aaboud:2018jff}
 **************************************************************
       [hep-ex] 1909.10235 (ATLAS)
 
-process  569
+process  581
   (p p)->h1 ->e mu ([hep-ex] 1909.10235 (ATLAS)) \cite{Aad:2019ojw}
-process  570
+process  582
   (p p)->h2 ->e mu ([hep-ex] 1909.10235 (ATLAS)) \cite{Aad:2019ojw}
-process  571
+process  583
   (p p)->h3 ->e mu ([hep-ex] 1909.10235 (ATLAS)) \cite{Aad:2019ojw}
 **************************************************************
       [hep-ex] 1802.01122 (ATLAS)
 
-process  572
+process  584
   (p p)->h1 ->e mu ([hep-ex] 1802.01122 (ATLAS)) \cite{Sirunyan:2018zhy}
-process  573
+process  585
   (p p)->h2 ->e mu ([hep-ex] 1802.01122 (ATLAS)) \cite{Sirunyan:2018zhy}
-process  574
+process  586
   (p p)->h3 ->e mu ([hep-ex] 1802.01122 (ATLAS)) \cite{Sirunyan:2018zhy}
 **************************************************************
       [hep-ex] 1807.06573 (ATLAS)
 
-process  575
+process  587
   (p p)->h1 ->e mu ([hep-ex] 1807.06573 (ATLAS)) \cite{Aaboud:2018jff}
-process  576
+process  588
   (p p)->h2 ->e mu ([hep-ex] 1807.06573 (ATLAS)) \cite{Aaboud:2018jff}
-process  577
+process  589
   (p p)->h3 ->e mu ([hep-ex] 1807.06573 (ATLAS)) \cite{Aaboud:2018jff}
 **************************************************************
       [hep-ex] 1807.06573 (ATLAS)
 
-process  578
+process  590
   (g g)->h1 ->e mu ([hep-ex] 1807.06573 (ATLAS)) \cite{Aaboud:2018jff}
-process  579
+process  591
   (g g)->h2 ->e mu ([hep-ex] 1807.06573 (ATLAS)) \cite{Aaboud:2018jff}
-process  580
+process  592
   (g g)->h3 ->e mu ([hep-ex] 1807.06573 (ATLAS)) \cite{Aaboud:2018jff}
 **************************************************************
       D0 Note 5873
 
-process  581
+process  593
   (p p-bar)->W(h1 )->W W W->l l nu nu   (D0 Note 5873) \cite{MaikoTakahashi:2009mxa}
-process  582
+process  594
   (p p-bar)->W(h2 )->W W W->l l nu nu   (D0 Note 5873) \cite{MaikoTakahashi:2009mxa}
-process  583
+process  595
   (p p-bar)->W(h3 )->W W W->l l nu nu   (D0 Note 5873) \cite{MaikoTakahashi:2009mxa}
 **************************************************************
       [hep-ex] arXiv:1107.1268 (D0)
 
-process  584
+process  596
   (p p-bar)->V h1 -> ll + X where h1  is SM-like ([hep-ex] arXiv:1107.1268 (D0)) \cite{Abazov:2011ed}
-process  585
+process  597
   (p p-bar)->V h2 -> ll + X where h2  is SM-like ([hep-ex] arXiv:1107.1268 (D0)) \cite{Abazov:2011ed}
-process  586
+process  598
   (p p-bar)->V h3 -> ll + X where h3  is SM-like ([hep-ex] arXiv:1107.1268 (D0)) \cite{Abazov:2011ed}
 **************************************************************
       CMS-PAS-HIG-13-009
 
-process  587
+process  599
   (p p)->W(h1 )->W W W where h1  is SM-like (CMS-PAS-HIG-13-009) \cite{CMS:zwa}
-process  588
+process  600
   (p p)->W(h2 )->W W W where h2  is SM-like (CMS-PAS-HIG-13-009) \cite{CMS:zwa}
-process  589
+process  601
   (p p)->W(h3 )->W W W where h3  is SM-like (CMS-PAS-HIG-13-009) \cite{CMS:zwa}
 **************************************************************
       CMS-PAS-HIG-12-006
 
-process  590
+process  602
   (p p)->W(h1 )->W tau tau   (CMS-PAS-HIG-12-006) \cite{CMS:2012yta}
-process  591
+process  603
   (p p)->W(h2 )->W tau tau   (CMS-PAS-HIG-12-006) \cite{CMS:2012yta}
-process  592
+process  604
   (p p)->W(h3 )->W tau tau   (CMS-PAS-HIG-12-006) \cite{CMS:2012yta}
 **************************************************************
       CMS-PAS-HIG-12-051
 
-process  593
+process  605
   (p p)->V(h1 )->V tau tau   (CMS-PAS-HIG-12-051) \cite{CMS:xxa}
-process  594
+process  606
   (p p)->V(h2 )->V tau tau   (CMS-PAS-HIG-12-051) \cite{CMS:xxa}
-process  595
+process  607
   (p p)->V(h3 )->V tau tau   (CMS-PAS-HIG-12-051) \cite{CMS:xxa}
 **************************************************************
       ATLAS-CONF-2012-078
 
-process  596
+process  608
   (p p)->W(h1 )->W W W where h1  is SM-like (ATLAS-CONF-2012-078) \cite{ATLAS:2012toa}
-process  597
+process  609
   (p p)->W(h2 )->W W W where h2  is SM-like (ATLAS-CONF-2012-078) \cite{ATLAS:2012toa}
-process  598
+process  610
   (p p)->W(h3 )->W W W where h3  is SM-like (ATLAS-CONF-2012-078) \cite{ATLAS:2012toa}
 **************************************************************
       D0 Note 6295
 
-process  599
+process  611
   (p p-bar)->h1 +...->gamma gamma+... where h1  is SM-like  (D0 Note 6295) \cite{GuoChen:2012yga}
-process  600
+process  612
   (p p-bar)->h2 +...->gamma gamma+... where h2  is SM-like  (D0 Note 6295) \cite{GuoChen:2012yga}
-process  601
+process  613
   (p p-bar)->h3 +...->gamma gamma+... where h3  is SM-like  (D0 Note 6295) \cite{GuoChen:2012yga}
 **************************************************************
       [hep-ex] arXiv:1107.4960 (TEVNPHWG)
 
-process  602
+process  614
   (p p-bar)->h1 +...->gamma gamma+... where h1  is SM-like  ([hep-ex] arXiv:1107.4960 (TEVNPHWG)) \cite{TEVNPHWorking:2011aa}
-process  603
+process  615
   (p p-bar)->h2 +...->gamma gamma+... where h2  is SM-like  ([hep-ex] arXiv:1107.4960 (TEVNPHWG)) \cite{TEVNPHWorking:2011aa}
-process  604
+process  616
   (p p-bar)->h3 +...->gamma gamma+... where h3  is SM-like  ([hep-ex] arXiv:1107.4960 (TEVNPHWG)) \cite{TEVNPHWorking:2011aa}
 **************************************************************
       [hep-ex] arXiv:1202.1414 (ATLAS)
 
-process  605
+process  617
   (p p)->h1 +...->gamma gamma+... where h1  is SM-like ([hep-ex] arXiv:1202.1414 (ATLAS)) \cite{ATLAS:2012ad}
-process  606
+process  618
   (p p)->h2 +...->gamma gamma+... where h2  is SM-like ([hep-ex] arXiv:1202.1414 (ATLAS)) \cite{ATLAS:2012ad}
-process  607
+process  619
   (p p)->h3 +...->gamma gamma+... where h3  is SM-like ([hep-ex] arXiv:1202.1414 (ATLAS)) \cite{ATLAS:2012ad}
 **************************************************************
       ATLAS-CONF-2012-168
 
-process  608
+process  620
   (p p)->h1 +...->gamma gamma+... where h1  is SM-like (ATLAS-CONF-2012-168) \cite{ATLAS:2012znl}
-process  609
+process  621
   (p p)->h2 +...->gamma gamma+... where h2  is SM-like (ATLAS-CONF-2012-168) \cite{ATLAS:2012znl}
-process  610
+process  622
   (p p)->h3 +...->gamma gamma+... where h3  is SM-like (ATLAS-CONF-2012-168) \cite{ATLAS:2012znl}
 **************************************************************
       [hep-ex] arXiv:1407.6583
 
-process  611
+process  623
   (p p)->h1 /VBF/Wh1 /Zh1 /tth1 ->gamma gamma  ([hep-ex] arXiv:1407.6583) \cite{Aad:2014ioa}
-process  612
+process  624
   (p p)->h2 /VBF/Wh2 /Zh2 /tth2 ->gamma gamma  ([hep-ex] arXiv:1407.6583) \cite{Aad:2014ioa}
-process  613
+process  625
   (p p)->h3 /VBF/Wh3 /Zh3 /tth3 ->gamma gamma  ([hep-ex] arXiv:1407.6583) \cite{Aad:2014ioa}
 **************************************************************
       [hep-ex] arXiv:1507.05930 (ATLAS)
 
-process  614
+process  626
   (p p)->h1 ->Z Z ([hep-ex] arXiv:1507.05930 (ATLAS)) \cite{Aad:2015kna}
-process  615
+process  627
   (p p)->h2 ->Z Z ([hep-ex] arXiv:1507.05930 (ATLAS)) \cite{Aad:2015kna}
-process  616
+process  628
   (p p)->h3 ->Z Z ([hep-ex] arXiv:1507.05930 (ATLAS)) \cite{Aad:2015kna}
 **************************************************************
       [hep-ex] arXiv:1507.05930 (ATLAS)
 
-process  617
+process  629
   (p p)->h1 (VBF)->Z Z ([hep-ex] arXiv:1507.05930 (ATLAS)) \cite{Aad:2015kna}
-process  618
+process  630
   (p p)->h2 (VBF)->Z Z ([hep-ex] arXiv:1507.05930 (ATLAS)) \cite{Aad:2015kna}
-process  619
+process  631
   (p p)->h3 (VBF)->Z Z ([hep-ex] arXiv:1507.05930 (ATLAS)) \cite{Aad:2015kna}
 **************************************************************
       [hep-ex] arXiv:1509.00389 (ATLAS)
 
-process  620
+process  632
   (p p)->h1 ->W W (employs NWA)([hep-ex] arXiv:1509.00389 (ATLAS)) \cite{Aad:2015agg}
-process  621
+process  633
   (p p)->h2 ->W W (employs NWA)([hep-ex] arXiv:1509.00389 (ATLAS)) \cite{Aad:2015agg}
-process  622
+process  634
   (p p)->h3 ->W W (employs NWA)([hep-ex] arXiv:1509.00389 (ATLAS)) \cite{Aad:2015agg}
 **************************************************************
       [hep-ex] arXiv:1509.00389 (ATLAS)
 
-process  623
+process  635
   (p p)->VBF, h1 ->W W (employs NWA)([hep-ex] arXiv:1509.00389 (ATLAS)) \cite{Aad:2015agg}
-process  624
+process  636
   (p p)->VBF, h2 ->W W (employs NWA)([hep-ex] arXiv:1509.00389 (ATLAS)) \cite{Aad:2015agg}
-process  625
+process  637
   (p p)->VBF, h3 ->W W (employs NWA)([hep-ex] arXiv:1509.00389 (ATLAS)) \cite{Aad:2015agg}
 **************************************************************
       [hep-ex] arXiv:1509.00389 (ATLAS)
 
-process  626
+process  638
   (p p)->h1 ->W W (assumes SM Higgs width, employs CPS)([hep-ex] arXiv:1509.00389 (ATLAS)) \cite{Aad:2015agg}
-process  627
+process  639
   (p p)->h2 ->W W (assumes SM Higgs width, employs CPS)([hep-ex] arXiv:1509.00389 (ATLAS)) \cite{Aad:2015agg}
-process  628
+process  640
   (p p)->h3 ->W W (assumes SM Higgs width, employs CPS)([hep-ex] arXiv:1509.00389 (ATLAS)) \cite{Aad:2015agg}
 **************************************************************
       [hep-ex] arXiv:1509.00389 (ATLAS)
 
-process  629
+process  641
   (p p)->VBF, h1 ->W W (assumes SM Higgs width, employs CPS)([hep-ex] arXiv:1509.00389 (ATLAS)) \cite{Aad:2015agg}
-process  630
+process  642
   (p p)->VBF, h2 ->W W (assumes SM Higgs width, employs CPS)([hep-ex] arXiv:1509.00389 (ATLAS)) \cite{Aad:2015agg}
-process  631
+process  643
   (p p)->VBF, h3 ->W W (assumes SM Higgs width, employs CPS)([hep-ex] arXiv:1509.00389 (ATLAS)) \cite{Aad:2015agg}
 **************************************************************
       [hep-ex] 1811.08459 (CMS)
 
-process  632
+process  644
   (p p)->h1 +...->gamma gamma+... where h1  is SM-like ([hep-ex] 1811.08459 (CMS)) \cite{Sirunyan:2018aui}
-process  633
+process  645
   (p p)->h2 +...->gamma gamma+... where h2  is SM-like ([hep-ex] 1811.08459 (CMS)) \cite{Sirunyan:2018aui}
-process  634
+process  646
   (p p)->h3 +...->gamma gamma+... where h3  is SM-like ([hep-ex] 1811.08459 (CMS)) \cite{Sirunyan:2018aui}
 **************************************************************
       [hep-ex] 1407.0558 (CMS)
 
-process  635
+process  647
   (p p)->h1 +...->gamma gamma+... where h1  is SM-like ([hep-ex] 1407.0558 (CMS)) \cite{Khachatryan:2014ira}
-process  636
+process  648
   (p p)->h2 +...->gamma gamma+... where h2  is SM-like ([hep-ex] 1407.0558 (CMS)) \cite{Khachatryan:2014ira}
-process  637
+process  649
   (p p)->h3 +...->gamma gamma+... where h3  is SM-like ([hep-ex] 1407.0558 (CMS)) \cite{Khachatryan:2014ira}
 **************************************************************
       CMS-PAS-HIG-14-037
 
-process  638
+process  650
   (p p)->h1 /VBF/Wh1 /Zh1 /tth1 ->gamma gamma  (CMS-PAS-HIG-14-037) \cite{CMS:2015ocq}
-process  639
+process  651
   (p p)->h2 /VBF/Wh2 /Zh2 /tth2 ->gamma gamma  (CMS-PAS-HIG-14-037) \cite{CMS:2015ocq}
-process  640
+process  652
   (p p)->h3 /VBF/Wh3 /Zh3 /tth3 ->gamma gamma  (CMS-PAS-HIG-14-037) \cite{CMS:2015ocq}
 **************************************************************
       CMS-PAS-HIG-14-031
 
-process  641
+process  653
   (p p)->h1 ->Z gamma -> l l gamma (CMS-PAS-HIG-14-031) \cite{CMS:2015lza}
-process  642
+process  654
   (p p)->h2 ->Z gamma -> l l gamma (CMS-PAS-HIG-14-031) \cite{CMS:2015lza}
-process  643
+process  655
   (p p)->h3 ->Z gamma -> l l gamma (CMS-PAS-HIG-14-031) \cite{CMS:2015lza}
 **************************************************************
       ATLAS-CONF-2018-025
 
-process  644
+process  656
   (p p)->h1 /VBF/Wh1 /Zh1 /tth1 ->gamma gamma  (ATLAS-CONF-2018-025) \cite{ATLAS:2018xad}
-process  645
+process  657
   (p p)->h2 /VBF/Wh2 /Zh2 /tth2 ->gamma gamma  (ATLAS-CONF-2018-025) \cite{ATLAS:2018xad}
-process  646
+process  658
   (p p)->h3 /VBF/Wh3 /Zh3 /tth3 ->gamma gamma  (ATLAS-CONF-2018-025) \cite{ATLAS:2018xad}
 **************************************************************
       [hep-ex] arXiv:1307.5515 (CMS)
 
-process  647
+process  659
   (p p)->h1 +...->gamma Z+... where h1  is SM-like ([hep-ex] arXiv:1307.5515 (CMS)) \cite{Chatrchyan:2013vaa}
-process  648
+process  660
   (p p)->h2 +...->gamma Z+... where h2  is SM-like ([hep-ex] arXiv:1307.5515 (CMS)) \cite{Chatrchyan:2013vaa}
-process  649
+process  661
   (p p)->h3 +...->gamma Z+... where h3  is SM-like ([hep-ex] arXiv:1307.5515 (CMS)) \cite{Chatrchyan:2013vaa}
 **************************************************************
       [hep-ex] arXiv:1402.3051 (ATLAS)
 
-process  650
+process  662
   (p p)->h1 +...->gamma Z+... where h1  is SM-like ([hep-ex] arXiv:1402.3051 (ATLAS)) \cite{Aad:2014fia}
-process  651
+process  663
   (p p)->h2 +...->gamma Z+... where h2  is SM-like ([hep-ex] arXiv:1402.3051 (ATLAS)) \cite{Aad:2014fia}
-process  652
+process  664
   (p p)->h3 +...->gamma Z+... where h3  is SM-like ([hep-ex] arXiv:1402.3051 (ATLAS)) \cite{Aad:2014fia}
 **************************************************************
       [hep-ex] arXiv:1106.4885 (D0)
 
-process  653
+process  665
   (p p-bar)->h1 (b/b-bar)->(tau tau) (b/b-bar)   ([hep-ex] arXiv:1106.4885 (D0)) \cite{Abazov:2011qz}
-process  654
+process  666
   (p p-bar)->h2 (b/b-bar)->(tau tau) (b/b-bar)   ([hep-ex] arXiv:1106.4885 (D0)) \cite{Abazov:2011qz}
-process  655
+process  667
   (p p-bar)->h3 (b/b-bar)->(tau tau) (b/b-bar)   ([hep-ex] arXiv:1106.4885 (D0)) \cite{Abazov:2011qz}
 **************************************************************
       D0 Note 6083
 
-process  656
+process  668
   (p p-bar)->h1 (b/b-bar)->(tau tau) (b/b-bar)   (D0 Note 6083) \cite{FabriceCouderc:2010yca}
-process  657
+process  669
   (p p-bar)->h2 (b/b-bar)->(tau tau) (b/b-bar)   (D0 Note 6083) \cite{FabriceCouderc:2010yca}
-process  658
+process  670
   (p p-bar)->h3 (b/b-bar)->(tau tau) (b/b-bar)   (D0 Note 6083) \cite{FabriceCouderc:2010yca}
 **************************************************************
       D0 Note 5739
 
-process  659
+process  671
   (p p-bar)->t t-bar h1 ->t t-bar b b-bar   (D0 Note 5739) \cite{ChristianSchwanenberger:2008ita}
-process  660
+process  672
   (p p-bar)->t t-bar h2 ->t t-bar b b-bar   (D0 Note 5739) \cite{ChristianSchwanenberger:2008ita}
-process  661
+process  673
   (p p-bar)->t t-bar h3 ->t t-bar b b-bar   (D0 Note 5739) \cite{ChristianSchwanenberger:2008ita}
 **************************************************************
       CDF Note 10574
 
-process  662
+process  674
   (p p-bar)->t t-bar h1 ->t t-bar b b-bar   (CDF Note 10574) \cite{}
-process  663
+process  675
   (p p-bar)->t t-bar h2 ->t t-bar b b-bar   (CDF Note 10574) \cite{}
-process  664
+process  676
   (p p-bar)->t t-bar h3 ->t t-bar b b-bar   (CDF Note 10574) \cite{}
 **************************************************************
       ATLAS-CONF-2012-135
 
-process  665
+process  677
   (p p)->t t-bar h1 ->t t-bar b b-bar   (ATLAS-CONF-2012-135) \cite{ATLAS:2012cpa}
-process  666
+process  678
   (p p)->t t-bar h2 ->t t-bar b b-bar   (ATLAS-CONF-2012-135) \cite{ATLAS:2012cpa}
-process  667
+process  679
   (p p)->t t-bar h3 ->t t-bar b b-bar   (ATLAS-CONF-2012-135) \cite{ATLAS:2012cpa}
 **************************************************************
       CMS-PAS-HIG-12-025
 
-process  668
+process  680
   (p p)->t t-bar h1 ->t t-bar b b-bar   (CMS-PAS-HIG-12-025) \cite{CMS:2012ywa}
-process  669
+process  681
   (p p)->t t-bar h2 ->t t-bar b b-bar   (CMS-PAS-HIG-12-025) \cite{CMS:2012ywa}
-process  670
+process  682
   (p p)->t t-bar h3 ->t t-bar b b-bar   (CMS-PAS-HIG-12-025) \cite{CMS:2012ywa}
 **************************************************************
       [hep-ex] 1911.04968 (CMS)
 
-process  671
+process  683
   (p p)->t t-bar h1 ->t t-bar mu mu ([hep-ex] 1911.04968 (CMS)) \cite{Sirunyan:2019bgz}
-process  672
+process  684
   (p p)->t t-bar h2 ->t t-bar mu mu ([hep-ex] 1911.04968 (CMS)) \cite{Sirunyan:2019bgz}
-process  673
+process  685
   (p p)->t t-bar h3 ->t t-bar mu mu ([hep-ex] 1911.04968 (CMS)) \cite{Sirunyan:2019bgz}
+**************************************************************
+      [hep-ex] 1908.06463 (CMS)
+
+process  686
+  (p p) -> t t h1  -> t t t t, where h1  is CP-even ([hep-ex] 1908.06463 (CMS)) \cite{Sirunyan:2019wxt}
+process  687
+  (p p) -> t t h2  -> t t t t, where h2  is CP-even ([hep-ex] 1908.06463 (CMS)) \cite{Sirunyan:2019wxt}
+process  688
+  (p p) -> t t h3  -> t t t t, where h3  is CP-even ([hep-ex] 1908.06463 (CMS)) \cite{Sirunyan:2019wxt}
+**************************************************************
+      [hep-ex] 1908.06463 (CMS)
+
+process  689
+  (p p) -> t t h1  -> t t t t, where h1  is CP-odd ([hep-ex] 1908.06463 (CMS)) \cite{Sirunyan:2019wxt}
+process  690
+  (p p) -> t t h2  -> t t t t, where h2  is CP-odd ([hep-ex] 1908.06463 (CMS)) \cite{Sirunyan:2019wxt}
+process  691
+  (p p) -> t t h3  -> t t t t, where h3  is CP-odd ([hep-ex] 1908.06463 (CMS)) \cite{Sirunyan:2019wxt}
 **************************************************************
       [hep-ex] arXiv:0806.0611 (D0)
 
-process  674
+process  692
   (p p-bar)->h1 ->Z gamma   ([hep-ex] arXiv:0806.0611 (D0)) \cite{Abazov:2008wg}
-process  675
+process  693
   (p p-bar)->h2 ->Z gamma   ([hep-ex] arXiv:0806.0611 (D0)) \cite{Abazov:2008wg}
-process  676
+process  694
   (p p-bar)->h3 ->Z gamma   ([hep-ex] arXiv:0806.0611 (D0)) \cite{Abazov:2008wg}
 **************************************************************
       CMS-HIG-16-025
 
-process  677
+process  695
   (p p)->h1 ->b b (CMS-HIG-16-025) \cite{CMS:2016ncz}
-process  678
+process  696
   (p p)->h2 ->b b (CMS-HIG-16-025) \cite{CMS:2016ncz}
-process  679
+process  697
   (p p)->h3 ->b b (CMS-HIG-16-025) \cite{CMS:2016ncz}
 **************************************************************
       [hep-ex] 1606.08391 (ATLAS)
 
-process  680
+process  698
   (p p) -> W h -> W a a -> W b b b b, where h lies around 125 (+- 10 GeV)    ([hep-ex] 1606.08391 (ATLAS)) \cite{Aaboud:2016oyb}
-process  681
+process  699
   (p p) -> W h -> W a a -> W b b b b, where h lies around 125 (+- 10 GeV)    ([hep-ex] 1606.08391 (ATLAS)) \cite{Aaboud:2016oyb}
-process  682
+process  700
   (p p) -> W h -> W a a -> W b b b b, where h lies around 125 (+- 10 GeV)    ([hep-ex] 1606.08391 (ATLAS)) \cite{Aaboud:2016oyb}
 **************************************************************
       ATLAS-CONF-2016-044
 
-process  683
+process  701
   (p p)->h1 ->Z gamma (ATLAS-CONF-2016-044) \cite{ATLAS:2016lri}
-process  684
+process  702
   (p p)->h2 ->Z gamma (ATLAS-CONF-2016-044) \cite{ATLAS:2016lri}
-process  685
+process  703
   (p p)->h3 ->Z gamma (ATLAS-CONF-2016-044) \cite{ATLAS:2016lri}
 **************************************************************
       [hep-ex] 1606.04833 (ATLAS)
 
-process  686
+process  704
   (p p)->h1 ->V V (V=W,Z) ([hep-ex] 1606.04833 (ATLAS)) \cite{Aaboud:2016okv}
-process  687
+process  705
   (p p)->h2 ->V V (V=W,Z) ([hep-ex] 1606.04833 (ATLAS)) \cite{Aaboud:2016okv}
-process  688
+process  706
   (p p)->h3 ->V V (V=W,Z) ([hep-ex] 1606.04833 (ATLAS)) \cite{Aaboud:2016okv}
 **************************************************************
       ATLAS-CONF-2016-056
 
-process  689
+process  707
   (p p)->h1 ->Z Z-> l l nu nu (ATLAS-CONF-2016-056) \cite{ATLAS:2016bza}
-process  690
+process  708
   (p p)->h2 ->Z Z-> l l nu nu (ATLAS-CONF-2016-056) \cite{ATLAS:2016bza}
-process  691
+process  709
   (p p)->h3 ->Z Z-> l l nu nu (ATLAS-CONF-2016-056) \cite{ATLAS:2016bza}
 **************************************************************
       ATLAS-CONF-2016-055
 
-process  692
+process  710
   (p p)->h1 ->Z Z-> q q q q (boosted jets, using RS graviton limit) (ATLAS-CONF-2016-055) \cite{ATLAS:2016yqq}
-process  693
+process  711
   (p p)->h2 ->Z Z-> q q q q (boosted jets, using RS graviton limit) (ATLAS-CONF-2016-055) \cite{ATLAS:2016yqq}
-process  694
+process  712
   (p p)->h3 ->Z Z-> q q q q (boosted jets, using RS graviton limit) (ATLAS-CONF-2016-055) \cite{ATLAS:2016yqq}
 **************************************************************
       ATLAS-CONF-2016-055
 
-process  695
+process  713
   (p p)->h1 ->W W-> q q q q (boosted jets, using RS graviton limit) (ATLAS-CONF-2016-055) \cite{ATLAS:2016yqq}
-process  696
+process  714
   (p p)->h2 ->W W-> q q q q (boosted jets, using RS graviton limit) (ATLAS-CONF-2016-055) \cite{ATLAS:2016yqq}
-process  697
+process  715
   (p p)->h3 ->W W-> q q q q (boosted jets, using RS graviton limit) (ATLAS-CONF-2016-055) \cite{ATLAS:2016yqq}
 **************************************************************
       [hep-ex] 1707.07283 (CMS)
 
-process  698
+process  716
   (p p)->b b h1 ->b b mu mu ([hep-ex] 1707.07283 (CMS)) \cite{Sirunyan:2017uvf}
-process  699
+process  717
   (p p)->b b h2 ->b b mu mu ([hep-ex] 1707.07283 (CMS)) \cite{Sirunyan:2017uvf}
-process  700
+process  718
   (p p)->b b h3 ->b b mu mu ([hep-ex] 1707.07283 (CMS)) \cite{Sirunyan:2017uvf}
 **************************************************************
       [hep-ex] arXiv:0908.1811 (D0)
 
-process  701
+process  719
   t->(H1 +)b->(2 quarks) b   ([hep-ex] arXiv:0908.1811 (D0)) \cite{Abazov:2009aa}
 **************************************************************
       [hep-ex] arXiv:0907.1269 (CDF) lower mass
 
-process  702
+process  720
   t->(H1 +)b->(c s) b([hep-ex] arXiv:0907.1269 (CDF) lower mass) \cite{Aaltonen:2009ke}
 **************************************************************
       [hep-ex] arXiv:0907.1269 (CDF) higher mass
 
-process  703
+process  721
   t->(H1 +)b->(c s) b([hep-ex] arXiv:0907.1269 (CDF) higher mass) \cite{Aaltonen:2009ke}
 **************************************************************
       [hep-ex] arXiv:0908.1811 (D0)
 
-process  704
+process  722
   t->(H1 +)b->tau nu b   ([hep-ex] arXiv:0908.1811 (D0)) \cite{Abazov:2009aa}
 **************************************************************
       ATLAS-CONF-2011-094
 
-process  705
-  t->(H1 +)b->(c s) b(ATLAS-CONF-2011-094) \cite{ATLAS:2016yqq}
+process  723
+  t->(H1 +)b->(c s) b(ATLAS-CONF-2011-094) \cite{Aad:2013hla}
 **************************************************************
       [hep-ex] arXiv:1204.2760 (ATLAS)
 
-process  706
+process  724
   t->(H1 +)b->tau nu b   ([hep-ex] arXiv:1204.2760 (ATLAS)) \cite{Aad:2012tj}
 **************************************************************
       ATLAS-CONF-2014-050
 
-process  707
+process  725
   t->(H1 +)b->tau nu b   (ATLAS-CONF-2014-050) \cite{ATLAS:2014zha}
 **************************************************************
       [hep-ex] arXiv:1807.07915 (ATLAS)
 
-process  708
+process  726
   (p p) -> (H1 +) t b -> (tau nu) t b   ([hep-ex] arXiv:1807.07915 (ATLAS)) \cite{Aaboud:2018gjj}
 **************************************************************
       [hep-ex] arXiv:1807.07915 (ATLAS)
 
-process  709
+process  727
   t->(H1 +)b->tau nu b   ([hep-ex] arXiv:1807.07915 (ATLAS)) \cite{Aaboud:2018gjj}
 **************************************************************
       [hep-ex] 1508.07774 (CMS)
 
-process  710
+process  728
   t->(H1 +)b->tau nu b   ([hep-ex] 1508.07774 (CMS)) \cite{Khachatryan:2015qxa}
 **************************************************************
       [hep-ex] 1510.04252 (CMS)
 
-process  711
+process  729
   t->(H1 +)b->(c s) b([hep-ex] 1510.04252 (CMS)) \cite{Khachatryan:2015uua}
 **************************************************************
       CMS-PAS-HIG-18-021
 
-process  712
+process  730
   t->(H1 +)b->(c s) b(CMS-PAS-HIG-18-021) \cite{CMS:2019sxh}
 **************************************************************
       [hep-ex] 1808.06575 (CMS)
 
-process  713
+process  731
   t->(H1 +)b->(c b) b([hep-ex] 1808.06575 (CMS)) \cite{Sirunyan:2018dvm}
 **************************************************************
       arXiv:1503.04233 [hep-ex] (ATLAS)
 
-process  714
+process  732
   (p p) -> (H1 +) (VBF) -> W Z   (arXiv:1503.04233 [hep-ex] (ATLAS)) \cite{Aad:2015nfa}
 **************************************************************
       CMS-PAS-HIG-16-031
 
-process  715
+process  733
   t->(H1 +)b->tau nu b   (CMS-PAS-HIG-16-031) \cite{CMS:2016szv}
 **************************************************************
       [hep-ex] 1903.04560 (CMS)
 
-process  716
+process  734
   (p p) -> (H1 +) t b -> (tau nu) t b   ([hep-ex] 1903.04560 (CMS)) \cite{Sirunyan:2019hkq}
 **************************************************************
       [hep-ex] arXiv:1808.03599 (ATLAS)
 
-process  717
+process  735
   (p p) -> (H1 +) t b -> (t b) t b   ([hep-ex] arXiv:1808.03599 (ATLAS)) \cite{Aaboud:2018cwk}
 **************************************************************
       [hep-ex] 2001.07763 (CMS)
 
-process  718
+process  736
   (p p) -> (H1 +) t b -> (t b) t b   ([hep-ex] 2001.07763 (CMS)) \cite{Sirunyan:2020hwv}
 **************************************************************
       ATLAS-CONF-2020-039
 
-process  719
+process  737
   (p p) -> (H1 +) t b -> (t b) t b   (ATLAS-CONF-2020-039) \cite{ATLAS:2020jqj}
+**************************************************************
+      [hep-ex] 2002.11325 (ATLAS)
+
+process  738
+  (p p) -> (H1 +) t b -> (t b) t b -> dijet + l  ([hep-ex] 2002.11325 (ATLAS)) \cite{Aad:2020kep}
 **************************************************************
       [hep-ex] arXiv:0905.3381, table I (D0)
 
-process  720
+process  739
   ***
-process  721
+process  740
   (p p-bar)->h1 ->h2  h2 ->mu mu mu mu   ([hep-ex] arXiv:0905.3381, table I (D0)) \cite{Abazov:2009yi}
-process  722
+process  741
   (p p-bar)->h1 ->h3  h3 ->mu mu mu mu   ([hep-ex] arXiv:0905.3381, table I (D0)) \cite{Abazov:2009yi}
  ------------------------------------------------------------ 
-process  723
+process  742
   (p p-bar)->h2 ->h1  h1 ->mu mu mu mu   ([hep-ex] arXiv:0905.3381, table I (D0)) \cite{Abazov:2009yi}
-process  724
+process  743
   ***
-process  725
+process  744
   (p p-bar)->h2 ->h3  h3 ->mu mu mu mu   ([hep-ex] arXiv:0905.3381, table I (D0)) \cite{Abazov:2009yi}
  ------------------------------------------------------------ 
-process  726
+process  745
   (p p-bar)->h3 ->h1  h1 ->mu mu mu mu   ([hep-ex] arXiv:0905.3381, table I (D0)) \cite{Abazov:2009yi}
-process  727
+process  746
   (p p-bar)->h3 ->h2  h2 ->mu mu mu mu   ([hep-ex] arXiv:0905.3381, table I (D0)) \cite{Abazov:2009yi}
-process  728
+process  747
   ***
 **************************************************************
       [hep-ex] arXiv:0905.3381, table II (D0)
 
-process  729
+process  748
   ***
-process  730
+process  749
   (p p-bar)->h1 ->h2  h2 ->tau tau mu mu   ([hep-ex] arXiv:0905.3381, table II (D0)) \cite{Abazov:2009yi}
-process  731
+process  750
   (p p-bar)->h1 ->h3  h3 ->tau tau mu mu   ([hep-ex] arXiv:0905.3381, table II (D0)) \cite{Abazov:2009yi}
  ------------------------------------------------------------ 
-process  732
+process  751
   (p p-bar)->h2 ->h1  h1 ->tau tau mu mu   ([hep-ex] arXiv:0905.3381, table II (D0)) \cite{Abazov:2009yi}
-process  733
+process  752
   ***
-process  734
+process  753
   (p p-bar)->h2 ->h3  h3 ->tau tau mu mu   ([hep-ex] arXiv:0905.3381, table II (D0)) \cite{Abazov:2009yi}
  ------------------------------------------------------------ 
-process  735
+process  754
   (p p-bar)->h3 ->h1  h1 ->tau tau mu mu   ([hep-ex] arXiv:0905.3381, table II (D0)) \cite{Abazov:2009yi}
-process  736
+process  755
   (p p-bar)->h3 ->h2  h2 ->tau tau mu mu   ([hep-ex] arXiv:0905.3381, table II (D0)) \cite{Abazov:2009yi}
-process  737
+process  756
   ***
 **************************************************************
       D0 Note 6227
 
-process  738
+process  757
   (p p-bar)->h1 (b/b-bar)->(b b-bar) (b/b-bar) or (tau tau) (b/b-bar)  (D0 Note 6227) \cite{}
  ------------------------------------------------------------ 
-process  739
+process  758
   (p p-bar)->h2 (b/b-bar)->(b b-bar) (b/b-bar) or (tau tau) (b/b-bar)  (D0 Note 6227) \cite{}
  ------------------------------------------------------------ 
-process  740
+process  759
   (p p-bar)->h3 (b/b-bar)->(b b-bar) (b/b-bar) or (tau tau) (b/b-bar)  (D0 Note 6227) \cite{}
 **************************************************************
       [hep-ex] arXiv:1406.5053 (ATLAS)
 
-process  741
+process  760
   ***
-process  742
+process  761
   (p p)->h1 ->h2  h2 ->gamma gamma b b, where h2  is SM-like around 125 GeV  ([hep-ex] arXiv:1406.5053 (ATLAS)) \cite{Aad:2014yja}
-process  743
+process  762
   (p p)->h1 ->h3  h3 ->gamma gamma b b, where h3  is SM-like around 125 GeV  ([hep-ex] arXiv:1406.5053 (ATLAS)) \cite{Aad:2014yja}
  ------------------------------------------------------------ 
-process  744
+process  763
   (p p)->h2 ->h1  h1 ->gamma gamma b b, where h1  is SM-like around 125 GeV  ([hep-ex] arXiv:1406.5053 (ATLAS)) \cite{Aad:2014yja}
-process  745
+process  764
   ***
-process  746
+process  765
   (p p)->h2 ->h3  h3 ->gamma gamma b b, where h3  is SM-like around 125 GeV  ([hep-ex] arXiv:1406.5053 (ATLAS)) \cite{Aad:2014yja}
  ------------------------------------------------------------ 
-process  747
+process  766
   (p p)->h3 ->h1  h1 ->gamma gamma b b, where h1  is SM-like around 125 GeV  ([hep-ex] arXiv:1406.5053 (ATLAS)) \cite{Aad:2014yja}
-process  748
+process  767
   (p p)->h3 ->h2  h2 ->gamma gamma b b, where h2  is SM-like around 125 GeV  ([hep-ex] arXiv:1406.5053 (ATLAS)) \cite{Aad:2014yja}
-process  749
+process  768
   ***
 **************************************************************
       [hep-ex] arXiv:1603.06896 (CMS)
 
-process  750
+process  769
   ***
-process  751
+process  770
   (p p)->h1 ->h2  h2 ->gamma gamma b b, where h2  lies around 125 GeV  ([hep-ex] arXiv:1603.06896 (CMS)) \cite{Khachatryan:2016sey}
-process  752
+process  771
   (p p)->h1 ->h3  h3 ->gamma gamma b b, where h3  lies around 125 GeV  ([hep-ex] arXiv:1603.06896 (CMS)) \cite{Khachatryan:2016sey}
  ------------------------------------------------------------ 
-process  753
+process  772
   (p p)->h2 ->h1  h1 ->gamma gamma b b, where h1  lies around 125 GeV  ([hep-ex] arXiv:1603.06896 (CMS)) \cite{Khachatryan:2016sey}
-process  754
+process  773
   ***
-process  755
+process  774
   (p p)->h2 ->h3  h3 ->gamma gamma b b, where h3  lies around 125 GeV  ([hep-ex] arXiv:1603.06896 (CMS)) \cite{Khachatryan:2016sey}
  ------------------------------------------------------------ 
-process  756
+process  775
   (p p)->h3 ->h1  h1 ->gamma gamma b b, where h1  lies around 125 GeV  ([hep-ex] arXiv:1603.06896 (CMS)) \cite{Khachatryan:2016sey}
-process  757
+process  776
   (p p)->h3 ->h2  h2 ->gamma gamma b b, where h2  lies around 125 GeV  ([hep-ex] arXiv:1603.06896 (CMS)) \cite{Khachatryan:2016sey}
-process  758
+process  777
   ***
 **************************************************************
       CMS-PAS-HIG-16-032
 
-process  759
+process  778
   ***
-process  760
+process  779
   (p p)->h1 ->h2  h2 ->gamma gamma b b, where h2  lies around 125 GeV  (CMS-PAS-HIG-16-032) \cite{CMS:2016vpz}
-process  761
+process  780
   (p p)->h1 ->h3  h3 ->gamma gamma b b, where h3  lies around 125 GeV  (CMS-PAS-HIG-16-032) \cite{CMS:2016vpz}
  ------------------------------------------------------------ 
-process  762
+process  781
   (p p)->h2 ->h1  h1 ->gamma gamma b b, where h1  lies around 125 GeV  (CMS-PAS-HIG-16-032) \cite{CMS:2016vpz}
-process  763
+process  782
   ***
-process  764
+process  783
   (p p)->h2 ->h3  h3 ->gamma gamma b b, where h3  lies around 125 GeV  (CMS-PAS-HIG-16-032) \cite{CMS:2016vpz}
  ------------------------------------------------------------ 
-process  765
+process  784
   (p p)->h3 ->h1  h1 ->gamma gamma b b, where h1  lies around 125 GeV  (CMS-PAS-HIG-16-032) \cite{CMS:2016vpz}
-process  766
+process  785
   (p p)->h3 ->h2  h2 ->gamma gamma b b, where h2  lies around 125 GeV  (CMS-PAS-HIG-16-032) \cite{CMS:2016vpz}
-process  767
+process  786
   ***
 **************************************************************
       [hep-ex] arXiv:1804.06174 (ATLAS)
 
-process  768
+process  787
   ***
-process  769
+process  788
   (p p)->h1 ->h2  h2 ->b b b b, where h2  lies around 125 GeV  ([hep-ex] arXiv:1804.06174 (ATLAS)) \cite{Aaboud:2018knk}
-process  770
+process  789
   (p p)->h1 ->h3  h3 ->b b b b, where h3  lies around 125 GeV  ([hep-ex] arXiv:1804.06174 (ATLAS)) \cite{Aaboud:2018knk}
  ------------------------------------------------------------ 
-process  771
+process  790
   (p p)->h2 ->h1  h1 ->b b b b, where h1  lies around 125 GeV  ([hep-ex] arXiv:1804.06174 (ATLAS)) \cite{Aaboud:2018knk}
-process  772
+process  791
   ***
-process  773
+process  792
   (p p)->h2 ->h3  h3 ->b b b b, where h3  lies around 125 GeV  ([hep-ex] arXiv:1804.06174 (ATLAS)) \cite{Aaboud:2018knk}
  ------------------------------------------------------------ 
-process  774
+process  793
   (p p)->h3 ->h1  h1 ->b b b b, where h1  lies around 125 GeV  ([hep-ex] arXiv:1804.06174 (ATLAS)) \cite{Aaboud:2018knk}
-process  775
+process  794
   (p p)->h3 ->h2  h2 ->b b b b, where h2  lies around 125 GeV  ([hep-ex] arXiv:1804.06174 (ATLAS)) \cite{Aaboud:2018knk}
-process  776
+process  795
   ***
 **************************************************************
       [hep-ex] arXiv:2001.05178 (ATLAS)
 
-process  777
+process  796
   ***
-process  778
+process  797
   (p p)->h1 ->h2  h2 ->b b b b in VBF, where h2  lies around 125 GeV  ([hep-ex] arXiv:2001.05178 (ATLAS)) \cite{Aad:2020kub}
-process  779
+process  798
   (p p)->h1 ->h3  h3 ->b b b b in VBF, where h3  lies around 125 GeV  ([hep-ex] arXiv:2001.05178 (ATLAS)) \cite{Aad:2020kub}
  ------------------------------------------------------------ 
-process  780
+process  799
   (p p)->h2 ->h1  h1 ->b b b b in VBF, where h1  lies around 125 GeV  ([hep-ex] arXiv:2001.05178 (ATLAS)) \cite{Aad:2020kub}
-process  781
+process  800
   ***
-process  782
+process  801
   (p p)->h2 ->h3  h3 ->b b b b in VBF, where h3  lies around 125 GeV  ([hep-ex] arXiv:2001.05178 (ATLAS)) \cite{Aad:2020kub}
  ------------------------------------------------------------ 
-process  783
+process  802
   (p p)->h3 ->h1  h1 ->b b b b in VBF, where h1  lies around 125 GeV  ([hep-ex] arXiv:2001.05178 (ATLAS)) \cite{Aad:2020kub}
-process  784
+process  803
   (p p)->h3 ->h2  h2 ->b b b b in VBF, where h2  lies around 125 GeV  ([hep-ex] arXiv:2001.05178 (ATLAS)) \cite{Aad:2020kub}
-process  785
+process  804
   ***
 **************************************************************
       CMS-PAS-HIG-14-022
 
-process  786
+process  805
   ***
-process  787
+process  806
   (p p)->h1 ->h2  h2 ->tau tau tau tau, where h1  lies around 125 GeV and is SM-like (CMS-PAS-HIG-14-022) \cite{CMS:2015iga}
-process  788
+process  807
   (p p)->h1 ->h3  h3 ->tau tau tau tau, where h1  lies around 125 GeV and is SM-like (CMS-PAS-HIG-14-022) \cite{CMS:2015iga}
  ------------------------------------------------------------ 
-process  789
+process  808
   (p p)->h2 ->h1  h1 ->tau tau tau tau, where h2  lies around 125 GeV and is SM-like (CMS-PAS-HIG-14-022) \cite{CMS:2015iga}
-process  790
+process  809
   ***
-process  791
+process  810
   (p p)->h2 ->h3  h3 ->tau tau tau tau, where h2  lies around 125 GeV and is SM-like (CMS-PAS-HIG-14-022) \cite{CMS:2015iga}
  ------------------------------------------------------------ 
-process  792
+process  811
   (p p)->h3 ->h1  h1 ->tau tau tau tau, where h3  lies around 125 GeV and is SM-like (CMS-PAS-HIG-14-022) \cite{CMS:2015iga}
-process  793
+process  812
   (p p)->h3 ->h2  h2 ->tau tau tau tau, where h3  lies around 125 GeV and is SM-like (CMS-PAS-HIG-14-022) \cite{CMS:2015iga}
-process  794
+process  813
   ***
 **************************************************************
       arXiv:1506.00424 (CMS)
 
-process  795
+process  814
   ***
-process  796
+process  815
   (p p)->h1 ->h2 h2 ->mu mu mu mu  (arXiv:1506.00424 (CMS)) \cite{Khachatryan:2015wka}
-process  797
+process  816
   (p p)->h1 ->h3 h3 ->mu mu mu mu  (arXiv:1506.00424 (CMS)) \cite{Khachatryan:2015wka}
  ------------------------------------------------------------ 
-process  798
+process  817
   (p p)->h2 ->h1 h1 ->mu mu mu mu  (arXiv:1506.00424 (CMS)) \cite{Khachatryan:2015wka}
-process  799
+process  818
   ***
-process  800
+process  819
   (p p)->h2 ->h3 h3 ->mu mu mu mu  (arXiv:1506.00424 (CMS)) \cite{Khachatryan:2015wka}
  ------------------------------------------------------------ 
-process  801
+process  820
   (p p)->h3 ->h1 h1 ->mu mu mu mu  (arXiv:1506.00424 (CMS)) \cite{Khachatryan:2015wka}
-process  802
+process  821
   (p p)->h3 ->h2 h2 ->mu mu mu mu  (arXiv:1506.00424 (CMS)) \cite{Khachatryan:2015wka}
-process  803
+process  822
   ***
 **************************************************************
       CMS-PAS-HIG-16-035
 
-process  804
+process  823
   ***
-process  805
+process  824
   (p p)->h1 ->h2 h2 ->mu mu mu mu  (CMS-PAS-HIG-16-035) \cite{CMS:2016tgd}
-process  806
+process  825
   (p p)->h1 ->h3 h3 ->mu mu mu mu  (CMS-PAS-HIG-16-035) \cite{CMS:2016tgd}
  ------------------------------------------------------------ 
-process  807
+process  826
   (p p)->h2 ->h1 h1 ->mu mu mu mu  (CMS-PAS-HIG-16-035) \cite{CMS:2016tgd}
-process  808
+process  827
   ***
-process  809
+process  828
   (p p)->h2 ->h3 h3 ->mu mu mu mu  (CMS-PAS-HIG-16-035) \cite{CMS:2016tgd}
  ------------------------------------------------------------ 
-process  810
+process  829
   (p p)->h3 ->h1 h1 ->mu mu mu mu  (CMS-PAS-HIG-16-035) \cite{CMS:2016tgd}
-process  811
+process  830
   (p p)->h3 ->h2 h2 ->mu mu mu mu  (CMS-PAS-HIG-16-035) \cite{CMS:2016tgd}
-process  812
+process  831
   ***
 **************************************************************
       [hep-ex] arXiv:1506.02301 (CMS)
 
-process  813
+process  832
   (p p)->h1 /VBF/Wh1 /Zh1 /tth1 ->gamma gamma (including widths effects)  ([hep-ex] arXiv:1506.02301 (CMS)) \cite{Khachatryan:2015qba}
  ------------------------------------------------------------ 
-process  814
+process  833
   (p p)->h2 /VBF/Wh2 /Zh2 /tth2 ->gamma gamma (including widths effects)  ([hep-ex] arXiv:1506.02301 (CMS)) \cite{Khachatryan:2015qba}
  ------------------------------------------------------------ 
-process  815
+process  834
   (p p)->h3 /VBF/Wh3 /Zh3 /tth3 ->gamma gamma (including widths effects)  ([hep-ex] arXiv:1506.02301 (CMS)) \cite{Khachatryan:2015qba}
 **************************************************************
       [hep-ex] arXiv:1509.00389 (ATLAS)
 
-process  816
+process  835
   (p p)->h1 /VBF->W W (including widths effects)  ([hep-ex] arXiv:1509.00389 (ATLAS)) \cite{Aad:2015agg}
  ------------------------------------------------------------ 
-process  817
+process  836
   (p p)->h2 /VBF->W W (including widths effects)  ([hep-ex] arXiv:1509.00389 (ATLAS)) \cite{Aad:2015agg}
  ------------------------------------------------------------ 
-process  818
+process  837
   (p p)->h3 /VBF->W W (including widths effects)  ([hep-ex] arXiv:1509.00389 (ATLAS)) \cite{Aad:2015agg}
 **************************************************************
       ATLAS-CONF-2016-079
 
-process  819
+process  838
   (g g)->h1 ->Z Z -> 4l (including widths effects)  (ATLAS-CONF-2016-079) \cite{ATLAS:2016oum}
  ------------------------------------------------------------ 
-process  820
+process  839
   (g g)->h2 ->Z Z -> 4l (including widths effects)  (ATLAS-CONF-2016-079) \cite{ATLAS:2016oum}
  ------------------------------------------------------------ 
-process  821
+process  840
   (g g)->h3 ->Z Z -> 4l (including widths effects)  (ATLAS-CONF-2016-079) \cite{ATLAS:2016oum}
 **************************************************************
       arXiv:1710.01123 (ATLAS)
 
-process  822
+process  841
   (p p)->h1 ->W W (including widths effects)  (arXiv:1710.01123 (ATLAS)) \cite{Aaboud:2017gsl}
  ------------------------------------------------------------ 
-process  823
+process  842
   (p p)->h2 ->W W (including widths effects)  (arXiv:1710.01123 (ATLAS)) \cite{Aaboud:2017gsl}
  ------------------------------------------------------------ 
-process  824
+process  843
   (p p)->h3 ->W W (including widths effects)  (arXiv:1710.01123 (ATLAS)) \cite{Aaboud:2017gsl}
 **************************************************************
       arXiv:1712.06386 (ATLAS)
 
-process  825
+process  844
   (p p)->h1 ->Z Z -> 4l,2l2nu (including widths effects)  (arXiv:1712.06386 (ATLAS)) \cite{Aaboud:2017rel}
  ------------------------------------------------------------ 
-process  826
+process  845
   (p p)->h2 ->Z Z -> 4l,2l2nu (including widths effects)  (arXiv:1712.06386 (ATLAS)) \cite{Aaboud:2017rel}
  ------------------------------------------------------------ 
-process  827
+process  846
   (p p)->h3 ->Z Z -> 4l,2l2nu (including widths effects)  (arXiv:1712.06386 (ATLAS)) \cite{Aaboud:2017rel}
 **************************************************************
       [hep-ex] 1804.01939 (CMS)
 
-process  828
+process  847
   (p p)->h1 ->Z Z -> 4l,2l2q,2l2nu (including widths effects)  ([hep-ex] 1804.01939 (CMS)) \cite{Sirunyan:2018qlb}
  ------------------------------------------------------------ 
-process  829
+process  848
   (p p)->h2 ->Z Z -> 4l,2l2q,2l2nu (including widths effects)  ([hep-ex] 1804.01939 (CMS)) \cite{Sirunyan:2018qlb}
  ------------------------------------------------------------ 
-process  830
+process  849
   (p p)->h3 ->Z Z -> 4l,2l2q,2l2nu (including widths effects)  ([hep-ex] 1804.01939 (CMS)) \cite{Sirunyan:2018qlb}
 **************************************************************
       CMS-PAS-HIG-16-033
 
-process  831
+process  850
   (p p)->h1  (VBF)->Z Z -> 4l (including widths effects)  (CMS-PAS-HIG-16-033) \cite{CMS:2016ilx}
  ------------------------------------------------------------ 
-process  832
+process  851
   (p p)->h2  (VBF)->Z Z -> 4l (including widths effects)  (CMS-PAS-HIG-16-033) \cite{CMS:2016ilx}
  ------------------------------------------------------------ 
-process  833
+process  852
   (p p)->h3  (VBF)->Z Z -> 4l (including widths effects)  (CMS-PAS-HIG-16-033) \cite{CMS:2016ilx}
 **************************************************************
       arXiv:1811.11028 (ATLAS)
 
-process  834
+process  853
   (p p)->h1 ->h1  h1 ->W W W W (arXiv:1811.11028 (ATLAS)) \cite{Aaboud:2018ksn}
-process  835
+process  854
   (p p)->h1 ->h2  h2 ->W W W W (arXiv:1811.11028 (ATLAS)) \cite{Aaboud:2018ksn}
-process  836
+process  855
   (p p)->h1 ->h3  h3 ->W W W W (arXiv:1811.11028 (ATLAS)) \cite{Aaboud:2018ksn}
  ------------------------------------------------------------ 
-process  837
+process  856
   (p p)->h2 ->h1  h1 ->W W W W (arXiv:1811.11028 (ATLAS)) \cite{Aaboud:2018ksn}
-process  838
+process  857
   (p p)->h2 ->h2  h2 ->W W W W (arXiv:1811.11028 (ATLAS)) \cite{Aaboud:2018ksn}
-process  839
+process  858
   (p p)->h2 ->h3  h3 ->W W W W (arXiv:1811.11028 (ATLAS)) \cite{Aaboud:2018ksn}
  ------------------------------------------------------------ 
-process  840
+process  859
   (p p)->h3 ->h1  h1 ->W W W W (arXiv:1811.11028 (ATLAS)) \cite{Aaboud:2018ksn}
-process  841
+process  860
   (p p)->h3 ->h2  h2 ->W W W W (arXiv:1811.11028 (ATLAS)) \cite{Aaboud:2018ksn}
-process  842
+process  861
   (p p)->h3 ->h3  h3 ->W W W W (arXiv:1811.11028 (ATLAS)) \cite{Aaboud:2018ksn}
 **************************************************************
       arXiv:1603.02991 (CMS)
 
-process  843
+process  862
   (p p)->h1  -> h1 Z -> (tau tau)(l l)    (arXiv:1603.02991 (CMS)) \cite{Khachatryan:2016are}
-process  844
+process  863
   (p p)->h1  -> h2 Z -> (tau tau)(l l)    (arXiv:1603.02991 (CMS)) \cite{Khachatryan:2016are}
-process  845
+process  864
   (p p)->h1  -> h3 Z -> (tau tau)(l l)    (arXiv:1603.02991 (CMS)) \cite{Khachatryan:2016are}
  ------------------------------------------------------------ 
-process  846
+process  865
   (p p)->h2  -> h1 Z -> (tau tau)(l l)    (arXiv:1603.02991 (CMS)) \cite{Khachatryan:2016are}
-process  847
+process  866
   (p p)->h2  -> h2 Z -> (tau tau)(l l)    (arXiv:1603.02991 (CMS)) \cite{Khachatryan:2016are}
-process  848
+process  867
   (p p)->h2  -> h3 Z -> (tau tau)(l l)    (arXiv:1603.02991 (CMS)) \cite{Khachatryan:2016are}
  ------------------------------------------------------------ 
-process  849
+process  868
   (p p)->h3  -> h1 Z -> (tau tau)(l l)    (arXiv:1603.02991 (CMS)) \cite{Khachatryan:2016are}
-process  850
+process  869
   (p p)->h3  -> h2 Z -> (tau tau)(l l)    (arXiv:1603.02991 (CMS)) \cite{Khachatryan:2016are}
-process  851
+process  870
   (p p)->h3  -> h3 Z -> (tau tau)(l l)    (arXiv:1603.02991 (CMS)) \cite{Khachatryan:2016are}
 **************************************************************
       arXiv:1603.02991 (CMS)
 
-process  852
+process  871
   (p p)->h1  -> h1 Z -> (b b-bar)(l l)    (arXiv:1603.02991 (CMS)) \cite{Khachatryan:2016are}
-process  853
+process  872
   (p p)->h1  -> h2 Z -> (b b-bar)(l l)    (arXiv:1603.02991 (CMS)) \cite{Khachatryan:2016are}
-process  854
+process  873
   (p p)->h1  -> h3 Z -> (b b-bar)(l l)    (arXiv:1603.02991 (CMS)) \cite{Khachatryan:2016are}
  ------------------------------------------------------------ 
-process  855
+process  874
   (p p)->h2  -> h1 Z -> (b b-bar)(l l)    (arXiv:1603.02991 (CMS)) \cite{Khachatryan:2016are}
-process  856
+process  875
   (p p)->h2  -> h2 Z -> (b b-bar)(l l)    (arXiv:1603.02991 (CMS)) \cite{Khachatryan:2016are}
-process  857
+process  876
   (p p)->h2  -> h3 Z -> (b b-bar)(l l)    (arXiv:1603.02991 (CMS)) \cite{Khachatryan:2016are}
  ------------------------------------------------------------ 
-process  858
+process  877
   (p p)->h3  -> h1 Z -> (b b-bar)(l l)    (arXiv:1603.02991 (CMS)) \cite{Khachatryan:2016are}
-process  859
+process  878
   (p p)->h3  -> h2 Z -> (b b-bar)(l l)    (arXiv:1603.02991 (CMS)) \cite{Khachatryan:2016are}
-process  860
+process  879
   (p p)->h3  -> h3 Z -> (b b-bar)(l l)    (arXiv:1603.02991 (CMS)) \cite{Khachatryan:2016are}
 **************************************************************
       [hep-ex] 1911.03781 (CMS)
 
-process  861
+process  880
   (p p)->h1  -> h1 Z -> (b b-bar)(l l)    ([hep-ex] 1911.03781 (CMS)) \cite{Sirunyan:2019wrn}
-process  862
+process  881
   (p p)->h1  -> h2 Z -> (b b-bar)(l l)    ([hep-ex] 1911.03781 (CMS)) \cite{Sirunyan:2019wrn}
-process  863
+process  882
   (p p)->h1  -> h3 Z -> (b b-bar)(l l)    ([hep-ex] 1911.03781 (CMS)) \cite{Sirunyan:2019wrn}
  ------------------------------------------------------------ 
-process  864
+process  883
   (p p)->h2  -> h1 Z -> (b b-bar)(l l)    ([hep-ex] 1911.03781 (CMS)) \cite{Sirunyan:2019wrn}
-process  865
+process  884
   (p p)->h2  -> h2 Z -> (b b-bar)(l l)    ([hep-ex] 1911.03781 (CMS)) \cite{Sirunyan:2019wrn}
-process  866
+process  885
   (p p)->h2  -> h3 Z -> (b b-bar)(l l)    ([hep-ex] 1911.03781 (CMS)) \cite{Sirunyan:2019wrn}
  ------------------------------------------------------------ 
-process  867
+process  886
   (p p)->h3  -> h1 Z -> (b b-bar)(l l)    ([hep-ex] 1911.03781 (CMS)) \cite{Sirunyan:2019wrn}
-process  868
+process  887
   (p p)->h3  -> h2 Z -> (b b-bar)(l l)    ([hep-ex] 1911.03781 (CMS)) \cite{Sirunyan:2019wrn}
-process  869
+process  888
   (p p)->h3  -> h3 Z -> (b b-bar)(l l)    ([hep-ex] 1911.03781 (CMS)) \cite{Sirunyan:2019wrn}
 **************************************************************
       [hep-ex] 1908.01115
 
-process  870
+process  889
   (g g)->h1 -> (t t-bar) (including widths effects) ([hep-ex] 1908.01115) \cite{Sirunyan:2019wph}
  ------------------------------------------------------------ 
-process  871
+process  890
   (g g)->h2 -> (t t-bar) (including widths effects) ([hep-ex] 1908.01115) \cite{Sirunyan:2019wph}
  ------------------------------------------------------------ 
-process  872
+process  891
   (g g)->h3 -> (t t-bar) (including widths effects) ([hep-ex] 1908.01115) \cite{Sirunyan:2019wph}
 **************************************************************
       [hep-ex] 1908.01115
 
-process  873
+process  892
   (g g)->h1 -> (t t-bar) (including widths effects) ([hep-ex] 1908.01115) \cite{Sirunyan:2019wph}
  ------------------------------------------------------------ 
-process  874
+process  893
   (g g)->h2 -> (t t-bar) (including widths effects) ([hep-ex] 1908.01115) \cite{Sirunyan:2019wph}
  ------------------------------------------------------------ 
-process  875
+process  894
   (g g)->h3 -> (t t-bar) (including widths effects) ([hep-ex] 1908.01115) \cite{Sirunyan:2019wph}
 **************************************************************
       [hep-ex] arXiv:1707.04147 (ATLAS)
 
-process  876
+process  895
   (p p)->h1 /VBF/Wh1 /Zh1 /tth1 ->gamma gamma (including widths effects)  ([hep-ex] arXiv:1707.04147 (ATLAS)) \cite{Aaboud:2017yyg}
  ------------------------------------------------------------ 
-process  877
+process  896
   (p p)->h2 /VBF/Wh2 /Zh2 /tth2 ->gamma gamma (including widths effects)  ([hep-ex] arXiv:1707.04147 (ATLAS)) \cite{Aaboud:2017yyg}
  ------------------------------------------------------------ 
-process  878
+process  897
   (p p)->h3 /VBF/Wh3 /Zh3 /tth3 ->gamma gamma (including widths effects)  ([hep-ex] arXiv:1707.04147 (ATLAS)) \cite{Aaboud:2017yyg}
+**************************************************************
+      [hep-ex] arXiv:1901.10917 (ATLAS)
+
+process  898
+  (q q)->(neutral or charged) scalar 1 ->dijet resonance + photon (flavor inclusive) ([hep-ex] arXiv:1901.10917 (ATLAS)) \cite{Aaboud:2019zxd}
+ ------------------------------------------------------------ 
+process  899
+  (q q)->(neutral or charged) scalar 2 ->dijet resonance + photon (flavor inclusive) ([hep-ex] arXiv:1901.10917 (ATLAS)) \cite{Aaboud:2019zxd}
+ ------------------------------------------------------------ 
+process  900
+  (q q)->(neutral or charged) scalar 3 ->dijet resonance + photon (flavor inclusive) ([hep-ex] arXiv:1901.10917 (ATLAS)) \cite{Aaboud:2019zxd}
+ ------------------------------------------------------------ 
+process  901
+  (q q)->(neutral or charged) scalar 4 ->dijet resonance + photon (flavor inclusive) ([hep-ex] arXiv:1901.10917 (ATLAS)) \cite{Aaboud:2019zxd}
+**************************************************************
+      [hep-ex] arXiv:1901.10917 (ATLAS)
+
+process  902
+  (q q)->h1 ->2b-jet resonance + photon ([hep-ex] arXiv:1901.10917 (ATLAS)) \cite{Aaboud:2019zxd}
+ ------------------------------------------------------------ 
+process  903
+  (q q)->h2 ->2b-jet resonance + photon ([hep-ex] arXiv:1901.10917 (ATLAS)) \cite{Aaboud:2019zxd}
+ ------------------------------------------------------------ 
+process  904
+  (q q)->h3 ->2b-jet resonance + photon ([hep-ex] arXiv:1901.10917 (ATLAS)) \cite{Aaboud:2019zxd}
 **************************************************************
       [hep-ex] 1804.01126 (ATLAS), bbh
 
-process  879
+process  905
   (p p)->h1  -> h1 Z -> (b b-bar)(l l), b-associated    ([hep-ex] 1804.01126 (ATLAS), bbh) \cite{Aaboud:2018eoy}
-process  880
+process  906
   (p p)->h1  -> h2 Z -> (b b-bar)(l l), b-associated    ([hep-ex] 1804.01126 (ATLAS), bbh) \cite{Aaboud:2018eoy}
-process  881
+process  907
   (p p)->h1  -> h3 Z -> (b b-bar)(l l), b-associated    ([hep-ex] 1804.01126 (ATLAS), bbh) \cite{Aaboud:2018eoy}
  ------------------------------------------------------------ 
-process  882
+process  908
   (p p)->h2  -> h1 Z -> (b b-bar)(l l), b-associated    ([hep-ex] 1804.01126 (ATLAS), bbh) \cite{Aaboud:2018eoy}
-process  883
+process  909
   (p p)->h2  -> h2 Z -> (b b-bar)(l l), b-associated    ([hep-ex] 1804.01126 (ATLAS), bbh) \cite{Aaboud:2018eoy}
-process  884
+process  910
   (p p)->h2  -> h3 Z -> (b b-bar)(l l), b-associated    ([hep-ex] 1804.01126 (ATLAS), bbh) \cite{Aaboud:2018eoy}
  ------------------------------------------------------------ 
-process  885
+process  911
   (p p)->h3  -> h1 Z -> (b b-bar)(l l), b-associated    ([hep-ex] 1804.01126 (ATLAS), bbh) \cite{Aaboud:2018eoy}
-process  886
+process  912
   (p p)->h3  -> h2 Z -> (b b-bar)(l l), b-associated    ([hep-ex] 1804.01126 (ATLAS), bbh) \cite{Aaboud:2018eoy}
-process  887
+process  913
   (p p)->h3  -> h3 Z -> (b b-bar)(l l), b-associated    ([hep-ex] 1804.01126 (ATLAS), bbh) \cite{Aaboud:2018eoy}
 **************************************************************
       [hep-ex] 1804.01126 (ATLAS), ggf
 
-process  888
+process  914
   (p p)->h1  -> h1 Z -> (b b-bar)(l l), gluon fusion    ([hep-ex] 1804.01126 (ATLAS), ggf) \cite{Aaboud:2018eoy}
-process  889
+process  915
   (p p)->h1  -> h2 Z -> (b b-bar)(l l), gluon fusion    ([hep-ex] 1804.01126 (ATLAS), ggf) \cite{Aaboud:2018eoy}
-process  890
+process  916
   (p p)->h1  -> h3 Z -> (b b-bar)(l l), gluon fusion    ([hep-ex] 1804.01126 (ATLAS), ggf) \cite{Aaboud:2018eoy}
  ------------------------------------------------------------ 
-process  891
+process  917
   (p p)->h2  -> h1 Z -> (b b-bar)(l l), gluon fusion    ([hep-ex] 1804.01126 (ATLAS), ggf) \cite{Aaboud:2018eoy}
-process  892
+process  918
   (p p)->h2  -> h2 Z -> (b b-bar)(l l), gluon fusion    ([hep-ex] 1804.01126 (ATLAS), ggf) \cite{Aaboud:2018eoy}
-process  893
+process  919
   (p p)->h2  -> h3 Z -> (b b-bar)(l l), gluon fusion    ([hep-ex] 1804.01126 (ATLAS), ggf) \cite{Aaboud:2018eoy}
  ------------------------------------------------------------ 
-process  894
+process  920
   (p p)->h3  -> h1 Z -> (b b-bar)(l l), gluon fusion    ([hep-ex] 1804.01126 (ATLAS), ggf) \cite{Aaboud:2018eoy}
-process  895
+process  921
   (p p)->h3  -> h2 Z -> (b b-bar)(l l), gluon fusion    ([hep-ex] 1804.01126 (ATLAS), ggf) \cite{Aaboud:2018eoy}
-process  896
+process  922
   (p p)->h3  -> h3 Z -> (b b-bar)(l l), gluon fusion    ([hep-ex] 1804.01126 (ATLAS), ggf) \cite{Aaboud:2018eoy}
 **************************************************************
       [hep-ex] 1903.06248 (ATLAS) mumu
 
-process  897
+process  923
   (p p)->h1 ->mu mu (including widths effects) ([hep-ex] 1903.06248 (ATLAS) mumu) \cite{Aad:2019fac}
  ------------------------------------------------------------ 
-process  898
+process  924
   (p p)->h2 ->mu mu (including widths effects) ([hep-ex] 1903.06248 (ATLAS) mumu) \cite{Aad:2019fac}
  ------------------------------------------------------------ 
-process  899
+process  925
   (p p)->h3 ->mu mu (including widths effects) ([hep-ex] 1903.06248 (ATLAS) mumu) \cite{Aad:2019fac}
+**************************************************************
+      [hep-ex] 1903.06248 (ATLAS) ee
+
+process  926
+  (p p)->h1 ->e e (including widths effects) ([hep-ex] 1903.06248 (ATLAS) ee) \cite{Aad:2019fac}
+ ------------------------------------------------------------ 
+process  927
+  (p p)->h2 ->e e (including widths effects) ([hep-ex] 1903.06248 (ATLAS) ee) \cite{Aad:2019fac}
+ ------------------------------------------------------------ 
+process  928
+  (p p)->h3 ->e e (including widths effects) ([hep-ex] 1903.06248 (ATLAS) ee) \cite{Aad:2019fac}
 **************************************************************
       CMS-HIG-PAS 14-029
 
-process  900
+process  929
  (pp)->h1->tautau, using -2ln(L) reconstruction  (CMS-HIG-PAS 14-029) \cite{CMS:2015mca}
-process  901
+process  930
  (pp)->h2->tautau, using -2ln(L) reconstruction  (CMS-HIG-PAS 14-029) \cite{CMS:2015mca}
-process  902
+process  931
  (pp)->h3->tautau, using -2ln(L) reconstruction  (CMS-HIG-PAS 14-029) \cite{CMS:2015mca}
 **************************************************************
       [hep-ex] 1803.06553 (CMS)
 
-process  903
+process  932
  (pp)->h1->tautau, using -2ln(L) reconstruction  ([hep-ex] 1803.06553 (CMS)) \cite{Sirunyan:2018zut}
-process  904
+process  933
  (pp)->h2->tautau, using -2ln(L) reconstruction  ([hep-ex] 1803.06553 (CMS)) \cite{Sirunyan:2018zut}
-process  905
+process  934
  (pp)->h3->tautau, using -2ln(L) reconstruction  ([hep-ex] 1803.06553 (CMS)) \cite{Sirunyan:2018zut}
 **************************************************************
       arXiv:1709.07242 [hep-ex] (ATLAS)
 
-process  906
+process  935
  (pp)->h1->tautau, using -2ln(L) reconstruction  (arXiv:1709.07242 [hep-ex] (ATLAS)) \cite{Aaboud:2017sjh}
-process  907
+process  936
  (pp)->h2->tautau, using -2ln(L) reconstruction  (arXiv:1709.07242 [hep-ex] (ATLAS)) \cite{Aaboud:2017sjh}
-process  908
+process  937
  (pp)->h3->tautau, using -2ln(L) reconstruction  (arXiv:1709.07242 [hep-ex] (ATLAS)) \cite{Aaboud:2017sjh}
 **************************************************************
       arXiv:2002.12223 [hep-ex] (ATLAS)
 
-process  909
+process  938
  (pp)->h1->tautau, using -2ln(L) reconstruction  (arXiv:2002.12223 [hep-ex] (ATLAS)) \cite{Aad:2020zxo}
-process  910
+process  939
  (pp)->h2->tautau, using -2ln(L) reconstruction  (arXiv:2002.12223 [hep-ex] (ATLAS)) \cite{Aad:2020zxo}
-process  911
+process  940
  (pp)->h3->tautau, using -2ln(L) reconstruction  (arXiv:2002.12223 [hep-ex] (ATLAS)) \cite{Aad:2020zxo}

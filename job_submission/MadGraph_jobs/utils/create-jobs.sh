@@ -79,7 +79,9 @@ else
 	# - Calculate number of points per job
 	#nPts=$(tail --lines=+2 ${INPUT_DATA} | wc -l)
 	nPts=$(wc -l < ${INPUT_DATA})
-	nPts=$((nPts--))
+	echo -e "nPts:       ${nPts}"
+	nPts=$((--nPts))
+	echo -e "nPts:       ${nPts}"
 	nPtsPerJob=$(( ${nPts} / ${nJobs} ))
 	nPtsPerJob=$(( nPtsPerJob ))
 

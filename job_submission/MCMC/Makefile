@@ -1,4 +1,4 @@
-include settings.mk
+include utils/settings.mk
 
 # This file will only work if 'control_file.sh' has been run to set variables for the user in 'utils/settings.mk'. 'control_file.sh' will overwrite 'settings.mk' on every use.
 

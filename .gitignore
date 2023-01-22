@@ -19,6 +19,7 @@ job_submission/MadGraph_jobs/jobs/*
 job_submission/MadGraph_jobs/sucessful/*
 job_submission/MadGraph_jobs/*.csv
 job_submission/MadGraph_jobs/for_upload*
+packages/2HDMC-1.8.0/SLHA_storage
 
 *.o
 *.a

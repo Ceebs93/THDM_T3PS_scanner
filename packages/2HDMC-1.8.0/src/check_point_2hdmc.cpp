@@ -73,8 +73,8 @@ int main(int argc, char *argv[]) {
   // Prepare to calculate decay widths
   DecayTable table(model);
 
-  if((constr.check_stability() == 1) & (constr.check_unitarity() == 1) & (constr.check_perturbativity() == 1))
-  {
+//  if((constr.check_stability() == 1) & (constr.check_unitarity() == 1) & (constr.check_perturbativity() == 1))
+  //{
     model.write_LesHouches(file, true, true, true);
-  }
+  //}
 }

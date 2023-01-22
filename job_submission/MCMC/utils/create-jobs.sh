@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # - Display information
 echo -e "./utils/create-jobs.sh called\n"
 echo -e "####################"
@@ -12,7 +11,7 @@ echo -e "ROOT_DIR:   ${ROOT_DIR}"
 echo -e "####################"
 
 JOB_PROJECT_DIR=${ROOT_DIR}/jobs/${NAME}
-
+echo "I think name is this: ${NAME}okay"
 # - Create job project directory
 mkdir -p ${JOB_PROJECT_DIR}
 
@@ -27,6 +26,7 @@ if [ ${CLUSTER} == "yes" ]; then
 		# number each time the for loop loops.
 		id=$(printf "%03d" ${i})
 		JOB_DIR=${ROOT_DIR}/jobs/${NAME}/job_${id}
+		echo $JOB_DIR
 		mkdir -p ${JOB_DIR}
 
 		# Copy the specified configuration file into the new job direc-
@@ -43,7 +43,7 @@ if [ ${CLUSTER} == "yes" ]; then
 	   # Add the path to the new job directory to the 'all.jobs' file
 	   echo "${JOB_DIR}" >> ${ROOT_DIR}/jobs/${NAME}/all.jobs
 
-done
+	done
 fi
 
 # - Section creates setup for local job

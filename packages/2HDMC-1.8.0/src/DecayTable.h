@@ -7,6 +7,7 @@
 #include <gsl/gsl_matrix.h>
 #include <gsl/gsl_integration.h>
 
+// Added by Ciara in order to access this structure outside
 struct BR
 {
   double brdd[4][4];

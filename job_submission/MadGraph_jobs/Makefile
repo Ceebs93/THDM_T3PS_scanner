@@ -4,14 +4,14 @@ SHELL = /bin/sh
 ###### --- Create jobs  --- ######
 ##################################
 
-CREATE_JOB_NAME         = "qqA_missing"
-CREATE_JOB_INPUT_DATA   = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph_jobs/for_upload/missing_qqA.csv"
+CREATE_JOB_NAME         = "bgH_test"
+CREATE_JOB_INPUT_DATA   = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph_jobs/jobs/bgH_missing/unfinished_bgH.csv"
 #CREATE_JOB_CONVERT_DATA = "yes"
 CREATE_JOB_LOCAL        = "no"
 CREATE_JOB_SPLIT_NAME   = "split_csv_name"
-CREATE_JOB_PROCESS_NAME = "qq_tbh3"
-CREATE_JOB_PROC_IN      = "ql\ ql"
-CREATE_JOB_PROC_OUT     = "Ts\ Bs\ h3"
+CREATE_JOB_PROCESS_NAME = "bg_twh2"
+CREATE_JOB_PROC_IN      = "Bs\ g"
+CREATE_JOB_PROC_OUT     = "Ts\ Ws\ h2"
 CREATE_JOB_nCores       = 1
 CREATE_JOB_nJobs        = 4
 CREATE_JOB_LOOPER       = "csv_looper_rerun.sh"
@@ -48,9 +48,9 @@ SUBMIT_JOB_CLUSTERTYPE = "SLURM"
 ########### --- Merge jobs - ############
 #########################################
 
-MERGE_JOB_NAME             = "qqh3_reruns"
-MERGE_JOB_PROCESS          = "qq_tbh3"
-MERGE_JOB_INPUT_DATA       = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph_jobs/for_upload/qqhi_qqh3_reruns.csv"
+MERGE_JOB_NAME             = "NC_bghi_m"
+MERGE_JOB_PROCESS          = "bg_twhi"
+MERGE_JOB_INPUT_DATA       = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph_jobs/for_upload/missing_bgH.csv"
 MERGE_JOB_MGSIN_LABEL      = "Sbma"
 MERGE_JOB_OGSIN_LABEL      = "sinba"
 MERGE_JOB_MGTAN_LABEL      = "Tb"

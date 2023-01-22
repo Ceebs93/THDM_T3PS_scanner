@@ -782,6 +782,7 @@ double DecayTable::br(double dG, double G) {
   return BR;
 }
 
+//DecayTable added back in by Ciara
 void DecayTable::geth_BR(int h, struct BR &brf)
 {
 
