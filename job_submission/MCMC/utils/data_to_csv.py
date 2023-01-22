@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 """
 Created on Tue Feb  9 19:34:32 2021
@@ -6,30 +6,67 @@ Created on Tue Feb  9 19:34:32 2021
 @author: cb27g11
 """
 
+from __future__ import absolute_import, division, print_function
+import fileinput
 import numpy as np
 import pandas as pd
 import sys
 
 from scipy import stats
 
-names= ['Z7', 'mH', 'mHc', 'mA', 'cba',
-         'tb', 'sinba', 'Z4', 'Z5', 'm12_2', 'l1', 'l2', 'l3', 'l4', 'l5',
-         'l6', 'l7', 'g_HpHmh', 'Gamma_h', 'Gamma_H', 'Gamma_Hc', 'Gamma_A',
-         'br_h_bb', 'br_h_tautau', 'br_h_gg', 'br_h_WW', 'br_h_ZZ',
-         'br_h_gaga', 'br_A_tt', 'br_A_bb', 'br_A_gg', 'br_A_mumu',
-         'br_A_tautau', 'br_A_Zga', 'br_A_Zh', 'br_A_ZH', 'br_A_gaga',
-         'br_H_tt', 'br_H_bb', 'br_H_gg', 'br_H_mumu', 'br_H_tautau',
-         'br_H_Zga', 'br_H_Zh', 'br_H_WW', 'br_H_ZZ', 'br_H_ZA', 'br_H_hh',
-         'br_H_AA', 'br_H_gaga', 'br_Hp_tb', 'br_Hp_taunu', 'br_Hp_Wh',
-         'br_Hp_WH', 'br_Hp_WA', 'sta', 'uni', 'per_4pi', 'per_8pi', 'S', 'T',
-         'U', 'V', 'W', 'X', 'delta_rho', 'delta_amu', 'tot_hbobs', 'sens_ch',
-         'chi2_HS', 'chi2_ST_hepfit', 'chi2_ST_gfitter', 'chi2_Tot_hepfit',
-         'chi2_Tot_gfitter', 'k_huu', 'k_hdd', 'likelihood', 'stay_count',
-         'ratio']
+# Filename
+file_name = str(sys.argv[1])
+# dat_to_DF will assume file it needs is jobs/file_name/file_name_all_final.dat
+file_path = "jobs/" + file_name + "/" + file_name + "_all_data_merged.dat"
 
+# Yukawa type for applying bounds
+yukawa = str(sys.argv[2])
+
+# Basis for column names
+base = str(sys.argv[3])
+
+bases = {
+         "hybrid" :
+         ['Z7_out', 'mH_out', 'mHc_out', 'mA_out', 'cba_out', 'tb_out', 'Z7',
+         'mH', 'mHc', 'mA', 'cba', 'tb', 'sinba', 'Z4', 'Z5', 'm12_2', 'l1',
+         'l2', 'l3', 'l4', 'l5', 'l6', 'l7', 'g_HpHmh', 'Gamma_h', 'Gamma_H',
+         'Gamma_Hc', 'Gamma_A', 'br_h_bb', 'br_h_tautau', 'br_h_gg',
+         'br_h_WW', 'br_h_ZZ', 'br_h_gaga', 'br_A_tt', 'br_A_bb', 'br_A_gg',
+         'br_A_mumu', 'br_A_tautau', 'br_A_Zga', 'br_A_Zh', 'br_A_ZH',
+         'br_A_gaga', 'br_H_tt', 'br_H_bb', 'br_H_gg', 'br_H_mumu',
+         'br_H_tautau', 'br_H_Zga', 'br_H_Zh', 'br_H_WW', 'br_H_ZZ', 'br_H_ZA',
+         'br_H_hh', 'br_H_AA', 'br_H_gaga', 'br_Hp_tb', 'br_Hp_taunu',
+         'br_Hp_Wh', 'br_Hp_WH', 'br_Hp_WA', 'sta', 'uni', 'per_4pi',
+         'per_8pi', 'S', 'T', 'U', 'V', 'W', 'X', 'delta_rho', 'delta_amu',
+         'tot_hbobs', 'sens_ch', 'chi2_HS', 'chi2_ST_hepfit',
+         'chi2_ST_gfitter', 'chi2_Tot_hepfit', 'chi2_Tot_gfitter', 'k_huu',
+         'k_hdd', 'likelihood', 'stay_count'],
+         "hhg" :
+         [],
+         "generic" :
+         [],
+         "higgs" :
+         [],
+         "phys" :
+         []
+     }
+
+# Dictionary of limits based on yukawa coupling type. Values are given as:
+#[khuu +ve lowerbound, khuu +ve upperbound, khuu -ve upperbound,
+#khuu -ve lowerbound, min_mHp]
+yukawas = { "1" : [],
+            "2" : [0.88, 1.2, -0.7, -1.1, 580],
+            "3" : [],
+            "4" : []
+     }
+# Type-I khuu values used as limits here come from arxiv:2011.03652
+# Type-II khuu values used as limits here come from arxiv:
+# Type-III khuu values used as limits here come from arxiv:
+# Type-IV khuu values used as limits here come from arxiv:
+# Type-II lower charged higgs mass bound arxiv:1702.04571 
 
 ################################################################################
-def dat_to_DF(Filename, Csvname):
+def dat_to_DF(Filename, Filepath, Yukawa, Base):
     """
     Reads in the dat file from the t3ps scanner and converts it to a csv
     file
@@ -49,92 +86,39 @@ def dat_to_DF(Filename, Csvname):
 
     """
 
-    file1 = open(Filename, 'r')
-    Lines = file1.readlines()
-    lens = []
+    # Select relevant dictionary entry for column names and coupling bounds etc
+    col_names = bases[Base]
+    bounds = yukawas[Yukawa]
 
-    for i in range(0, len(Lines)):
-        if len(Lines[i]) <= 700 :
-            #or len(Lines[i])>= 800
-            print(len(Lines[i]))
-            lens.append(i)
-    file1.close()
-    df = pd.read_csv(Filename, skiprows= lens, sep="\s*")
+    df = pd.read_csv(Filepath, sep="\s+", skiprows=range(0,201))
+    print(len(df))
+    df.set_axis(col_names, axis=1, inplace=True)
 
     print("Dataframe columns will be: " + str(df.columns.tolist()))
-    df.dropna(inplace=True)
 
+    df = df.dropna()
+    df = df.drop_duplicates()
     print(df.head(5))
 
-    df.to_csv(Csvname, index=False)
-################################################################################
-
-
-################################################################################
-def make_useful(Filename, inc_Hc, col_names=names):
-    """
-    Takes data file, Filename, reads data into a pandas dataframe then extracts
-     columns mH, mHc, mA, cba, tb, sinba, m12_2, k_huu, and k_hdd; and creates 
-    a new dataframe (new_df) from these based on filtering out points which are
-    improbable or violate EWPO constraints. The user can find the arxiv numbers
-    of the papers from which these constraints are taken within the function 
-    itself as well as the manual. This is then sorted and values are set to be 
-    floats. Function assumes that the input file is in the form of a .dat
-    file and that it has the same number of columns as the global variable, 
-    "names", by default; however the user may set this to any list that suits
-    their data better.
-
-    Parameters
-    ----------
-    Filename : string
-        the name of the .dat file the user wishes to filter and transform into 
-        a .csv file.
-
-    inc_Hc : boolean
-        if False the function will remove all points where the mass of the 
-        charged Higgs is below a certain value.
-
-    col_names : list
-        a list of column names to be given to the created dataframe. By default
-        this will be set to the global variable "names".
-        
-    Returns
-    -------
-    new_df : pandas dataframe
-        This is a new pandas dataframe containing the filtered data from the
-        input file.
-    """
-
-    print("Starting make_useful ...")
-
-    # Reads in data from Filename
-    df = pd.read_csv(Filename, sep=",", names=col_names, skiprows=[0])
-
     temp_df = df.astype(float)
-
-    print("Columns in dataframe will be: " + str(temp_df.columns.tolist()))
 
     # Below we apply limits to our csv, done in two seperate chunks, the 
     # positive and negative values of sinba. These are then recombined.
     # values used as limits here come from arxiv:2011.03652
-   # upper_df = temp_df[temp_df['k_huu'] >= 0.88]
-   # upper_df = upper_df[upper_df['k_huu'] <= 1.2]
+    upper_df = temp_df[temp_df['k_huu'] >= bounds[0]]
+    upper_df = upper_df[upper_df['k_huu'] <= bounds[1]]
 
-    #lower_df = temp_df[temp_df['k_huu']<-0.7]
-    #lower_df = lower_df[lower_df['k_huu']>=-1.1]
+    lower_df = temp_df[temp_df['k_huu']< bounds[2]]
+    lower_df = lower_df[lower_df['k_huu']>= bounds[3]]
 
-    #temp_df = combiner([upper_df, lower_df])
-
-    temp_df = temp_df[temp_df['mH'] < 1000]
-    temp_df = temp_df[temp_df['mA'] < 1000]
+    temp_df = combiner([upper_df, lower_df])
     temp_df.reindex()
 
     temp_df.dropna(inplace=True)
 
     # When excluding the charged higgs we require masses to be above 580GeV
     # arxiv:1702.04571 
-    if inc_Hc == False:
-        temp_df = temp_df.drop(df[df.mHc < 580].index)
+    temp_df = temp_df.drop(df[df.mHc < bounds[4]].index)
 
     print("Filtering points...")
   
@@ -167,7 +151,7 @@ def make_useful(Filename, inc_Hc, col_names=names):
     
     chi2_Tot_mask = (temp_df["chi2_Tot_gfitter"] < chi2_Tot_gfitter_upper_bound)
     print("chi2_Tot_mask")
-    print chi2_Tot_mask.head(10)
+    print(chi2_Tot_mask.head(10))
 
 
     # Using EWPO to check if points are allowed and discarding any that are not
@@ -192,38 +176,10 @@ def make_useful(Filename, inc_Hc, col_names=names):
     new_df = allowed_pts_df.astype(float)
     new_df = new_df.reset_index(drop = True)
 
+    save_path = "../jobs/" + file_name + "/" + file_name + "_all_final.csv"
+    
     return new_df
 ###############################################################################
-
-
-################################################################################
-def combiner(df_list):
-    """
-    Takes a list of pandas dataframes, combines them and removes any duplicate
-    rows.
-
-    Parameters
-    ----------
-    df_list : list
-        This is a list of pandas dataframes that has already been read in from 
-        a csv or other file type.
-
-    Returns
-    -------
-    final_df : pandas dataframe
-        Output pandas dataframe which will be the result of concatenating and
-        'tidying' input dataframes.
-    """
-
-
-    combi_df = pd.concat(df_list, ignore_index = True)
-    combi_df.dropna()
-    final_df = combi_df.drop_duplicates()
-    combi_df.info()
-    final_df = final_df.astype(float)
-
-    return final_df
-################################################################################
 
 
 ################################################################################
@@ -266,74 +222,36 @@ def alpha_beta(tanbeta, cosba):
             Exception("Error! Unphysical cos(beta-alpha) value provided!")
 
     return(alpha_val, beta_val)
-###############################################################################
-
 
 ###############################################################################
-def user_interface():
+
+################################################################################
+def combiner(df_list):
     """
-    Runs a basic interface to prompt the user for input about which functions
-    they wish to run and on what files they wish to run them on. Can convert
-    .dat files to csv files and combine csv files. Will run filtering on data
-    to ensure it complies with current constraints.
+    Takes a list of pandas dataframes, combines them and removes any duplicate
+    rows.
+
+    Parameters
+    ----------
+    df_list : list
+        This is a list of pandas dataframes that has already been read in from 
+        a csv or other file type.
+
+    Returns
+    -------
+    final_df : pandas dataframe
+        Output pandas dataframe which will be the result of concatenating and
+        'tidying' input dataframes.
     """
 
 
-    try:
-        option = input(" Enter 1 to convert a dat file to csv or enter 2 to \
- combine multiple csves.")
-    
-        if option == 1:
-            print("What is the path to, and name of the file (in the form of a\
- string), for conversion?")
-            file_name = input("You do not need to add .dat/.csv, this will be\
- added automatically: ")
-        
-            nther_file = file_name + ".dat"
-            dat_to_DF(nther_file, file_name + '.csv')
+    combi_df = pd.concat(df_list, ignore_index = True)
+    combi_df.dropna()
+    final_df = combi_df.drop_duplicates()
+    combi_df.info()
+    final_df = final_df.astype(float)
 
-            tn_fxd = make_useful(file_name + '.csv', inc_Hc=False)
-            print(file_name + ".dat has been converted to " + file_name + 
-".csv")
-                
-            print("Please enter name for final csv ")
-            nw_name = input("You do not need to add .csv, this will be added\
- automatically ")
+    return final_df
+################################################################################
 
-            tn_fxd.to_csv(nw_name +'.csv', index=False) 
-
-        elif option == 2:
-            print("Please enter a list, separated by spaces only, of csvs to\
- combine: ")
-
-            list_input = input("You do not need to add .csv to the end of\
- files, this will be added automatically")
-
-            # creates list of csv names from user input
-            csv_list = list_input.split()
-
-            # adds .csv to the end of each csv name
-            csv_list = ["{}{}".format(i,".csv") for i in csv_list]
-
-            # for loop creates list of loaded csvs
-            loaded_lists = []
-            for filename in csv_list:
-                df = pd.read_csv(filename, index_col=None)
-                loaded_lists.append(df)
-
-            #combining dataframes
-            frame = pd.concat(loaded_lists, axis=0, ignore_index=True)
-            combined_csv = tan_trnsfm(frame)
-
-            print("Please enter name for combined csv ")
-            nw_name = input("You do not need to add .csv, this will be added\
- automatically")
-            combined_csv.to_csv(str(nw_name) + ".csv", index=False)
-    except ValueError as e:
-        print("Error! Please enter 1 or 2 only.")
-
-###############################################################################
-
-
-user_interface()
-
+dat_to_DF(file_name, file_path, yukawa, base)
