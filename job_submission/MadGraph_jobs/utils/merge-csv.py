@@ -21,6 +21,7 @@ from scipy import stats
 
 #location of combined madgraph output
 madgraph_out = str(sys.argv[1])
+
 #location of the original csv file prior to splitting
 OG_csv = str(sys.argv[2])
 FINAL_CSV = str(sys.argv[3])
@@ -48,64 +49,96 @@ def add_xsect(Filename, Chkdfile):
 
     Returns
     -------
-    OG_csv_df : pandas dataframe
+    data_base : pandas dataframe
         Combination of the Filename and Chkdfile dataframes.
 
     """
 
-    # Reading in the two csv files
+    # Reading in the two csv files and rounding everything to 6 decimal places
     MG_df = pd.read_csv(Filename)
-    print('MG_DF', MG_df.columns.tolist())
-    MG_df = MG_df.round(6) 
+    MG_df = MG_df.round(6)   
+    data_base = pd.read_csv(Chkdfile)
+    data_base = data_base.round(6)
+    
+    # Dropping any duplicate rows
+    data_base = data_base.drop_duplicates()
     MG_df = MG_df.drop_duplicates()
-    print(len(MG_df))
-    OG_csv_df = pd.read_csv(Chkdfile)
-    print('OG_csv_df', OG_csv_df.columns.tolist())
-    OG_csv_df = OG_csv_df.round(6)
-    OG_csv_df = OG_csv_df.drop_duplicates()
+       
+    # Reading in multiple columns from the original csv file to lists 
+    if NEW_COL_STR_ not in data_base.columns:
+        L = len(data_base)
+        new_col = np.zeroes(L)
+        data_base[NEW_COL_STR_] = new_col
 
-    # Checking that the dataframes have the same number of rows before adding
-    # cross-section column onto OG_csv_df
-    if len(MG_df['MG_SIN_LABEL_']) == len(OG_csv_df['OG_SIN_LABEL_']):
-        MG_df.sort_values(by=['MG_SIN_LABEL_'], inplace=True)
-        OG_csv_df.sort_values(by=['OG_SIN_LABEL_'], inplace=True)
-
-        MG_sin_list = MG_df['MG_SIN_LABEL_'].to_list()
-        OG_sin_list = OG_csv_df['OG_SIN_LABEL_'].to_list()
-        print(MG_df['X_sections'])
-        
-        # Checking to ensure sin values match up
-        if round(MG_sin_list[0], 5) == round(OG_sin_list[0], 5) and\
-        round(MG_sin_list[-1], 5) == round(OG_sin_list[-1], 5):
-            print('sin match confirmed')
-            
-            MG_df.sort_values(by=['MG_TAN_LABEL_'], inplace=True)
-            OG_csv_df.sort_values(by=['OG_TAN_LABEL_'], inplace=True)
-
-            MG_tan_list = MG_df['MG_TAN_LABEL_'].to_list()
-            OG_tan_list = OG_csv_df['OG_TAN_LABEL_'].to_list()
-            
-            midpoint = int(len(MG_tan_list)/2)
-            # Checking to ensure tan values also match up, including at one
-            # different point than used for sin
-            if round(MG_tan_list[0], 5) == round(OG_tan_list[0], 5) and\
-            round(MG_tan_list[midpoint], 5) == round(OG_tan_list[midpoint], 5):
-
-                print('tan match confirmed')
-                if 'X_sections' in MG_df.columns:
-                    print('X_sections located')            
-                    X_SECT_COL_ = MG_df['X_sections'].tolist()
-
-                    print(X_SECT_COL_[0:5])
-                    OG_csv_df['X_SECT_COL_'] = X_SECT_COL_
-                else:
-                    print("Could not find a column 'X_sections' in provided \
-                          file")
     else:
-        print("Row lengths of CSVes do not match. Check for correct files")
+        continue
+        
+    main_in = data_base.[NEW_COL_STR_].tolist()
+    main_tb = data_base.tb.tolist()
+    main_tb = np.array(main_tb)
+    main_tb = np.around(main_tb, decimals=4)
+    main_sinba = data_base.sinba.tolist()
+    main_sinba = np.array(main_sinba)
+    main_sinba = np.around(main_sinba, decimals=5)
+    main_mH = data_base.mH.tolist()
+    main_mH = np.array(main_mH)
+    main_mH = np.around(main_mH, decimals=3)
+    main_mHc = data_base.mHc.tolist()
+    main_mHc = np.array(main_mHc)
+    main_mHc = np.around(main_mHc, decimals=3)
+        
+    # Reading in multiple columns from the new csv file to lists
+    new_in = MG_df.X_sections.tolist()
+    new_tb = MG_df.Tb.tolist()
+    new_tb = np.array(new_tb)
+    new_tb = np.around(new_tb, decimals=4)
+    new_sinba = MG_df.sinba.tolist()
+    new_sinba = np.array(new_sinba)
+    new_sinba = np.around(new_sinba, decimals=5)
+    new_mH = MG_df.mH.tolist()
+    new_mH = np.array(new_mH)
+    new_mH = np.around(new_mH, decimals=3)
+    new_mHc = MG_df.mHp.tolist()
+    new_mHc = np.array(new_mHc)
+    new_mHc = np.around(new_mHc, decimals=3)
+    
+    for i in range(0,len(new_in)):
+        if new_tb[i] in main_tb:
+            #print(new_tb[i])
+            tan_index = np.where(main_tb == new_tb[i])
+            tan_index = tan_index[0][0]
 
-    return OG_csv_df
+            if new_mH[i] in main_mH:
+                #print(new_mH[i],"I found this mass!")
+                mH_index = np.where(main_mH == new_mH[i])
+                mH_index = mH_index[0][0]
+
+                if mH_index != tan_index:
+                    print("mass was for a different point")
+                    continue
+                elif new_sinba[i] == main_sinba[mH_index]:
+
+                    if new_mHc[i] == main_mHc[mH_index]:
+                        main_in[mH_index] = new_in[i]
+                        print("success!")
+                    else:
+                        print("mHc didn't match")
+                        continue
+                else:
+                    print("mass was correct but sin value wasn't")
+                    continue
+    
+    data_base[NEW_COL_STR_] = main_in
+    
+    # These lines remove duplicates and any rows with missing entries
+    combi_df.dropna()
+    final_df = combi_df.drop_duplicates()
+    combi_df.info()
+    final_df = final_df.astype(float)
+
+    return data_base
 ###############################################################################
+
 ###############################################################################
 def round_no(x, sf):
 
@@ -129,6 +162,7 @@ def round_no(x, sf):
 
     return rounded
 ###############################################################################
+
 ###############################################################################
 def round_to_sf(num, sf):
 
@@ -161,12 +195,4 @@ def round_to_sf(num, sf):
 ###############################################################################
 
 combi_df = add_xsect(madgraph_out, OG_csv)
-
-# These lines remove duplicates and any rows with missing entries
-combi_df.dropna()
-final_df = combi_df.drop_duplicates()
-combi_df.info()
-final_df = final_df.astype(float)
-
-# Saving the final output as a csv to FINAL_CSV
-final_df.to_csv(FINAL_CSV, index=False)
+combi_df.to_csv(FINAL_CSV, index=False)

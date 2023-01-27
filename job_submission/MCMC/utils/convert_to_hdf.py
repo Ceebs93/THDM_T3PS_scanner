@@ -35,7 +35,7 @@ headers = {
 
 constraints = { "2HDM_TII" : { 
 # values here come from arxiv:2011.03652
-                            'khuu' : [-1.1, -0.7, 0.88, 1.2],
+                            'khuu' : [-1.1, -0.7, 0.7, 1.2],
 # values here come from      
                             'mH'   : [150, 1000],
 # value here comes from arxiv1702.04571

@@ -4,17 +4,17 @@ SHELL = /bin/sh
 ###### --- Create jobs  --- ######
 ##################################
 
-CREATE_JOB_NAME         = "bgH_test"
-CREATE_JOB_INPUT_DATA   = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph_jobs/jobs/bgH_missing/unfinished_bgH.csv"
+CREATE_JOB_NAME         = "CM_bgh_p2"
+CREATE_JOB_INPUT_DATA   = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph_jobs/CM_constrained.csv"
 #CREATE_JOB_CONVERT_DATA = "yes"
 CREATE_JOB_LOCAL        = "no"
 CREATE_JOB_SPLIT_NAME   = "split_csv_name"
-CREATE_JOB_PROCESS_NAME = "bg_twh2"
-CREATE_JOB_PROC_IN      = "Bs\ g"
-CREATE_JOB_PROC_OUT     = "Ts\ Ws\ h2"
-CREATE_JOB_nCores       = 1
-CREATE_JOB_nJobs        = 4
-CREATE_JOB_LOOPER       = "csv_looper_rerun.sh"
+CREATE_JOB_PROCESS_NAME = "bg_twh1"
+CREATE_JOB_PROC_IN      = "bs\ g"
+CREATE_JOB_PROC_OUT     = "Ts\ ws\ h1"
+CREATE_JOB_nCores       = 4
+CREATE_JOB_nJobs        = 8
+CREATE_JOB_LOOPER       = "csv_looper_NC.sh"
 CREATE_JOB_Card_Editor  = "inputcard_editor2.py" 
 CREATE_JOB_BASECARD     = "basecard_type2.txt"
 CREATE_JOB_TEMPLATE     = "slurm_submission.sh"
@@ -30,8 +30,8 @@ SUBMIT_JOB_NAME       = ${CREATE_JOB_NAME}
 SUBMIT_JOB_LOCAL      = "no" 
 SUBMIT_JOB_LIST       = ${CREATE_JOB_LIST}
 SUBMIT_JOB_NODES      = "--nodes=1"
-SUBMIT_JOB_PPN        = "--ntasks-per-node=8"
-SUBMIT_JOB_TIME       = "--time=06:00:00"
+SUBMIT_JOB_PPN        = "--ntasks-per-node=4"
+SUBMIT_JOB_TIME       = "--time=60:00:00"
 SUBMIT_JOB_SCRIPT     = "slurm_submission.sh"
 SUBMIT_JOB_CLUSTERTYPE = "SLURM"
 

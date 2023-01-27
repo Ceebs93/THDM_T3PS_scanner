@@ -55,7 +55,7 @@ bases = {
 #[khuu +ve lowerbound, khuu +ve upperbound, khuu -ve upperbound,
 #khuu -ve lowerbound, min_mHp]
 yukawas = { "1" : [],
-            "2" : [0.88, 1.2, -0.7, -1.1, 580],
+            "2" : [0.7, 1.2, -0.7, -1.1, 580],
             "3" : [],
             "4" : []
      }
