@@ -17,8 +17,8 @@ int main(int argc, char* argv[])
 {
 	int       yt_in;     // - Type
 	double    mH_in;     // - mH
-	double   mHc_in;     // - mHc
 	double    mA_in;     // - mA
+	double   mHc_in;     // - mHc
 	double   sba_in;     // - sin(b-a)
 	double    l6_in;     // - lambda6
 	double    l7_in;     // - lambda7
@@ -30,22 +30,22 @@ int main(int argc, char* argv[])
 		ifstream file( argv[1]);
 		file >> yt_in;
 		file >> mH_in;
-		file >> mHc_in;
 		file >> mA_in;
+		file >> mHc_in;
 		file >> sba_in;
 		file >> l6_in;
 		file >> l7_in;
-		file >> m12_in;
+		file >> m12_2_in;
 		file >> tb_in;
 		file.close();
 	}
 
-	else if ( argc == 8 )   // - parameters as input
+	else if ( argc == 9 )   // - parameters as input
 	{
 	  	yt_in      = (int)   atoi(argv[1]);
 		mH_in      = (double)atof(argv[2]);
-		mHc_in     = (double)atof(argv[3]);
 	  	mA_in      = (double)atof(argv[4]);
+		mHc_in     = (double)atof(argv[3]);
 	   	sba_in     = (double)atof(argv[5]);
 		l6_in      = (double)atof(argv[6]);
 		l7_in      = (double)atof(argv[7]);
@@ -56,18 +56,12 @@ int main(int argc, char* argv[])
 	else
 	{
 	  printf("ParameterScan_T3PS usage:\n");
-	  printf("ParameterScan_T3PS <yt_in> <Z7> <mH> <mHc> <mA> <cba> <tanb>");
+	  printf("ParameterScan_T3PS <yt_in> <mh> <mH> <mA> <mHp> <sba> <l6> <l7> <m12_2> <tb>");
 	}
-	  
-	
-	// -- Conversion -- //
-	// -- Z4, Z5 calculated
-	
+	 
 	double vev    = 246.2206;
 	double mh_ref = 125.09;
-	double Z5_c   = ( mh_ref*mh_ref*cba_in*cba_in + mH_in*mH_in*(1.0-cba_in*cba_in) - mA_in*mA_in)/vev/vev;
-	double Z4_c   = (2.0*( (mA_in*mA_in - mHc_in*mHc_in))/vev/vev) + Z5_c;
-
+	
 	/////////////////
 	// -- 2HDMC -- //
 	/////////////////
@@ -97,7 +91,7 @@ int main(int argc, char* argv[])
 	  THDM model;
 	  model.set_SM(sm);
 
-	  bool pset = model.set_param_phys(mh_ref,mH_in,mA_in,mHc_in,sba_in,l6_in,l7_in,m12_2,tb_in);
+	  bool pset = model.set_param_phys(mh_ref, mH_in, mA_in, mHc_in, sba_in, l6_in, l7_in, m12_2_in, tb_in);
 
  	  if (!pset) {
    	    cerr << "The specified parameters are not valid\n";
@@ -253,8 +247,8 @@ int main(int argc, char* argv[])
 	  // so it can be negative too!
 
 	  double k_huu, k_hdd;
-	  k_huu = abs(sinba) + cba/tb;
-	  k_hdd = abs(sinba) - cba*tb;
+	  k_huu = abs(sinba) + cba/tb_in;
+	  k_hdd = abs(sinba) - cba*tb_in;
 
 	# endif
 
@@ -270,7 +264,7 @@ int main(int argc, char* argv[])
 	printf("Inside ParameterScan_T3PS.cpp\n");
 	printf("yt_in: %d\n", yt_in );
 	
-	printf("\nComparison of variables\n");	
+	printf("\nComparison of variables\n");
 	printf("|-------------------------------------------------------------------------\n" );
 	printf("| Var   | Input   | Gen    |  Phys   | Hybrid | \n" );
 	printf("|-------------------------------------------------------------------------\n" );
@@ -319,9 +313,9 @@ int main(int argc, char* argv[])
 	<< cba << " "                   // 5
 	<< tb_in  << " "                // 6
 
- 	<< sba << " "                   // 7
- 	<< Z4_c << " "                  // 8
- 	<< Z5_c << " "                  // 9
+ 	<< sba_in << " "                // 7
+ 	<< Z4 << " "                    // 8
+ 	<< Z5 << " "                    // 9
  	<< m12_2 << " "                 // 10
  					
  	// -- lambdas

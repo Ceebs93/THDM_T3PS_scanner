@@ -40,7 +40,7 @@ int main(int argc, char* argv[])
 		file.close();
 	}
 
-	else if ( argc == 8 )   // - parameters as input
+	else if ( argc == 9 )   // - parameters as input
 	{
 	  	yt_in     = (int)   atoi(argv[1]);
 		l1_in     = (double)atof(argv[2]);
@@ -166,8 +166,6 @@ int main(int argc, char* argv[])
           }
 
          hbhs_result.hb.print();                                
-        // hbhs_result.hs.print();                                                                   
-        // hbhsres_ptr = &hbhs_result;  
 
 	  double delta_rho = constr.delta_rho(mh_ref);
 	  double delta_amu = constr.delta_amu();	
@@ -253,8 +251,8 @@ int main(int argc, char* argv[])
 	  // so it can be negative too!
 
 	  double k_huu, k_hdd;
-	  k_huu = abs(sinba) + cba_in/tb;
-	  k_hdd = abs(sinba) - cba_in*tb;
+	  k_huu = abs(sinba) + cba/tb;
+	  k_hdd = abs(sinba) - cba*tb;
 
 	# endif
 
@@ -315,9 +313,9 @@ int main(int argc, char* argv[])
 	<< Z7 << " "			// 1
 	<< mH  << " "                   // 2
 	<< mHc_in << " "                // 3
-	<< mA_in  << " "                // 4
-	<< cba_in << " "                // 5
-	<< tb_in  << " "                // 6
+	<< mA  << " "                   // 4
+	<< cba << " "                   // 5
+	<< tb  << " "                   // 6
 
  	<< sinba << " "                 // 7
  	<< Z4 << " "                    // 8

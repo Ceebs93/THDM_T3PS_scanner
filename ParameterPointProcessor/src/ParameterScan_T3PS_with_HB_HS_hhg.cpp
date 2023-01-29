@@ -94,7 +94,7 @@ int main(int argc, char* argv[])
 	  THDM model;
 	  model.set_SM(sm);
 
-	  bool pset = model.set_param_hhg(l1_in,l2_in,l3_in,l4_in,l5_in,l6_in,tb_in);
+	  bool pset = model.set_param_HHG(l1_in,l2_in,l3_in,l4_in,l5_in,l6_in,tb_in);
 
  	  if (!pset) {
    	    cerr << "The specified parameters are not valid\n";
@@ -276,8 +276,8 @@ int main(int argc, char* argv[])
 	printf("| l3    | %+8.3e  | %+8.3e |         |        |\n", l3_in, l3_gen);
 	printf("| l4    | %+8.3e  | %+8.3e |         |        |\n", l4_in, l4_gen);
 	printf("| l5    | %+8.3e  | %+8.3e |         |        |\n", l5_in, l5_gen);
-	printf("| l6    | %+8.3e  | %+8.3e | %+8.3e  |        |\n", l6_in, l6_gen, l6_phys, l6_hybrid);
-	printf("| l7    |         | %+8.3e | %+8.3e  |        |\n", l7_gen, l7_phys, l7_hybrid);
+	printf("| l6    | %+8.3e  | %+8.3e | %+8.3e  |        |\n", l6_in, l6_gen);
+	printf("| l7    |         | %+8.3e | %+8.3e  |        |\n", l7_gen, l7_phys);
 	printf("| mH    |         |        | %+8.3e  | %+8.3e |\n", mH_phys, mH_hybrid);
 	printf("| mHc   |         |        | %+8.3e  |        |\n", mHc_phys);
 	printf("| mA    |         |        | %+8.3e  |        |\n", mA_phys);

@@ -1,12 +1,15 @@
 #include "../../packages/HiggsSignals-2.6.2/include/HiggsSignals.h"
+#include "2HDMC/THDM.h"                                                                            
+#include "2HDMC/SM.h"                                                                              
+#include "2HDMC/HBHS.h"                                                                            
+#include "2HDMC/Constraints.h"                                                                     
+#include "2HDMC/DecayTable.h"                                                                      
 #include "2HDMC/HBHS.h"
 #include <iostream>                                                                                
 #include <string>                                                                                  
 #include <fstream>                                                                                 
-#include <cmath>                                                                                   
-// include "EWPO.h"                                                                                  
-                                                                                                      
-#define VERBOSE                                                                                    
+#include <cmath>
+#include "EWPO.h"                                                                                  
                                                                                                      
 using namespace std;                                                                               
                                                                                                      
@@ -55,10 +58,46 @@ int main(int argc, char* argv[])
 
 	double vev    = 246.2206;
 	double mh_ref = 125.09;
+	double Z5_c   = ( mh_ref*mh_ref*cba_in*cba_in + mH_in*mH_in*(1.0-cba_in*cba_in) - mA_in*mA_in)/vev/vev;
+	double Z4_c   = (2.0*( (mA_in*mA_in - mHc_in*mHc_in))/vev/vev) + Z5_c;
 
 	const HBHSResult *hbhsres_ptr = nullptr;
 
 	  HBHS hbhs{};
+
+	  // -- Create SM and set parameters
+	  SM sm;
+
+	  // - Matching HiggsBounds
+  	  sm.set_qmass_pole(6, 172.6);		
+  	  sm.set_qmass_pole(5, 4.60);		
+  	  sm.set_qmass_pole(4, 1.40);	
+  	  sm.set_lmass_pole(3, 1.7771);	
+  	  sm.set_alpha(1./127.934);
+  	  sm.set_alpha0(1./137.0359895);
+  	  sm.set_alpha_s(0.118);
+  	  sm.set_MZ(91.187);
+  	  sm.set_MW(80.41);
+  	  sm.set_gamma_Z(2.490);
+  	  sm.set_gamma_W(2.080);
+  	  sm.set_GF(1.16639E-5);
+
+	  //Create 2HDM and set SM parameters
+	  THDM model;
+	  model.set_SM(sm);
+
+	  bool pset = model.set_param_hybrid(mh_ref,mH_in,cba_in,Z4_c,Z5_c,Z7_in,tb_in);
+
+ 	  if (!pset) {
+   	    cerr << "The specified parameters are not valid\n";
+   	    return -1;
+ 	  }
+
+ 	  // Set Yukawa couplings
+	  model.set_yukawas_type(yt_in);
+
+	  // -- Prepare to calculate observables
+	  Constraints constr(model);
 
 	  // -- EWPO
 	  double S,T,U,V,W,X;
@@ -82,6 +121,6 @@ int main(int argc, char* argv[])
 //	void run_HiggsSignals(double *Chisq_mu, double *Chisq_mh, double *Chisq,
  //                          int *nobs, double *Pvalue);
 
-
+	return 0;
 
 }

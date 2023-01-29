@@ -3,8 +3,7 @@ binaries : ../bin/ParameterScan_T3PS_with_HB_HS_hybrid_FAST \
 		../bin/ParameterScan_T3PS_with_HB_HS_generic_FAST \
 		  ../bin/ParameterScan_T3PS_with_HB_HS_higgs_FAST \
 		    ../bin/ParameterScan_T3PS_with_HB_HS_hhg_FAST \
-		       ../bin/ParameterScan_T3PS_with_HB_HS_phys_FAST \
-			  ../bin/test
+		       ../bin/ParameterScan_T3PS_with_HB_HS_phys_FAST
 
 CMN =  ../lib/EWPO.cpp.o
 
@@ -12,13 +11,13 @@ OBJ_ParameterScan_T3PS_with_HB_HS_hybrid       = $(CMN) ../lib/ParameterScan_T3P
 OBJ_ParameterScan_T3PS_with_HB_HS_hybrid_FAST  = $(CMN) ../lib/ParameterScan_T3PS_with_HB_HS_hybrid_FAST.cpp.o
 OBJ_ParameterScan_T3PS_with_HB_HS_generic      = $(CMN) ../lib/ParameterScan_T3PS_with_HB_HS_generic.cpp.o
 OBJ_ParameterScan_T3PS_with_HB_HS_generic_FAST = $(CMN) ../lib/ParameterScan_T3PS_with_HB_HS_generic_FAST.cpp.o
-OBJ_ParameterScan_T3PS_with_HB_HS_higgs        = $(CMN) ../lib/ParameterScan_T3PS_with_HB_HS_generic.cpp.o
-OBJ_ParameterScan_T3PS_with_HB_HS_higgs_FAST   = $(CMN) ../lib/ParameterScan_T3PS_with_HB_HS_generic_FAST.cpp.o
-OBJ_ParameterScan_T3PS_with_HB_HS_hhg          = $(CMN) ../lib/ParameterScan_T3PS_with_HB_HS_generic.cpp.o
-OBJ_ParameterScan_T3PS_with_HB_HS_hhg_FAST     = $(CMN) ../lib/ParameterScan_T3PS_with_HB_HS_generic_FAST.cpp.o
-OBJ_ParameterScan_T3PS_with_HB_HS_phys         = $(CMN) ../lib/ParameterScan_T3PS_with_HB_HS_generic.cpp.o
-OBJ_ParameterScan_T3PS_with_HB_HS_phys_FAST    = $(CMN) ../lib/ParameterScan_T3PS_with_HB_HS_generic_FAST.cpp.o
-OBJ_test = ../lib/test.cpp.o
+OBJ_ParameterScan_T3PS_with_HB_HS_higgs        = $(CMN) ../lib/ParameterScan_T3PS_with_HB_HS_higgs.cpp.o
+OBJ_ParameterScan_T3PS_with_HB_HS_higgs_FAST   = $(CMN) ../lib/ParameterScan_T3PS_with_HB_HS_higgs_FAST.cpp.o
+OBJ_ParameterScan_T3PS_with_HB_HS_hhg          = $(CMN) ../lib/ParameterScan_T3PS_with_HB_HS_hhg.cpp.o
+OBJ_ParameterScan_T3PS_with_HB_HS_hhg_FAST     = $(CMN) ../lib/ParameterScan_T3PS_with_HB_HS_hhg_FAST.cpp.o
+OBJ_ParameterScan_T3PS_with_HB_HS_phys         = $(CMN) ../lib/ParameterScan_T3PS_with_HB_HS_phys.cpp.o
+OBJ_ParameterScan_T3PS_with_HB_HS_phys_FAST    = $(CMN) ../lib/ParameterScan_T3PS_with_HB_HS_phys_FAST.cpp.o
+#OBJ_test = ../lib/test.cpp.o
 
 #######
 
@@ -67,8 +66,8 @@ LINKER = g++
 	$(CC) $^ $(CLFLAGS_2HDMC_WITH_HB_HS) -o $@
 
 # - test
-../bin/test: $(OBJ_test)
-	$(CC) $^ $(CLFLAGS_) -o $@
+#../bin/test: $(OBJ_test)
+#	$(CC) $^ $(CLFLAGS_) -o $@
 
 ####################
 ## -- Linking -- ###
