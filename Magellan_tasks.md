@@ -32,7 +32,7 @@
 - [ ] Add usage of parameter-point generation pipeline, on cluster and locally to manual
 - [ ] Add usage of full MadGraph pipline, on cluster and locally to manual
 - [ ] Find a way to highlight points with kappas that are the same in different models with high cross-sections
-- [ ] Add description of parameterprocessor set up and compilation to manual
+- [X] Add description of parameterprocessor set up and compilation to manual
 - [ ] Fix Madgraph create-jobs so that splitting the input csv doesnt lead to duplicates
 - [ ] Add description of how to change model type
 - [ ] Add brief description of Madgraph usage
@@ -45,8 +45,8 @@
 - [X] Add templates for different bases (i.e. hybrid, mass etc)
 - [X] Add config examples for at least two bases
 - [X] Add method for changing the basis being used in Parameterprocessor from MCMC folder with Makefile
-- [ ] Add method for changing the model type in both the template file and the parameterprocessor file from MCMC
-- [ ] Create new parameterprocessors to correspond to different higgs bases
+- [X] Add method for changing the model type in both the template file and the parameterprocessor file from MCMC
+- [X] Create new parameterprocessors to correspond to different higgs bases
 - [ ] Create workflow diagram for MCMC pipeline 
 
 # Stretch Tasks for Magellan
@@ -54,10 +54,10 @@
 - [ ] Edit auto-install file to run intial-start-up.sh and request user confirmation/input for compilers and environments
 - [ ] Look into uncoupling 2HDMC from parameter-processor in order to allow for people to use other models. This will require editing the config file for MCMC runs
 - [ ] Add future plans for Magellan to manual
-- [ ] Create some example config files
+- [X] Create some example config files
 - [ ] Add the option for the Madgraph section to keep additional files, i.e. those that would be needed for madevent etc.
 - [ ] Edit T3PS files to give functions appropriate docstrings
-- [ ] Make it so that the process to be run in madgraph is edited by the Makefile instead of the user having to go down into the templates
+- [X] Make it so that the process to be run in madgraph is edited by the Makefile instead of the user having to go down into the templates
 - [ ] Add section to create-jobs for MadGraph to work with h5f files if that is what the user chooses
 - [ ] Add usage of processing modules to get csv or hd5f output.
 - [ ] Create singularity and install ubuntu 20, Make 3.22, GCC 11.1.0, GSL 2.6, python2.7
