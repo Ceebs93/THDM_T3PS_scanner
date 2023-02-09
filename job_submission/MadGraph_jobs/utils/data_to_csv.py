@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 """
 Created on Tue Feb  9 19:34:32 2021
@@ -86,7 +86,6 @@ def dat_to_DF(Filename, Csvname):
     
     for i in range(0, len(Lines)):
         if len(Lines[i]) <= 700 :
-            #or len(Lines[i])>= 800
             print(len(Lines[i]))
             lens.append(i)
 

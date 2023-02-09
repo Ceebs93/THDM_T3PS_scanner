@@ -4,22 +4,24 @@ SHELL = /bin/sh
 ###### --- Create jobs  --- ######
 ##################################
 
-CREATE_JOB_NAME         = "CM_bgh_p2"
-CREATE_JOB_INPUT_DATA   = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph_jobs/CM_constrained.csv"
-#CREATE_JOB_CONVERT_DATA = "yes"
+CREATE_JOB_NAME         = "SL_bgh_p2"
+CREATE_JOB_INPUT_DATA   = "SL_bgh_p2.csv"
 CREATE_JOB_LOCAL        = "no"
 CREATE_JOB_SPLIT_NAME   = "split_csv_name"
 CREATE_JOB_PROCESS_NAME = "bg_twh1"
-CREATE_JOB_PROC_IN      = "bs\ g"
-CREATE_JOB_PROC_OUT     = "Ts\ ws\ h1"
-CREATE_JOB_nCores       = 4
-CREATE_JOB_nJobs        = 8
+CREATE_JOB_PROC_IN      = "Bs\ g"
+CREATE_JOB_PROC_OUT     = "Ts\ Ws\ h1"
+CREATE_JOB_nCores       = 3
+CREATE_JOB_nJobs        = 12
 CREATE_JOB_LOOPER       = "csv_looper_NC.sh"
 CREATE_JOB_Card_Editor  = "inputcard_editor2.py" 
 CREATE_JOB_BASECARD     = "basecard_type2.txt"
-CREATE_JOB_TEMPLATE     = "slurm_submission.sh"
-CREATE_JOB_RIPPER       = "Data_Ripper_typeII_template.py"
+CREATE_JOB_RIPPER       = "Data_Ripper_typeII_template_new.py"
 CREATE_JOB_LIST         = "all.jobs"
+CREATE_JOB_MGVAR1_LABEL  = "tb"
+CREATE_JOB_MGVAR2_LABEL  = "sinba"  
+CREATE_JOB_MGVAR3_LABEL  = "mH"  
+CREATE_JOB_MGVAR4_LABEL  = "mA"  
 
 
 ##################################
@@ -48,13 +50,17 @@ SUBMIT_JOB_CLUSTERTYPE = "SLURM"
 ########### --- Merge jobs - ############
 #########################################
 
-MERGE_JOB_NAME             = "NC_bghi_m"
-MERGE_JOB_PROCESS          = "bg_twhi"
-MERGE_JOB_INPUT_DATA       = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph_jobs/for_upload/missing_bgH.csv"
-MERGE_JOB_MGSIN_LABEL      = "Sbma"
-MERGE_JOB_OGSIN_LABEL      = "sinba"
-MERGE_JOB_MGTAN_LABEL      = "Tb"
-MERGE_JOB_OGTAN_LABEL      = "tb"
+MERGE_JOB_NAME         = "NC_bghi_m"
+MERGE_JOB_PROCESS      = "bg_twhi"
+MERGE_JOB_INPUT_DATA   = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph_jobs/for_upload/missing_bgH.csv"
+MERGE_JOB_MGVAR1_LABEL = ${CREATE_JOB_MGVAR1_LABEL}
+MERGE_JOB_OGVAR1_LABEL = "OGv1_label"
+MERGE_JOB_MGVAR2_LABEL = ${CREATE_JOB_MGVAR2_LABEL}  
+MERGE_JOB_OGVAR2_LABEL = "OGv2_label"  
+MERGE_JOB_MGVAR3_LABEL = ${CREATE_JOB_MGVAR3_LABEL}  
+MERGE_JOB_OGVAR3_LABEL = "OGv3_label"  
+MERGE_JOB_MGVAR4_LABEL = ${CREATE_JOB_MGVAR4_LABEL}  
+MERGE_JOB_OGVAR4_LABEL = "OGv4_label"  
 #########################################
 
 

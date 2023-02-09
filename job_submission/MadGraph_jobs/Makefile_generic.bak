@@ -1,0 +1,92 @@
+SHELL = /bin/sh
+
+##################################
+###### --- Create jobs  --- ######
+##################################
+
+CREATE_JOB_NAME          = "SL_bgA"
+CREATE_JOB_INPUT_DATA    = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph_jobs/bgA_SL.csv"
+CREATE_JOB_LOCAL         = "no"
+CREATE_JOB_SPLIT_NAME    = "split_csv_name"
+CREATE_JOB_PROCESS_NAME  = "bg_twh3"
+CREATE_JOB_PROC_IN       = "Bs\ g"
+CREATE_JOB_PROC_OUT      = "Ts\ Ws\ h3"
+CREATE_JOB_nCores        = 3
+CREATE_JOB_nJobs         = 12
+CREATE_JOB_LOOPER        = "csv_looper_NC.sh"
+CREATE_JOB_Card_Editor   = "inputcard_editor2.py" 
+CREATE_JOB_BASECARD      = "basecard_type2.txt"
+CREATE_JOB_RIPPER        = "Data_Ripper_typeII_template_new.py"
+CREATE_JOB_LIST          = "all.jobs"
+CREATE_JOB_MGVAR1_LABEL  = "MGv1_label"
+CREATE_JOB_MGVAR1_SEARCH = "OGv1_label"
+CREATE_JOB_MGVAR2_LABEL  = "MGv2_label"  
+CREATE_JOB_MGVAR2_SEARCH = "OGv2_label"  
+CREATE_JOB_MGVAR3_LABEL  = "MGv3_label"  
+CREATE_JOB_MGVAR3_SEARCH = "OGv3_label"  
+CREATE_JOB_MGVAR4_LABEL  = "MGv4_label"  
+CREATE_JOB_MGVAR4_SEARCH = "OGv4_label"  
+
+
+##################################
+##### --- Job Submission --- #####
+##################################
+
+SUBMIT_JOB_NAME        = ${CREATE_JOB_NAME}
+SUBMIT_JOB_LOCAL       = "no" 
+SUBMIT_JOB_LIST        = ${CREATE_JOB_LIST}
+SUBMIT_JOB_NODES       = "--nodes=1"
+SUBMIT_JOB_PPN         = "--ntasks-per-node=4"
+SUBMIT_JOB_TIME        = "--time=60:00:00"
+SUBMIT_JOB_SCRIPT      = "slurm_submission.sh"
+SUBMIT_JOB_CLUSTERTYPE = "SLURM"
+
+
+#For Torque jobs
+#SUBMIT_JOB_LIST        = ${CREATE_JOB_NAME}
+#SUBMIT_JOB_TAG         = "job_batch1"
+#SUBMIT_JOB_RESOURCES   = "nodes=1:ppn=8,walltime=00:30:00"
+#SUBMIT_JOB_TASK        = "job_task/job.sh"
+#SUBMIT_JOB_CLUSTERTYPE = "TORQUE"
+
+
+#########################################
+########### --- Merge jobs - ############
+#########################################
+
+MERGE_JOB_NAME         = "NC_bghi_m"
+MERGE_JOB_PROCESS      = "bg_twhi"
+MERGE_JOB_INPUT_DATA   = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph_jobs/for_upload/missing_bgH.csv"
+MERGE_JOB_MGVAR1_LABEL = "MGv1_label"
+MERGE_JOB_OGVAR1_LABEL = "OGv1_label"
+MERGE_JOB_MGVAR2_LABEL = "MGv2_label"  
+MERGE_JOB_OGVAR2_LABEL = "OGv2_label"  
+MERGE_JOB_MGVAR3_LABEL = "MGv3_label"  
+MERGE_JOB_OGVAR3_LABEL = "OGv3_label"  
+MERGE_JOB_MGVAR4_LABEL = "MGv4_label"  
+MERGE_JOB_OGVAR4_LABEL = "OGv4_label"  
+#########################################
+
+
+DECLARE_ROOT_DIR = ROOT_DIR="/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph_jobs/"
+
+VAR_CREATE_JOB    = $(shell echo '$(.VARIABLES)' |  awk -v RS=' ' '/CREATE_JOB_/' | sed 's/CREATE_JOB_//g' )
+EXPORT_CREATE_JOB = $(foreach v,$(VAR_CREATE_JOB),$(v)="$(CREATE_JOB_$(v))") $(DECLARE_ROOT_DIR)
+
+VAR_SUBMIT_JOB    = $(shell echo '$(.VARIABLES)' |  awk -v RS=' ' '/SUBMIT_JOB_/' | sed 's/SUBMIT_JOB_//g' )
+EXPORT_SUBMIT_JOB = $(foreach v,$(VAR_SUBMIT_JOB),$(v)="$(SUBMIT_JOB_$(v))") $(DECLARE_ROOT_DIR)
+
+VAR_MERGE_JOB    = $(shell echo '$(.VARIABLES)' |  awk -v RS=' ' '/MERGE_JOB_/' | sed 's/MERGE_JOB_//g' )
+EXPORT_MERGE_JOB = $(foreach v,$(VAR_MERGE_JOB),$(v)="$(MERGE_JOB_$(v))") $(DECLARE_ROOT_DIR)
+
+#########################################################
+
+create-jobs:
+	 @$(EXPORT_CREATE_JOB) ./utils/create-jobs.sh
+
+submit-jobs:
+	 @$(EXPORT_SUBMIT_JOB) ./utils/submit-jobs.sh
+
+merge-jobs:
+	 @$(EXPORT_MERGE_JOB) ./utils/merge-jobs.sh
+

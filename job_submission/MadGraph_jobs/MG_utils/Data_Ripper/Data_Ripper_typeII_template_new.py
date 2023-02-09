@@ -22,8 +22,10 @@ import pandas as pd
 # looper.sh file
 
 Process = str(sys.argv[1]) #Name of results folder
-uncomp_dir = "JOB_DIR_/" + str(Process) #Folder containing all the run data
+proc_out_dir = "JOB_DIR_/" + str(Process) #Folder containing all the run data
+
 output_dir = "JOB_DIR_" + "/Data_Files"
+paths = os.listdir(proc_out_dir)# All the different runs we need to include
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 
@@ -47,10 +49,10 @@ creates a list.
 
     uncomped_files = [] # list of zipped lhe files
     print("Data_Ripper is looking in the following places: ")
-    print(uncomp_dir)
+    print(proc_out_dir)
     print("                                                      ")
-    path_to_file = uncomp_dir + "/Events/run_01/run_01_tag_1_banner.txt"
-    path_to_lhe = uncomp_dir + "/Events/run_01/unweighted_events.lhe.gz"
+    path_to_file = proc_out_dir + "/Events/run_01/run_01_tag_1_banner.txt"
+    path_to_lhe = proc_out_dir + "/Events/run_01/unweighted_events.lhe.gz"
 
     if os.path.exists(path_to_file) and os.path.exists(path_to_lhe) :
         print("Banner-path found")
@@ -200,58 +202,21 @@ def Xtrctd_values(file_set, searchstring, pos, Multi=True):
 
     return(xtrctd_vals)
 ##################################################################################
-
-###############################################################################
-def Xsection_values(file_set):
-    """
-    Takes the cross-section and errors from MadGraph output files
     
-    Parameters
-    ----------
-    file_set : list
-        a list of paths to data files the user wishes to extract values from
+File_List = get_uncomp_file(proc_out_dir)
 
-    Returns
-    -------
-    X_section : list
-        a list of cross-section values in pb (as this is MadGraph's output
-        unit)
-    """
-
-    X_Section = list()
-
-    for a_file in file_set:
-        if os.path.isfile(a_file):
-            with open(a_file,'r') as data_file:
-                # open the current file in the list and read each line
-                lines = data_file.readlines()
-                for line in lines:
-                    if '#  Integrated weight (pb)  :' in line:
-                        # find line with cross-section and add value to list
-                        temp_line_holder = line.split()
-			print("Found x_section=" + str(temp_line_holder[5]))
-                        X_Section.append(temp_line_holder[5])
-                    else:
-                        continue
-        
-    return(X_Section)
-###############################################################################    
-    
-File_List = get_uncomp_file(uncomp_dir)
-
-print("Data_Ripper will look for sin and tan values in: " + str(uncomp_dir))
+print("Data_Ripper will look for sin and tan values in: " + str(proc_out_dir))
 print("                                     ")
-
-# creating lists of tan, sin and x-section values
-#listylist =[ ['one',1, 2, 3], ['two', 4, 5, 6], ['three', 7, 8, 9]]
-Tb_list, Sbma_list = variable_values(File_List, Multi=False)
 
 # The strings here will be used to find the values for each variable, make sure
 # to change them if you are looking for something else
+Tb_list = Xtrctd_values(File_List, '# tanbeta', 1, Multi=False)
+Sbma_list = Xtrctd_values(File_List, '# sinbma', 1, Multi=False)
 H_mass = Xtrctd_values(File_List, "# mh2", 1, Multi=False)
 A_mass = Xtrctd_values(File_List, "# mh3", 1, Multi=False)
 Hp_mass = Xtrctd_values(File_List, "# mhc", 1, Multi=False)
-X_sections = Xsection_values(File_List, Multi=False)
+X_sections = Xsection_values(File_List, '#  Integrated weight (pb)  :', 5,
+             Multi=False)
 
 # Changing our variable lists to arrays
 tb = np.array(Tb_list)

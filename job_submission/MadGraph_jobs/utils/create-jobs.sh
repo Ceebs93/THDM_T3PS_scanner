@@ -1,23 +1,28 @@
 #!/bin/bash
 
+echo -e "I've started create-jobs.sh"
+
 # - Display information
 echo -e "./utils/create-jobs.sh called\n"
-echo -e "####################"
-echo -e "NAME:         ${NAME}"
-echo -e "INPUT_DATA:   ${INPUT_DATA}"
-echo -e "LOCAL:        ${LOCAL}"
-echo -e "SPLIT_NAME:   ${SPLIT_NAME}"
-echo -e "PROCESS_NAME: ${PROCESS_NAME}"
-echo -e "PROC_IN:      ${PROC_IN}"
-echo -e "PROC_OUT:     ${PROC_OUT}"
-echo -e "nJobs:        ${nJobs}"
-echo -e "ROOT_DIR:     ${ROOT_DIR}"
-echo -e "LOOPER:       ${LOOPER}"
-echo -e "Card_Editor:  ${Card_Editor}"
-echo -e "BASECARD:     ${BASECARD}"
-echo -e "TEMPLATE:     ${TEMPLATE}"
-echo -e "RIPPER:       ${RIPPER}"
-echo -e "####################"
+echo -e "###############################"
+echo -e "NAME:          ${NAME}"
+echo -e "INPUT_DATA:    ${INPUT_DATA}"
+echo -e "LOCAL:         ${LOCAL}"
+echo -e "SPLIT_NAME:    ${SPLIT_NAME}"
+echo -e "PROCESS_NAME:  ${PROCESS_NAME}"
+echo -e "PROC_IN:       ${PROC_IN}"
+echo -e "PROC_OUT:      ${PROC_OUT}"
+echo -e "nJobs:         ${nJobs}"
+echo -e "ROOT_DIR:      ${ROOT_DIR}"
+echo -e "LOOPER:        ${LOOPER}"
+echo -e "Card_Editor:   ${Card_Editor}"
+echo -e "BASECARD:      ${BASECARD}"
+echo -e "RIPPER:        ${RIPPER}"
+echo -e "MGVAR1_LABEL:  ${MGv1_label}"
+echo -e "MGVAR2_LABEL:  ${MGv2_label}"  
+echo -e "MGVAR3_LABEL:  ${MGv3_label}"  
+echo -e "MGVAR4_LABEL:  ${MGv4_label}"  
+echo -e "##############################"
 
 JOB_PROJECT_DIR=${ROOT_DIR}jobs/${NAME}
 
@@ -51,6 +56,10 @@ if [ ${LOCAL} == "yes" ]; then
 	cp ${ROOT_DIR}/MG_utils/Data_Ripper/${RIPPER} ${JOB_DIR}/Data_Ripper.py
    sed -i "s;JOB_DIR_;${JOB_DIR};g" ${JOB_DIR}/Data_Ripper.py
    sed -i "s;RESULTS_;${RESULTS};g" ${JOB_DIR}/Data_Ripper.py
+   sed -i "s;MGVAR1_LABEL_;${MGVAR1_LABEL};g" ${JOB_DIR}/Data_Ripper.py
+   sed -i "s;MGVAR2_LABEL_;${MGVAR2_LABEL};g" ${JOB_DIR}/Data_Ripper.py
+   sed -i "s;MGVAR3_LABEL_;${MGVAR3_LABEL};g" ${JOB_DIR}/Data_Ripper.py
+   sed -i "s;MGVAR4_LABEL_;${MGVAR4_LABEL};g" ${JOB_DIR}/Data_Ripper.py
 
 	# - Creating and editing 'basecard' for MadGraph runs
 	cp ${ROOT_DIR}MG_utils/mg_runcards/${BASECARD} ${JOB_DIR}/${BASECARD}
@@ -119,11 +128,12 @@ else
         # csves, and to avoid repeating an unnessecary split when we want the same parameters for a new process.
 	for ((i=0;i<${nJobs};i++));
 	do
+		echo ${i}
+		id=$(printf "%d" $i)
+		echo ${id}
+		JOB_DIR=${ROOT_DIR}jobs/${NAME}/job_0${id}
+		mkdir -p ${JOB_DIR}	
 
-		id=$(printf "%03d" ${i})
-		JOB_DIR=${ROOT_DIR}jobs/${NAME}/job_${id}
-		mkdir -p ${JOB_DIR}
-	
 		RESULTS=${JOB_DIR}/results/	
 		mkdir -p ${RESULTS}
 		CSV_NAME="${csv_array[${id}]}"
@@ -144,6 +154,10 @@ else
 		cp ${ROOT_DIR}/MG_utils/Data_Ripper/${RIPPER} ${JOB_DIR}/Data_Ripper.py
    	   sed -i "s;JOB_DIR_;${JOB_DIR};g" ${JOB_DIR}/Data_Ripper.py
    	   sed -i "s;RESULTS_;${RESULTS};g" ${JOB_DIR}/Data_Ripper.py
+   	   sed -i "s;MGVAR1_LABEL_;${MGVAR1_LABEL};g" ${JOB_DIR}/Data_Ripper.py
+   	   sed -i "s;MGVAR2_LABEL_;${MGVAR2_LABEL};g" ${JOB_DIR}/Data_Ripper.py
+   	   sed -i "s;MGVAR3_LABEL_;${MGVAR3_LABEL};g" ${JOB_DIR}/Data_Ripper.py
+   	   sed -i "s;MGVAR4_LABEL_;${MGVAR4_LABEL};g" ${JOB_DIR}/Data_Ripper.py
 
 
 		# - Creating and editing 'basecard' for MadGraph runs
@@ -171,8 +185,8 @@ else
 	   sed -i "s;RESULTS_;${RESULTS};g" ${LOOPERPATH}
 
 	# - Creating and editing the submission script 
-		cp ${ROOT_DIR}MG_utils/submission_script/${TEMPLATE} ${JOB_DIR}/${TEMPLATE}
-   	   sed -i "s;LOOPER_;${LOOPERPATH};g" ${JOB_DIR}/${TEMPLATE}
+		cp ${ROOT_DIR}MG_utils/submission_script/slurm_submission.sh ${JOB_DIR}/slurm_submission.sh
+   	   sed -i "s;LOOPER_;${LOOPERPATH};g" ${JOB_DIR}/slurm_submission.sh
 
 		echo "${JOB_DIR}" >> ${ROOT_DIR}/jobs/${NAME}/${LIST}
 

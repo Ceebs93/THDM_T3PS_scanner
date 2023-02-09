@@ -14,7 +14,8 @@ import sys
 from scipy import stats
 
 #I inherit the following variables from merge-jobs.sh:
-# X_SECT_COL_
+# X_SECT_COL_ MG_VAR1_LABEL_  OG_VAR1_LABEL_  MG_VAR2_LABEL_  OG_VAR2_LABEL_ 
+# MG_VAR3_LABEL_  OG_VAR3_LABEL_ 
 
 # This file will inherit values via 'sys.argv' from the corresponding
 # looper.sh file
@@ -65,70 +66,62 @@ def add_xsect(Filename, Chkdfile):
     MG_df = MG_df.drop_duplicates()
        
     # Reading in multiple columns from the original csv file to lists 
-    if NEW_COL_STR_ not in data_base.columns:
+    if X_SECT_COL_ not in data_base.columns:
         L = len(data_base)
         new_col = np.zeroes(L)
-        data_base[NEW_COL_STR_] = new_col
+        data_base[X_SECT_COL_] = new_col
 
     else:
         continue
         
-    main_in = data_base.[NEW_COL_STR_].tolist()
-    main_tb = data_base.tb.tolist()
-    main_tb = np.array(main_tb)
-    main_tb = np.around(main_tb, decimals=4)
-    main_sinba = data_base.sinba.tolist()
-    main_sinba = np.array(main_sinba)
-    main_sinba = np.around(main_sinba, decimals=5)
-    main_mH = data_base.mH.tolist()
-    main_mH = np.array(main_mH)
-    main_mH = np.around(main_mH, decimals=3)
-    main_mHc = data_base.mHc.tolist()
-    main_mHc = np.array(main_mHc)
-    main_mHc = np.around(main_mHc, decimals=3)
+    main_in = data_base.[X_SECT_COL_].tolist()
+    main_OG_VAR1_LABEL_ = data_base.OG_VAR1_LABEL_.tolist()
+    main_OG_VAR1_LABEL_ = np.array(main_OG_VAR1_LABEL_ )
+    main_OG_VAR2_LABEL_ = data_base.OG_VAR2_LABEL_.tolist()
+    main_OG_VAR2_LABEL_ = np.array(main_OG_VAR2_LABEL_)
+    main_OG_VAR3_LABEL_ = data_base.OG_VAR3_LABEL_.tolist()
+    main_OG_VAR3_LABEL_ = np.array(main_OG_VAR3_LABEL_)
+    main_OG_VAR4_LABEL_ = data_base.OG_VAR4_LABEL_.tolist()
+    main_OG_VAR4_LABEL_ = np.array(main_OG_VAR4_LABEL_)
         
     # Reading in multiple columns from the new csv file to lists
     new_in = MG_df.X_sections.tolist()
-    new_tb = MG_df.Tb.tolist()
-    new_tb = np.array(new_tb)
-    new_tb = np.around(new_tb, decimals=4)
-    new_sinba = MG_df.sinba.tolist()
-    new_sinba = np.array(new_sinba)
-    new_sinba = np.around(new_sinba, decimals=5)
-    new_mH = MG_df.mH.tolist()
-    new_mH = np.array(new_mH)
-    new_mH = np.around(new_mH, decimals=3)
-    new_mHc = MG_df.mHp.tolist()
-    new_mHc = np.array(new_mHc)
-    new_mHc = np.around(new_mHc, decimals=3)
+    new_MG_VAR1_LABEL_ = MG_df.MG_VAR1_LABEL_.tolist()
+    new_MG_VAR1_LABEL_ = np.array(new_MG_VAR1_LABEL_ )
+    new_MG_VAR2_LABEL_ = MG_df.MG_VAR2_LABEL_.tolist()
+    new_MG_VAR2_LABEL_ = np.array(new_MG_VAR2_LABEL_)
+    new_MG_VAR3_LABEL_ = MG_df.MG_VAR3_LABEL_.tolist()
+    new_MG_VAR3_LABEL_ = np.array(new_MG_VAR3_LABEL_)
+    new_MG_VAR4_LABEL_ = MG_df.MG_VAR4_LABEL_.tolist()
+    new_MG_VAR4_LABEL_ = np.array(new_MG_VAR4_LABEL_)
     
     for i in range(0,len(new_in)):
-        if new_tb[i] in main_tb:
-            #print(new_tb[i])
-            tan_index = np.where(main_tb == new_tb[i])
-            tan_index = tan_index[0][0]
+        if new_MG_VAR1_LABEL[i] in main_OG_VAR1_LABEL:
+            #print(new_MG_VAR1_LABEL[i])
+            var1_index = np.where(main_OG_VAR1_LABEL_ == new_MG_VAR1_LABEL[i])
+            var1_index = var1_index[0][0]
 
-            if new_mH[i] in main_mH:
-                #print(new_mH[i],"I found this mass!")
-                mH_index = np.where(main_mH == new_mH[i])
-                mH_index = mH_index[0][0]
+            if new_MG_VAR3_LABEL_[i] in main_OG_VAR3_LABEL_:
+                #print(new_MG_VAR3_LABEL_[i],"I found this mass!")
+                var3_index = np.where(main_OG_VAR3_LABEL_ == new_MG_VAR3_LABEL_[i])
+                var3_index = var3_index[0][0]
 
-                if mH_index != tan_index:
+                if var3_index != var1_index:
                     print("mass was for a different point")
                     continue
-                elif new_sinba[i] == main_sinba[mH_index]:
+                elif new_MG_VAR2_LABEL_[i] == main_OG_VAR2_LABEL_[var3_index]:
 
-                    if new_mHc[i] == main_mHc[mH_index]:
-                        main_in[mH_index] = new_in[i]
+                    if new_MG_VAR4_LABEL_[i] == main_OG_VAR4_LABEL_[var3_index]:
+                        main_in[var3_index] = new_in[i]
                         print("success!")
                     else:
-                        print("mHc didn't match")
+                        print("var4 index didn't match")
                         continue
                 else:
-                    print("mass was correct but sin value wasn't")
+                    print("var3 was correct but var2 wasn't")
                     continue
     
-    data_base[NEW_COL_STR_] = main_in
+    data_base[X_SECT_COL_] = main_in
     
     # These lines remove duplicates and any rows with missing entries
     combi_df.dropna()
