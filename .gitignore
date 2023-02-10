@@ -29,8 +29,6 @@ packages/2HDMC-1.8.0/SLHA_storage
 *bin/
 packages/HiggsBounds-5.10.1/build
 packages/HiggsSignals-2.6.2/build
-links/inc/
-links/lib/
 MCMC/job_submission/tests/
 2HDM-Processor/*.txt
 2HDM-Processor/*.dat
