@@ -71,25 +71,25 @@ make
 ### --- LHAPDF --- ###
 ######################
 
-LHAPDF_folder_name=LHAPDF-6.2.1
-LHAPDF_pkg_path=${THDM_T3PS_SCANNER_DIR}/packages/${LHAPDF_folder_name}
-LHAPDF_pkg_build_path=${THDM_T3PS_SCANNER_DIR}/packages/${LHAPDF_folder_name}_build
-
-echo -e "\n\n\n"
-echo "############################################################"
-echo "### --- Attempting to install ${LHAPDF_folder_name} --- ####"
-echo "############################################################"
-echo ""
-echo "cd ${LHAPDF_pkg_path}"
-echo "./configure --prefix=${LHAPDF_pkg_path}"
-echo "make"
-echo "make install"
-
-mkdir -p ${LHAPDF_pkg_build_path}
-cd ${LHAPDF_pkg_path}
-./configure --prefix=${LHAPDF_pkg_build_path}
-make
-make install
+#LHAPDF_folder_name=LHAPDF-6.2.1
+#LHAPDF_pkg_path=${THDM_T3PS_SCANNER_DIR}/packages/${LHAPDF_folder_name}
+#LHAPDF_pkg_build_path=${THDM_T3PS_SCANNER_DIR}/packages/${LHAPDF_folder_name}_build
+#
+#echo -e "\n\n\n"
+#echo "############################################################"
+#echo "### --- Attempting to install ${LHAPDF_folder_name} --- ####"
+#echo "############################################################"
+#echo ""
+#echo "cd ${LHAPDF_pkg_path}"
+#echo "./configure --prefix=${LHAPDF_pkg_path}"
+#echo "make"
+#echo "make install"
+#
+#mkdir -p ${LHAPDF_pkg_build_path}
+#cd ${LHAPDF_pkg_path}
+#./configure --prefix=${LHAPDF_pkg_build_path}
+#make
+#make install
 
 
 #####################

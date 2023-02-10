@@ -33,9 +33,9 @@ echo -e "Setting up symbolic links"
 echo -e "./utils/setup_links.sh"
 ./utils/setup_links.sh
 
-echo -e ""
-echo -e "Compiling ParameterPointProcessor binary"
-echo -e "cd ParameterPointProcessor"
-echo -e "make"
-cd ParameterPointProcessor
-make
+#echo -e ""
+#echo -e "Compiling ParameterPointProcessor binary"
+#echo -e "cd ParameterPointProcessor"
+#echo -e "make"
+#cd ParameterPointProcessor
+#make
