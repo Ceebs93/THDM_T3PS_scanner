@@ -1,10 +1,10 @@
-include utils/settings.mk
+include settings.mk
 
 # This file will only work if 'control_file.sh' has been run to set variables for the user in 'utils/settings.mk'. 'control_file.sh' will overwrite 'settings.mk' on every use.
 
-###############################################################
+################################################################
 
-DECLARE_ROOT_DIR = ROOT_DIR="/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MCMC"
+DECLARE_ROOT_DIR = ROOT_DIR="/home/cb27g11/Development/THDM_T3PS_scanner/job_submission/MCMC"
 
 VAR_CREATE_JOB    = $(shell echo '$(.VARIABLES)' |  awk -v RS=' ' '/CREATE_JOB_/' | sed 's/CREATE_JOB_//g' )
 EXPORT_CREATE_JOB = $(foreach v,$(VAR_CREATE_JOB),$(v)="$(CREATE_JOB_$(v))") $(DECLARE_ROOT_DIR)

@@ -4215,7 +4215,7 @@ elif mode == MODE_SCAN:
                             f.write("\n")
 
 #Added by Ciara
-                    with open("/scratch/cb27g11/THDM_T3PS_scanner/save.data", "a") as f:
+                    with open("/home/cb27g11/Development/THDM_T3PS_scanner/save.data", "a") as f:
                         for row in data_rows:
                             f.write("\t".join(row))
                             f.write("\n")
@@ -4401,7 +4401,7 @@ elif mode == MODE_MCMC:
     chain_seeds = [random.random() for i in range(chain_count)]
 #Ciara changed here:
     #with TemporaryDirectory() as chain_status_dir, ConfirmedExitOnInterrupt():
-    with /scratch/cb27g11/THDM_T3PS_scanner/chain_status_dir as chain_status_dir, ConfirmedExitOnInterrupt():
+    with /home/cb27g11/Development/THDM_T3PS_scanner/chain_status_dir as chain_status_dir, ConfirmedExitOnInterrupt():
         # MCMC mode does not use process_batch but rather its pool directly
         #   calling map_async instead of calculate_items or process_batch or
         #   process_item
