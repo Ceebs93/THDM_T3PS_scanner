@@ -1,0 +1,60 @@
+#************************************************************
+#*                     MadGraph5_aMC@NLO                    *
+#*                                                          *
+#*                *                       *                 *
+#*                  *        * *        *                   *
+#*                    * * * * 5 * * * *                     *
+#*                  *        * *        *                   *
+#*                *                       *                 *
+#*                                                          *
+#*                                                          *
+#*         VERSION 3.1.0                 2021-03-30         *
+#*                                                          *
+#*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+#*    https://server06.fynu.ucl.ac.be/projects/madgraph     *
+#*                                                          *
+#************************************************************
+#*                                                          *
+#*               Command File for MadGraph5_aMC@NLO         *
+#*                                                          *
+#*     run as ./bin/mg5_aMC  filename                       *
+#*                                                          *
+#*     Uses Type2 2HDM model 2HDMtII_NLO                    *
+#************************************************************
+set group_subprocesses Auto
+set ignore_six_quark_processes False
+set max_t_for_channel 99
+set loop_optimized_output True
+set low_mem_multicore_nlo_generation False
+set default_unset_couplings 99
+set include_lepton_initiated_processes False
+set zerowidth_tchannel True
+set nlo_mixed_expansion True
+set loop_color_flows False
+set gauge unitary
+set complex_mass_scheme False
+set max_npoint_for_channel 0
+import model sm
+define p = g u c d s u~ c~ d~ s~
+define j = g u c d s u~ c~ d~ s~
+define l+ = e+ mu+
+define l- = e- mu-
+define vl = ve vm vt
+define vl~ = ve~ vm~ vt~
+import model /scratch/cb27g11/THDM_T3PS_scanner/packages/MG5_aMC_v3_1_0/models/2HDMtII_NLO
+define Ws = w+ w-
+define Bs = b b~
+define Ts = t t~
+generate PROCESS_
+output NAME
+launch NAME
+    3	
+    done
+    set param_card frblock 1 TBV   #tan(beta) value
+    set param_card frblock 2 SBMAV #sin(beta-alpha) value
+    set param_card mass 35 HMV     #H mass value
+    set param_card mass 36 AMV     #A mass value
+    set param_card mass 37 HCMV    #charged higgs mass value
+    set ebeam1 6800
+    set ebeam2 6800	
+    done

@@ -4,17 +4,17 @@ SHELL = /bin/sh
 ###### --- Create jobs  --- ######
 ##################################
 
-CREATE_JOB_NAME         = "SL_bgh_p2"
-CREATE_JOB_INPUT_DATA   = "SL_bgh_p2.csv"
+CREATE_JOB_NAME         = "SL_bgh_p3"
+CREATE_JOB_INPUT_DATA   = "SL_bgh_p3.csv"
 CREATE_JOB_LOCAL        = "no"
 CREATE_JOB_SPLIT_NAME   = "split_csv_name"
 CREATE_JOB_PROCESS_NAME = "bg_twh1"
 CREATE_JOB_PROC_IN      = "Bs\ g"
 CREATE_JOB_PROC_OUT     = "Ts\ Ws\ h1"
-CREATE_JOB_nCores       = 3
-CREATE_JOB_nJobs        = 12
+CREATE_JOB_nCores       = 2
+CREATE_JOB_nJobs        = 8
 CREATE_JOB_LOOPER       = "csv_looper_NC.sh"
-CREATE_JOB_Card_Editor  = "inputcard_editor2.py" 
+CREATE_JOB_Card_Editor  = "proccard_editor2.py" 
 CREATE_JOB_BASECARD     = "basecard_type2.txt"
 CREATE_JOB_RIPPER       = "Data_Ripper_typeII_template_new.py"
 CREATE_JOB_LIST         = "all.jobs"

@@ -88,7 +88,7 @@ def make_input(Tanb, Sinbma, Hcpm, datatext, procname):
     with open(runcardpath, 'w') as new_card:
         #simulation card, the .txt file that gets fed to madgraph
         print(runcardpath)
-
+#need to edit this to take whatever variable it is you're varying. A for loop over a pair of lists, one of the strings to replace, the other with the variables containing their values
         sim_card = datatext.replace('TBV', str(Tanb))
         sim_card = sim_card.replace('SBMAV', str(Sinbma))
         sim_card = sim_card.replace('HMV', str(Hm))

@@ -1,5 +1,5 @@
-../lib/ParameterScan_T3PS_with_HB_HS_higgs_FAST.cpp.o: \
- ParameterScan_T3PS_with_HB_HS_higgs.cpp \
+../lib/ParameterScan_T3PS_with_HB_HS_phys_FAST.cpp.o: \
+ ParameterScan_T3PS_with_HB_HS_phys.cpp \
  /scratch/cb27g11/THDM_T3PS_scanner/links/inc/2HDMC/THDM.h \
  /scratch/cb27g11/THDM_T3PS_scanner/links/inc/2HDMC/SM.h \
  /local/software/gsl/2.6/include/gsl/gsl_matrix.h \

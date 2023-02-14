@@ -42,8 +42,8 @@ if [ ${LOCAL} == "yes" ]; then
 
 	echo -e ${CSV_NAME}
 
-	# - Creating and editing 'input_editor' script which will input the different values of variables into the MadGraph runcards.
-	cp ${ROOT_DIR}MG_utils/inputcard_editor/${Card_Editor} ${JOB_DIR}/${Card_Editor}
+	# - Creating and editing 'proccard_editor' script which will input the different values of variables into the MadGraph proccards.
+	cp ${ROOT_DIR}MG_utils/proccard_editor/${Card_Editor} ${JOB_DIR}/${Card_Editor}
    sed -i "s;CARD_EDITOR_;${ROOT_DIR};g" ${JOB_DIR}/${Card_Editor}
    sed -i "s;JOB_PROJECT_DIR;${JOB_PROJECT_DIR};g" ${JOB_DIR}/${Card_Editor}
    sed -i "s;RESULTS_;${RESULTS};g" ${JOB_DIR}/${Card_Editor}
@@ -62,7 +62,7 @@ if [ ${LOCAL} == "yes" ]; then
    sed -i "s;MGVAR4_LABEL_;${MGVAR4_LABEL};g" ${JOB_DIR}/Data_Ripper.py
 
 	# - Creating and editing 'basecard' for MadGraph runs
-	cp ${ROOT_DIR}MG_utils/mg_runcards/${BASECARD} ${JOB_DIR}/${BASECARD}
+	cp ${ROOT_DIR}MG_utils/mg_proccards/${BASECARD} ${JOB_DIR}/${BASECARD}
 	BASECARDPATH=${JOB_DIR}/${BASECARD}
    sed -i "s;SCANNER_DIR_;${THDM_T3PS_SCANNER_DIR}/packages/;g" ${BASECARDPATH}
    sed -i "s;proc_in_;${PROC_IN};g" ${BASECARDPATH}
@@ -79,7 +79,7 @@ if [ ${LOCAL} == "yes" ]; then
    sed -i "s;JOB_DIR_;${JOB_DIR};g" ${LOOPERPATH}
    sed -i "s;JOB_PROJECT_DIR_;${JOB_PROJECT_DIR};g" ${LOOPERPATH}
    sed -i "s;ROOT_DIR_;${ROOT_DIR};g" ${LOOPERPATH}
-   sed -i "s;RUNCARD_;${JOB_DIR}/runcard.txt;g" ${LOOPERPATH}
+   sed -i "s;PROCCARD_;${JOB_DIR}/proccard.txt;g" ${LOOPERPATH}
    sed -i "s;DATA_RIPPER_VERSION_;${JOB_DIR}/Data_Ripper.py;g" ${LOOPERPATH}
    sed -i "s;RESULTS_;${RESULTS};g" ${LOOPERPATH}
 
@@ -140,8 +140,8 @@ else
 		echo ${CSV_NAME}
 
 
-		# - Creating and editing 'input_editor' script which will input the different values of variables into the MadGraph runcards.
-		cp ${ROOT_DIR}MG_utils/inputcard_editor/${Card_Editor} ${JOB_DIR}/${Card_Editor}
+		# - Creating and editing 'proccard_editor' script which will input the different values of variables into the MadGraph proccards.
+		cp ${ROOT_DIR}MG_utils/proccard_editor/${Card_Editor} ${JOB_DIR}/${Card_Editor}
    	   sed -i "s;CARD_EDITOR_;${ROOT_DIR};g" ${JOB_DIR}/${Card_Editor}
    	   sed -i "s;JOB_PROJECT_DIR;${JOB_PROJECT_DIR};g" ${JOB_DIR}/${Card_Editor}
 	   sed -i "s;RESULTS_;${RESULTS};g" ${JOB_DIR}/${Card_Editor}
@@ -161,7 +161,7 @@ else
 
 
 		# - Creating and editing 'basecard' for MadGraph runs
-		cp ${ROOT_DIR}MG_utils/mg_runcards/${BASECARD} ${JOB_DIR}/${BASECARD}
+		cp ${ROOT_DIR}MG_utils/mg_proccards/${BASECARD} ${JOB_DIR}/${BASECARD}
 		BASECARDPATH=${JOB_DIR}/${BASECARD}
    	   sed -i "s;SCANNER_DIR_;${THDM_T3PS_SCANNER_DIR}/packages/;g" ${BASECARDPATH}
 	   sed -i "s;proc_in_;${PROC_IN};g" ${BASECARDPATH}
@@ -180,7 +180,7 @@ else
    	   sed -i "s;JOB_DIR_;${JOB_DIR};g" ${LOOPERPATH}
    	   sed -i "s;JOB_PROJECT_DIR_;${JOB_PROJECT_DIR};g" ${LOOPERPATH}
    	   sed -i "s;ROOT_DIR_;${ROOT_DIR};g" ${LOOPERPATH}
-   	   sed -i "s;RUNCARD_;${JOB_DIR}/runcard.txt;g" ${LOOPERPATH}
+   	   sed -i "s;PROCCARD_;${JOB_DIR}/proccard.txt;g" ${LOOPERPATH}
    	   sed -i "s;DATA_RIPPER_VERSION_;${JOB_DIR}/Data_Ripper.py;g" ${LOOPERPATH}
 	   sed -i "s;RESULTS_;${RESULTS};g" ${LOOPERPATH}
 

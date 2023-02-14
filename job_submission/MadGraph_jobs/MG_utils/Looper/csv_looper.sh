@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#I inherit the following variables from create-jobs.sh: CSV_NAME_ PROCESS_ BASECARD_ RUNCARD_ CARD_EDITOR_ ROOT_DIR_ JOB_PROJECT_DIR_ JOB_DIR_ DATA_RIPPER_VERSION_ RESULTS_
+#I inherit the following variables from create-jobs.sh: CSV_NAME_ PROCESS_ BASECARD_ PROCCARD_ CARD_EDITOR_ ROOT_DIR_ JOB_PROJECT_DIR_ JOB_DIR_ DATA_RIPPER_VERSION_ RESULTS_
 
 COUNT=0
 extractions=0
@@ -18,9 +18,9 @@ extractions=0
 		COUNT=$(( $COUNT + 1 ))
 		echo "Line number is: " ${COUNT}
 
-                python CARD_EDITOR_ $mH $mHc $mA "BASECARD_" "RUNCARD_" $tb $sinba "PROCESS_" "RESULTS_" # Here we run, and pass variables to, the inputcard editor. This edits the inputcard for MadGraph
+                python CARD_EDITOR_ $mH $mHc $mA "BASECARD_" "PROCCARD_" $tb $sinba "PROCESS_" "RESULTS_" # Here we run, and pass variables to, the proccard editor. This edits the proccard for MadGraph
 
-                python ${THDM_T3PS_SCANNER_DIR}/packages/MG5_aMC_v3_1_0/bin/mg5_aMC RUNCARD_ # Here we run MG with the edited inputcard
+                python ${THDM_T3PS_SCANNER_DIR}/packages/MG5_aMC_v3_1_0/bin/mg5_aMC PROCCARD_ # Here we run MG with the edited proccard
 
 		mov_d=$(echo PROCESS__${tb})
 		mov_dirs=$(echo ${mov_d}_${sinba})
