@@ -4,13 +4,12 @@ SHELL = /bin/sh
 ###### --- Create jobs  --- ######
 ##################################
 
-CREATE_JOB_NAME         = "SL_bgh_p3"
+CREATE_JOB_NAME         = "testytest"
 CREATE_JOB_INPUT_DATA   = "SL_bgh_p3.csv"
 CREATE_JOB_LOCAL        = "no"
 CREATE_JOB_SPLIT_NAME   = "split_csv_name"
 CREATE_JOB_PROCESS_NAME = "bg_twh1"
-CREATE_JOB_PROC_IN      = "Bs\ g"
-CREATE_JOB_PROC_OUT     = "Ts\ Ws\ h1"
+CREATE_JOB_PROCESS      = "Bs\ g\ \>\ Ts\ Ws\ h1"
 CREATE_JOB_nCores       = 2
 CREATE_JOB_nJobs        = 8
 CREATE_JOB_LOOPER       = "csv_looper_NC.sh"
@@ -78,11 +77,11 @@ EXPORT_MERGE_JOB = $(foreach v,$(VAR_MERGE_JOB),$(v)="$(MERGE_JOB_$(v))") $(DECL
 #########################################################
 
 create-jobs:
-	 @$(EXPORT_CREATE_JOB) ./utils/create-jobs.sh
+	@$(EXPORT_CREATE_JOB) ./utils/create-jobs.sh
 
 submit-jobs:
-	 @$(EXPORT_SUBMIT_JOB) ./utils/submit-jobs.sh
+	@$(EXPORT_SUBMIT_JOB) ./utils/submit-jobs.sh
 
 merge-jobs:
-	 @$(EXPORT_MERGE_JOB) ./utils/merge-jobs.sh
+	@$(EXPORT_MERGE_JOB) ./utils/merge-jobs.sh
 

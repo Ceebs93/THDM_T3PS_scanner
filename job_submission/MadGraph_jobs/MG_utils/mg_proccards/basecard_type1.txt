@@ -42,7 +42,7 @@ define h_i = h1 h2 h3
 define Bs = b b~
 define Ts = t t~
 define Ws = w+ w-
-generate proc_in_ > proc_out_
+generate process_
 output NAME
 launch NAME
     3	

@@ -10,8 +10,7 @@ echo -e "INPUT_DATA:    ${INPUT_DATA}"
 echo -e "LOCAL:         ${LOCAL}"
 echo -e "SPLIT_NAME:    ${SPLIT_NAME}"
 echo -e "PROCESS_NAME:  ${PROCESS_NAME}"
-echo -e "PROC_IN:       ${PROC_IN}"
-echo -e "PROC_OUT:      ${PROC_OUT}"
+echo -e "PROCESS:       ${PROCESS}"
 echo -e "nJobs:         ${nJobs}"
 echo -e "ROOT_DIR:      ${ROOT_DIR}"
 echo -e "LOOPER:        ${LOOPER}"
@@ -65,7 +64,7 @@ if [ ${LOCAL} == "yes" ]; then
 	cp ${ROOT_DIR}MG_utils/mg_proccards/${BASECARD} ${JOB_DIR}/${BASECARD}
 	BASECARDPATH=${JOB_DIR}/${BASECARD}
    sed -i "s;SCANNER_DIR_;${THDM_T3PS_SCANNER_DIR}/packages/;g" ${BASECARDPATH}
-   sed -i "s;proc_in_;${PROC_IN};g" ${BASECARDPATH}
+   sed -i "s;process_;${PROCESS};g" ${BASECARDPATH}
 
 	# - Creating and editing the 'looper' file which will control the reading and feeding of a data csv to Madgraph
 	cp ${ROOT_DIR}MG_utils/Looper/${LOOPER} ${JOB_DIR}/csv_looper.sh
@@ -164,8 +163,7 @@ else
 		cp ${ROOT_DIR}MG_utils/mg_proccards/${BASECARD} ${JOB_DIR}/${BASECARD}
 		BASECARDPATH=${JOB_DIR}/${BASECARD}
    	   sed -i "s;SCANNER_DIR_;${THDM_T3PS_SCANNER_DIR}/packages/;g" ${BASECARDPATH}
-	   sed -i "s;proc_in_;${PROC_IN};g" ${BASECARDPATH}
-	   sed -i "s;proc_out_;${PROC_OUT};g" ${BASECARDPATH}
+	   sed -i "s;process_;${PROCESS};g" ${BASECARDPATH}
 
 		# - Creating and editing the 'looper' file which will control the reading and feeding of a data csv to Madgraph
 		cp ${ROOT_DIR}MG_utils/Looper/${LOOPER} ${JOB_DIR}/csv_looper.sh

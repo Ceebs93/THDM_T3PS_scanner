@@ -1,0 +1,52 @@
+I've started create-jobs.sh
+./utils/create-jobs.sh called
+
+###############################
+NAME:          testytest
+INPUT_DATA:    SL_bgh_p3.csv
+LOCAL:         no
+SPLIT_NAME:    split_csv_name
+PROCESS_NAME:  bg_twh1
+PROCESS:       Bs g 
+PROC_OUT:      
+nJobs:         8
+ROOT_DIR:      /scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph_jobs/
+LOOPER:        csv_looper_NC.sh
+Card_Editor:   proccard_editor2.py 
+BASECARD:      basecard_type2.txt
+RIPPER:        Data_Ripper_typeII_template_new.py
+MGVAR1_LABEL:  
+MGVAR2_LABEL:  
+MGVAR3_LABEL:  
+MGVAR4_LABEL:  
+##############################
+nPts:       1253
+nPts:       1252
+nPts:       1252
+nPtsPerJob: 156
+7
+split_aa split_ab split_ac split_ad split_ae split_af split_ag split_ah split_ai
+0
+0
+split_aa
+1
+1
+split_ab
+2
+2
+split_ac
+3
+3
+split_ad
+4
+4
+split_ae
+5
+5
+split_af
+6
+6
+split_ag
+7
+7
+split_ah

@@ -28,7 +28,7 @@ LIB_HBHS=lib2HDMC_HBHS.a
 LDFLAGS+=-L$(LIBDIR) -l2HDMC  -L/local/software/gsl/2.6/lib -lgsl -lgslcblas -lm
 
 LIBS=
-PROG=CalcPhys CalcGen CalcHiggs CalcHybrid CalcHMSSM CalcMSSM CalcInert CalcLH Demo check_point check_point_2hdmc
+PROG=CalcPhys CalcGen CalcHiggs CalcHybrid CalcHMSSM CalcMSSM CalcInert CalcLH Demo #check_point check_point_2hdmc
 INCLUDE=
 
 # To use HiggsBounds/HiggsSignals for Higgs constraints, set both of the
@@ -53,7 +53,7 @@ all: lib lib_HBHS $(PROG)
 
 $(OBJDIR)/%.o : %.cpp %.h
 	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
-$(OBJDIR_HBHS)/%.o : %.cpp %.h                                                                     |  ---------------------------------------------------------------------------------------------------
+$(OBJDIR_HBHS)/%.o : %.cpp %.h
 	$(CC) $(CFLAGS_HBHS) -c $< -o $@
 
 lib: $(addprefix $(LIBDIR)/, $(LIB))

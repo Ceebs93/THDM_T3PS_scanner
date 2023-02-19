@@ -39,6 +39,7 @@ if [ ${CLUSTER} == "yes" ]; then
 
 		# Copy the job template into the new job directory
 		cp ${ROOT_DIR}/${TEMPLATE} ${JOB_DIR}/job.template
+   	   sed -i "s/Y_/${Y}/g" ${JOB_DIR}/job.template
 
 	   # Add the path to the new job directory to the 'all.jobs' file
 	   echo "${JOB_DIR}" >> ${ROOT_DIR}/jobs/${NAME}/all.jobs

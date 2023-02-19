@@ -59,6 +59,9 @@ if [ ${will_create} == true ] ; then
 
 	echo 'Enter number of jobs to run'
 	read nJobs
+	
+	echo 'What 2HDM model type do you want to use, 1, 2, 3 or 4?'
+	read Y
 
 	echo 'Enter chain length'
 	read chain_len
@@ -70,7 +73,8 @@ if [ ${will_create} == true ] ; then
 	echo "CREATE_JOB_program      = '/scratch/cb27g11/THDM_T3PS_scanner/ParameterPointProcessor/bin/ParameterScan_T3PS_with_HB_HS_${basis}_FAST'" >> utils/settings.mk
 	echo "CREATE_JOB_nJobs        = ${nJobs}" >> utils/settings.mk
 	echo "CREATE_JOB_chain_length = ${chain_len}" >> utils/settings.mk
-	echo "CREATE_JOB_TEMPLATE        = template/${basis}_basis_scan.func" >> utils/settings.mk
+	echo "CREATE_JOB_TEMPLATE     = template/${basis}_basis_scan.func" >> utils/settings.mk
+	echo "CREATE_JOB_Y            = ${Y}" >> utils/settings.mk
 
 	make create-jobs
 
