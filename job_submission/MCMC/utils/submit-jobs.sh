@@ -25,7 +25,6 @@ echo "#####################"
 echo 
 
 if [ -f "${LIST}" ]; then
-	echo "I have actually entered the correct bit"
 	if [ ${CLUSTERTYPE} == "SLURM" ]; then
 		while read -r DIR; do
 			 echo "DIR: ${DIR}"
@@ -62,6 +61,3 @@ else
 
 
 fi
-echo -e "\nJobs should be submitted now."
-echo -e "Please check the output of the squeue command below.\n"
-squeue --me

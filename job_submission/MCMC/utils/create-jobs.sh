@@ -2,11 +2,12 @@
 # - Display information
 echo -e "./utils/create-jobs.sh called\n"
 echo -e "####################"
-echo -e "NAME:        ${NAME}"
+echo -e "NAME:       ${NAME}"
 echo -e "CONFIG:     ${CONFIG}"
 echo -e "CLUSTER:    ${CLUSTER}"
 echo -e "nJobs:      ${nJobs}"
 echo -e "TEMPLATE:   ${TEMPLATE}"
+echo -e "Y:          ${Y}"
 echo -e "ROOT_DIR:   ${ROOT_DIR}"
 echo -e "####################"
 
@@ -71,6 +72,7 @@ if [ ${CLUSTER} == "no" ]; then
 
 		# Copy the job template into the new job directory        
 		cp ${ROOT_DIR}/${TEMPLATE} ${JOB_DIR}/job.template
+   	    sed -i "s/Y_/${Y}/g" ${JOB_DIR}/job.template
 
 	fi
 fi
