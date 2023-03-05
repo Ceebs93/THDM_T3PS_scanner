@@ -1,6 +1,5 @@
 *.pyc
 packages/MG5_aMC_v3_1_0/HEPTools/MG5aMC*
-packages/MG5_aMC_v3_1_0/HEPTools/bin
 packages/MG5_aMC_v3_1_0/HEPTools/boost
 packages/MG5_aMC_v3_1_0/HEPTools/hepmc
 packages/MG5_aMC_v3_1_0/HEPTools/include
