@@ -28,7 +28,7 @@ dependencies:
   - dask=1.2.2=py_0
   - dask-core=1.2.2=py_0
   - dbus=1.13.18=hb2f20db_0
-  - decorator=5.1.0=pyhd3eb1b0_0
+  - decorator=4.4.1=py_0
   - defusedxml=0.7.1=pyhd3eb1b0_0
   - distributed=1.28.1=py27_0
   - elasticsearch=7.12.0=pyhd3eb1b0_0
