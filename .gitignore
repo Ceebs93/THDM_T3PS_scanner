@@ -1,6 +1,5 @@
 *.pyc
 packages/MG5_aMC_v3_1_0/HEPTools
-packages/MG5_aMC_v3_1_0/MadSpin
 packages/MG5_aMC_v3_1_0/bin/PROC*
 packages/MG5_aMC_v3_1_0/bin/*dia*
 packages/MG5_aMC_v3_1_0/bin/to
