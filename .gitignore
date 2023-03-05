@@ -12,7 +12,6 @@ packages/MG5_aMC_v3_1_0/bin/*dia*
 packages/MG5_aMC_v3_1_0/bin/to
 packages/MG5_aMC_v3_1_0/bin/py.py
 packages/MG5_aMC_v3_1_0/tests/*
-packages/MG5_aMC_v3_1_0/vendor
 packages/MG5_aMC_v3_1_0/proc_card.dat
 job_submission/MCMC/jobs/*
 job_submission/MadGraph_jobs/jobs/*
