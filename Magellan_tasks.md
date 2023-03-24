@@ -17,7 +17,7 @@
 - [X] LHAPDF needs to be edited so that the config file will find the correct parts of python in conda - Ended up using the LHAPDF installation in MadGraph instead. Should still be reachable by 2HDMC
 - [X] Create job running interfaces for the ~~SusHi~~ Madgraph pipeline
 - [X] Edit all non T3PS python files so that functions have appropriate docstrings
-- [ ] Edit "Data_coallator.py"/"merge-csv.py" so that the sin column will end up being renamed at the end of merging diff job "chains" to match the name looked for by "merge-csv.py" in the 'OG_csv' (specifically so that for proc-A we run, and use the true original csv for this as OG-csv, then for proc B we can use the output from the merge on proc-A, thus building up a single csv.
+- [X] Edit "Data_coallator.py"/"merge-csv.py" so that the sin column will end up being renamed at the end of merging diff job "chains" to match the name looked for by "merge-csv.py" in the 'OG_csv' (specifically so that for proc-A we run, and use the true original csv for this as OG-csv, then for proc B we can use the output from the merge on proc-A, thus building up a single csv.
 - [X] Work on installation guide for main directory
 - [ ] Create docker and install ubuntu 20, Make 3.22, GCC 11.1.0, GSL 2.6, python2.7
 - [ ] Install necessecary python modules to docker, pandas, numpy, scipy, hd5f etc
@@ -25,20 +25,20 @@
 - [ ] Test Magellan in docker works
 - [ ] Convert Docker container to singularity
 - [ ] Test Magellan in singularity
-- [ ] Add MCMC theory to manual
-- [ ] Add description of T3PS to manual
-- [ ] Create central method for altering the key variables used in Looper script, merging, Data_ripper etc
-- [ ] Add 2HDM theory to manual
-- [ ] Add usage of parameter-point generation pipeline, on cluster and locally to manual
-- [ ] Add usage of full MadGraph pipline, on cluster and locally to manual
+- [X] Add MCMC theory to manual
+- [X] Add description of T3PS to manual
+- [X] Create central method for altering the key variables used in Looper script, merging, Data_ripper etc
+- [X] Add 2HDM theory to manual
+- [X] Add usage of parameter-point generation pipeline, on cluster and locally to manual
+- [X] Add usage of full MadGraph pipline, on cluster and locally to manual
 - [ ] Find a way to highlight points with kappas that are the same in different models with high cross-sections
 - [X] Add description of parameterprocessor set up and compilation to manual
-- [ ] Fix Madgraph create-jobs so that splitting the input csv doesnt lead to duplicates
-- [ ] Add description of how to change model type
-- [ ] Add brief description of Madgraph usage
+- [X] Fix Madgraph create-jobs so that splitting the input csv doesnt lead to duplicates
+- [X] Add description of how to change model type
+- [X] Add brief description of Madgraph usage
 - [ ] Perform checks on points produced by final installation
-- [ ] Add performance to manual
-- [ ] Add explanation of config file for MCMC runs and how to change it to manual
+- [X] Add performance to manual
+- [X] Add explanation of config file for MCMC runs and how to change it to manual
 - [X] Add current python processing modules into main part of Magellan, get working in python2.7
 - [ ] Tidy up print statements in python files so that only essential information is printed out. Perhaps simply commenting out some of the other statements as suggested debugging ones (mention this in manual if you do so)
 - [ ] Remove unnessecary parts of T3PS (though mention their existence in the original software should users wish to add it back)
@@ -53,7 +53,7 @@
 
 - [ ] Edit auto-install file to run intial-start-up.sh and request user confirmation/input for compilers and environments
 - [ ] Look into uncoupling 2HDMC from parameter-processor in order to allow for people to use other models. This will require editing the config file for MCMC runs
-- [ ] Add future plans for Magellan to manual
+- [X] Add future plans for Magellan to manual
 - [X] Create some example config files
 - [ ] Add the option for the Madgraph section to keep additional files, i.e. those that would be needed for madevent etc.
 - [ ] Edit T3PS files to give functions appropriate docstrings
@@ -65,4 +65,4 @@
 - [ ] Install Magellan to the singularity
 - [ ] Test Magellan in singularity works
 - [ ] Create new template file for runs not using 2HDMC
-- [ ] Generalise Data_Ripper.py for different variables
+- [X] Generalise Data_Ripper.py for different variables
