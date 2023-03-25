@@ -50,42 +50,47 @@ def add_xsect(Filename, Chkdfile):
 
     Returns
     -------
-    data_base : pandas dataframe
+    final_df : pandas dataframe
         Combination of the Filename and Chkdfile dataframes.
 
     """
 
     # Reading in the two csv files and rounding everything to 6 decimal places
     MG_df = pd.read_csv(Filename)
-    MG_df = MG_df.round(6)   
+    MG_df = MG_df.round(6)  
+    MG_df.describe 
     data_base = pd.read_csv(Chkdfile)
     data_base = data_base.round(6)
+    print("                       ")
+    
     
     # Dropping any duplicate rows
     data_base = data_base.drop_duplicates()
     MG_df = MG_df.drop_duplicates()
        
     # Reading in multiple columns from the original csv file to lists 
-    if X_SECT_COL_ not in data_base.columns:
+    if "X_SECT_COL_" not in data_base.columns:
         L = len(data_base)
         new_col = np.zeroes(L)
-        data_base[X_SECT_COL_] = new_col
-
-    else:
-        continue
+        data_base["X_SECT_COL_"] = new_col
         
-    main_in = data_base.[X_SECT_COL_].tolist()
+    main_in = data_base["X_SECT_COL_"].tolist()
+    print(main_in)
+    print("OG_VAR1_LABEL_", "OG_VAR2_LABEL_", "OG_VAR3_LABEL_", "OG_VAR4_LABEL_")
     main_OG_VAR1_LABEL_ = data_base.OG_VAR1_LABEL_.tolist()
-    main_OG_VAR1_LABEL_ = np.array(main_OG_VAR1_LABEL_ )
+    print("main_OG_VAR1_LABEL_ = data_base.OG_VAR1_LABEL_.tolist()")
+    main_OG_VAR1_LABEL_ = np.array("main_OG_VAR1_LABEL_")
     main_OG_VAR2_LABEL_ = data_base.OG_VAR2_LABEL_.tolist()
-    main_OG_VAR2_LABEL_ = np.array(main_OG_VAR2_LABEL_)
+    main_OG_VAR2_LABEL_ = np.array("main_OG_VAR2_LABEL_")
     main_OG_VAR3_LABEL_ = data_base.OG_VAR3_LABEL_.tolist()
-    main_OG_VAR3_LABEL_ = np.array(main_OG_VAR3_LABEL_)
+    main_OG_VAR3_LABEL_ = np.array("main_OG_VAR3_LABEL_")
     main_OG_VAR4_LABEL_ = data_base.OG_VAR4_LABEL_.tolist()
-    main_OG_VAR4_LABEL_ = np.array(main_OG_VAR4_LABEL_)
+    main_OG_VAR4_LABEL_ = np.array("main_OG_VAR4_LABEL_")
         
     # Reading in multiple columns from the new csv file to lists
     new_in = MG_df.X_sections.tolist()
+    print(new_in)
+    print("MG_VAR1_LABEL_","MG_VAR2_LABEL_","MG_VAR3_LABEL_","MG_VAR4_LABEL_")
     new_MG_VAR1_LABEL_ = MG_df.MG_VAR1_LABEL_.tolist()
     new_MG_VAR1_LABEL_ = np.array(new_MG_VAR1_LABEL_ )
     new_MG_VAR2_LABEL_ = MG_df.MG_VAR2_LABEL_.tolist()
@@ -96,9 +101,9 @@ def add_xsect(Filename, Chkdfile):
     new_MG_VAR4_LABEL_ = np.array(new_MG_VAR4_LABEL_)
     
     for i in range(0,len(new_in)):
-        if new_MG_VAR1_LABEL[i] in main_OG_VAR1_LABEL:
+        if new_MG_VAR1_LABEL_[i] in main_OG_VAR1_LABEL_:
             #print(new_MG_VAR1_LABEL[i])
-            var1_index = np.where(main_OG_VAR1_LABEL_ == new_MG_VAR1_LABEL[i])
+            var1_index = np.where(main_OG_VAR1_LABEL_ == new_MG_VAR1_LABEL_[i])
             var1_index = var1_index[0][0]
 
             if new_MG_VAR3_LABEL_[i] in main_OG_VAR3_LABEL_:
@@ -121,15 +126,16 @@ def add_xsect(Filename, Chkdfile):
                     print("var3 was correct but var2 wasn't")
                     continue
     
-    data_base[X_SECT_COL_] = main_in
+    data_base["X_SECT_COL_"] = main_in
     
     # These lines remove duplicates and any rows with missing entries
-    combi_df.dropna()
-    final_df = combi_df.drop_duplicates()
-    combi_df.info()
+    data_base.dropna()
+    final_df = data_base.drop_duplicates()
+    final_df.info()
+    final_df.describe()
     final_df = final_df.astype(float)
 
-    return data_base
+    return final_df
 ###############################################################################
 
 ###############################################################################

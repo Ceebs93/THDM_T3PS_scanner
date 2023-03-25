@@ -4,14 +4,14 @@ SHELL = /bin/sh
 ###### --- Create jobs  --- ######
 ##################################
 
-CREATE_JOB_NAME         = "testytest"
-CREATE_JOB_INPUT_DATA   = "SL_bgh_p3.csv"
+CREATE_JOB_NAME         = "qqA_SL"
+CREATE_JOB_INPUT_DATA   = "qqA_SL.csv"
 CREATE_JOB_LOCAL        = "no"
 CREATE_JOB_SPLIT_NAME   = "split_csv_name"
-CREATE_JOB_PROCESS_NAME = "bg_twh1"
-CREATE_JOB_PROCESS      = "Bs\ g\ \>\ Ts\ Ws\ h1"
-CREATE_JOB_nCores       = 2
-CREATE_JOB_nJobs        = 8
+CREATE_JOB_PROCESS_NAME = "qq_tbh3"
+CREATE_JOB_PROCESS      = "ql\ ql\ \>\ Ts\ Bs\ h3"
+CREATE_JOB_nCores       = 1
+CREATE_JOB_nJobs        = 4
 CREATE_JOB_LOOPER       = "csv_looper_NC.sh"
 CREATE_JOB_Card_Editor  = "proccard_editor2.py" 
 CREATE_JOB_BASECARD     = "basecard_type2.txt"
@@ -48,18 +48,18 @@ SUBMIT_JOB_CLUSTERTYPE = "SLURM"
 #########################################
 ########### --- Merge jobs - ############
 #########################################
-
-MERGE_JOB_NAME         = "NC_bghi_m"
-MERGE_JOB_PROCESS      = "bg_twhi"
-MERGE_JOB_INPUT_DATA   = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph_jobs/for_upload/missing_bgH.csv"
-MERGE_JOB_MGVAR1_LABEL = ${CREATE_JOB_MGVAR1_LABEL}
-MERGE_JOB_OGVAR1_LABEL = "OGv1_label"
-MERGE_JOB_MGVAR2_LABEL = ${CREATE_JOB_MGVAR2_LABEL}  
-MERGE_JOB_OGVAR2_LABEL = "OGv2_label"  
-MERGE_JOB_MGVAR3_LABEL = ${CREATE_JOB_MGVAR3_LABEL}  
-MERGE_JOB_OGVAR3_LABEL = "OGv3_label"  
-MERGE_JOB_MGVAR4_LABEL = ${CREATE_JOB_MGVAR4_LABEL}  
-MERGE_JOB_OGVAR4_LABEL = "OGv4_label"  
+MERGE_JOB_NAME         = "qqH_SL3"
+MERGE_JOB_PROCESS      = "qq_tbh2"
+MERGE_JOB_INPUT_DATA   = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph_jobs/qqH_SL3.csv"
+MERGE_JOB_XSECT_COL    = "X_sect_qq_H"
+MERGE_JOB_MGVAR1_LABEL = "Tb"
+MERGE_JOB_OGVAR1_LABEL = "tb"
+MERGE_JOB_MGVAR2_LABEL = "sinba"
+MERGE_JOB_OGVAR2_LABEL = "sinba"
+MERGE_JOB_MGVAR3_LABEL = "mH"
+MERGE_JOB_OGVAR3_LABEL = "mH"
+MERGE_JOB_MGVAR4_LABEL = "mA"
+MERGE_JOB_OGVAR4_LABEL = "mA"
 #########################################
 
 

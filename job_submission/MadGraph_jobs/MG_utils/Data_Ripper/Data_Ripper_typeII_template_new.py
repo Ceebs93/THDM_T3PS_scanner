@@ -215,7 +215,7 @@ Sbma_list = Xtrctd_values(File_List, '# sinbma', 1, Multi=False)
 H_mass = Xtrctd_values(File_List, "# mh2", 1, Multi=False)
 A_mass = Xtrctd_values(File_List, "# mh3", 1, Multi=False)
 Hp_mass = Xtrctd_values(File_List, "# mhc", 1, Multi=False)
-X_sections = Xsection_values(File_List, '#  Integrated weight (pb)  :', 5,
+X_sections = Xtrctd_values(File_List, '#  Integrated weight (pb)  :', 5,
              Multi=False)
 
 # Changing our variable lists to arrays

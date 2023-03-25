@@ -75,6 +75,7 @@ if [ ${will_create} == true ] ; then
 	echo "CREATE_JOB_chain_length = ${chain_len}" >> utils/settings.mk
 	echo "CREATE_JOB_TEMPLATE     = template/${basis}_basis_scan.func" >> utils/settings.mk
 	echo "CREATE_JOB_Y            = ${Y}" >> utils/settings.mk
+	echo "             "
 
 	make create-jobs
 
@@ -83,10 +84,11 @@ fi
 
 #### --- Submit-jobs Section --- ####
 if [ ${will_submit} == true ] ; then
+	echo '                      '
 	echo 'Setting up submit-jobs'
 
 	if [ -z ${var+x} ]; then
-		echo 'About to run a cluster job, is this okay (enter "no" to switch to local, or "yes" to continue)?'
+		echo 'About to run a cluster job, is this correct (enter "no" to switch to local, or "yes" to continue)?'
 		read run_choice
 	fi
 
@@ -100,7 +102,7 @@ if [ ${will_submit} == true ] ; then
 			echo 'Enter number of nodes'
 			read node_no
 
-			echo 'Enter the number of tasks to be assigned per node (or per core)'
+			echo 'Enter the number of cores to be assigned per node'
 			read node_tasks
 
 			echo 'Enter run time for job/s (in format of hh:mm:ss)'
@@ -114,6 +116,8 @@ if [ ${will_submit} == true ] ; then
 			echo "SUBMIT_JOB_TIME        = "--time=${run_time}"" >> utils/settings.mk
 			echo "SUBMIT_JOB_TASK        = "job_task/job_slurm.sh"" >> utils/settings.mk
 			echo "SUBMIT_JOB_CLUSTERTYPE = "SLURM"" >> utils/settings.mk
+
+			echo "                       "
 
 		elif [ "${cluster_choice_}" == "t" ] ; then
 
@@ -136,6 +140,8 @@ if [ ${will_submit} == true ] ; then
 
 	elif [ "${run_choice}" == "no" ] ; then
 
+		echo '                     '
+
 		echo 'Enter number of nodes'
 		read node_no
 
@@ -153,6 +159,8 @@ if [ ${will_submit} == true ] ; then
 		echo "SUBMIT_JOB_TASK        = "job.sh"" >> utils/settings.mk
 	fi
 
+	echo "                       "
+
 	make submit-jobs
 fi
 #####################################
@@ -160,6 +168,8 @@ fi
 
 ##### --- Merge-jobs Section --- #####
 if [ "${will_merge}" == true ] ; then
+
+	echo '                     '
 
 	echo 'Setting up Merge-jobs'
 
@@ -185,6 +195,8 @@ if [ "${will_merge}" == true ] ; then
 	echo "MERGE_JOB_MAKE_CSV     = "${make_csv}"" >> utils/settings.mk
 	echo "MERGE_JOB_FORMAT       = "table"" >> utils/settings.mk
 	echo "MERGE_JOB_COMPRESSION  = "blosc"" >> utils/settings.mk
+
+	echo "                      "
 
 	make merge-jobs
 
