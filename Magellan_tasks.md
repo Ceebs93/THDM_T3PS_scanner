@@ -46,6 +46,11 @@
 - [X] Add config examples for at least two bases
 - [X] Add method for changing the basis being used in Parameterprocessor from MCMC folder with Makefile
 - [X] Add method for changing the model type in both the template file and the parameterprocessor file from MCMC
+- [X] Ensure hybrid basis works for MCMC jobs
+- [X] Ensure hhg basis works for MCMC jobs
+- [] Ensure higgs basis works for MCMC jobs
+- [X] Ensure generic basis works for MCMC jobs
+- [X] Ensure physical basis works for MCMC jobs
 - [X] Create new parameterprocessors to correspond to different higgs bases
 - [ ] Create workflow diagram for MCMC pipeline 
 
