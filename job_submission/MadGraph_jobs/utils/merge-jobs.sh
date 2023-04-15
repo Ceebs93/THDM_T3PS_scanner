@@ -7,7 +7,7 @@ echo "${ROOT_DIR}"
 readarray -t array < <( find "jobs/${NAME}" -name "job_*")
 
 PROJECT_DIR=${ROOT_DIR}jobs/${NAME}/
-
+echo "${PROJECT_DIR}"
 # These two lines are to explicitly name the cross-section column with the
 #process involved to improve understanding later or when different processes
 #are being added to the same file
