@@ -247,7 +247,8 @@ _HepTools = {'hepmc':
                 'install_path':  '%(prefix)s/collier/'},
                'madanalysis5':
                {'install_mode':'Default',
-                'version':       '1.9.60',
+                'version':       '1.10.9_beta',
+#               WARNING USING BETA VERSION OF 1.10.9                
                 'www': 'http://madanalysis.irmp.ucl.ac.be/raw-attachment/wiki/MA5SandBox',
                 'tarball':      ['online','https://github.com/MadAnalysis/madanalysis5/archive/refs/tags/v%(version)s.tar.gz'],
                 # Specify a different tarball for MG version before 2.6.1
@@ -313,7 +314,18 @@ _HepTools = {'hepmc':
                 'optional_dependencies' : [],
                 'libraries' : [''],
                 'install_path':  '%(prefix)s/NkLO_tools/',
-                 }
+                 },
+             'emela':
+                {
+                'install_mode':'Default',
+                'version':       '1.0',
+                'www': 'https://github.com/gstagnit/eMELA/',
+                'tarball':      ['online','%(www)s/archive/refs/tags/v%(version)s.tar.gz'],
+                   'mandatory_dependencies': ['lhapdf6','cmake', 'boost'],
+                'optional_dependencies' : [],
+                'libraries' : ['libeMELA.so'],
+                'install_path':  '%(prefix)s/EMELA/',
+                }
             }
 
 # Set default for advanced options
@@ -467,7 +479,6 @@ if '__main__' == __name__:
         except:
             option = user_option
             value  = None
-
         if option not in available_options:
             logger.error("Option '%s' not reckognized." , option)
             sys.exit(9)
@@ -537,9 +548,8 @@ if '__main__' == __name__:
             _HepTools[option[2:-8]]['tarball'] = [access_mode, value]
             # Flag the tarball of this tool as specified
             _tarballs_specified.append(option[2:-8])       
-        elif option.startswith('--version'):
+        elif option.startswith('--version='):
            _version = value
-        
 
 
     # Adapt paths according to MG5 version specified
@@ -551,10 +561,7 @@ if '__main__' == __name__:
        if 'format_version' in _HepTools[target_tool]:
           _version = _HepTools[target_tool]['format_version'](_version)
        if '%(version)s' in _HepTools[target_tool]['tarball'][1]:
-           tmp = dict(_HepTools[target_tool])
-           tmp['version'] = _version
-           _HepTools[target_tool]['tarball'][1]=_HepTools[target_tool]['tarball'][1] % tmp
-           _HepTools[target_tool]['version'] = _version
+          _HepTools[target_tool]['tarball'][1]=_HepTools[target_tool]['tarball'][1]%{'version':_version}
        else:
           raise Exception( 'fail to specify version for this tools.')
 
@@ -768,6 +775,26 @@ def install_collier(tmp_path):
                     stdout=collier_log,
                     stderr=collier_log)
     collier_log.close()
+
+def install_emela(tmp_path):
+    """Installation operat ons for COLLIER"""
+    log = open(pjoin(_HepTools['emela']['install_path'],"emela_install.log"), "w")
+    my_env = os.environ.copy()
+    boost_dir = [p for p in os.listdir(_HepTools['boost']['install_path']) if p.startswith('boost') and not p.endswith('.log')][0]
+
+
+    subprocess.call([pjoin(_installers_path,'installEMELA.sh'),
+                      _HepTools['emela']['install_path'],
+                     _HepTools['emela']['version'],
+                     _HepTools['emela']['tarball'][1],
+                     _HepTools['cmake']['install_path'],
+                     os.path.join(_HepTools['lhapdf6']['install_path'], 'lhapdf6_py3'),
+                     os.path.join(_HepTools['boost']['install_path'],boost_dir),
+                     ],
+                    stdout=log,
+                    stderr=log,
+                    env=my_env)
+    log.close()
 
 def install_ninja(tmp_path):
     """Installation operations for Ninja"""
@@ -1106,7 +1133,7 @@ def install_pythia8(tmp_path):
         except:
             pass
         pass
-    cxx_common = ['-ldl','-fPIC',_cpp_standard_lib, '-std=c++11']
+    cxx_common = ['-ldl','-fPIC',_cpp_standard_lib, '-std=c++11', '-O2']
     if hepmc_named_weight_support:
         cxx_common.append('-DHEPMC2HACK')
         logger.debug("The version of HepMC supports the writing of named weights: %s ", _HepTools['hepmc']['install_path'])

@@ -1,0 +1,11 @@
+A compilation Error occurs when trying to compile /mainfs/scratch/cb27g11/THDM_T3PS_scanner/packages/MG5_aMC_v3_1_0/vendor/StdHEP.
+The compilation fails with the following output message:
+    test -d ./bin || mkdir -p ./bin
+    test -d ./lib || mkdir -p ./lib
+    (cd mcfio/src; make  all) > log.mcfio.$$ 2>&1
+    (cd src/stdhep; make  all) > log.stdhep.$$ 2>&1
+    make: *** [stdhep] Error 2
+    
+Please try to fix this compilations issue and retry.
+Help might be found at https://answers.launchpad.net/mg5amcnlo.
+If you think that this is a bug, you can report this at https://bugs.launchpad.net/mg5amcnlo

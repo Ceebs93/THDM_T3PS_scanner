@@ -2,7 +2,7 @@
 
 # Choose your C++ compiler here (in general g++ on Linux systems):
 CC = g++
-LDFLAGS= -I/local/software/gsl/2.6/include -lgsl -lgslcblas
+LDFLAGS= -L/local/software/gsl/2.7/lib -lgsl -lgslcblas -lm
 
 #Optimisation level, eg: -O3
 OPT=-O3
@@ -11,7 +11,7 @@ DEBUG=
 
 VPATH=src
 
-CFLAGS= -std=c++11 -Wall $(DEBUG) $(OPT) -I/local/software/gsl/2.6/include -lgsl -lgslcblas
+CFLAGS= -std=c++11 -Wall $(DEBUG) $(OPT) -I/local/software/gsl/2.7/include -lgsl -lgslcblas
 CFLAGS_HBHS= $(CFLAGS) -DHiggsBounds -fpermissive
 
 OBJDIR=lib
@@ -25,10 +25,10 @@ SOURCES_HBHS= THDM.cpp SM.cpp DecayTable.cpp Constraints.cpp Util.cpp runTHDM.cp
 OBJECTS=$(SOURCES:.cpp=.o)
 LIB=lib2HDMC.a
 LIB_HBHS=lib2HDMC_HBHS.a
-LDFLAGS+=-L$(LIBDIR) -l2HDMC  -L/local/software/gsl/2.6/lib -lgsl -lgslcblas -lm
+LDFLAGS+=-L$(LIBDIR) -l2HDMC -L/local/software/gsl/2.7/lib -lgsl -lgslcblas -lm
 
 LIBS=
-PROG=CalcPhys CalcGen CalcHiggs CalcHybrid CalcHMSSM CalcMSSM CalcInert CalcLH Demo #check_point check_point_2hdmc
+PROG=CalcPhys CalcGen CalcHiggs CalcHybrid CalcHMSSM CalcMSSM CalcInert CalcLH Demo check_point check_point_2hdmc
 INCLUDE=
 
 # To use HiggsBounds/HiggsSignals for Higgs constraints, set both of the
@@ -60,16 +60,16 @@ lib: $(addprefix $(LIBDIR)/, $(LIB))
 lib_HBHS: $(addprefix $(LIBDIR_HBHS)/, $(LIB_HBHS))
 
 $(addprefix $(LIBDIR)/, $(LIB)): $(addprefix $(OBJDIR)/, $(OBJECTS))
-	@ echo "Making library $@"
-	@ ar rcs $@ $(addprefix $(OBJDIR)/, $(OBJECTS))
+	echo "Making library $@"
+	ar rcs $@ $(addprefix $(OBJDIR)/, $(OBJECTS))
 
 $(addprefix $(LIBDIR_HBHS)/, $(LIB_HBHS)): $(addprefix $(OBJDIR_HBHS)/, $(OBJECTS_HBHS))
-	@ echo "Making library $@"
-	@ ar rcs $@ $(addprefix $(OBJDIR_HBHS)/, $(OBJECTS_HBHS))
+	echo "Making library $@"
+	ar rcs $@ $(addprefix $(OBJDIR_HBHS)/, $(OBJECTS_HBHS))
 
 %: %.cpp $(addprefix $(LIBDIR)/, $(LIB))
-	@ echo $(CC) $< -Isrc $(CFLAGS) $(LDFLAGS) $(addprefix $(LIBDIR)/, $(LIBS)) -o $@
-	@ $(CC) $< -Isrc $(CFLAGS) $(LDFLAGS) $(addprefix $(LIBDIR)/, $(LIBS)) -o $@
+	echo $(CC) $< -Isrc $(CFLAGS) $(LDFLAGS) $(addprefix $(LIBDIR)/, $(LIBS)) -o $@
+	$(CC) $< -Isrc $(CFLAGS) $(LDFLAGS) $(addprefix $(LIBDIR)/, $(LIBS)) -o $@
 
 clean:
 	@ echo "Cleaning library"

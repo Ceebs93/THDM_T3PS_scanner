@@ -57,7 +57,11 @@ def add_xsect(Filename, Chkdfile):
 
     # Reading in the two csv files and rounding everything to 6 decimal places
     MG_df = pd.read_csv(Filename)
-    MG_df = MG_df.round(6)  
+    MG_cols = MG_df.columns.to_list()
+    XsecIndex = MG_cols.index("X_sections")
+    
+   # MG_df['column_name'] = MG_df['column_name'].apply(lambda x: round(x,2) if isinstance(MG_cols.index(x) != XsecIndex) else x)
+    #MG_df.cols_to_round = MG_df[cols_to_round].round(6)  
     MG_df.describe 
     data_base = pd.read_csv(Chkdfile)
     data_base = data_base.round(6)
@@ -71,36 +75,43 @@ def add_xsect(Filename, Chkdfile):
     # Reading in multiple columns from the original csv file to lists 
     if "X_SECT_COL_" not in data_base.columns:
         L = len(data_base)
-        new_col = np.zeroes(L)
+        new_col = np.zeros(L)
         data_base["X_SECT_COL_"] = new_col
         
     main_in = data_base["X_SECT_COL_"].tolist()
-    print(main_in)
-    print("OG_VAR1_LABEL_", "OG_VAR2_LABEL_", "OG_VAR3_LABEL_", "OG_VAR4_LABEL_")
+   # print(main_in)
+    #print("OG_VAR1_LABEL_", "OG_VAR2_LABEL_", "OG_VAR3_LABEL_", "OG_VAR4_LABEL_")
     main_OG_VAR1_LABEL_ = data_base.OG_VAR1_LABEL_.tolist()
-    print("main_OG_VAR1_LABEL_ = data_base.OG_VAR1_LABEL_.tolist()")
-    main_OG_VAR1_LABEL_ = np.array("main_OG_VAR1_LABEL_")
-    main_OG_VAR2_LABEL_ = data_base.OG_VAR2_LABEL_.tolist()
-    main_OG_VAR2_LABEL_ = np.array("main_OG_VAR2_LABEL_")
+    main_OG_VAR1_LABEL_ = np.array(main_OG_VAR1_LABEL_)
+    main_OG_VAR2_LABEL_ = data_base["OG_VAR2_LABEL_"].tolist()
+    main_OG_VAR2_LABEL_ = np.array(main_OG_VAR2_LABEL_)
+    main_OG_VAR2_LABEL_ = main_OG_VAR2_LABEL_.round(6)
     main_OG_VAR3_LABEL_ = data_base.OG_VAR3_LABEL_.tolist()
-    main_OG_VAR3_LABEL_ = np.array("main_OG_VAR3_LABEL_")
+    main_OG_VAR3_LABEL_ = np.array(main_OG_VAR3_LABEL_)
+    main_OG_VAR3_LABEL_ = main_OG_VAR3_LABEL_.round(6)
     main_OG_VAR4_LABEL_ = data_base.OG_VAR4_LABEL_.tolist()
-    main_OG_VAR4_LABEL_ = np.array("main_OG_VAR4_LABEL_")
+    main_OG_VAR4_LABEL_ = np.array(main_OG_VAR4_LABEL_)
+    main_OG_VAR4_LABEL_ = main_OG_VAR4_LABEL_.round(6)
         
     # Reading in multiple columns from the new csv file to lists
     new_in = MG_df.X_sections.tolist()
-    print(new_in)
-    print("MG_VAR1_LABEL_","MG_VAR2_LABEL_","MG_VAR3_LABEL_","MG_VAR4_LABEL_")
+    #print(new_in)
+    #print("MG_VAR1_LABEL_","MG_VAR2_LABEL_","MG_VAR3_LABEL_","MG_VAR4_LABEL_")
     new_MG_VAR1_LABEL_ = MG_df.MG_VAR1_LABEL_.tolist()
     new_MG_VAR1_LABEL_ = np.array(new_MG_VAR1_LABEL_ )
+    new_MG_VAR1_LABEL_ = new_MG_VAR1_LABEL_.round(6)
     new_MG_VAR2_LABEL_ = MG_df.MG_VAR2_LABEL_.tolist()
     new_MG_VAR2_LABEL_ = np.array(new_MG_VAR2_LABEL_)
+    new_MG_VAR2_LABEL_ = new_MG_VAR2_LABEL_.round(6)
     new_MG_VAR3_LABEL_ = MG_df.MG_VAR3_LABEL_.tolist()
     new_MG_VAR3_LABEL_ = np.array(new_MG_VAR3_LABEL_)
+    new_MG_VAR3_LABEL_ = new_MG_VAR3_LABEL_.round(6)
     new_MG_VAR4_LABEL_ = MG_df.MG_VAR4_LABEL_.tolist()
     new_MG_VAR4_LABEL_ = np.array(new_MG_VAR4_LABEL_)
+    new_MG_VAR4_LABEL_ = new_MG_VAR4_LABEL_.round(6)
     
     for i in range(0,len(new_in)):
+        #print(i)
         if new_MG_VAR1_LABEL_[i] in main_OG_VAR1_LABEL_:
             #print(new_MG_VAR1_LABEL[i])
             var1_index = np.where(main_OG_VAR1_LABEL_ == new_MG_VAR1_LABEL_[i])
@@ -117,6 +128,7 @@ def add_xsect(Filename, Chkdfile):
                 elif new_MG_VAR2_LABEL_[i] == main_OG_VAR2_LABEL_[var3_index]:
 
                     if new_MG_VAR4_LABEL_[i] == main_OG_VAR4_LABEL_[var3_index]:
+                        print(main_in[var3_index], "replaced with", new_in[i])
                         main_in[var3_index] = new_in[i]
                         print("success!")
                     else:
@@ -131,8 +143,9 @@ def add_xsect(Filename, Chkdfile):
     # These lines remove duplicates and any rows with missing entries
     data_base.dropna()
     final_df = data_base.drop_duplicates()
-    final_df.info()
-    final_df.describe()
+#    final_df.info()
+#    final_df.describe()
+
     final_df = final_df.astype(float)
 
     return final_df

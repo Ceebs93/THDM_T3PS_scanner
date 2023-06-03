@@ -1,0 +1,1 @@
+/local/software/gcc/11.1.0/bin/gfortran     -ffixed-line-length-132  -fno-default-integer-8 -O2 -funroll-loops -ffast-math -Wtabs CMakeFiles/democache.dir/demos/democache.f90.o  -o ../demos/democache -rdynamic ../libcollier.a 

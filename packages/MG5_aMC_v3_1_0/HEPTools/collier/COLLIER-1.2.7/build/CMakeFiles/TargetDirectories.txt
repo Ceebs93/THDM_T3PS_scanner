@@ -1,0 +1,4 @@
+/mainfs/scratch/cb27g11/THDM_T3PS_scanner/packages/MG5_aMC_v3_1_0/HEPTools/collier/COLLIER-1.2.7/build/CMakeFiles/collier.dir
+/mainfs/scratch/cb27g11/THDM_T3PS_scanner/packages/MG5_aMC_v3_1_0/HEPTools/collier/COLLIER-1.2.7/build/CMakeFiles/demo.dir
+/mainfs/scratch/cb27g11/THDM_T3PS_scanner/packages/MG5_aMC_v3_1_0/HEPTools/collier/COLLIER-1.2.7/build/CMakeFiles/democache.dir
+/mainfs/scratch/cb27g11/THDM_T3PS_scanner/packages/MG5_aMC_v3_1_0/HEPTools/collier/COLLIER-1.2.7/build/CMakeFiles/uninstall.dir

@@ -3,7 +3,8 @@ binaries : ../bin/ParameterScan_T3PS_with_HB_HS_hybrid_FAST \
 		../bin/ParameterScan_T3PS_with_HB_HS_generic_FAST \
 		  ../bin/ParameterScan_T3PS_with_HB_HS_higgs_FAST \
 		    ../bin/ParameterScan_T3PS_with_HB_HS_hhg_FAST \
-		       ../bin/ParameterScan_T3PS_with_HB_HS_phys_FAST
+		       ../bin/ParameterScan_T3PS_with_HB_HS_phys_FAST \
+			../bin/ParameterScan_T3PS_with_extra_data_FAST
 
 CMN =  ../lib/EWPO.cpp.o
 
@@ -17,6 +18,8 @@ OBJ_ParameterScan_T3PS_with_HB_HS_hhg          = $(CMN) ../lib/ParameterScan_T3P
 OBJ_ParameterScan_T3PS_with_HB_HS_hhg_FAST     = $(CMN) ../lib/ParameterScan_T3PS_with_HB_HS_hhg_FAST.cpp.o
 OBJ_ParameterScan_T3PS_with_HB_HS_phys         = $(CMN) ../lib/ParameterScan_T3PS_with_HB_HS_phys.cpp.o
 OBJ_ParameterScan_T3PS_with_HB_HS_phys_FAST    = $(CMN) ../lib/ParameterScan_T3PS_with_HB_HS_phys_FAST.cpp.o
+OBJ_ParameterScan_T3PS_with_extra_data         = $(CMN) ../lib/ParameterScan_T3PS_with_extra_data.cpp.o
+OBJ_ParameterScan_T3PS_with_extra_data_FAST    = $(CMN) ../lib/ParameterScan_T3PS_with_extra_data_FAST.cpp.o
 #OBJ_test = ../lib/test.cpp.o
 
 #######
@@ -65,6 +68,13 @@ LINKER = g++
 ../bin/ParameterScan_T3PS_with_HB_HS_phys_FAST: $(OBJ_ParameterScan_T3PS_with_HB_HS_phys_FAST)
 	$(CC) $^ $(CLFLAGS_2HDMC_WITH_HB_HS) -o $@
 
+# - ParameterScan_T3PS_with_HB_HS physical parameterisation
+../bin/ParameterScan_T3PS_with_HB_HS_phys: $(OBJ_ParameterScan_T3PS_with_HB_HS_phys)
+	$(CC) $^ $(CLFLAGS_2HDMC_WITH_HB_HS) -o $@
+
+# - ParameterScan_T3PS_with_extra_data
+../bin/ParameterScan_T3PS_with_extra_data_FAST: $(OBJ_ParameterScan_T3PS_with_extra_data_FAST)
+	$(CC) $^ $(CLFLAGS_2HDMC_WITH_HB_HS) -o $@
 # - test
 #../bin/test: $(OBJ_test)
 #	$(CC) $^ $(CLFLAGS_) -o $@
@@ -85,7 +95,7 @@ CC = g++
 
 # - CFLAGS
 CCFLAGS = -I../inc/ -I$(INCDIRLINK) $(2HDMC_CFLAGS) -MMD -MF .depend_cpp -fpermissive
-2HDMC_CFLAGS = -I/local/software/gsl/2.6/include -DHiggsBounds
+2HDMC_CFLAGS = -I/local/software/gsl/2.7/include -DHiggsBounds
 
 # - LFLAGS
 CLFLAGS_2HDMC_WITH_HB_HS          = -L$(LIBDIRLINK) ${2HDMC_WITH_HB_HS_LFLAGS} ${HS_LFLAGS} ${HB_LFLAGS}
@@ -94,8 +104,8 @@ CLFLAGS_2HDMC_WITH_HB_HS          = -L$(LIBDIRLINK) ${2HDMC_WITH_HB_HS_LFLAGS} $
 ############
 
 # - 2HDMC flags
-2HDMC_WITH_HB_HS_LFLAGS = -L$(LIBDIRLINK) -l2HDMC_HBHS -L/local/software/gsl/2.6/lib -lgsl -lgslcblas -lgfortran
-#2HDMC_STANDALONE_LFLAGS = -L$(LIBDIRLINK) -l2HDMC -L/local/software/gsl/2.6/lib -lgsl -lgslcblas -lgfortran
+2HDMC_WITH_HB_HS_LFLAGS = -L$(LIBDIRLINK) -l2HDMC_HBHS -L/local/software/gsl/2.7/lib -lgsl -lgslcblas -lgfortran
+#2HDMC_STANDALONE_LFLAGS = -L$(LIBDIRLINK) -l2HDMC -L/local/software/gsl/2.7/lib -lgsl -lgslcblas -lgfortran
 
 # - HiggsBounds/HiggsSignals flags
 HB_HS_LFLAGS = ${HB_LFLAGS} ${HS_LFLAGS}
@@ -119,6 +129,9 @@ HS_LFLAGS = -L$(LIBDIRLINK) -lHS-2.6.2
 	$(CC) $(CCFLAGS) -c $< -DFAST -o $@
 
 ../lib/ParameterScan_T3PS_with_HB_HS_phys_FAST.cpp.o : ParameterScan_T3PS_with_HB_HS_phys.cpp
+	$(CC) $(CCFLAGS) -c $< -DFAST -o $@
+
+../lib/ParameterScan_T3PS_with_extra_data_FAST.cpp.o : ParameterScan_T3PS_with_extra_data.cpp
 	$(CC) $(CCFLAGS) -c $< -DFAST -o $@
 
 #../lib/ParameterScan_T3PS_with_HB_HS_Physical_FAST.cpp.o : ParameterScan_T3PS_with_HB_HS_Physical.cpp

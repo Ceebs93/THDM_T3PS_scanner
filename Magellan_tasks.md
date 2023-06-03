@@ -19,12 +19,6 @@
 - [X] Edit all non T3PS python files so that functions have appropriate docstrings
 - [X] Edit "Data_coallator.py"/"merge-csv.py" so that the sin column will end up being renamed at the end of merging diff job "chains" to match the name looked for by "merge-csv.py" in the 'OG_csv' (specifically so that for proc-A we run, and use the true original csv for this as OG-csv, then for proc B we can use the output from the merge on proc-A, thus building up a single csv.
 - [X] Work on installation guide for main directory
-- [ ] Create docker and install ubuntu 20, Make 3.22, GCC 11.1.0, GSL 2.6, python2.7
-- [ ] Install necessecary python modules to docker, pandas, numpy, scipy, hd5f etc
-- [ ] Install Magellan to the docker
-- [ ] Test Magellan in docker works
-- [ ] Convert Docker container to singularity
-- [ ] Test Magellan in singularity
 - [X] Add MCMC theory to manual
 - [X] Add description of T3PS to manual
 - [X] Create central method for altering the key variables used in Looper script, merging, Data_ripper etc
@@ -33,7 +27,7 @@
 - [X] Add usage of full MadGraph pipline, on cluster and locally to manual
 - [ ] Find a way to highlight points with kappas that are the same in different models with high cross-sections
 - [X] Add description of parameterprocessor set up and compilation to manual
-- [X] Fix Madgraph create-jobs so that splitting the input csv doesnt lead to duplicates
+- [ ] Fix Madgraph create-jobs so that splitting the input csv doesnt lead to duplicates
 - [X] Add description of how to change model type
 - [X] Add brief description of Madgraph usage
 - [ ] Perform checks on points produced by final installation
@@ -48,7 +42,7 @@
 - [X] Add method for changing the model type in both the template file and the parameterprocessor file from MCMC
 - [X] Ensure hybrid basis works for MCMC jobs
 - [X] Ensure hhg basis works for MCMC jobs
-- [] Ensure higgs basis works for MCMC jobs
+- [ ] Ensure higgs basis works for MCMC jobs
 - [X] Ensure generic basis works for MCMC jobs
 - [X] Ensure physical basis works for MCMC jobs
 - [X] Create new parameterprocessors to correspond to different higgs bases
@@ -57,7 +51,7 @@
 # Stretch Tasks for Magellan
 
 - [ ] Edit auto-install file to run intial-start-up.sh and request user confirmation/input for compilers and environments
-- [ ] Look into uncoupling 2HDMC from parameter-processor in order to allow for people to use other models. This will require editing the config file for MCMC runs
+- [ ] Look into uncoupling 2HDMC from parameter-processor in order to allow for people to use other models. This will require editing the config file for MCMC runs (possibly Higgstools would allow this? look into possibility of using _future_ module for python in order to run it. Or maybe even replacing T3PS?
 - [X] Add future plans for Magellan to manual
 - [X] Create some example config files
 - [ ] Add the option for the Madgraph section to keep additional files, i.e. those that would be needed for madevent etc.

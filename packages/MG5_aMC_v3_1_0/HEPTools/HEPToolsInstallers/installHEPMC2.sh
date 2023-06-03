@@ -39,17 +39,12 @@ run () {
   tar xvzf ${TARBALL}
 
   echo " Enter HEPMC directory"
-  if [ -d "hepmc${VERSION}" ]; then
-     cd hepmc${VERSION}/
-  else
-      cd HepMC-${VERSION}
-  fi
-  if [[ "${VERSION}" == "2.06.09" ]]; then
-      echo " Copying the hacked files 'WeightContainer.cc' and 'WeightContainer.h' to be capable of writing named weights in HepMC."
+  cd hepmc${VERSION}/
 
-      cp ${CURRDIR}/WeightContainer.cc src/WeightContainer.cc
-      cp ${CURRDIR}/WeightContainer.h HepMC/WeightContainer.h
-  fi
+  echo " Copying the hacked files 'WeightContainer.cc' and 'WeightContainer.h' to be capable of writing named weights in HepMC."
+  cp ${CURRDIR}/WeightContainer.cc src/WeightContainer.cc
+  cp ${CURRDIR}/WeightContainer.h HepMC/WeightContainer.h
+
   if [ -f ./configure ]; then
    echo " The autotools configure script already present; there is no need to run autoreconf manually."
   else

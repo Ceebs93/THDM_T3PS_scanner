@@ -4,14 +4,14 @@ SHELL = /bin/sh
 ###### --- Create jobs  --- ######
 ##################################
 
-CREATE_JOB_NAME         = "qqA_1504"
-CREATE_JOB_INPUT_DATA   = "qqA_1504.csv"
+CREATE_JOB_NAME         = "bgh_0206"
+CREATE_JOB_INPUT_DATA   = "somehowstillmissing.csv"
 CREATE_JOB_LOCAL        = "no"
 CREATE_JOB_SPLIT_NAME   = "split_csv_name"
-CREATE_JOB_PROCESS_NAME = "qq_tbh3"
-CREATE_JOB_PROCESS      = "ql\ ql\ \>\ Ts\ Bs\ h3"
+CREATE_JOB_PROCESS_NAME = "bg_twh1"
+CREATE_JOB_PROCESS      = "Bs\ g\ \>\ Ts\ Ws\ h1"
 CREATE_JOB_nCores       = 1
-CREATE_JOB_nJobs        = 8
+CREATE_JOB_nJobs        = 10
 CREATE_JOB_LOOPER       = "csv_looper_NC.sh"
 CREATE_JOB_Card_Editor  = "proccard_editor2.py" 
 CREATE_JOB_BASECARD     = "basecard_type2.txt"
@@ -48,10 +48,10 @@ SUBMIT_JOB_CLUSTERTYPE = "SLURM"
 #########################################
 ########### --- Merge jobs - ############
 #########################################
-MERGE_JOB_NAME         = "qqA_SL3"
-MERGE_JOB_PROCESS      = "qq_tbh3"
-MERGE_JOB_INPUT_DATA   = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph_jobs/qqA_SL3.csv"
-MERGE_JOB_XSECT_COL    = "X_sect_qq_A"
+MERGE_JOB_NAME         = "bgh_0206"
+MERGE_JOB_PROCESS      = "bg_twh1"
+MERGE_JOB_INPUT_DATA   = "/scratch/cb27g11/THDM_T3PS_scanner/job_submission/MadGraph_jobs/somehowstillmissing.csv"
+MERGE_JOB_XSECT_COL    = "X_sect_bg_h"
 MERGE_JOB_MGVAR1_LABEL = "Tb"
 MERGE_JOB_OGVAR1_LABEL = "tb"
 MERGE_JOB_MGVAR2_LABEL = "sinba"
