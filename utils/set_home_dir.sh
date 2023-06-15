@@ -43,9 +43,11 @@ sed -i "s;top_dir_;${THDM_T3PS_SCANNER_DIR};g" ${MCMC_dir}job_task/job_slurm.sh
 Initial_pkg_dir=${THDM_T3PS_SCANNER_DIR}/packages/startup_versions/
 cp ${Initial_pkg_dir}I_install.sh ${THDM_T3PS_SCANNER_DIR}/packages/install.sh
 cp ${Initial_pkg_dir}I_HBHS.cpp ${THDM_T3PS_SCANNER_DIR}/packages/2HDMC-1.8.0/src/HBHS.cpp
+cp ${Initial_pkg_dir}I_point_scan_gen.py ${THDM_T3PS_SCANNER_DIR}/packages/2HDMC-1.8.0/point_scan_gen.py
 cp ${Initial_pkg_dir}I_T3PS.py ${THDM_T3PS_SCANNER_DIR}/packages/T3PS/executable_T3PS.py
 sed -i "s;top_dir_;${THDM_T3PS_SCANNER_DIR};g" ${THDM_T3PS_SCANNER_DIR}/packages/install.sh
 sed -i "s;top_dir_;${THDM_T3PS_SCANNER_DIR};g" ${THDM_T3PS_SCANNER_DIR}/packages/2HDMC-1.8.0/src/HBHS.cpp
+sed -i "s;top_dir_;${THDM_T3PS_SCANNER_DIR};g" ${THDM_T3PS_SCANNER_DIR}/packages/2HDMC-1.8.0/point_scan_gen.py
 sed -i "s;top_dir_;${THDM_T3PS_SCANNER_DIR};g" ${THDM_T3PS_SCANNER_DIR}/packages/T3PS/executable_T3PS.py
 
 # Ensures the python file has the correct permissions to be run on the cluster

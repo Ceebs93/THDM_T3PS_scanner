@@ -102,7 +102,7 @@ if [ ${will_submit} == true ] ; then
 			echo 'Enter number of nodes'
 			read node_no
 
-			echo 'Enter the number of cores to be assigned per node'
+			echo 'Enter the number of tasks to be assigned per node'
 			read node_tasks
 
 			echo 'Enter run time for job/s (in format of hh:mm:ss)'
@@ -124,7 +124,7 @@ if [ ${will_submit} == true ] ; then
 			echo 'Enter number of nodes'
 			read node_no
 
-			echo 'Enter the number of tasks to be assigned per node (or per core)'
+			echo 'Enter the number of tasks to be assigned per node'
 			read node_tasks
 
 			echo 'Enter run time for job/s (in format of hh:mm:ss)'
@@ -145,7 +145,7 @@ if [ ${will_submit} == true ] ; then
 		echo 'Enter number of nodes'
 		read node_no
 
-		echo 'Enter the number of tasks to be assigned per node (or per core)'
+		echo 'Enter the number of tasks to be assigned per node'
 		read node_tasks
 
 		echo 'Enter run time for job/s (in format of hh:mm:ss)'
