@@ -9,7 +9,7 @@ OUTPUT_HDF_FILE=./jobs/${NAME}/${NAME}_allowed_only_merged.h5f
 echo "output file is called: ${OUTPUT_MERGED_FILE}"
 
 # Checks to see if user wants to just convert .dat file to a hdf5 file
-if [ ${CONVERT_ONLY} == "no" ]; then
+if [ ${CONVERT_ONLY} == "n" ]; then
 	
 	 # Gathers the .dat files from all sub-jobs in current job and merges them
 	 echo "NAME: ${NAME}"
@@ -34,12 +34,16 @@ if [ ${CONVERT_ONLY} == "no" ]; then
 fi
 
 # Creates a csv file from the .dat file if user has indicated to do this
-if [ ${MAKE_CSV} == "yes" ]; then
+if [ ${MAKE_CSV} == "y" ]; then
 
 	echo "NAME: ${NAME}"
 	echo "Running data_to_csv.py"
 
-	python utils/data_to_csv.py ${OUTPUT_FINAL_FILE}
+	# We must pass the variables in an array as bash will only pass one variable to python after the name of the script we are running.
+	python_input=("${NAME}" "${OUTPUT_MERGED_FILE}" "${Y}" "${BASIS}")
+	echo ${python_input[@]}
+
+	python utils/data_to_csv.py ${python_input[@]}
 
 fi
 
@@ -47,7 +51,7 @@ fi
 # - Convert ASCII to HDF5
 echo -e "Convering ASCII to HDF"
 # Creates a hdf5 file from combined .dat files
-if [ ${CONVERT} == "yes" ]; then
+if [ ${CONVERT} == "y" ]; then
 	 echo -e "Converting to HDF5..."
     ${ROOT_DIR}/utils/convert_to_hdf.py ${OUTPUT_FINAL_FILE} ${OUTPUT_HDF_FILE} ${DATASET_NAME} ${FORMAT} ${COMPRESSION}
 #    ${ROOT_DIR}/utils/convert_to_hdf.py ./jobs/${TAG}/temp.dat ./jobs/${TAG}/${TAG}_allowed_only_merged.h5f ${DATASET_NAME} ${FORMAT} ${COMPRESSION}

@@ -1,17 +1,11 @@
 ### --- Makefile Settings --- ###
-CREATE_JOB_NAME         = phys_test
-CREATE_JOB_CONFIG       = config/phys_scan.conf
-CREATE_JOB_CLUSTER      = yes
-CREATE_JOB_nCores       = 1
-CREATE_JOB_program      = '/scratch/cb27g11/THDM_T3PS_scanner/ParameterPointProcessor/bin/ParameterScan_T3PS_with_HB_HS_phys_FAST'
-CREATE_JOB_nJobs        = 1
-CREATE_JOB_chain_length = 9999999
-CREATE_JOB_TEMPLATE     = template/phys_basis_scan.func
-CREATE_JOB_Y            = 2
-SUBMIT_JOB_LIST        = all.jobs
-SUBMIT_JOB_NAME        = phys_test
-SUBMIT_JOB_NODES       = --nodes=1
-SUBMIT_JOB_PPN         = --ntasks-per-node=3
-SUBMIT_JOB_TIME        = --time=01:00:00
-SUBMIT_JOB_TASK        = job_task/job_slurm.sh
-SUBMIT_JOB_CLUSTERTYPE = SLURM
+MERGE_JOB_BASIS        = hybrid
+MERGE_JOB_Y            = 2
+MERGE_JOB_NAME         = fifteenthjune
+MERGE_JOB_HEADER       = header/default.header
+MERGE_JOB_DATASET_NAME = fifteenthjune
+MERGE_JOB_CONVERT      = n
+MERGE_JOB_CONVERT_ONLY = n
+MERGE_JOB_MAKE_CSV     = y
+MERGE_JOB_FORMAT       = table
+MERGE_JOB_COMPRESSION  = blosc

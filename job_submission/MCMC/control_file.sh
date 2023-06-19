@@ -1,10 +1,15 @@
 #!/bin/bash
 
 #### --- Default variable values --- ####
-run_choice="${run_choice:-'yes'}"
+run_choice="${run_choice:-'y'}"
 
 #### --- Gathering basic input from user --- ####
 echo 'Starting setup for MCMC jobs...'
+
+#echo 'Do you wish to use a pre-existing version of "utils/settings.mk"? Answer 'y' or 'no' '
+#read old_settings
+
+#if [ "${old_settings}" == n] ; then
 
 echo 'Enter 1 to create a job and submit/run it, enter 2 to create ONLY, enter 3 to submit ONLY or enter 4 to merge previous job output.'
 read run_type
@@ -51,7 +56,7 @@ if [ ${will_create} == true ] ; then
 	echo 'Enter chosen parameterisation basis: higgs, hhg (higgs hunters guide), generic, phys (physical) or hybrid'
 	read basis
 
-	echo 'Do you want to run a cluster job (enter yes for cluster, no for local)?'
+	echo 'Do you want to run a cluster job (enter y for cluster, n for local)?'
 	read run_choice
 
 	echo 'Enter number of cores to use'
@@ -88,11 +93,11 @@ if [ ${will_submit} == true ] ; then
 	echo 'Setting up submit-jobs'
 
 	if [ -z ${var+x} ]; then
-		echo 'About to run a cluster job, is this correct (enter "no" to switch to local, or "yes" to continue)?'
+		echo 'About to run a cluster job, is this correct (enter "n" to switch to local, or "y" to continue)?'
 		read run_choice
 	fi
 
-	if [ "$run_choice" == 'yes' ] ; then
+	if [ "$run_choice" == 'y' ] ; then
 		echo 'Please choose a cluster job manager option, Slurm or Torque. Enter "s" for Slurm or "t" for Torque'
 		read cluster_choice_
 	
@@ -100,7 +105,7 @@ if [ ${will_submit} == true ] ; then
 		if [ "${cluster_choice_}" == "s" ] ; then	
 
 			echo 'Enter number of nodes'
-			read node_no
+			read node_n
 
 			echo 'Enter the number of tasks to be assigned per node'
 			read node_tasks
@@ -111,7 +116,7 @@ if [ ${will_submit} == true ] ; then
 
 			echo "SUBMIT_JOB_LIST        = "all.jobs"" >> utils/settings.mk
 			echo "SUBMIT_JOB_NAME        = "${job_name}"" >> utils/settings.mk
-			echo "SUBMIT_JOB_NODES       = "--nodes=${node_no}"" >> utils/settings.mk
+			echo "SUBMIT_JOB_NODES       = "--nodes=${node_n}"" >> utils/settings.mk
 			echo "SUBMIT_JOB_PPN         = "--ntasks-per-node=${node_tasks}"" >> utils/settings.mk
 			echo "SUBMIT_JOB_TIME        = "--time=${run_time}"" >> utils/settings.mk
 			echo "SUBMIT_JOB_TASK        = "job_task/job_slurm.sh"" >> utils/settings.mk
@@ -122,7 +127,7 @@ if [ ${will_submit} == true ] ; then
 		elif [ "${cluster_choice_}" == "t" ] ; then
 
 			echo 'Enter number of nodes'
-			read node_no
+			read node_n
 
 			echo 'Enter the number of tasks to be assigned per node'
 			read node_tasks
@@ -132,18 +137,18 @@ if [ ${will_submit} == true ] ; then
 
 			echo "SUBMIT_JOB_LIST        = "all.jobs"" >> utils/settings.mk
 			echo "SUBMIT_JOB_TAG         = "${job_name}"" >> utils/settings.mk
-			echo "SUBMIT_JOB_RESOURCES   = "nodes=${node_no}:ppn=${node_tasks},walltime=${run_time}"" >> utils/settings.mk
+			echo "SUBMIT_JOB_RESOURCES   = "nodes=${node_n}:ppn=${node_tasks},walltime=${run_time}"" >> utils/settings.mk
 			echo "SUBMIT_JOB_TASK        = "job_task/job_torque.sh"" >> utils/settings.mk
 			echo "SUBMIT_JOB_CLUSTERTYPE = "TORQUE"" >> utils/settings.mk
 	
 		fi
 
-	elif [ "${run_choice}" == "no" ] ; then
+	elif [ "${run_choice}" == "n" ] ; then
 
 		echo '                     '
 
 		echo 'Enter number of nodes'
-		read node_no
+		read node_n
 
 		echo 'Enter the number of tasks to be assigned per node'
 		read node_tasks
@@ -153,7 +158,7 @@ if [ ${will_submit} == true ] ; then
 	
 		echo "SUBMIT_JOB_LIST        = "all.jobs"" >> utils/settings.mk
 		echo "SUBMIT_JOB_NAME        = "${job_name}"" >> utils/settings.mk
-		echo "SUBMIT_JOB_NODES       = "--nodes=${node_no}"" >> utils/settings.mk
+		echo "SUBMIT_JOB_NODES       = "--nodes=${node_n}"" >> utils/settings.mk
 		echo "SUBMIT_JOB_PPN         = "--ntasks-per-node=${node_tasks}"" >> utils/settings.mk
 		echo "SUBMIT_JOB_TIME        = "--time=${run_time}"" >> utils/settings.mk
 		echo "SUBMIT_JOB_TASK        = "job.sh"" >> utils/settings.mk
@@ -173,20 +178,28 @@ if [ "${will_merge}" == true ] ; then
 
 	echo 'Setting up Merge-jobs'
 
-	echo 'Do you want to convert your output into hd5f format? Answer "yes" or "no"'
+	echo 'Do you want to convert your output into hd5f format? Answer "y" or "n"'
 	read to_convert
 
-	if [ "${to_convert}" == "no" ] ; then
-		only_convert="no"
+	if [ "${to_convert}" == "n" ] ; then
+		only_convert="n"
 	
 	else
-		echo 'Do you ONLY want to convert your output into hd5f (i.e. not perform merging of jobs)?Answer "yes" or "no"'
+		echo 'Do you ONLY want to convert your output into hd5f (i.e. nt perform merging of jobs)? Answer "y" or "n"'
 		read only_convert
 	fi
 
-	echo 'Do you want to create a CSV of your merged job output? Answer "yes" or "no"'
+	echo 'Do you want to create a CSV of your merged job output? Answer "y" or "n"'
 	read make_csv
 
+	echo 'Enter chosen parameterisation basis: higgs, hhg (higgs hunters guide), generic, phys (physical) or hybrid'
+	read basis
+
+	echo 'What 2HDM model type was used, 1, 2, 3 or 4?'
+	read Y
+	
+	echo "MERGE_JOB_BASIS        = "${basis}"" >> utils/settings.mk
+	echo "MERGE_JOB_Y            = "${Y}"" >> utils/settings.mk
 	echo "MERGE_JOB_NAME         = "${job_name}"" >> utils/settings.mk
 	echo "MERGE_JOB_HEADER       = "header/default.header"" >> utils/settings.mk
 	echo "MERGE_JOB_DATASET_NAME = "${job_name}"" >> utils/settings.mk

@@ -11,13 +11,20 @@ echo -e "Y:          ${Y}"
 echo -e "ROOT_DIR:   ${ROOT_DIR}"
 echo -e "####################"
 
+echo "I think name is this: ${NAME}, is this okay?(Answer 'y' or 'n')"
+read name_okay
+
+if [ "${name_okay}" == 'n' ] ; then
+	echo "Please enter the path and name you would prefer."
+	read NAME
+fi
+ 
 JOB_PROJECT_DIR=${ROOT_DIR}/jobs/${NAME}
-echo "I think name is this: ${NAME}okay"
 # - Create job project directory
 mkdir -p ${JOB_PROJECT_DIR}
 
 # - Section creates setup for cluster jobs
-if [ ${CLUSTER} == "yes" ]; then
+if [ ${CLUSTER} == "y" ]; then
 
 	# - Job creation loop
 	for ((i=0;i<${nJobs};i++));
@@ -49,7 +56,7 @@ if [ ${CLUSTER} == "yes" ]; then
 fi
 
 # - Section creates setup for local job
-if [ ${CLUSTER} == "no" ]; then
+if [ ${CLUSTER} == "n" ]; then
 
 	if [ ${nJobs} != 1 ]; then
 		echo "Can only run one job at a time locally. Please edit the Makefile to reflect this."

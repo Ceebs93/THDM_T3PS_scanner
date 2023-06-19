@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
 		file.close();
 	}
 
-	else if ( argc == 8 )   // - parameters as input
+	else if ( argc == 7 )   // - parameters as input
 	{
 	  	yt_in      = (int)   atoi(argv[1]);
 		Z7_in      = (double)atof(argv[2]);

@@ -14,16 +14,23 @@ import sys
 
 from scipy import stats
 
+# input array
+#input_vars = sys.argv[1]
+#print("input_vars", input_vars)
+
 # Filename
 file_name = str(sys.argv[1])
+print("file_name", file_name)
+
 # dat_to_DF will assume file it needs is jobs/file_name/file_name_all_final.dat
-file_path = "jobs/" + file_name + "/" + file_name + "_all_data_merged.dat"
+file_path = str(sys.argv[2])
+print("file_path", file_path)
 
 # Yukawa type for applying bounds
-yukawa = str(sys.argv[2])
+yukawa = str(sys.argv[3])
 
 # Basis for column names
-base = str(sys.argv[3])
+base = str(sys.argv[4])
 
 bases = {
          "hybrid" :
@@ -86,10 +93,15 @@ def dat_to_DF(Filename, Filepath, Yukawa, Base):
 
     """
 
+    print("Filename", Filename)
+    print("Filepath", Filepath)
+
     # Select relevant dictionary entry for column names and coupling bounds etc
     col_names = bases[Base]
     bounds = yukawas[Yukawa]
+    print("col_names", col_names)
 
+    # Skip the first ~200 rows to account for burn in
     df = pd.read_csv(Filepath, sep="\s+", skiprows=range(0,201))
     print(len(df))
     df.set_axis(col_names, axis=1, inplace=True)
@@ -176,8 +188,10 @@ def dat_to_DF(Filename, Filepath, Yukawa, Base):
     new_df = allowed_pts_df.astype(float)
     new_df = new_df.reset_index(drop = True)
 
-    save_path = "../jobs/" + file_name + "/" + file_name + "_all_final.csv"
+    save_path = "./jobs/" + file_name + "/" + file_name + "_all_final.csv"
     
+    new_df.to_csv(save_path, index=False)
+
     return new_df
 ###############################################################################
 

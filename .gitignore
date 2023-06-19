@@ -21,6 +21,7 @@ packages/2HDMC-1.8.0/SLHA_storage
 packages/2HDMC-1.8.0/bak
 packages/2HDMC-1.8.0/*csv
 
+*.swp
 *.o
 *.a
 *.exe
