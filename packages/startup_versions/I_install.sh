@@ -67,31 +67,6 @@ cmake ..
 make
 
 
-######################
-### --- LHAPDF --- ###
-######################
-
-LHAPDF_folder_name=LHAPDF-6.2.1
-LHAPDF_pkg_path=${THDM_T3PS_SCANNER_DIR}/packages/${LHAPDF_folder_name}
-LHAPDF_pkg_build_path=${THDM_T3PS_SCANNER_DIR}/packages/${LHAPDF_folder_name}_build
-
-echo -e "\n\n\n"
-echo "############################################################"
-echo "### --- Attempting to install ${LHAPDF_folder_name} --- ####"
-echo "############################################################"
-echo ""
-echo "cd ${LHAPDF_pkg_path}"
-echo "./configure --prefix=${LHAPDF_pkg_path}"
-echo "make"
-echo "make install"
-
-mkdir -p ${LHAPDF_pkg_build_path}
-cd ${LHAPDF_pkg_path}
-./configure --prefix=${LHAPDF_pkg_build_path}
-make
-make install
-
-
 #####################
 ### --- 2HDMC --- ###
 #####################
@@ -114,8 +89,8 @@ echo ""
 
 cd ${THDMC_pkg_path}
 # copying HiggsBounds and HiggsSignals libraries in order to run 2HDMC with them
-cp ../HiggsBounds-5.10.1/build/lib/libHB.a lib/libHB.a
-cp ../HiggsSignals-2.6.2/build/lib/libHS.a lib/libHS.a
+cp ../HiggsBounds-5.10.1/build/lib/libHB.a lib_HBHS/libHB.a
+cp ../HiggsSignals-2.6.2/build/lib/libHS.a lib_HBHS/libHS.a
 make
 make lib
 
@@ -124,7 +99,7 @@ make lib
 ### --- MadGraph --- ###
 ########################
 
-MG5_dir=MG5_aMC_3_1_0
+MG5_dir=MG5_aMC_v3_1_0
 
 echo -e "\n\n\n"
 echo "######################################################"
@@ -133,17 +108,18 @@ echo "######################################################"
 
 echo "cd ${THDM_T3PS_SCANNER_DIR}/packages"
 echo "wget https://launchpad.net/mg5amcnlo/3.0/3.1.x/+download/MG5_aMC_v3.1.0.tar.gz"
-echo "tar -zxf MG5_v3.1.0.tar.gz"
+echo "tar -zxf MG5_aMC_v3.1.0.tar.gz"
 echo "cd ${MG5_dir}"
 echo "mv ../THDM_type1_UFO ./models"
 echo "mv ../2HDMtII_NLO ./models"
 
 cd ${THDM_T3PS_SCANNER_DIR}/packages
 wget https://launchpad.net/mg5amcnlo/3.0/3.1.x/+download/MG5_aMC_v3.1.0.tar.gz
-tar -zxf MG5_v3.1.0.tar.gz
+tar -zxf MG5_aMC_v3.1.0.tar.gz
 cd ${MG5_dir}
 mv ../THDM_type1_UFO ./models
 mv ../2HDMtII_NLO ./models
+rm -r MG5_aMC_v3.1.0.tar.gz
 
 echo "You should now run MadGraph in order to install LHAPDF and other software you may wish to use within it."
 

@@ -35,7 +35,6 @@ MCMC/job_submission/tests/
 2HDM-Processor/*.txt
 2HDM-Processor/*.dat
 *.mod
-packages/LHAPDF-6.2.1_build/
 *.log
 *.so
 *.la
