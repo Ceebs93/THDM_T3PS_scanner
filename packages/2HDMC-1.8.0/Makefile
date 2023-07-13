@@ -2,7 +2,7 @@
 
 # Choose your C++ compiler here (in general g++ on Linux systems):
 CC = g++
-LDFLAGS= -L/local/software/gsl/2.7/lib -lgsl -lgslcblas -lm
+LDFLAGS= -L/usr/lib/x86_64-linux-gnu -lgsl -lgslcblas -lm
 
 #Optimisation level, eg: -O3
 OPT=-O3
@@ -11,7 +11,7 @@ DEBUG=
 
 VPATH=src
 
-CFLAGS= -std=c++11 -Wall $(DEBUG) $(OPT) -I/local/software/gsl/2.7/include -lgsl -lgslcblas
+CFLAGS= -std=c++11 -Wall $(DEBUG) $(OPT) -I/usr/include -lgsl -lgslcblas
 CFLAGS_HBHS= $(CFLAGS) -DHiggsBounds -fpermissive
 
 OBJDIR=lib
@@ -25,7 +25,7 @@ SOURCES_HBHS= THDM.cpp SM.cpp DecayTable.cpp Constraints.cpp Util.cpp runTHDM.cp
 OBJECTS=$(SOURCES:.cpp=.o)
 LIB=lib2HDMC.a
 LIB_HBHS=lib2HDMC_HBHS.a
-LDFLAGS+=-L$(LIBDIR) -l2HDMC -L/local/software/gsl/2.7/lib -lgsl -lgslcblas -lm
+LDFLAGS+=-L$(LIBDIR) -l2HDMC -L/usr/lib/x86_64-linux-gnu -lgsl -lgslcblas -lm
 
 LIBS=
 PROG=CalcPhys CalcGen CalcHiggs CalcHybrid CalcHMSSM CalcMSSM CalcInert CalcLH Demo check_point check_point_2hdmc
